@@ -9,12 +9,19 @@
     echo $dirIP[1];
     echo $dirIP[2];
     echo $dirIP[3];
-    printf("<p>IP " . $ip . " en binario es %b",$dirIP[0] . ".%b." ,$dirIP[1] . ".%b.",$dirIP[2] . ".%b",$dirIP[3] . " </p>");
-
+    printf("<p>IP " . $ip . " en binario es %b.",$dirIP[0]);
+    printf("%b." ,  $dirIP[1] );
+    printf("%b." ,  $dirIP[2] );
+    printf("%b" ,  $dirIP[3] );
+    printf("</p>");
 
     $ip2="10.33.161.2";
     $dirIP2 = explode(".",$ip2);
-    printf("<p>IP " . $ip2 . "en binario es %b",$dirIP2[0] . ".%b." ,$dirIP2[1] . ".%b.",$dirIP2[2] . ".%b",$dirIP2[3] . "</p>");
+    printf("<p>IP " . $ip2 . "en binario es %b.",$dirIP2[0]);
+    printf("%b." ,  $dirIP2[1] );
+    printf("%b." ,  $dirIP2[2] );
+    printf("%b" ,  $dirIP2[3] );
+    printf("</p>");
 ?>
 </BODY>
 </HTML>
