@@ -6,6 +6,7 @@
 
     $ip="192.168.16.100/16";
     $mascara1=substr($ip,-2);
+    echo $mascara . "<br>";
     $ipVerdadera1=str_replace("/".$mascara1,"",$ip);
     $dirIP1 = explode(".",$ipVerdadera1);
     $bitsHost1=32-intval($mascara1);
