@@ -14,13 +14,19 @@
     for ($i=0; $i < $bitsHost1; $i++) { 
         $UltimaDirRed1 = $UltimaDirRed1 . "0";
     }
-    $direccionRed = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". decbin($UltimaDirRed1);
+    $direccionRed1 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". decbin($UltimaDirRed1);
     $PrimeraIP1 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". (decbin($UltimaDirRed1)+1);
     for ($i=0; $i < $bitsHost1; $i++) { 
         $UltimaDirBrod1= $UltimaDirBrod1 . "1";
     }
     $IpBroadcast1 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". decbin($UltimaDirBrod1);
     $UltimaIP2 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". (decbin($UltimaDirBrod1)-1);
+
+    echo "IP : ". $ipVerdadera1 . "<br>";
+    echo "Mascara : ". $mascara1 . "<br>";
+    echo "Direccion Red : ". $direccionRed1 . "<br>";
+    echo "Direccion Broadcast : ". $IpBroadcast1 . "<br>";
+    echo "Rango :  ". $PrimeraIP1 . " a " . $UltimaIP2 . "<br>";
 
     $ip2="192.168.16.100/21";
     
