@@ -1,5 +1,5 @@
 <HTML>
-<H1> Ejercicio 1 </H1>
+<H1> Ejercicio 3 </H1>
 <BODY>
 
 <?php
@@ -9,18 +9,18 @@
     $ipVerdadera1=str_replace("/".$mascara1,"",$ip);
     $dirIP1 = explode(".",$ipVerdadera1);
     $bitsHost1=32-intval($mascara1);
-    $bistDirRed1 = substr(bindec($dirIP1[3]),$bitsHost1);
+    $bistDirRed1 = substr(decbin($dirIP1[3]),$bitsHost1);
     $UltimaDirRed1 = $UltimaDirBrod1 = $bistDirRed1;
     for ($i=0; $i < $bitsHost1; $i++) { 
         $UltimaDirRed1 = $UltimaDirRed1 . "0";
     }
-    $direccionRed1 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". decbin($UltimaDirRed1);
-    $PrimeraIP1 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". (decbin($UltimaDirRed1)+1);
+    $direccionRed1 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". bindec($UltimaDirRed1);
+    $PrimeraIP1 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". (bindec($UltimaDirRed1)+1);
     for ($i=0; $i < $bitsHost1; $i++) { 
         $UltimaDirBrod1= $UltimaDirBrod1 . "1";
     }
-    $IpBroadcast1 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". decbin($UltimaDirBrod1);
-    $UltimaIP2 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". (decbin($UltimaDirBrod1)-1);
+    $IpBroadcast1 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". bindec($UltimaDirBrod1);
+    $UltimaIP2 = $dirIP1[0] .".".$dirIP1[1].".".$dirIP1[2].".". (bindec($UltimaDirBrod1)-1);
 
     echo "IP : ". $ipVerdadera1 . "<br>";
     echo "Mascara : ". $mascara1 . "<br>";

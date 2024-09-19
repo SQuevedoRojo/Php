@@ -1,5 +1,5 @@
 <HTML>
-<H1> Ejercicio 1 </H1>
+<H1> Ejercicio 2 </H1>
 <BODY>
 
 <?php
