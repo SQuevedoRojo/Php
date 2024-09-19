@@ -5,6 +5,10 @@
 <?php
     $ip="192.18.16.204";
     $dirIP = explode(".",$ip);
+    echo $dirIP[0];
+    echo $dirIP[1];
+    echo $dirIP[2];
+    echo $dirIP[3];
     printf("<p>IP " . $ip . " en binario es %b",$dirIP[0] . ".%b." ,$dirIP[1] . ".%b.",$dirIP[2] . ".%b",$dirIP[3] . " </p>");
 
 
