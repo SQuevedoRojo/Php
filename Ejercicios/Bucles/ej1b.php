@@ -11,6 +11,7 @@ $binario = "";
         $binario = $resto . $binario;
         $num /= 2;
     }
+    echo $binario;
 ?>
 </BODY>
 </HTML>
