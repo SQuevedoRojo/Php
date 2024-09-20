@@ -22,15 +22,15 @@
     for ($i=1; $i < 20; $i++) { 
         if ($i % 2 == 0)
         {
-            $mediaPares += $numImpares[$i];
+            $mediaPares = intval($mediaPares) + $numImpares[$i];
         }
         else
         {
-            $mediaImares += $numImpares[$i];
+            $mediaImpares = intval($mediaImpares) + $numImpares[$i];
         }
     }
-    print ("La media de los valores que estan en las posiciones pares es " . ($mediaPares / 10));
-    print ("La media de los valores que estan en las posiciones impares es " . ($mediaImpares / 10));
+    print ("La media de los valores que estan en las posiciones pares es " . (intval($mediaPares) / 10));
+    print ("La media de los valores que estan en las posiciones impares es " . (intval($mediaImpares) / 10));
     
 ?>
 </BODY>
