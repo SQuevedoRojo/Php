@@ -12,9 +12,9 @@
         print("<tr>");
         print("<th>".$indice."</th>");
         print("<th>".$numImpares[$indice]."</th>");
-        print("<th>".($suma + $numImpares[$indice])."</th>");
+        print("<th>".(intval($suma) + $numImpares[$indice])."</th>");
         print("</tr>");
-        $suma += $numImpares[$indice];
+        $suma = intval($suma)  + $numImpares[$indice];
         $indice++;
     }
 ?>
