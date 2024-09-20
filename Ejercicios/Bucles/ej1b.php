@@ -4,14 +4,15 @@
 <?php
 $num="168";
 $binario = "";
+$copia = $num;
     while ($num > 0) 
     {
         $resto = "";
         $resto = $num % 2;
         $binario = $resto . $binario;
-        $num /= 2;
+        $num = floor($num/2);
     }
-    echo $binario;
+    echo "El numero " . $copia . " en binario es "  . $binario;
 ?>
 </BODY>
 </HTML>
