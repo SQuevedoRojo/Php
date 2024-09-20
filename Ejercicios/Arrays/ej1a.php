@@ -7,7 +7,7 @@
     $suma = "";
     print("<table border='1'");
     print("<tr><th>Indice</th><th>Valor</th><th>Suma</th></tr>");
-    for ($i=1; $i < 21; $i += 2, $indice++) { 
+    for ($i=1; $i < 40; $i += 2) { 
         $numImpares[$indice] = $i;
         print("<tr>");
         print("<th>".$indice."</th>");
@@ -15,6 +15,7 @@
         print("<th>".($suma + $numImpares[$indice])."</th>");
         print("</tr>");
         $suma += $numImpares[$indice];
+        $indice++;
     }
 ?>
 </BODY>
