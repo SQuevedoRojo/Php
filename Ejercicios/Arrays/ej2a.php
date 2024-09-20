@@ -29,8 +29,8 @@
             $mediaImpares = intval($mediaImpares) + $numImpares[$i];
         }
     }
-    print ("La media de los valores que estan en las posiciones pares es " . (intval($mediaPares) / 10));
-    print ("La media de los valores que estan en las posiciones impares es " . (intval($mediaImpares) / 10));
+    print ("<p>La media de los valores que estan en las posiciones pares es " . (intval($mediaPares) / 10) . "</p>");
+    print ("<p>La media de los valores que estan en las posiciones impares es " . (intval($mediaImpares) / 10)) . "</p>";
     
 ?>
 </BODY>
