@@ -19,7 +19,7 @@
         $suma = intval($suma)  + $numImpares[$indice];
         $indice++;
     }
-    for ($i=1; $i < 20; $i++) { 
+    for ($i=0; $i < 20; $i++) { 
         if ($i % 2 == 0)
         {
             $mediaPares = intval($mediaPares) + $numImpares[$i];
