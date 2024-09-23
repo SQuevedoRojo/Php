@@ -12,7 +12,6 @@
 
     echo "<h1>B.- </h1>";
 
-    $claves = array_keys($alumnos);
     $indice = 1;
 
     print ("<p>". $alumnos[array_keys($alumnos)[$indice]] ."</p>");
