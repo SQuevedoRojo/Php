@@ -1,5 +1,5 @@
 <HTML>
-<HEAD><TITLE> EJ1A – NUM IMPARES</TITLE></HEAD>
+<HEAD><TITLE> EJ3A – NUM IMPARES</TITLE></HEAD>
 <BODY>
 <?php
     $numBinarios = array();
@@ -9,16 +9,8 @@
     for ($i=0; $i < 20; $i++) { 
         print("<tr>");
         print("<th>".$i."</th>");
-        if ($i == 0)
-        {
-            $numBinarios[$i] = 0;
-            $numeroOct = 0;
-        }
-        else
-        {
-            $numBinarios[$i] = decbin($i);
-            $numeroOct = decoct($i);
-        }
+        $numBinarios[$i] = decbin($i);
+        $numeroOct = decoct($i);
         print("<th>".$numBinarios[$i]."</th>");
         print("<th>".$numeroOct."</th>");
         print("</tr>");
