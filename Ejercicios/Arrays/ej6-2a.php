@@ -10,19 +10,14 @@
     $ArrayMerge = array_merge($array1,$array2,$array3);
 
     $indice = "";
-    $encontrado = false;
-    $indiceBucle = 0;
-    while (!$encontrado && $indiceBucle < count($ArrayMerge)) { 
-        if ($ArrayMerge[$indiceBucle] == "Mecanizado")
-        {
-            $indice = $indiceBucle;
-            $encontrado = true;
-        }
-        $indiceBucle += 1;
+    
+    if (in_array("Mecanizado",$ArrayMerge))
+    {
+        $indice = array_search("Mecanizado",$ArrayMerge);
+        unset($ArrayMerge[$indice]);
     }
 
-    unset($ArrayMerge[$indice]);
-
+    
     $arrayInverso = array_reverse($ArrayMerge);
 
     foreach ($arrayInverso as $a) {

@@ -2,29 +2,12 @@
 <HEAD><TITLE> EJ5A</TITLE></HEAD>
 <BODY>
 <?php
-    $array1a = array();
-    $array1b = array();
-    $array1c = array();
-    $array2 = array();
-    $array3 = array();
+    $array1a = array("Bases Datos","Entornos Desarrollo","Programación");
+    $array1b = array("Bases Datos","Entornos Desarrollo","Programación");
+    $array1c = array("Bases Datos","Entornos Desarrollo","Programación");
+    $array2 = array("Sistemas Informáticos","FOL","Mecanizado");
+    $array3 = array("Desarrollo Web ES","Desarrollo Web EC","Despliegue","Desarrollo Interfaces","Inglés");
 
-    $array1a[0] = "Bases Datos";
-    $array1a[1] = "Entornos Desarrollo";
-    $array1a[2] = "Programación";
-    $array1b[0] = "Bases Datos";
-    $array1b[1] = "Entornos Desarrollo";
-    $array1b[2] = "Programación";
-    $array1c[0] = "Bases Datos";
-    $array1c[1] = "Entornos Desarrollo";
-    $array1c[2] = "Programación";
-    $array2[0] = "Sistemas Informáticos";
-    $array2[1] = "FOL";
-    $array2[2] = "Mecanizado";
-    $array3[0] = "Desarrollo Web ES";
-    $array3[1] = "Desarrollo Web EC";
-    $array3[2] = "Despliegue";
-    $array3[3] = "Desarrollo Interfaces";
-    $array3[4] = "Inglés";
 
     echo "<h1>A.-</h1>";
 
