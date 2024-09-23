@@ -31,12 +31,12 @@
     $indice = 2;
 
     foreach ($array2 as $a2) {
-        $array1a[$variable] = $a2;
-        $variable += 1;
+        $array1a[$indice] = $a2;
+        $indice += 1;
     }
     foreach ($array3 as $a3) {
-        $array1a[$variable] = $a3;
-        $variable += 1;
+        $array1a[$indice] = $a3;
+        $indice += 1;
     }
 
     foreach($array1a as $a1) {
