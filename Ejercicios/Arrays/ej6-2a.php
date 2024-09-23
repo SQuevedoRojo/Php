@@ -9,7 +9,6 @@
 
     $ArrayMerge = array_merge($array1,$array2,$array3);
 
-    $indice = "";
     
     if (in_array("Mecanizado",$ArrayMerge))
     {

@@ -11,7 +11,7 @@
 
     echo "<h1>A.-</h1>";
 
-    $indice = 2;
+    $indice = 3;
 
     foreach ($array2 as $a2) {
         $array1a[$indice] = $a2;
