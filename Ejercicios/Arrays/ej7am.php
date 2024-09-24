@@ -160,6 +160,18 @@
     print("<h2>Notas Medias de DWEC ->". $notasMedias[1]/count($alumnos) ."</h2><br>");
     print("<h2>Notas Medias de DIW ->". $notasMedias[2]/count($alumnos) ."</h2><br>");
     print("<h2>Notas Medias de DAW ->". $notasMedias[3]/count($alumnos) ."</h2><br>");
+
+    print ("<br><h1>F.-</h1><br>");
+
+    foreach ($alumnos as $nombres => $modulos)
+    {
+        $notaMedia = 0;
+        foreach ($modulos as $modulo => $nota)
+        {
+            $notaMedia += $nota;
+        }
+        print("<h2>Notas Medias de ". $nombres ." ->". $notaMedia/4 ."</h2><br>");
+    }
 ?>
 </BODY>
 </HTML>
