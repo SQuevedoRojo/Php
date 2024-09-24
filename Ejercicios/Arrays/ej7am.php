@@ -97,6 +97,24 @@
     print("<h2>Menor nota en DWEC -> " . $m2[0] . " | ". $m2[1] . "</h2>");
     print("<h2>Menor nota en DIW -> " . $m3[0] . " | ". $m3[1] . "</h2>");
     print("<h2>Menor nota en DAW -> " . $m4[0] . " | ". $m4[1] . "</h2>");
+
+    
+
+    print ("<br><h1>C.-</h1><br>");
+
+    foreach ($alumnos as $nombres => $modulos)
+    {
+        $m = array("",99);
+        foreach ($modulos as $modulo => $nota)
+        {
+            if($nota < $m[1])
+            {
+                $m[0] = $modulo;
+                $m[1] = $nota;
+            }
+        }
+        print("<h2>Nota mas baja de " . $nombres . " -> " . $m[0] . " | ". $m[1] . "</h2><br>");
+    }
 ?>
 </BODY>
 </HTML>
