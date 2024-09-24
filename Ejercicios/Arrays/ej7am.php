@@ -115,6 +115,22 @@
         }
         print("<h2>Nota mas baja de " . $nombres . " -> " . $m[0] . " | ". $m[1] . "</h2><br>");
     }
+
+    print ("<br><h1>D.-</h1><br>");
+
+    foreach ($alumnos as $nombres => $modulos)
+    {
+        $m = array("",0);
+        foreach ($modulos as $modulo => $nota)
+        {
+            if($m[1] < $nota)
+            {
+                $m[0] = $modulo;
+                $m[1] = $nota;
+            }
+        }
+        print("<h2>Nota mas alta de " . $nombres . " -> " . $m[0] . " | ". $m[1] . "</h2><br>");
+    }
 ?>
 </BODY>
 </HTML>
