@@ -17,7 +17,6 @@
         for ($j=0; $j < count($matriz[$i]); $j++) { 
             print ("<th>" . $matriz[$i][$j] . "</th>");
         }
-        $indice += 1;
         print("</tr>");
     }
     print("</table>");
