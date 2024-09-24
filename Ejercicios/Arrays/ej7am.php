@@ -131,6 +131,35 @@
         }
         print("<h2>Nota mas alta de " . $nombres . " -> " . $m[0] . " | ". $m[1] . "</h2><br>");
     }
+
+    print ("<br><h1>E.-</h1><br>");
+
+    $notasMedias = array(0,0,0,0);
+
+    foreach ($alumnos as $nombres => $modulos)
+    {
+        foreach ($modulos as $modulo => $nota) {
+            switch ($modulo) {
+                case "DWES":
+                    $notasMedias[0] += $nota;
+                    break;
+                case "DWEC":
+                    $notasMedias[1] += $nota;
+                    break;
+                case "DIW":
+                    $notasMedias[2] += $nota;
+                    break;
+                case "DAW":
+                    $notasMedias[3] += $nota;
+                    break;
+            }
+        }
+    }
+
+    print("<h2>Notas Medias de DWES ->". $notasMedias[0]/count($alumnos) ."</h2><br>");
+    print("<h2>Notas Medias de DWEC ->". $notasMedias[1]/count($alumnos) ."</h2><br>");
+    print("<h2>Notas Medias de DIW ->". $notasMedias[2]/count($alumnos) ."</h2><br>");
+    print("<h2>Notas Medias de DAW ->". $notasMedias[3]/count($alumnos) ."</h2><br>");
 ?>
 </BODY>
 </HTML>
