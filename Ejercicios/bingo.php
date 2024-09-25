@@ -45,12 +45,11 @@
 
         foreach($j1 as $jugador => $cartones)
         {
-            echo "<h2>Carton ". $indice ."</h2><br>";
+            
             foreach ($cartones as $c){
-            for ($fil=0; $fil < 3 ;$fil++) { 
-                for ($numer=0; $numer < 15 ; $numer++) { 
-                    echo "  ". $c[$fil][$numer] ."  ";
-                }
+                echo "<h2>Carton ". $indice ."</h2><br>";
+                for ($numer=0; $numer < count($c) ; $numer++) { 
+                    echo "  ". $c[$numer] ."  ";
                 }
             }
             $indice += 1;
