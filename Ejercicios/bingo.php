@@ -46,9 +46,9 @@
         foreach($j1 as $jugador => $cartones)
         {
             echo "<h2>Carton ". $indice ."</h2><br>";
-            for ($fila=0; $fila < 3; $fila++) { 
-                for ($numero=0; $numero < 15; $numero++) { 
-                    echo "  ". $cartones[$fila][$numero] ."  ";
+            for ($fil=0; $fil < 3; $fil++) { 
+                for ($numer=0; $numer < 15; $numer++) { 
+                    echo "  ". $cartones[$fil][$numer] ."  ";
                 }
                 
             }
