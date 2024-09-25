@@ -30,7 +30,7 @@
                             $cartones[$fila][$numero] = $num;
                             $numerosRepetidos[$num] = true;
                             $repetir = false;
-                            echo "numero puesto carton ". ($fila+1) ."    ". $num ."  <br>";
+                            echo "numero puesto carton ". ($fila+1) ."    ". $cartones[$fila][$numero] ."  <br>";
                         }
                         else
                             $repetir = true;
@@ -46,11 +46,12 @@
         foreach($j1 as $jugador => $cartones)
         {
             echo "<h2>Carton ". $indice ."</h2><br>";
-            for ($fil=0; $fil < count($cartones); $fil++) { 
-                for ($numer=0; $numer < count($cartones[0]); $numer++) { 
-                    echo "  ". $cartones[$fil][$numer] ."  ";
+            foreach ($cartones as $c){
+            for ($fil=0; $fil < 3 ;$fil++) { 
+                for ($numer=0; $numer < 15 ; $numer++) { 
+                    echo "  ". $c[$fil][$numer] ."  ";
                 }
-                
+                }
             }
             $indice += 1;
             
