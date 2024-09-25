@@ -5,10 +5,10 @@
     $alumnos = array("Joel" => array("DWES" => 7,"DWEC" => 8,"DIW" => 5,"DAW" => 8),"William" => array("DWES" => 9,"DWEC" => 7,"DIW" => 4,"DAW" => 6),"Quevedo" => array("DWES" => 5,"DWEC" => 7,"DIW" => 6,"DAW" => 7),"Hugo" => array("DWES" => 3,"DWEC" => 1,"DIW" => 8,"DAW" => 9),"Javi" => array("DWES" => 7,"DWEC" => 2,"DIW" => 7,"DAW" => 4),"Maria" => array("DWES" => 5,"DWEC" => 6,"DIW" => 2,"DAW" => 3),"Claudia" => array("DWES" => 4,"DWEC" => 3,"DIW" => 7,"DAW" => 9),"Canseco"=> array("DWES" => 1,"DWEC" => 5,"DIW" => 7,"DAW" => 6),"Alba" => array("DWES" => 5,"DWEC" => 8,"DIW" => 6,"DAW" => 9),"Guillermo"=> array("DWES" => 3,"DWEC" => 7,"DIW" => 4,"DAW" => 9));
 
 
-    $m = array("",0);
-    $m2 = array("",0);
-    $m3 = array("",0);
-    $m4 = array("",0);
+    $m = array("" => 0);
+    $m2 = array("" => 0);
+    $m3 = array("" => 0);
+    $m4 = array("" => 0);
 
 
     foreach ($alumnos as $nombres => $modulos)
