@@ -80,6 +80,11 @@
     }
     mostrarCartones($j1,$j2,$j3,$j4);
         
+    var_dump($j1);
+    var_dump($j2);
+    var_dump($j3);
+    var_dump($j4);
+
     /* Función para eliminar un número de los cartones */
     function eliminarNumero($numeroAEliminar,$j1,$j2,$j3,$j4)
     {
@@ -90,7 +95,7 @@
             {
                 foreach ($cartones as &$fila)
                 {
-                    foreach ($fila as $key => $numero)
+                    foreach ($fila as $key => &$numero)
                     {
                         if ($numero == $numeroAEliminar)
                         {
@@ -146,7 +151,7 @@
                             $contadorNumeros += 1;
                         }
                     } 
-                    if($contadorNumeros == 14)
+                    if($contadorNumeros == 15)
                         $bingo = false;
                 }
             }
