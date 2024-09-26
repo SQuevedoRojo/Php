@@ -65,10 +65,10 @@
 
         }
     }
-        $copiaJ1 = array_slice($j1,0,true);
-        $copiaJ2 = array_slice($j2,0,true);
-        $copiaJ3 = array_slice($j3,0,true);
-        $copiaJ4 = array_slice($j4,0,true);
+        $copiaJ1 = array_slice($j1,0);
+        $copiaJ2 = array_slice($j2,0);
+        $copiaJ3 = array_slice($j3,0);
+        $copiaJ4 = array_slice($j4,0);
 
         for ($i=1; $i <= 4 ; $i++) { 
             $nombreJugador = "copiaJ";
