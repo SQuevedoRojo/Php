@@ -91,7 +91,11 @@
     /* Función para eliminar un número de los cartones */
     function eliminarNumero($numeroAEliminar,$j1,$j2,$j3,$j4)
     {
-        $nombreJugador = "j";
+        $jc1 = $j1;
+        $jc2 = $j2;
+        $jc3 = $j3;
+        $jc4 = $j4;
+        $nombreJugador = "jc";
         for ($z=1; $z <= 4 ; $z++) { 
             $jugadorActual = &${$nombreJugador.$z};
             foreach ($jugadorActual as $jugador => &$cartones)
@@ -114,7 +118,11 @@
     // Imprimir todos los cartones 
     function mostrarCartones($j1,$j2,$j3,$j4)
     {
-        $nombreJugador = "j";
+        $jc1 = $j1;
+        $jc2 = $j2;
+        $jc3 = $j3;
+        $jc4 = $j4;
+        $nombreJugador = "jc";
         for ($i=1; $i <= 4 ; $i++)
         { 
             $jugadorActual = ${$nombreJugador.$i};
@@ -139,7 +147,11 @@
     function comprobarBingo($j1,$j2,$j3,$j4)
     {
         $bingo = true;
-        $nombreJugador = "j";
+        $jc1 = $j1;
+        $jc2 = $j2;
+        $jc3 = $j3;
+        $jc4 = $j4;
+        $nombreJugador = "jc";
         for ($z=1; $z <= 4 && $bingo; $z++) { 
             $jugadorActual = &${$nombreJugador.$z};
             foreach ($jugadorActual as $jugador => &$cartones)
