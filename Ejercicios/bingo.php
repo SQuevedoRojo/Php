@@ -67,7 +67,7 @@
 
         }
     }
-        
+    $nombreJugador = "j";
     for ($i=1; $i <= 4 ; $i++) { 
         $jugadorActual = &${$nombreJugador.$i};
         echo "<h2>Jugador ". $i ."</h2>";
@@ -82,7 +82,9 @@
                 echo "</table>";
                         
             }
+            var_dump($jugadorActual);
         }
+        
     }
 
 ?>
