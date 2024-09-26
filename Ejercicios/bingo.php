@@ -78,7 +78,22 @@
             }
           }
     }
+
+    foreach ($j1 as $ju => $car) {
+            for ($j=0; $j < 3; $j++) { 
+                echo "CARTÓN " . ($j+1);
+                echo "<table>";
+                echo "<table border = 1>";
+                echo "<tr><th>".$car[$j][0]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$car[$j][4]."</th><th>".$car[$j][7]."</th><th>".$car[$j][9]."</th><th>".$car[$j][11]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
+                echo "<tr><th>".$car[$j][1]."</th><th>".$car[$j][2]."</th><th>".$car[$j][5]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$car[$j][12]."<th>".$car[$j][14]."</th>";
+                echo "<tr><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$car[$j][3]."</th><th>".$car[$j][6]."</th><th>".$car[$j][8]."</th><th>".$car[$j][10]."</th><th>".$car[$j][13]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
+                echo "</table>";
+                         
+            }
+    }
     
+    /*Comienzo del Juego del Bingo */
+
     
 
 ?>
