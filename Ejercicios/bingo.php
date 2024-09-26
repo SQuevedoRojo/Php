@@ -21,40 +21,50 @@
                 for ($i=0; $i < 60; $i++) { 
                     $numerosRepetidos[$i] = false;
                 }
+                $control1 = 1;
+                $control2 = 10;
                 for ($numero=0; $numero < 15; $numero++) { 
                     $repetir = false;
+                    
                     do {
-                        $num = rand(1,60);
+                        $num = rand($control1,$control2);
                         if ($numerosRepetidos[$num-1] == false)
                         {
                             $cartones[$fila][$numero] = $num;
-                            $numerosRepetidos[$num] = true;
+                            $numerosRepetidos[$num-1] = true;
                             $repetir = false;
                             echo "numero puesto carton ". ($fila+1) ."    ". $cartones[$fila][$numero] ."  <br>";
                         }
                         else
                             $repetir = true;
                     } while ($repetir);
+                    if ($numero == 1) 
+                    {
+                        $control1 = 11;$control2 = 19;
+                    }
+                    elseif ($numero == 3) {
+                        $control1 = 20;$control2 = 29;
+                    }
+                    elseif ($numero == 6) {
+                        $control1 = 30;$control2 = 39;
+                    }
+                    elseif ($numero == 8) {
+                        $control1 = 40;$control2 = 49;
+                    }
+                    elseif ($numero == 10){
+                        $control1 = 50;$control2 = 59;
+                    }
+                    elseif($numero == 13)
+                    {
+                    	$control1 = 60;$control2 = 60;
+                    }
                 }
-                
+                sort($cartones[$fila]);
+                var_dump($cartones[$fila]);
             }
             
         }
-
-        $indice = 1;
-
-        foreach($j1 as $jugador => $cartones)
-        {
-            
-            foreach ($cartones as $c){
-                echo "<h2>Carton ". $indice ."</h2><br>";
-                for ($numer=0; $numer < count($c) ; $numer++) { 
-                    echo "  ". $c[$numer] ."  ";
-                }
-            }
-            $indice += 1;
-            
-        }
+    
 
 ?>
 </BODY>
