@@ -68,12 +68,15 @@
     /*Generacion de numeros del Bingo */
     $numerosEliminados = array();
     $seguir = true;
+    for ($i=0; $i < 60; $i++) { 
+        $numerosRepetidos[$i] = false;
+    }
     while($seguir)
     {
         do{
             $bolaBingo = rand(1,60);
         }while($numerosRepetidos[$num-1] == false);
-        $numerosEliminados[] = $bolaBingo;
+        $numerosRepetidos[$bolaBingo-1] = false;
         eliminarNumero($bolaBingo,$j1,$j2,$j3,$j4);
         echo $bolaBingo . " | ";
         $seguir = comprobarBingo($j1,$j2,$j3,$j4);
@@ -95,12 +98,12 @@
             {
                 foreach ($cartones as &$fila)
                 {
-                    foreach ($fila as $key => &$numero)
+                    for ($i = 0; $i < count($fila); $i++)
                     {
-                        if ($numero == $numeroAEliminar)
+                        if ($fila[$i] == $numeroAEliminar)
                         {
-                            unset($fila[$key]);
-                            $fila[$key] = 'X';
+                            unset($fila[$i]);
+                            $fila[$i] = 'X';
                         }
                     } 
                 }
