@@ -70,6 +70,7 @@
         
     for ($i=1; $i <= 4 ; $i++) { 
         $jugadorActual = &${$nombreJugador.$i};
+        echo "<h2>Jugador ". $i ."</h2>";
         foreach ($jugadorActual as $jugador => &$cartones) { 
             for ($j=0; $j < 3; $j++) { 
                 echo "CARTÓN " . ($j+1);
