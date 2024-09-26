@@ -75,10 +75,10 @@
         }while($numerosRepetidos[$num-1] == false);
         $numerosEliminados[] = $bolaBingo;
         eliminarNumero($bolaBingo,$j1,$j2,$j3,$j4);
-        mostrarCartones($j1,$j2,$j3,$j4);
+        
         $seguir = comprobarBingo($j1,$j2,$j3,$j4);
     }
-
+    mostrarCartones($j1,$j2,$j3,$j4);
         
     /* Función para eliminar un número de los cartones */
     function eliminarNumero($numeroAEliminar,$j1,$j2,$j3,$j4)
@@ -132,7 +132,6 @@
     {
         $bingo = true;
         $nombreJugador = "j";
-            
         for ($z=1; $z <= 4 && $bingo; $z++) { 
             $jugadorActual = &${$nombreJugador.$z};
             foreach ($jugadorActual as $jugador => &$cartones)
