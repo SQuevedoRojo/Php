@@ -68,7 +68,7 @@
         { 
             foreach (${$nombreJugador.$i} as $jugador => $cartones) 
             { 
-                echo "<br>". ${$nombreJugador.$i} ."<br>";
+                echo "<br> Jugador ". $i ." <br>";
                 for ($j=0; $j < 3; $j++) 
                 { 
                     sort($cartones[$j]);
