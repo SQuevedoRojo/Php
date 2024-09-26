@@ -17,7 +17,6 @@
     $jugadorActual = &${$nombreJugador.$z};
     foreach($jugadorActual as $jugador => &$cartones)
     {
-        echo "<br/><br/><b>JUGADOR " . $z . "</b><br/>";
         for ($fila=0; $fila < 3; $fila++) { 
             for ($i=0; $i < 60; $i++) { 
                 $numerosRepetidos[$i] = false;
@@ -131,10 +130,10 @@
 
     function comprobarBingo($j1,$j2,$j3,$j4)
     {
-        $bingo = false;
+        $bingo = true;
         $nombreJugador = "j";
             
-        for ($z=1; $z <= 4 && !$bingo; $z++) { 
+        for ($z=1; $z <= 4 && $bingo; $z++) { 
             $jugadorActual = &${$nombreJugador.$z};
             foreach ($jugadorActual as $jugador => &$cartones)
             {
@@ -149,7 +148,7 @@
                         }
                     } 
                     if($contadorNumeros == 14)
-                        $bingo = true;
+                        $bingo = false;
                 }
             }
         }
