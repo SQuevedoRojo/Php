@@ -70,6 +70,8 @@
         $copiaJ3 = array_values($j3);
         $copiaJ4 = array_values($j4);
 
+        var_dump($copiaJ1);
+
         for ($i=1; $i <= 4 ; $i++) { 
             $nombreJugador = "copiaJ";
             echo "<br>Jugador ". $i ." <br>";
