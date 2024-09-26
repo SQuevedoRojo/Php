@@ -66,32 +66,6 @@
         }
     }
 
-
-
-
-
-   $nombreJugador = "j";
-
-   /*Creacion de los cartones de cada jugador*/
-    for ($i=1; $i <= 4 ; $i++) { 
-        $jugadorActual = ${$nombreJugador.$i};
-        echo "<h3>Jugador: $i</h3>";
-        foreach($jugadorActual as $jugador => $cartones)
-        {
-            for ($j=0; $j < 3; $j++) { 
-                echo "CARTÓN " . ($j+1);
-                echo "<table>";
-                echo "<table border = 1>";
-                echo "<tr><th>".$cartones[$j][0]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartones[$j][4]."</th><th>".$cartones[$j][7]."</th><th>".$cartones[$j][9]."</th><th>".$cartones[$j][11]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
-                echo "<tr><th>".$cartones[$j][1]."</th><th>".$cartones[$j][2]."</th><th>".$cartones[$j][5]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartones[$j][12]."<th>".$cartones[$j][14]."</th>";
-                echo "<tr><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartones[$j][3]."</th><th>".$cartones[$j][6]."</th><th>".$cartones[$j][8]."</th><th>".$cartones[$j][10]."</th><th>".$cartones[$j][13]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
-                echo "</table>";
-                         
-            }
-
-        }
-    }
-
     /*Generacion de numeros del Bingo */
     $numerosEliminados = array();
     $seguir = true;
@@ -101,14 +75,14 @@
             $bolaBingo = rand(1,60);
         }while($numerosRepetidos[$num-1] == false);
         $numerosEliminados[] = $bolaBingo;
-        eliminarNumero($bolaBingo);
-        mostrarCartones();
-        $seguir = comprobarBingo();
+        eliminarNumero($bolaBingo,$j1,$j2,$j3,$j4);
+        mostrarCartones($j1,$j2,$j3,$j4);
+        $seguir = comprobarBingo($j1,$j2,$j3,$j4);
     }
 
         
     /* Función para eliminar un número de los cartones */
-    function eliminarNumero($numeroAEliminar)
+    function eliminarNumero($numeroAEliminar,$j1,$j2,$j3,$j4)
     {
         $nombreJugador = "j";
         for ($z=1; $z <= 4 ; $z++) { 
@@ -131,7 +105,7 @@
     }
 
     // Imprimir todos los cartones 
-    function mostrarCartones()
+    function mostrarCartones($j1,$j2,$j3,$j4)
     {
         $nombreJugador = "j";
         for ($i=1; $i <= 4 ; $i++)
@@ -155,7 +129,7 @@
         }
     }
 
-    function comprobarBingo()
+    function comprobarBingo($j1,$j2,$j3,$j4)
     {
         $bingo = false;
         $nombreJugador = "j";
