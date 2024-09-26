@@ -65,26 +65,24 @@
 
         }
     }
-        $copiaJ1 = array_slice($j1,0);
-        $copiaJ2 = array_slice($j2,0);
-        $copiaJ3 = array_slice($j3,0);
-        $copiaJ4 = array_slice($j4,0);
+        $copiaJ1 = array_values($j1);
+        $copiaJ2 = array_values($j2);
+        $copiaJ3 = array_values($j3);
+        $copiaJ4 = array_values($j4);
 
         for ($i=1; $i <= 4 ; $i++) { 
             $nombreJugador = "copiaJ";
-            foreach (${$nombreJugador.$i} as $jugado => $cartone) { 
-                echo "<br>Jugador ". $i ." <br>";
-                for ($j=0; $j < 3; $j++) 
-                { 
-                    echo "CARTÓN " . ($j+1);
-                    echo "<table>";
-                    echo "<table border = 1>";
-                    echo "<tr><th>".$cartone[$j][0]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartone[$j][4]."</th><th>".$cartone[$j][7]."</th><th>".$cartone[$j][9]."</th><th>".$cartone[$j][11]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
-                    echo "<tr><th>".$cartone[$j][1]."</th><th>".$cartone[$j][2]."</th><th>".$cartone[$j][5]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartone[$j][12]."<th>".$cartone[$j][14]."</th>";
-                    echo "<tr><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartone[$j][3]."</th><th>".$cartone[$j][6]."</th><th>".$cartone[$j][8]."</th><th>".$cartone[$j][10]."</th><th>".$cartone[$j][13]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
-                    echo "</table>";
-                            
-                }
+            echo "<br>Jugador ". $i ." <br>";
+            for ($j=0; $j < 3; $j++) 
+            { 
+                echo "<br>CARTÓN " . ($j+1);
+                echo "<table>";
+                echo "<table border = 1>";
+                echo "<tr><th>".${$nombreJugador.$i}[$j][0]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".${$nombreJugador.$i}[$j][4]."</th><th>".${$nombreJugador.$i}[$j][7]."</th><th>".${$nombreJugador.$i}[$j][9]."</th><th>".${$nombreJugador.$i}[$j][11]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
+                echo "<tr><th>".${$nombreJugador.$i}[$j][1]."</th><th>".${$nombreJugador.$i}[$j][2]."</th><th>".${$nombreJugador.$i}[$j][5]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".${$nombreJugador.$i}[$j][12]."<th>".$${$nombreJugador.$i}[$j][14]."</th>";
+                echo "<tr><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".${$nombreJugador.$i}[$j][3]."</th><th>".${$nombreJugador.$i}[$j][6]."</th><th>".${$nombreJugador.$i}[$j][8]."</th><th>".${$nombreJugador.$i}[$j][10]."</th><th>".${$nombreJugador.$i}[$j][13]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
+                echo "</table>";
+                        
             }
         }
     
