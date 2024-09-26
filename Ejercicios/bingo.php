@@ -27,10 +27,10 @@
                     $repetir = false;
                     do {
                         $num = rand(1,60);
-                        if ($numerosRepetidos[$num] == false)
+                        if ($numerosRepetidos[$num-1] == false)
                         {
                             $cartones[$fila][$numero] = $num;
-                            $numerosRepetidos[$num] = true;
+                            $numerosRepetidos[$num-1] = true;
                             $repetir = false;
                         }
                         else
@@ -72,19 +72,20 @@
 
         for ($i=1; $i <= 4 ; $i++) { 
             $nombreJugador = "copiaJ";
-            foreach (${$nombreJugador.$i} as $jugador => $cartones) { 
-            for ($j=0; $j < 3; $j++) 
-            { 
-                echo "CARTÓN " . ($j+1);
-                echo "<table>";
-                echo "<table border = 1>";
-                echo "<tr><th>".$cartones[$j][0]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartones[$j][4]."</th><th>".$cartones[$j][7]."</th><th>".$cartones[$j][9]."</th><th>".$cartones[$j][11]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
-                echo "<tr><th>".$cartones[$j][1]."</th><th>".$cartones[$j][2]."</th><th>".$cartones[$j][5]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartones[$j][12]."<th>".$cartones[$j][14]."</th>";
-                echo "<tr><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartones[$j][3]."</th><th>".$cartones[$j][6]."</th><th>".$cartones[$j][8]."</th><th>".$cartones[$j][10]."</th><th>".$cartones[$j][13]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
-                echo "</table>";
-                         
+            foreach (${$nombreJugador.$i} as $jugado => $cartone) { 
+                echo "<br>Jugador ". $i ." <br>";
+                for ($j=0; $j < 3; $j++) 
+                { 
+                    echo "CARTÓN " . ($j+1);
+                    echo "<table>";
+                    echo "<table border = 1>";
+                    echo "<tr><th>".$cartone[$j][0]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartone[$j][4]."</th><th>".$cartone[$j][7]."</th><th>".$cartone[$j][9]."</th><th>".$cartone[$j][11]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
+                    echo "<tr><th>".$cartone[$j][1]."</th><th>".$cartone[$j][2]."</th><th>".$cartone[$j][5]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartone[$j][12]."<th>".$cartone[$j][14]."</th>";
+                    echo "<tr><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartone[$j][3]."</th><th>".$cartone[$j][6]."</th><th>".$cartone[$j][8]."</th><th>".$cartone[$j][10]."</th><th>".$cartone[$j][13]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
+                    echo "</table>";
+                            
+                }
             }
-          }
         }
     
     
