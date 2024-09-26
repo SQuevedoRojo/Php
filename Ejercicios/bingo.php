@@ -68,12 +68,7 @@
         }
     }
 
-    $jc1 = $j1;
-    $jc2 = $j2;
-    $jc3 = $j3;
-    $jc4 = $j4;
-
-    $nombreJugador = "jc";
+    $nombreJugador = "j";
     for ($i=1; $i <= 4 ; $i++) { 
         $jugadorActual = ${$nombreJugador.$i};
         echo "<h2>Jugador ". $i ."</h2>";
