@@ -75,7 +75,7 @@
         }while($numerosRepetidos[$num-1] == false);
         $numerosEliminados[] = $bolaBingo;
         eliminarNumero($bolaBingo,$j1,$j2,$j3,$j4);
-        
+        echo $bolaBingo . " | ";
         $seguir = comprobarBingo($j1,$j2,$j3,$j4);
     }
     mostrarCartones($j1,$j2,$j3,$j4);
