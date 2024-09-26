@@ -78,9 +78,9 @@
                 echo "<br>CARTÓN " . ($j+1);
                 echo "<table>";
                 echo "<table border = 1>";
-                echo "<tr><th>".${$nombreJugador.$i}[$j][0]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".${$nombreJugador.$i}[$j][4]."</th><th>".${$nombreJugador.$i}[$j][7]."</th><th>".${$nombreJugador.$i}[$j][9]."</th><th>".${$nombreJugador.$i}[$j][11]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
-                echo "<tr><th>".${$nombreJugador.$i}[$j][1]."</th><th>".${$nombreJugador.$i}[$j][2]."</th><th>".${$nombreJugador.$i}[$j][5]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".${$nombreJugador.$i}[$j][12]."<th>".$${$nombreJugador.$i}[$j][14]."</th>";
-                echo "<tr><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".${$nombreJugador.$i}[$j][3]."</th><th>".${$nombreJugador.$i}[$j][6]."</th><th>".${$nombreJugador.$i}[$j][8]."</th><th>".${$nombreJugador.$i}[$j][10]."</th><th>".${$nombreJugador.$i}[$j][13]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
+                echo "<tr><th>".(${$nombreJugador.$i}[$j][0])."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".(${$nombreJugador.$i}[$j][4])."</th><th>".(${$nombreJugador.$i}[$j][7])."</th><th>".(${$nombreJugador.$i}[$j][9])."</th><th>".(${$nombreJugador.$i}[$j][11])."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
+                echo "<tr><th>".(${$nombreJugador.$i}[$j][1])."</th><th>".(${$nombreJugador.$i}[$j][2])."</th><th>".(${$nombreJugador.$i}[$j][5])."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".(${$nombreJugador.$i}[$j][12])."<th>".(${$nombreJugador.$i}[$j][14])."</th>";
+                echo "<tr><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".(${$nombreJugador.$i}[$j][3])."</th><th>".(${$nombreJugador.$i}[$j][6])."</th><th>".(${$nombreJugador.$i}[$j][8])."</th><th>".(${$nombreJugador.$i}[$j][10])."</th><th>".(${$nombreJugador.$i}[$j][13])."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
                 echo "</table>";
                         
             }
