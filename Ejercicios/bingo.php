@@ -76,7 +76,7 @@
         do{
             $bolaBingo = rand(1,60);
         }while($numerosRepetidos[$num-1] == false);
-        $numerosRepetidos[$bolaBingo-1] = false;
+        $numerosRepetidos[$bolaBingo-1] = true;
         eliminarNumero($bolaBingo,$j1,$j2,$j3,$j4);
         echo $bolaBingo . " | ";
         $seguir = comprobarBingo($j1,$j2,$j3,$j4);
