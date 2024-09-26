@@ -24,6 +24,8 @@
                 for ($i=0; $i < 60; $i++) { 
                     $numerosRepetidos[$i] = false;
                 }
+                $control1 = 1;
+                $control2 = 9;
                 for ($numero=0; $numero < 15; $numero++) { 
                     $repetir = false;
                     do {
@@ -39,7 +41,7 @@
                     } while ($repetir);
                     if ($numero == 1) 
                     {
-                        $control1 = 11;$control2 = 19;
+                        $control1 = 10;$control2 = 19;
                     }
                     elseif ($numero == 3) {
                         $control1 = 20;$control2 = 29;
@@ -62,7 +64,6 @@
                 }
                 
             }
-            var_dump($cartones);
 
         }
     }
