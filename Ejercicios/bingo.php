@@ -23,7 +23,7 @@
                 $numerosRepetidos[$i] = false;
             }
             $control1 = 1;
-            $control2 = 10;
+            $control2 = 9;
             for ($numero=0; $numero < 15; $numero++) { 
                 $repetir = false;
                 
@@ -40,7 +40,7 @@
                 } while ($repetir);
                 if ($numero == 1) 
                 {
-                    $control1 = 11;$control2 = 19;
+                    $control1 = 10;$control2 = 19;
                 }
                 elseif ($numero == 3) {
                     $control1 = 20;$control2 = 29;
@@ -62,19 +62,8 @@
             sort($cartones[$fila]);
 
         }
-        
-            for ($j=0; $j < 3; $j++) { 
-                echo "CARTÓN " . ($j+1);
-                echo "<table>";
-                echo "<table border = 1>";
-                echo "<tr><th>".$cartones[$j][0]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartones[$j][4]."</th><th>".$cartones[$j][7]."</th><th>".$cartones[$j][9]."</th><th>".$cartones[$j][11]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
-                echo "<tr><th>".$cartones[$j][1]."</th><th>".$cartones[$j][2]."</th><th>".$cartones[$j][5]."</th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartones[$j][12]."<th>".$cartones[$j][14]."</th>";
-                echo "<tr><th class=\"vacio\" style=\"background-color:lightblue\">  </th><th>".$cartones[$j][3]."</th><th>".$cartones[$j][6]."</th><th>".$cartones[$j][8]."</th><th>".$cartones[$j][10]."</th><th>".$cartones[$j][13]."</th><th class=\"vacio\" style=\"background-color:lightblue\"></th></tr>";
-                echo "</table>";
-                         
-            }
 
-          }
+        }
     }
 
 
@@ -103,6 +92,95 @@
         }
     }
 
+    /*Generacion de numeros del Bingo */
+    $numerosEliminados = array();
+    $seguir = true;
+    while($seguir)
+    {
+        do{
+            $bolaBingo = rand(1,60);
+        }while($numerosRepetidos[$num-1] == false);
+        $numerosEliminados[] = $bolaBingo;
+        eliminarNumero($bolaBingo);
+        mostrarCartones();
+        $seguir = comprobarBingo();
+    }
+
+        
+    /* Función para eliminar un número de los cartones */
+    function eliminarNumero($numeroAEliminar)
+    {
+        $nombreJugador = "j";
+        for ($z=1; $z <= 4 ; $z++) { 
+            $jugadorActual = &${$nombreJugador.$z};
+            foreach ($jugadorActual as $jugador => &$cartones)
+            {
+                foreach ($cartones as &$fila)
+                {
+                    foreach ($fila as $key => $numero)
+                    {
+                        if ($numero === $numeroAEliminar)
+                        {
+                            unset($fila[$key]);
+                            $fila[$key] = 'X';
+                        }
+                    } 
+                }
+            }
+        }    
+    }
+
+    // Imprimir todos los cartones 
+    function mostrarCartones()
+    {
+        $nombreJugador = "j";
+        for ($i=1; $i <= 4 ; $i++)
+        { 
+            $jugadorActual = ${$nombreJugador.$i};
+            echo "<h3>Jugador: $i</h3>";
+            
+            foreach($jugadorActual as $jugador => $cartones)
+            {
+                for ($j=0; $j < 3; $j++)
+                { 
+                    echo "CARTÓN " . ($j + 1);
+                    echo "<table border='1'>";
+                    echo "<tr><th>". ($cartones[$j][0]) ."</th><th class='vacio' style='background-color:lightblue'></th><th>". ($cartones[$j][4]) ."</th><th>". ($cartones[$j][7]) ."</th><th>". ($cartones[$j][9]) ."</th><th>". ($cartones[$j][11]) ."</th><th class='vacio' style='background-color:lightblue'></th></tr>";
+                    echo "<tr> <th>". ($cartones[$j][1]) ."</th><th>". ($cartones[$j][2]) ."</th><th>". ($cartones[$j][5]) ."</th><th class='vacio' style='background-color:lightblue'></th><th class='vacio' style='background-color:lightblue'></th><th>". ($cartones[$j][12]) ."</th><th>". ($cartones[$j][14]) ."</th></tr>";
+                    echo "<tr><th class='vacio' style='background-color:lightblue'></th><th>". ($cartones[$j][3]) ."</th><th>". ($cartones[$j][6]) ."</th><th>". ($cartones[$j][8]) ."</th><th>". ($cartones[$j][10]) ."</th><th>". ($cartones[$j][13]) ."</th><th class='vacio' style='background-color:lightblue'></th></tr>";
+                    echo "</table>";
+                    echo "<br><br>";
+                }
+            }
+        }
+    }
+
+    function comprobarBingo()
+    {
+        $bingo = false;
+        $nombreJugador = "j";
+            
+        for ($z=1; $z <= 4 && !$bingo; $z++) { 
+            $jugadorActual = &${$nombreJugador.$z};
+            foreach ($jugadorActual as $jugador => &$cartones)
+            {
+                foreach ($cartones as &$fila)
+                {
+                    $contadorNumeros = 0;
+                    foreach ($fila as $key => $numero)
+                    {
+                        if ($numero == 'X')
+                        {
+                            $contadorNumeros += 1;
+                        }
+                    } 
+                    if($contadorNumeros == 14)
+                        $bingo = true;
+                }
+            }
+        }
+        return $bingo;
+    }
        
 
 ?>
