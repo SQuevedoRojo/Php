@@ -92,7 +92,7 @@
                 {
                     foreach ($fila as $key => $numero)
                     {
-                        if ($numero === $numeroAEliminar)
+                        if ($numero == $numeroAEliminar)
                         {
                             unset($fila[$key]);
                             $fila[$key] = 'X';
