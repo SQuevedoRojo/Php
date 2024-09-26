@@ -27,10 +27,10 @@
                     $repetir = false;
                     do {
                         $num = rand(1,60);
-                        if ($numerosRepetidos[$num] == false)
+                        if ($numerosRepetidos[$num-1] == false)
                         {
                             $cartones[$fila][$numero] = $num;
-                            $numerosRepetidos[$num] = true;
+                            $numerosRepetidos[$num-1] = true;
                             $repetir = false;
                         }
                         else
