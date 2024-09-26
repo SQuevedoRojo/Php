@@ -13,6 +13,7 @@
    $numerosRepetidos = array();
 
    /*Creacion de los cartones de cada jugador*/
+   $nombreJugador = "j";
 
    for ($i=1; $i <= 4 ; $i++) { 
     foreach (${$nombreJugador.$i} as $jugador => $cartones) { 
