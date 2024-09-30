@@ -66,12 +66,6 @@
     }
 
     /*Generacion de numeros del Bingo */
-    
-        
-    var_dump($j1);
-    var_dump($j2);
-    var_dump($j3);
-    var_dump($j4);
 
     /* Función para eliminar un número de los cartones */
     function eliminarNumero(&$jugadores, $numeroAEliminar,&$aciertosBingo,$indice)
