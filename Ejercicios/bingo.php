@@ -98,7 +98,7 @@
 
     $numerosEliminados = array();
     $seguir = true;
-    $aciertosBingo = array(array(),array());
+    $aciertosBingo = array(array(0,0,0),array(0,0,0),array(0,0,0),array(0,0,0));
     while ($seguir)
     {
         $numeroAEliminar = rand(1, 60);
