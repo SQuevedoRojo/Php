@@ -74,7 +74,7 @@
     var_dump($j4);
 
     /* Función para eliminar un número de los cartones */
-    function eliminarNumero(&$jugadores, $numeroAEliminar)
+    function eliminarNumero(&$jugadores, $numeroAEliminar,$aciertosBingo,$indice)
     {
         foreach ($jugadores as $jugador => &$cartones)
         {
@@ -86,6 +86,7 @@
                     {
                         unset($fila[$key]);
                         $fila[$key] = 'X';
+                        $aciertosBingo[$indice] += 1;
                     }
                 } 
             }
@@ -94,7 +95,9 @@
 
 
     $numerosEliminados = array();
-    while (count($numerosEliminados) < 60)
+    $seguir = true;
+    $aciertosBingo = array();
+    while ($seguir)
     {
         $numeroAEliminar = rand(1, 60);
 
@@ -104,9 +107,17 @@
             $numerosEliminados[] = $numeroAEliminar;
 
             for ($j = 1; $j <= 4; $j++) {
-                eliminarNumero(${$nombreJugador.$j}, $numeroAEliminar);
+                eliminarNumero(${$nombreJugador.$j}, $numeroAEliminar,$aciertosBingo,$j-1);
             }
         }
+        if(count($aciertosBingo[0]) == 15)
+            $seguir = false;
+        elseif(count($aciertosBingo[1]) == 15)
+            $seguir = false;
+        elseif(count($aciertosBingo[2]) == 15)
+            $seguir = false;
+        elseif(count($aciertosBingo[3]) == 15)
+            $seguir = false;
     }
     mostrarCartones($j1,$j2,$j3,$j4);
 
