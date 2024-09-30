@@ -77,7 +77,10 @@
             $bolaBingo = rand(1,60);
         }while($numerosRepetidos[$bolaBingo-1] == false);
         $numerosRepetidos[$bolaBingo-1] = true;
-        eliminarNumero($bolaBingo,$j1,$j2,$j3,$j4);
+        for ($i=1; $i <= 4; $i++) { 
+            eliminarNumero($bolaBingo,$i,$j1,$j2,$j3,$j4);
+        }
+        
         echo $bolaBingo . " | ";
         $seguir = comprobarBingo($j1,$j2,$j3,$j4);
     }
@@ -89,30 +92,31 @@
     var_dump($j4);
 
     /* Función para eliminar un número de los cartones */
-    function eliminarNumero($numeroAEliminar,$j1,$j2,$j3,$j4)
+    function eliminarNumero($numeroAEliminar,$indice,$j1,$j2,$j3,$j4)
     {
-        $jc1 = $j1;
-        $jc2 = $j2;
-        $jc3 = $j3;
-        $jc4 = $j4;
-        $nombreJugador = "jc";
-        for ($z=1; $z <= 4 ; $z++) { 
-            $jugadorActual = &${$nombreJugador.$z};
-            foreach ($jugadorActual as $jugador => &$cartones)
+        if($indice == 1)
+            $jugadorActual = &$j1;
+        elseif ($indice == 2)
+            $jugadorActual = &$j2;
+        elseif ($indice == 2)
+            $jugadorActual = &$j3;
+        else
+            $jugadorActual = &$j4;
+            
+        foreach ($jugadorActual as $jugador => &$cartones)
+        {
+            foreach ($cartones as &$fila)
             {
-                foreach ($cartones as &$fila)
+                for ($i = 0; $i < count($fila); $i++)
                 {
-                    for ($i = 0; $i < count($fila); $i++)
+                    if ($fila[$i] == $numeroAEliminar)
                     {
-                        if ($fila[$i] == $numeroAEliminar)
-                        {
-                            unset($fila[$i]);
-                            $fila[$i] = 'X';
-                        }
-                    } 
-                }
+                        unset($fila[$i]);
+                        $fila[$i] = 'X';
+                    }
+                } 
             }
-        }    
+        }   
     }
 
     // Imprimir todos los cartones 
