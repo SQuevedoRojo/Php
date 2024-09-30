@@ -66,25 +66,7 @@
     }
 
     /*Generacion de numeros del Bingo */
-    $numerosEliminados = array();
-    $seguir = true;
-    for ($i=0; $i < 60; $i++) { 
-        $numerosRepetidos[$i] = false;
-    }
-    while($seguir)
-    {
-        do{
-            $bolaBingo = rand(1,60);
-        }while($numerosRepetidos[$bolaBingo-1] == false);
-        $numerosRepetidos[$bolaBingo-1] = true;
-        for ($i=1; $i <= 4; $i++) { 
-            eliminarNumero($bolaBingo,$i,$j1,$j2,$j3,$j4);
-        }
-        
-        echo $bolaBingo . " | ";
-        $seguir = comprobarBingo($j1,$j2,$j3,$j4);
-    }
-    mostrarCartones($j1,$j2,$j3,$j4);
+    
         
     var_dump($j1);
     var_dump($j2);
@@ -92,32 +74,41 @@
     var_dump($j4);
 
     /* Función para eliminar un número de los cartones */
-    function eliminarNumero($numeroAEliminar,$indice,$j1,$j2,$j3,$j4)
+    function eliminarNumero(&$jugadores, $numeroAEliminar)
     {
-        if($indice == 1)
-            $jugadorActual = &$j1;
-        elseif ($indice == 2)
-            $jugadorActual = &$j2;
-        elseif ($indice == 2)
-            $jugadorActual = &$j3;
-        else
-            $jugadorActual = &$j4;
-            
-        foreach ($jugadorActual as $jugador => &$cartones)
+        foreach ($jugadores as $jugador => &$cartones)
         {
             foreach ($cartones as &$fila)
             {
-                for ($i = 0; $i < count($fila); $i++)
+                foreach ($fila as $key => $numero)
                 {
-                    if ($fila[$i] == $numeroAEliminar)
+                    if ($numero === $numeroAEliminar)
                     {
-                        unset($fila[$i]);
-                        $fila[$i] = 'X';
+                        unset($fila[$key]);
+                        $fila[$key] = 'X';
                     }
                 } 
             }
-        }   
+        }
     }
+
+
+    $numerosEliminados = array();
+    while (count($numerosEliminados) < 60)
+    {
+        $numeroAEliminar = rand(1, 60);
+
+        //Si el numeroAEliminar no esta dentro de el array $numerosEliminados
+        if (!in_array($numeroAEliminar, $numerosEliminados))
+        {
+            $numerosEliminados[] = $numeroAEliminar;
+
+            for ($j = 1; $j <= 4; $j++) {
+                eliminarNumero(${$nombreJugador.$j}, $numeroAEliminar);
+            }
+        }
+    }
+    mostrarCartones($j1,$j2,$j3,$j4);
 
     // Imprimir todos los cartones 
     function mostrarCartones($j1,$j2,$j3,$j4)
@@ -148,35 +139,6 @@
         }
     }
 
-    function comprobarBingo($j1,$j2,$j3,$j4)
-    {
-        $bingo = true;
-        $jc1 = $j1;
-        $jc2 = $j2;
-        $jc3 = $j3;
-        $jc4 = $j4;
-        $nombreJugador = "jc";
-        for ($z=1; $z <= 4 && $bingo; $z++) { 
-            $jugadorActual = &${$nombreJugador.$z};
-            foreach ($jugadorActual as $jugador => &$cartones)
-            {
-                foreach ($cartones as &$fila)
-                {
-                    $contadorNumeros = 0;
-                    foreach ($fila as $key => $numero)
-                    {
-                        if ($numero == 'X')
-                        {
-                            $contadorNumeros += 1;
-                        }
-                    } 
-                    if($contadorNumeros == 15)
-                        $bingo = false;
-                }
-            }
-        }
-        return $bingo;
-    }
        
 
 ?>
