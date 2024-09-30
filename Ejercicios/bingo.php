@@ -78,6 +78,7 @@
     {
         foreach ($jugadores as $jugador => &$cartones)
         {
+            $indiceCarton = 0;
             foreach ($cartones as &$fila)
             {
                 foreach ($fila as $key => $numero)
@@ -86,9 +87,10 @@
                     {
                         unset($fila[$key]);
                         $fila[$key] = 'X';
-                        $aciertosBingo[$indice] += 1;
+                        $aciertosBingo[$indice][$indiceCarton] += 1;
                     }
                 } 
+                $indiceCarton += 1;
             }
         }
     }
@@ -96,7 +98,7 @@
 
     $numerosEliminados = array();
     $seguir = true;
-    $aciertosBingo = array();
+    $aciertosBingo = array(array());
     while ($seguir)
     {
         $numeroAEliminar = rand(1, 60);
@@ -110,16 +112,33 @@
                 eliminarNumero(${$nombreJugador.$j}, $numeroAEliminar,$aciertosBingo,$j-1);
             }
         }
-        if(count($aciertosBingo[0]) == 15)
-            $seguir = false;
-        elseif(count($aciertosBingo[1]) == 15)
-            $seguir = false;
-        elseif(count($aciertosBingo[2]) == 15)
-            $seguir = false;
-        elseif(count($aciertosBingo[3]) == 15)
-            $seguir = false;
+        $seguir = comprobarBingo($aciertosBingo);
     }
     mostrarCartones($j1,$j2,$j3,$j4);
+
+    function comprobarBingo(&$aciertosBingo)
+    {
+        $seguir = true;
+        if($aciertosBingo[0][0] == 15)
+            $seguir = false;
+        elseif($aciertosBingo[0][1] == 15)
+            $seguir = false;
+        elseif($aciertosBingo[0][2] == 15)
+            $seguir = false;
+            if($aciertosBingo[1][0] == 15)
+            $seguir = false;
+        elseif($aciertosBingo[1][1] == 15)
+            $seguir = false;
+        elseif($aciertosBingo[1][2] == 15)
+            $seguir = false;
+            if($aciertosBingo[2][0] == 15)
+            $seguir = false;
+        elseif($aciertosBingo[2][1] == 15)
+            $seguir = false;
+        elseif($aciertosBingo[2][2] == 15)
+            $seguir = false;
+        return $seguir;
+    }
 
     // Imprimir todos los cartones 
     function mostrarCartones($j1,$j2,$j3,$j4)
