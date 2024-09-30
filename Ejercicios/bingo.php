@@ -74,7 +74,7 @@
     var_dump($j4);
 
     /* Función para eliminar un número de los cartones */
-    function eliminarNumero(&$jugadores, $numeroAEliminar,$aciertosBingo,$indice)
+    function eliminarNumero(&$jugadores, $numeroAEliminar,&$aciertosBingo,$indice)
     {
         foreach ($jugadores as $jugador => &$cartones)
         {
