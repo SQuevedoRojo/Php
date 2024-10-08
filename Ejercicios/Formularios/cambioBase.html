@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cambio de Base</title>
+</head>
+<body>
+    <h1>Cambio de Base</h1>
+    <form action="cambioBase.php" method="get">
+        Numero Decimal : <input type="number" name="num"><br>
+        Operacion:<select name="base">
+            <option value="binario">Binario</option>
+            <option value="octal">Octal</option>
+            <option value="hexadecimal">Hexadecimal</option>
+            <option value="todos">Todos los Sistemas</option>
+        </select>
+        <input type="submit" value="enviar">
+        <input type="reset" value="borrar">
+    </form>
+</body>
+</html>
