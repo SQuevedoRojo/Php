@@ -5,7 +5,7 @@ $ipOriginal = $ip;
 $correcto = true;
 $indice = 0;
 
-while($correcto)
+while($correcto && $indice < 4)
 {
     if($ip[$indice] < 0 || $ip[$indice] > 255)
         $correcto = false;
