@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Calculadora</h1>
-    <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
+    <form action=<?php htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
         Operando1:<input type="number" name="num1"><br>
         Operando2:<input type="number" name="num2"><br>
         Operacion:<select name="operacion">
