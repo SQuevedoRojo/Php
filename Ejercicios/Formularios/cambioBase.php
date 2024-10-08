@@ -1,6 +1,6 @@
 <?php
     $num = limpiar($_REQUEST['num']);
-    $operacion = $_REQUEST['operacion'];
+    $operacion = $_REQUEST['base'];
 
     switch ($operacion) {
         case 'binario':
