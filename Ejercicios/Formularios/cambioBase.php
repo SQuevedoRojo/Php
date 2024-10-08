@@ -13,8 +13,8 @@
             echo "El ".$num." en hexadecimal es ". dechex($num);
             break;
         case 'todos':
-            echo "El ".$num." en binario es ". decbin($num);
-            echo "El ".$num." en octal es ". decoct($num);
+            echo "El ".$num." en binario es ". decbin($num) . "<br>";
+            echo "El ".$num." en octal es ". decoct($num) . "<br>";
             echo "El ".$num." en hexadecimal es ". dechex($num);
             break;
     }
