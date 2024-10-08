@@ -4,18 +4,18 @@
 
     switch ($operacion) {
         case 'binario':
-            echo "El ".$num1." en binario es ". decbin($num);
+            echo "El ".$num." en binario es ". decbin($num);
             break;
         case 'octal':
-            echo "El ".$num1." en octal es ". decoct($num);
+            echo "El ".$num." en octal es ". decoct($num);
             break;
         case 'hexadecimal':
-            echo "El ".$num1." en hexadecimal es ". dechex($num);
+            echo "El ".$num." en hexadecimal es ". dechex($num);
             break;
         case 'todos':
-            echo "El ".$num1." en binario es ". decbin($num);
-            echo "El ".$num1." en octal es ". decoct($num);
-            echo "El ".$num1." en hexadecimal es ". dechex($num);
+            echo "El ".$num." en binario es ". decbin($num);
+            echo "El ".$num." en octal es ". decoct($num);
+            echo "El ".$num." en hexadecimal es ". dechex($num);
             break;
     }
 
