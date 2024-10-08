@@ -21,12 +21,13 @@
 
         echo "EL numero " . $num . " en base " . $baseOriginal . " es " . base_convert($num,$baseOriginal,$baseNueva) . " en la base " . $baseNueva ;
 
-        function limpiar($data) {
-            $data = trim($data);
-            $data = stripslashes($data);
-            $data = htmlspecialchars($data);
-            return $data;
-        }
+        
+    }
+    function limpiar($data) {
+        $data = trim($data);
+        $data = stripslashes($data);
+        $data = htmlspecialchars($data);
+        return $data;
     }
     ?>
 </body>
