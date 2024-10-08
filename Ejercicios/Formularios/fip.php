@@ -33,11 +33,7 @@
                 $ip[$i] = decbin($ip[$i]);
             }
 
-            $ipOr = implode('.',$ipOriginal);
-
             $ipBin = implode('.',$ip);
-
-            print "IP :<input type='text' name='ip' value='$ipOr'><br>";
             print "IP Binario :<input type='text' name='ip' value='$ipBin'><br>";
 
         }
