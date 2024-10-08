@@ -19,7 +19,7 @@ if($correcto)
         $ip[$i] = decbin($ip[$i]);
     }
 
-    $ipO = implode('.',$ipOriginal);
+    $ipOr = implode('.',$ipOriginal);
 
     $ipBin = implode('.',$ip);
 
