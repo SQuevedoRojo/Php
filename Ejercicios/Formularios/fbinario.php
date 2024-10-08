@@ -18,7 +18,8 @@
             $num = $_REQUEST['num'];
             $resultado = decbin($num);
 
-            echo "El binario de ".$num." es ".$resultado;
+            print "Numero decimal :<input type='number' name='num' value='$num'><br>";
+            print "Numero Binario :<input type='number' name='numBin' value='$resultado'><br>";
         }
     ?>
 </body>

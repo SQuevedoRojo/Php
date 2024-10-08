@@ -19,8 +19,14 @@ if($correcto)
         $ip[$i] = decbin($ip[$i]);
     }
 
-    echo "La IP " . $ipOriginal[0]. "." . $ipOriginal[1]. "." . $ipOriginal[2]. "." . $ipOriginal[3] . " en binario es " . $ip[0]. "." . $ip[1]. "." . $ip[2]. "." . $ip[3];
+    $ipO = implode('.',$ipOriginal);
+
+    $ipBin = implode('.',$ip);
+
+    print "IP :<input type='text' name='ip' value='$ipOr'><br>";
+    print "IP Binario :<input type='text' name='ip' value='$ipBin'><br>";
+
 }
 else
-    echo "La IP no es Correcta";
+    print "IP Binario :<input type='text' name='ip' value='La IP no es correcta'><br>";
 ?>
