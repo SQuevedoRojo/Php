@@ -7,14 +7,14 @@
 </head>
 <body>
     <h1>Calculadora de Binarios</h1>
-    <form action=<?php htmlspecialchars($_SERVER['PHP_SELF']);?> method="get">
+    <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="get">
         Numero decimal :<input type="number" name="num"><br>
         <input type="submit" value="enviar">
         <input type="reset" value="borrar">
     </form>
 
     <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $num = $_REQUEST['num'];
             $resultado = decbin($num);
 
