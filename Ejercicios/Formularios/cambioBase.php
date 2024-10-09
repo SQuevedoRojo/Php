@@ -2,20 +2,30 @@
     $num = limpiar($_REQUEST['num']);
     $operacion = $_REQUEST['base'];
 
+    print "Numero Decimal : <input type='number' name='num' value='$num'><br>";
+
     switch ($operacion) {
         case 'binario':
-            echo "El ".$num." en binario es ". decbin($num);
+            print "<table border='1'>";
+            print "<tr><th>Binario</th><th>".decbin($num)."</th></tr>";
+            print "</table>";
             break;
         case 'octal':
-            echo "El ".$num." en octal es ". decoct($num);
+            print "<table border='1'>";
+            print "<tr><th>Octal</th><th>".decoct($num)."</th></tr>";
+            print "</table>";
             break;
         case 'hexadecimal':
-            echo "El ".$num." en hexadecimal es ". dechex($num);
+            print "<table border='1'>";
+            print "<tr><th>Hexadecimal</th><th>".dechex($num)."</th></tr>";
+            print "</table>";
             break;
         case 'todos':
-            echo "El ".$num." en binario es ". decbin($num) . "<br>";
-            echo "El ".$num." en octal es ". decoct($num) . "<br>";
-            echo "El ".$num." en hexadecimal es ". dechex($num);
+            print "<table border='1'>";
+            print "<tr><th>Binario</th><th>".decbin($num)."</th></tr>";
+            print "<tr><th>Octal</th><th>".decoct($num)."</th></tr>";
+            print "<tr><th>Hexadecimal</th><th>".dechex($num)."</th></tr>";
+            print "</table>";
             break;
     }
 
