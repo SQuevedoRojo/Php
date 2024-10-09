@@ -5,23 +5,31 @@ $email = $_REQUEST['email'];
 $sexo = $_REQUEST['sexo'];
 $caracterSexo = $sexo === 'hombre' ? 'H' : 'M';
 
+imprimir($nombre,$apellidos,$email,$caracterSexo);
 
-print "<table border='1'>";
-print "<tr><th>Nombre</th><th>Apellidos</th><th>Email</th><th>Sexo</th></tr>";
-print "<tr><th>$nombre</th><th>$apellidos</th><th>$email</th><th>$caracterSexo</th></tr>";
-print "</table>";
-$file = fopen("datos.txt",'w');
-fwrite($file, "Nombre : $nombre" . PHP_EOL);
-fwrite($file, "Apellidos : $apellidos" . PHP_EOL);
-fwrite($file, "Email : $email" . PHP_EOL);
-fwrite($file, "Sexo : $caracterSexo" . PHP_EOL);
-fclose($file);
+function imprimir($nombre,$apellidos,$email,$caracterSexo)
+{
+  print "<table border='1'>";
+  print "<tr><th>Nombre</th><th>Apellidos</th><th>Email</th><th>Sexo</th></tr>";
+  print "<tr><th>$nombre</th><th>$apellidos</th><th>$email</th><th>$caracterSexo</th></tr>";
+  print "</table>";
+  fichero($nombre,$apellidos,$email,$caracterSexo);
+}
 
+function fichero($nombre,$apellidos,$email,$caracterSexo)
+{
+  $file = fopen("datos.txt",'w');
+  fwrite($file, "Nombre : $nombre" . PHP_EOL);
+  fwrite($file, "Apellidos : $apellidos" . PHP_EOL);
+  fwrite($file, "Email : $email" . PHP_EOL);
+  fwrite($file, "Sexo : $caracterSexo" . PHP_EOL);
+  fclose($file);
+}
 
 function limpiar($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-  }
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
 ?>

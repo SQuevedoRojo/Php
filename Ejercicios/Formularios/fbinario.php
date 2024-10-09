@@ -15,9 +15,22 @@
 
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $num = $_REQUEST['num'];
+            $num = limpiar($_REQUEST['num']);
             $resultado = decbin($num);
-            print "Numero Binario :<input type='number' name='numBin' value='$resultado'><br>";
+        
+            imprimir($num,$resultado);
+        
+            function limpiar($data) {
+                $data = trim($data);
+                $data = stripslashes($data);
+                $data = htmlspecialchars($data);
+                return $data;
+            }
+        
+            function imprimir($resultado)
+            {
+                print "Numero Binario :<input type='number' name='numBin' value='$resultado'><br>";
+            }
         }
     ?>
 </body>
