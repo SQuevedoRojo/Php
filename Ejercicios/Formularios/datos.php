@@ -9,7 +9,7 @@ $caracterSexo = $sexo === 'hombre' ? 'H' : 'M';
 print "<table border='1'>";
 print "<tr><th>Nombre</th><th>Apellidos</th><th>Email</th><th>Sexo</th></tr>";
 print "<tr><th>$nombre</th><th>$apellidos</th><th>$email</th><th>$caracterSexo</th></tr>";
-
+print "</table>";
 $file = fopen("datos.txt",'w');
 fwrite($file, "Nombre : $nombre" . PHP_EOL);
 fwrite($file, "Apellidos : $apellidos" . PHP_EOL);
