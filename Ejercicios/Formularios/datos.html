@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Datos</title>
+</head>
+<body>
+    <h1>Datos Alumnos</h1>
+    <form action="datos.php" method="get">
+        Nombre :<input type="text" name="nombre" required><br>
+        Apellido 1 :<input type="text" name="ape1" ><br>
+        Apellido 2 :<input type="text" name="ape2" ><br>
+        Email :<input type="email" name="email" required><br>
+        Sexo :<input type="radio" name="sexo"  value="hombre" required><label for="hombre">Hombre</label>
+        <input type="radio" name="sexo" value="mujer" required><label for="mujer">Mujer</label>
+        <br>
+        <input type="submit" value="enviar">
+        <input type="reset" value="borrar">
+    </form>
+</body>
+</html>
