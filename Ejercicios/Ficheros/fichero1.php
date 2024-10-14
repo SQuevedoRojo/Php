@@ -15,8 +15,6 @@
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") 
         {
-            recogerDatos();
-            
             function recogerDatos()
             {
                 $nombre = limpiar($_REQUEST['nombre']);
@@ -61,6 +59,8 @@
                     $indice += 1;
                 }
             }
+
+            recogerDatos();
         }
     ?>
 
