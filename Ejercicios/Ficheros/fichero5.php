@@ -16,14 +16,17 @@
         {
             function recogerDatos()
             {
-                $operacion = $_REQUEST['tipoOperacion'];
-                $archivo = $_REQUEST['fichero'];
-                if($operacion == "mostrarFichero")
-                    mostrarFichero($archivo);
-                else if($operacion == "mostrarLineaFichero")
-                    mostrarLineaFichero($archivo);
-                else if($operacion == "mostrarLineasFichero")
-                    mostrarLineasFichero($archivo);
+                if(isset($_REQUEST['tipoOperacion']))
+                {
+                    $operacion = $_REQUEST['tipoOperacion'];
+                    $archivo = $_REQUEST['fichero'];
+                    if($operacion == "mostrarFichero")
+                        mostrarFichero($archivo);
+                    else if($operacion == "mostrarLineaFichero")
+                        mostrarLineaFichero($archivo);
+                    else if($operacion == "mostrarLineasFichero")
+                        mostrarLineasFichero($archivo);
+                }
                 else
                     print("Debe seleccionar una opcion");
             }
