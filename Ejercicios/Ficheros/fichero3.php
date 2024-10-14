@@ -27,10 +27,10 @@
             {
                 $data = array();
                 $data[0] = limpiar(substr($linea,0,39));
-                $data[1] = limpiar(substr($linea,40,39));
-                $data[2] = limpiar(substr($linea,81,40));
-                $data[3] = limpiar(substr($linea,123,10));
-                $data[4] = limpiar(substr($linea,133,26));
+                $data[1] = limpiar(substr($linea,39,39));
+                $data[2] = limpiar(substr($linea,80,40));
+                $data[3] = limpiar(substr($linea,123,9));
+                $data[4] = limpiar(substr($linea,132,26));
                 return $data;
             }
 
