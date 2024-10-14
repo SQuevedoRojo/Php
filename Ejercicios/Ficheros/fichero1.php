@@ -6,8 +6,8 @@
         Nombre :<input type="text" name="nombre" required><br>
         Apellido 1 :<input type="text" name="ape1" ><br>
         Apellido 2 :<input type="text" name="ape2" ><br>
-        Fecha Nacimiento :<input type="email" name="fecNac  " required placeholder="dia/mes/año"><br>
-        Localidad :<input type="text" name="sexo"  value="localidad" required><label for="localidad">Localidad</label>
+        Fecha Nacimiento :<input type="text" name="fecNac" required placeholder="dia/mes/año"><br>
+        Localidad :<input type="text" name="localidad" required>
         <br>
         <input type="submit" value="enviar">
         <input type="reset" value="borrar">
