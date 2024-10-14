@@ -33,11 +33,11 @@
                     $indice += strpos($linea,"##",$indice)+2;
                     $data[1] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-$indice));
                     $indice += strpos($linea,"##",$indice)+2;
-                    $data[2] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)));
+                    $data[2] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-$indice));
                     $indice += strpos($linea,"##",$indice)+2;
-                    $data[3] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)));
+                    $data[3] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-$indice));
                     $indice += strpos($linea,"##",$indice)+2;
-                    $data[4] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)));
+                    $data[4] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-$indice));
                     var_dump($data);
                 }
                 return $data;
