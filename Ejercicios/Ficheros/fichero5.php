@@ -66,7 +66,7 @@
                 $encontrado = true;
                 while(!feof($file) && $encontrado)
                 {
-                    if($linea < $lineasEspecifica)
+                    if($linea <= $lineasEspecifica)
                     {
                         print fgets($file);
                     }
