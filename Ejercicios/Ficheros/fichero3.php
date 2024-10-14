@@ -6,11 +6,8 @@
             function recogerDatos()
             {
                 $file = fopen('C:\\wamp64\\www\\files\\alumnos1.txt',"r") or die("No se ha encontrado el fichero");
-                if(feof($file))
-                {
-                    print("<table border='1'>");
-                    print "<tr><th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Fecha Nacimiento</th><th>Localidad</th></tr>";
-                }
+                print("<table border='1'>");
+                print "<tr><th>Nombre</th><th>Apellido 1</th><th>Apellido 2</th><th>Fecha Nacimiento</th><th>Localidad</th></tr>";
                 while(!feof($file))
                 {
                     $datos = fichero(fgets($file));
@@ -29,11 +26,11 @@
             function fichero($linea)
             {
                 $data = array();
-                $data[0] = limpiar(substr($linea,0,40));
-                $data[1] = limpiar(substr($linea,41,81));
-                $data[2] = limpiar(substr($linea,82,123));
-                $data[3] = limpiar(substr($linea,124,133));
-                $data[4] = limpiar(substr($linea,134,160));
+                $data[0] = limpiar(substr($linea,0,39));
+                $data[1] = limpiar(substr($linea,40,80));
+                $data[2] = limpiar(substr($linea,81,122));
+                $data[3] = limpiar(substr($linea,123,132));
+                $data[4] = limpiar(substr($linea,133,159));
                 var_dump($data);
                 return $data;
             }
