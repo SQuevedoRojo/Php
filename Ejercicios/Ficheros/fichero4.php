@@ -30,14 +30,15 @@
                 if($linea != ""){
                     $indice = 0;
                     $data[0] = limpiar(substr($linea,0,strpos($linea,"##")));
-                    $indice += strpos($linea,"##",$indice)+2;
-                    $data[1] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-1));
-                    $indice += strpos($linea,"##",$indice)+2;
-                    $data[2] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-1));
-                    $indice += strpos($linea,"##",$indice)+2;
-                    $data[3] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-1));
-                    $indice += strpos($linea,"##",$indice)+2;
+                    $indice += strpos($linea,"##",$indice);
+                    $data[1] = limpiar(substr($linea,$indice+2,strpos($linea,"##",$indice+1)));
+                    $indice += strpos($linea,"##",$indice);
+                    $data[2] = limpiar(substr($linea,$indice+2,strpos($linea,"##",$indice+1)));
+                    $indice += strpos($linea,"##",$indice);
+                    $data[3] = limpiar(substr($linea,$indice+2,strpos($linea,"##",$indice+1)));
+                    $indice += strpos($linea,"##",$indice);
                     $data[4] = limpiar(substr($linea,$indice,strpos($linea,"##",-1)));
+                    var_dump($data);
                 }
                 return $data;
             }
