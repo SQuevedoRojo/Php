@@ -40,13 +40,13 @@
                 $indice += strlen($nombre);
                 $indice = escribirFichero($file,$nombre,$indice,39);
                 $indice += strlen($apellido1);
-                $indice = escribirFichero($file,$apellido1,$indice,81);
+                $indice = escribirFichero($file,$apellido1,$indice,80);
                 $indice += strlen($apellido2);
-                $indice = escribirFichero($file,$apellido2,$indice,123);
+                $indice = escribirFichero($file,$apellido2,$indice,122);
                 $indice += strlen($fecNac);
-                $indice = escribirFichero($file,$fecNac,$indice,133);
+                $indice = escribirFichero($file,$fecNac,$indice,132);
                 $indice += strlen($localidad);
-                $indice = escribirFichero($file,$localidad,$indice,160); 
+                $indice = escribirFichero($file,$localidad,$indice,159); 
 
             }
 
@@ -58,7 +58,7 @@
                     fwrite($file," ");
                     $indice += 1;
                 }
-                return $indice-1;
+                return $indice;
             }
 
             recogerDatos();
