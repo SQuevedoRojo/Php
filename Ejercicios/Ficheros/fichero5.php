@@ -69,6 +69,7 @@
                     if($linea <= $lineasEspecifica)
                     {
                         print fgets($file);
+                        print "<br>";
                     }
                     else
                         $encontrado = false;
