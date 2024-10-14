@@ -11,7 +11,8 @@
                 while(!feof($file))
                 {
                     $datos = fichero(fgets($file));
-                    imprimir($datos);
+                    if($datos != "")
+                        imprimir($datos);
                 }
                 fclose($file);
                 print("</table>");
@@ -26,11 +27,13 @@
             function fichero($linea)
             {
                 $data = array();
-                $data[0] = limpiar(substr($linea,0,39));
-                $data[1] = limpiar(substr($linea,39,39));
-                $data[2] = limpiar(substr($linea,80,40));
-                $data[3] = limpiar(substr($linea,123,9));
-                $data[4] = limpiar(substr($linea,132,26));
+                if($linea != ""){
+                    $data[0] = limpiar(substr($linea,0,39));
+                    $data[1] = limpiar(substr($linea,39,39));
+                    $data[2] = limpiar(substr($linea,80,40));
+                    $data[3] = limpiar(substr($linea,123,9));
+                    $data[4] = limpiar(substr($linea,132,26));
+                }
                 return $data;
             }
 
