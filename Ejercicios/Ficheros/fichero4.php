@@ -38,7 +38,6 @@
                     $data[3] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-$indice));
                     $indice = strpos($linea,"##",$indice)+2;
                     $data[4] = limpiar(substr($linea,$indice,strpos($linea,"##",-1)));
-                    var_dump($data);
                 }
                 return $data;
             }
