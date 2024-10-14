@@ -38,6 +38,7 @@
                 while(!feof($file))
                 {
                     print fgets($file);
+                    print "<br>";
                 }
                 fclose($file);
             }
@@ -54,6 +55,7 @@
                     if($lineaEspecifica == $linea)
                     {
                         print fgets($file);
+                        print "<br>";
                         $encontrado = true;
                     }
                 }
