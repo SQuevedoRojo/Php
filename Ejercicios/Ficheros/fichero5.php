@@ -72,6 +72,7 @@
                     }
                     else
                         $encontrado = false;
+                    $linea += 1;
                 }
                 fclose($file);
             }
