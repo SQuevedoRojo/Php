@@ -13,7 +13,7 @@
                 }
                 while(!feof($file))
                 {
-                    $datos = fichero($file);
+                    $datos = fichero(fgets($file));
                     imprimir($datos);
                 }
                 fclose($file);
@@ -26,15 +26,15 @@
                 return $data;
             }
 
-            function fichero($file)
+            function fichero($linea)
             {
                 $data = array();
-                $linea = fgets($file);
                 $data[0] = limpiar(substr($linea,40));
                 $data[1] = limpiar(substr($linea,81));
                 $data[2] = limpiar(substr($linea,123));
                 $data[3] = limpiar(substr($linea,133));
                 $data[4] = limpiar(substr($linea,160));
+                var_dump($data);
                 return $data;
             }
 
