@@ -15,6 +15,8 @@
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") 
         {
+            recogerDatos();
+            
             function recogerDatos()
             {
                 $nombre = limpiar($_REQUEST['nombre']);
@@ -47,7 +49,7 @@
                 escribirFichero($file,$fecNac,$indice,133);
                 $indice += count($localidad);
                 escribirFichero($file,$localidad,$indice,160); 
-                
+
             }
 
             function escribirFichero($file,$campo,$indice,$limite)
