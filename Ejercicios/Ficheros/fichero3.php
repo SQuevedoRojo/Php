@@ -11,7 +11,7 @@
                 while(!feof($file))
                 {
                     $datos = fichero(fgets($file));
-                    if($datos != "")
+                    if(count($datos) != 0)
                         imprimir($datos);
                 }
                 fclose($file);
