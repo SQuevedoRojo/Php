@@ -29,11 +29,11 @@
             function fichero($linea)
             {
                 $data = array();
-                $data[0] = limpiar(substr($linea,40));
-                $data[1] = limpiar(substr($linea,81));
-                $data[2] = limpiar(substr($linea,123));
-                $data[3] = limpiar(substr($linea,133));
-                $data[4] = limpiar(substr($linea,160));
+                $data[0] = limpiar(substr($linea,0,40));
+                $data[1] = limpiar(substr($linea,41,81));
+                $data[2] = limpiar(substr($linea,82,123));
+                $data[3] = limpiar(substr($linea,124,133));
+                $data[4] = limpiar(substr($linea,134,160));
                 var_dump($data);
                 return $data;
             }
