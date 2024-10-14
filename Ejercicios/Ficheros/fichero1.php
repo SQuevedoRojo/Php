@@ -2,7 +2,7 @@
 <H1>Ejercicio 1</H1>
 <BODY>
 <h1>Datos Alumnos</h1>
-    <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="get">
+    <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
         Nombre :<input type="text" name="nombre" required><br>
         Apellido 1 :<input type="text" name="ape1" ><br>
         Apellido 2 :<input type="text" name="ape2" ><br>
