@@ -38,15 +38,15 @@
                 $file = fopen('C:\\wamp64\\www\\files\\fichero1.txt',"w") or die("No se ha encontrado el fichero");
                 $indice = 0;
                 $indice += strlen($nombre);
-                escribirFichero($file,$nombre,$indice,40);
+                $indice = escribirFichero($file,$nombre,$indice,39);
                 $indice += strlen($apellido1);
-                escribirFichero($file,$apellido1,$indice,81);
+                $indice = escribirFichero($file,$apellido1,$indice,81);
                 $indice += strlen($apellido2);
-                escribirFichero($file,$apellido2,$indice,123);
+                $indice = escribirFichero($file,$apellido2,$indice,123);
                 $indice += strlen($fecNac);
-                escribirFichero($file,$fecNac,$indice,133);
+                $indice = escribirFichero($file,$fecNac,$indice,133);
                 $indice += strlen($localidad);
-                escribirFichero($file,$localidad,$indice,160); 
+                $indice = escribirFichero($file,$localidad,$indice,160); 
 
             }
 
@@ -58,6 +58,7 @@
                     fwrite($file," ");
                     $indice += 1;
                 }
+                return $indice-1;
             }
 
             recogerDatos();
