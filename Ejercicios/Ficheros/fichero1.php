@@ -35,7 +35,7 @@
 
             function fichero($nombre,$apellido1,$apellido2,$fecNac,$localidad)
             {
-                $file = fopen("C:\wamp64\www\files\fichero1.txt","w") or die("No se ha encontrado el fichero");
+                $file = fopen('C:\\wamp64\\www\\files\\fichero1.txt',"w") or die("No se ha encontrado el fichero");
                 $indice = 0;
                 $indice += count($nombre);
                 escribirFichero($file,$nombre,$indice,40);
@@ -47,6 +47,7 @@
                 escribirFichero($file,$fecNac,$indice,133);
                 $indice += count($localidad);
                 escribirFichero($file,$localidad,$indice,160); 
+                
             }
 
             function escribirFichero($file,$campo,$indice,$limite)
