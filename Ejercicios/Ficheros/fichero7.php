@@ -10,7 +10,6 @@
         <input type="radio" name="tipoOperacion" value="renombrarFichero"> Renombrar Fichero <br>
         <input type="radio" name="tipoOperacion" value="borrarFichero"> Borrar Fichero <br>
         <input type="submit" value="enviar">
-        <input type="submit" value="enviar">
         <input type="reset" value="borrar">
     </form>
     <?php
