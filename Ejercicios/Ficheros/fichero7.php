@@ -107,15 +107,11 @@
 
             function comprobarRuta($archivo)
             {
-                $rutaFichero = "";
+                $rutaFichero = true;
                 if (is_string($archivo)) 
                 {
-                    $partes = explode("/", $archivo);
-                    if (strtolower($partes[0]) == "..") 
-                    {
-                        $rutaFichero = realpath($archivo);
-                    }
-                    else 
+                    $rutaFichero = realpath($archivo);
+                    if($rutaFichero = false) 
                     {
                         $rutaFichero = "C:\\wamp64\\www\\files\\" . $archivo;
                     }
