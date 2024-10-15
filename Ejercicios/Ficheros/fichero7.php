@@ -60,7 +60,7 @@
                 if(file_exists($rutaArchivoOrigen))
                 {
                     comprobarDirectorio($archivoDestino);
-                    if(copy($rutaArchivoOrigen,basename($archivoDestino)))
+                    if(copy($rutaArchivoOrigen,$archivoDestino))
                         print "<h3>Se ha copiado el archivo con exito</h3>";
                     else
                         print "<h3>No se ha podido copiar el fichero</h3>";
