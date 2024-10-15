@@ -10,7 +10,9 @@
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") 
         {
-            function recogerDatos()
+            recogerDatos();
+        }
+        function recogerDatos()
             {
                 if(isset($_REQUEST['fichero']))
                 {
@@ -50,9 +52,6 @@
                     $rutaFichero = "C:\\wamp64\\www\\files\\".$archivo;
                 return $rutaFichero;
             }
-
-            recogerDatos();
-        }
     ?>
 
 </BODY>

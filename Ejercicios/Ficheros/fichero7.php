@@ -15,7 +15,9 @@
     <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") 
         {
-            function recogerDatos()
+            recogerDatos();
+        }
+        function recogerDatos()
             {
                 if(isset($_REQUEST['tipoOperacion']))
                 {
@@ -129,9 +131,6 @@
                     print "<h3>Se ha creado el directorio " . dirname($archivo) . " </h3>";
                 }
             }
-
-            recogerDatos();
-        }
     ?>
 
 </BODY>
