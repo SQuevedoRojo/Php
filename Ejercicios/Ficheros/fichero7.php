@@ -113,7 +113,11 @@
                     $rutaFichero = realpath($archivo);
                     if($rutaFichero == false) 
                     {
-                        $rutaFichero = realpath("C:\\wamp64\\www\\files\\" . $archivo);
+                        $rutaFichero = "C:\\wamp64\\www\\files\\" . $archivo;
+                    }
+                    else
+                    {
+                        $rutaFichero = $archivo;
                     }
                 }
                 return $rutaFichero;
