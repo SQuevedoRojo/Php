@@ -105,7 +105,7 @@
                 $rutaFichero = "";
                 if (is_string($archivo)) 
                 {
-                    $partes = explode('\\', $archivo);
+                    $partes = explode('/', $archivo);
                     if (strtolower($partes[0]) == "c:" || $partes[0] == "/") 
                     {
                         $rutaFichero = realpath($archivo);
@@ -120,10 +120,9 @@
 
             function comprobarDirectorio($archivo)
             {
-                if(!file_exists(dirname($archivo)))
+                if(!file_exists($archivo))
                 {
                     print "<h3>El directorio " . dirname($archivo) . " no existe</h3>";
-                    print $archivo;
                     mkdir($archivo,0777,true);
                     print "<h3>Se ha creado el directorio " . dirname($archivo) . " </h3>";
                 }
