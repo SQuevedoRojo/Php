@@ -15,6 +15,7 @@
                 if(isset($_REQUEST['fichero']))
                 {
                     $archivo = $_REQUEST['fichero'];
+                    date_default_timezone_set('Europe/Madrid');
                     saberDatosFichero($archivo);
                 }
                 else
