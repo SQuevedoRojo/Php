@@ -27,8 +27,8 @@
                 $file = fopen($rutaArchivo,"r") or die ("No se encuentra el archivo");
                 print "<h3>Nombre del Fichero</h3> ". basename($rutaArchivo);
                 print "<h3>Directorio</h3> " . dirname($rutaArchivo);
-                print "<h3>Tamaño del fichero</h3> " . filesize($rutaArchivo);
-                print "<h3>Ultima modificación</h3> " . filectime($rutaArchivo);
+                print "<h3>Tamaño del fichero</h3> " . filesize($rutaArchivo) . " Kb";
+                print "<h3>Ultima modificación</h3> " . filemtime($rutaArchivo);
                 fclose($file);
             }
 
