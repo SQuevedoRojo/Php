@@ -61,6 +61,8 @@
                 if(file_exists($rutaArchivoOrigen))
                 {
                     comprobarDirectorio($rutaArchivoDestino);
+                    print $rutaArchivoOrigen;
+                    print $rutaArchivoDestino;
                     if(copy($rutaArchivoOrigen,$rutaArchivoDestino))
                         print "<h3>Se ha copiado el archivo con exito</h3>";
                     else
@@ -117,7 +119,8 @@
                 if(!file_exists(dirname($archivo)))
                 {
                     print "<h3>El directorio " . dirname($archivo) . " no existe</h3>";
-                    mkdir(dirname($archivo),0777,true);
+                    print $archivo;
+                    mkdir($archivo,0777,true);
                     print "<h3>Se ha creado el directorio " . dirname($archivo) . " </h3>";
                 }
             }
