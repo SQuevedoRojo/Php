@@ -35,7 +35,7 @@ function limpiar($data){
 }
 
 function fichero($nombre,$ape1,$ape2,$fecNac,$localidad){
-    $file = fopen('..\\files\\alumnos1.txt',"a") or die("No se ha encontrado el fichero");
+    $file = fopen('..\\..\\..\\files\\alumnos1.txt',"a") or die("No se ha encontrado el fichero");
     $indice = 0;
     $indice += strlen($nombre);
     $indice = escribirFichero($file,$nombre,$indice,39);

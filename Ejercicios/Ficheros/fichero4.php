@@ -5,7 +5,7 @@
     <?php
             function recogerDatos()
             {
-                $file = fopen('C:\\wamp64\\www\\files\\alumnos2.txt',"r") or die("No se ha encontrado el fichero");
+                $file = fopen('..\\..\\..\\files\\alumnos2.txt',"r") or die("No se ha encontrado el fichero");
                 imprimirCabecera();
                 while(!feof($file))
                 {
@@ -20,24 +20,6 @@
             function limpiar($data)
             {
                 $data = trim($data);
-                return $data;
-            }
-
-            function fichero($linea)
-            {
-                $data = array();
-                if($linea != ""){
-                    $indice = 0;
-                    $data[0] = limpiar(substr($linea,0,strpos($linea,"##")));
-                    $indice = strpos($linea,"##",$indice)+2;
-                    $data[1] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-$indice));
-                    $indice = strpos($linea,"##",$indice)+2;
-                    $data[2] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-$indice));
-                    $indice = strpos($linea,"##",$indice)+2;
-                    $data[3] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-$indice));
-                    $indice = strpos($linea,"##",$indice)+2;
-                    $data[4] = limpiar(substr($linea,$indice,strpos($linea,"##",$indice)-$indice));
-                }
                 return $data;
             }
 

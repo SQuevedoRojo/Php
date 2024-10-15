@@ -37,7 +37,7 @@
 
     function fichero($nombre,$apellido1,$apellido2,$fecNac,$localidad)
     {
-        $file = fopen('..\\files\\alumnos2.txt',"a") or die("No se ha encontrado el fichero");
+        $file = fopen('..\\..\\..\\files\\alumnos2.txt',"a") or die("No se ha encontrado el fichero");
         escribirFichero($file,$nombre);
         escribirFichero($file,$apellido1);
         escribirFichero($file,$apellido2);
