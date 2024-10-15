@@ -114,6 +114,7 @@
                     {
                         file_put_contents($archivo, "");
                         $rutaFichero = realpath($archivo);
+                        unlink($archivo);
                     }
                     if(!(strtolower($archivo[0] . $archivo[1]) == "c:"))
                     {
