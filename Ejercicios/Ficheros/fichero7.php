@@ -58,8 +58,6 @@
             {
                 $rutaArchivoOrigen = comprobarRuta($archivoOrigen);
                 $rutaArchivoDestino = comprobarRuta($archivoDestino);
-                if($rutaArchivoDestino == "")
-                    $rutaArchivoDestino = $archivoDestino;
                 if(file_exists($rutaArchivoOrigen))
                 {
                     comprobarDirectorio($rutaArchivoDestino);
@@ -76,8 +74,6 @@
             {
                 $rutaArchivoOrigen = comprobarRuta($archivoOrigen);
                 $rutaArchivoDestino = comprobarRuta($archivoDestino);
-                if($rutaArchivoDestino == "")
-                    $rutaArchivoDestino = $archivoDestino;
                 print $rutaArchivoOrigen;
                 if(file_exists($rutaArchivoOrigen))
                 {
@@ -110,15 +106,15 @@
                 $rutaFichero = "";
                 if (is_string($archivo)) 
                 {
+                    if(!(strtolower($archivo[0] . $archivo[1]) == "c:"))
+                    {
+                        $rutaFichero = "C:\\wamp64\\www\\files\\" . $archivo;
+                    }
                     if($archivo[0] . $archivo[1] == "..") 
                     {
                         file_put_contents($archivo, "");
                         $rutaFichero = realpath($archivo);
                         unlink($archivo);
-                    }
-                    if(!(strtolower($archivo[0] . $archivo[1]) == "c:"))
-                    {
-                        $rutaFichero = "C:\\wamp64\\www\\files\\" . $archivo;
                     }
                 }
                 return $rutaFichero;
