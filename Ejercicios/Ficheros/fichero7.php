@@ -110,7 +110,7 @@
                 $rutaFichero = "";
                 if (is_string($archivo)) 
                 {
-                    if($archivo[0] . $archivo[1] = "..") 
+                    if($archivo[0] . $archivo[1] == "..") 
                     {
                         file_put_contents($archivo, "");
                         $rutaFichero = realpath($archivo);
