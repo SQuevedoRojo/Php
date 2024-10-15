@@ -65,6 +65,7 @@
                             print "<br>";
                             $encontrado = true;
                         }
+                        $linea += 1;
                     }
                     fclose($file);
                 }
