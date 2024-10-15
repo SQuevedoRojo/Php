@@ -57,10 +57,13 @@
             function copiarFichero($archivoOrigen, $archivoDestino)
             {
                 $rutaArchivoOrigen = comprobarRuta($archivoOrigen);
+                $rutaArchivoDestino = comprobarRuta($archivoDestino);
+                if($rutaArchivoDestino == "")
+                    $rutaArchivoDestino = $archivoDestino;
                 if(file_exists($rutaArchivoOrigen))
                 {
-                    comprobarDirectorio($archivoDestino);
-                    if(copy($rutaArchivoOrigen,$archivoDestino))
+                    comprobarDirectorio($rutaArchivoDestino);
+                    if(copy($rutaArchivoOrigen,$rutaArchivoDestino))
                         print "<h3>Se ha copiado el archivo con exito</h3>";
                     else
                         print "<h3>No se ha podido copiar el fichero</h3>";
@@ -72,11 +75,14 @@
             function renombrarFichero($archivoOrigen, $archivoDestino)
             {
                 $rutaArchivoOrigen = comprobarRuta($archivoOrigen);
+                $rutaArchivoDestino = comprobarRuta($archivoDestino);
+                if($rutaArchivoDestino == "")
+                    $rutaArchivoDestino = $archivoDestino;
                 if(file_exists($rutaArchivoOrigen))
                 {
-                    comprobarDirectorio($archivoDestino);
-                    if(rename($rutaArchivoOrigen,basename($archivoDestino)))
-                        print "<h3>Se ha copiado el archivo con exito</h3>";
+                    comprobarDirectorio($rutaArchivoDestino);
+                    if(rename($rutaArchivoOrigen,$rutaArchivoDestino))
+                        print "<h3>Se ha renombrar el archivo con exito</h3>";
                     else
                         print "<h3>No se ha podido renombrar el fichero</h3>";
                 }
@@ -104,11 +110,9 @@
                 if (is_string($archivo)) 
                 {
                     $partes = explode("\\", $archivo);
-                    var_dump($partes) ;
-                    if (strtolower($partes[0]) == "c:" || $partes[0] == "/") 
+                    if (strtolower($partes[0]) == ".") 
                     {
                         $rutaFichero = realpath($archivo);
-                        var_dump($archivo);
                     }
                     else 
                     {
