@@ -38,7 +38,7 @@
                         if(isset($_REQUEST['ficheroDestino']))
                         {
                             $archivoDestino = $_REQUEST['ficheroDestino'];
-                            copiarFichero($archivoOrigen, $archivoDestino);
+                            renombrarFichero($archivoOrigen, $archivoDestino);
                         }
                         else
                         {
@@ -103,7 +103,7 @@
             function comprobarRuta($archivo)
             {
                 $rutaFichero = "";
-                if(strtolower($archivo[0]) == "c" || $archivo[0] == "/")
+                if(strtolower($archivo[0].$archivo[1]) == "c:" || $archivo[0] == "/")
                 {
                     $rutaFichero = realpath($archivo);
                 }
@@ -117,7 +117,7 @@
                 if(!file_exists(dirname($archivo)))
                 {
                     print "<h3>El directorio " . dirname($archivo) . " no existe</h3>";
-                    mkdir(dirname($archivo),true);
+                    mkdir(dirname($archivo),0777,true);
                     print "<h3>Se ha creado el directorio " . dirname($archivo) . " </h3>";
                 }
             }

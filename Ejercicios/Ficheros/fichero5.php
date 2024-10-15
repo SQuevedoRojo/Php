@@ -101,7 +101,7 @@
             function comprobarRuta($archivo)
             {
                 $rutaFichero = "";
-                if(strtolower($archivo[0]) == "c" || $archivo[0] == "/")
+                if(strtolower($archivo[0].$archivo[1]) == "c:" || $archivo[0] == "/")
                 {
                     $rutaFichero = realpath($archivo);
                 }
