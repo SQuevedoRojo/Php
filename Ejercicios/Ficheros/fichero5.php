@@ -34,53 +34,68 @@
             function mostrarFichero($archivo)
             {
                 $rutaArchivo = comprobarRuta($archivo);
-                $file = fopen($rutaArchivo,"r") or die ("No se encuentra el archivo");
-                while(!feof($file))
+                if(file_exists($rutaArchivo))
                 {
-                    print fgets($file);
-                    print "<br>";
+                    $file = fopen($rutaArchivo,"r") or die ("No se encuentra el archivo");
+                    while(!feof($file))
+                    {
+                        print fgets($file);
+                        print "<br>";
+                    }
+                    fclose($file);
                 }
-                fclose($file);
+                else
+                    print "<h2>No existe el archivo</h2>";
             }
 
             function mostrarLineaFichero($archivo)
             {
                 $rutaArchivo = comprobarRuta($archivo);
                 $lineaEspecifica = $_REQUEST['lineaEspecifica'];
-                $file = fopen($rutaArchivo,"r") or die ("No se encuentra el archivo");
-                $linea = 1;
-                $encontrado = false;
-                while(!feof($file) && !$encontrado)
+                if(file_exists($rutaArchivo))
                 {
-                    if($lineaEspecifica == $linea)
+                    $file = fopen($rutaArchivo,"r") or die ("No se encuentra el archivo");
+                    $linea = 1;
+                    $encontrado = false;
+                    while(!feof($file) && !$encontrado)
                     {
-                        print fgets($file);
-                        print "<br>";
-                        $encontrado = true;
+                        if($lineaEspecifica == $linea)
+                        {
+                            print fgets($file);
+                            print "<br>";
+                            $encontrado = true;
+                        }
                     }
+                    fclose($file);
                 }
-                fclose($file);
+                else
+                    print "<h2>No existe el archivo</h2>";
             }
 
             function mostrarLineasFichero($archivo)
             {
                 $rutaArchivo = comprobarRuta($archivo);
                 $lineasEspecifica = $_REQUEST['lineasEspecifica'];
-                $file = fopen($rutaArchivo,"r") or die ("No se encuentra el archivo");
-                $linea = 1;
-                $encontrado = true;
-                while(!feof($file) && $encontrado)
+                if(file_exists($rutaArchivo))
                 {
-                    if($linea <= $lineasEspecifica)
+                    $file = fopen($rutaArchivo,"r") or die ("No se encuentra el archivo");
+                    $linea = 1;
+                    $encontrado = true;
+                    while(!feof($file) && $encontrado)
                     {
-                        print fgets($file);
-                        print "<br>";
+                        if($linea <= $lineasEspecifica)
+                        {
+                            print fgets($file);
+                            print "<br>";
+                        }
+                        else
+                            $encontrado = false;
+                        $linea += 1;
                     }
-                    else
-                        $encontrado = false;
-                    $linea += 1;
+                    fclose($file);
                 }
-                fclose($file);
+                else
+                    print "<h2>No existe el archivo</h2>";
             }
 
             function comprobarRuta($archivo)
