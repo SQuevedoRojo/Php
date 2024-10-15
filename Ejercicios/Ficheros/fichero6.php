@@ -1,5 +1,5 @@
 <HTML>
-<H1>Ejercicio 5</H1>
+<H1>Ejercicio 6</H1>
 <BODY>
 <h1>Operaciones Ficheros</h1>
     <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
