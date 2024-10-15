@@ -120,7 +120,7 @@
 
             function comprobarDirectorio($archivo)
             {
-                if(!file_exists($archivo))
+                if(!file_exists(dirname($archivo)))
                 {
                     print "<h3>El directorio " . dirname($archivo) . " no existe</h3>";
                     mkdir(dirname($archivo),0777,true);
