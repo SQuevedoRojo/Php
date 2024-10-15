@@ -123,7 +123,7 @@
                 if(!file_exists($archivo))
                 {
                     print "<h3>El directorio " . dirname($archivo) . " no existe</h3>";
-                    mkdir($archivo,0777,false);
+                    mkdir(dirname($archivo),0777,true);
                     print "<h3>Se ha creado el directorio " . dirname($archivo) . " </h3>";
                 }
             }
