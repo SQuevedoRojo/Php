@@ -105,7 +105,8 @@
                 $rutaFichero = "";
                 if (is_string($archivo)) 
                 {
-                    $partes = explode('/', $archivo);
+                    $partes = explode("\\", $archivo);
+                    var_dump($partes) ;
                     if (strtolower($partes[0]) == "c:" || $partes[0] == "/") 
                     {
                         $rutaFichero = realpath($archivo);
