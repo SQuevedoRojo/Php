@@ -120,6 +120,7 @@
                         $rutaFichero = $archivo;
                     }
                 }
+                print $rutaFichero;
                 return $rutaFichero;
             }
 
