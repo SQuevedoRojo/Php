@@ -110,6 +110,7 @@
                     if (strtolower($partes[0]) == "c:" || $partes[0] == "/") 
                     {
                         $rutaFichero = realpath($archivo);
+                        print realpath($archivo);
                     }
                     else 
                     {
