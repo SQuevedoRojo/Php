@@ -61,8 +61,6 @@
                 if(file_exists($rutaArchivoOrigen))
                 {
                     comprobarDirectorio($rutaArchivoDestino);
-                    print $rutaArchivoOrigen;
-                    print $rutaArchivoDestino;
                     if(copy($rutaArchivoOrigen,$rutaArchivoDestino))
                         print "<h3>Se ha copiado el archivo con exito</h3>";
                     else
@@ -105,12 +103,18 @@
             function comprobarRuta($archivo)
             {
                 $rutaFichero = "";
-                if(strtolower($archivo[0].$archivo[1]) == "c:" || $archivo[0] == "/")
+                if (is_string($archivo)) 
                 {
-                    $rutaFichero = realpath($archivo);
+                    $partes = explode('\\', $archivo);
+                    if (strtolower($partes[0]) == "c:" || $partes[0] == "/") 
+                    {
+                        $rutaFichero = realpath($archivo);
+                    }
+                    else 
+                    {
+                        $rutaFichero = "C:\\wamp64\\www\\files\\" . $archivo;
+                    }
                 }
-                else
-                    $rutaFichero = "C:\\wamp64\\www\\files\\".$archivo;
                 return $rutaFichero;
             }
 
