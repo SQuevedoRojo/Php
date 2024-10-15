@@ -57,11 +57,10 @@
             function copiarFichero($archivoOrigen, $archivoDestino)
             {
                 $rutaArchivoOrigen = comprobarRuta($archivoOrigen);
-                $rutaArchivoDestino = comprobarRuta($archivoDestino);
                 if(file_exists($rutaArchivoOrigen))
                 {
-                    comprobarDirectorio($rutaArchivoDestino);
-                    if(copy($rutaArchivoOrigen,$rutaArchivoDestino))
+                    comprobarDirectorio($archivoDestino);
+                    if(copy($rutaArchivoOrigen,$archivoDestino))
                         print "<h3>Se ha copiado el archivo con exito</h3>";
                     else
                         print "<h3>No se ha podido copiar el fichero</h3>";
