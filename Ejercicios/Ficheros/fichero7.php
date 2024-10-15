@@ -78,6 +78,7 @@
                 $rutaArchivoDestino = comprobarRuta($archivoDestino);
                 if($rutaArchivoDestino == "")
                     $rutaArchivoDestino = $archivoDestino;
+                print $rutaArchivoOrigen;
                 if(file_exists($rutaArchivoOrigen))
                 {
                     comprobarDirectorio($rutaArchivoDestino);
