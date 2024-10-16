@@ -1,7 +1,7 @@
 <HTML>
 <H1>Bolsa</H1>
 <BODY>
-<h1>Bolsa EJ 3</h1>
+<h1>Bolsa EJ 4</h1>
 <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
     <label for="valores">Valores : </label><select name="valor" id="valores" required>
         <option value="ACCIONA">ACCIONA</option>
@@ -40,12 +40,23 @@
         <option value="TELEFONICA">TELEFONICA</option>
         <option value="VISCOFAN">VISCOFAN</option>
     </select>
+    <label for="mostrarVal">Mostrar : </label>
+    <select name="mostrar" id="mostrarVal" required>
+        <option value="1">Ultimo Valor</option>
+        <option value="2">Variacion %</option>
+        <option value="3">Variacion</option>
+        <option value="4">Ac%Anual</option>
+        <option value="5">Maximo</option>
+        <option value="6">Minimo</option>
+        <option value="7">Volumen</option>
+        <option value="8">Capitalizacion</option>
+    </select>
     <br>
     <input type="submit" value="enviar">
     <input type="reset" value="borrar">
 </form>
 <?php
-    function leerFichero($valor)
+    function leerFichero($valor,$mostrar)
     {
         if(file_exists("..\\..\\..\\bolsa\\ibex35.txt"))
         {
@@ -59,7 +70,7 @@
                     $datos = separarCampos($datos);
                     if($datos[0] == $valor)
                     {
-                        imprimirDatos($datos);
+                        imprimirDatos($datos,$mostrar);
                     }
                 }
                 $contador += 1;
@@ -91,18 +102,49 @@
         return $data;
     }
 
-    function imprimirDatos($datos)
+    function imprimirDatos($datos,$mostrar)
     {
-        print "<h4>El valor de <strong>COTIZACION</strong> de ". $datos[0] . " es " . $datos[1] . "</h4>";
-        print "<h4><strong>COTIZACION MAXIMA</strong> de ". $datos[0] . " es " . $datos[5] . "</h4>";
-        print "<h4><strong>COTIZACION MINIMA</strong> de ". $datos[0] . " es " . $datos[6] . "</h4>";
+        print "<h4>". saberCampo($mostrar) ." de ". $datos[0] . " es " . $datos[$mostrar] . "</h4>";
+    }
+
+    function saberCampo($campo)
+    {
+        $cadena = "";
+        switch ($campo) {
+            case 1:
+                $cadena = "EL ultimo valor";
+                break;   
+            case 2:
+                $cadena = "La variacion %";
+                break;
+            case 3:
+                $cadena = "La variacion";
+                break;
+            case 4:
+                $cadena = "El ac%Anual";
+                break;
+            case 5:
+                $cadena = "El maximo";
+                break;
+            case 6:
+                $cadena = "El minimo";
+                break;
+            case 7:
+                $cadena = "El volumen";
+                break;
+            case 8:
+                $cadena = "La capitalizacion";
+                break;
+        }
+        return $cadena;
     }
 ?>
 <?php
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $valor = $_REQUEST['valor'];
-        leerFichero($valor);
+        $mostrar = $_REQUEST['mostrar'];
+        leerFichero($valor,$mostrar);
     }
 ?>
 </BODY>
