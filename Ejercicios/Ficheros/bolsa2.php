@@ -15,22 +15,24 @@
             $file = fopen("..\\..\\..\\bolsa\\ibex35.txt","r");
             $contador = 0;
             $encontrado = false;
-            imprimirCabeceraBolsa();
+            
             while(!feof($file))
             {
                 $datos = fgets($file);
                 if($contador > 0)
                 {
                     $datos = separarCampos($datos);
-                    if($datos[0] == $valor)
+                    if(strtolower($datos[0]) == $valor)
                     {
+                        imprimirCabeceraBolsa();
                         imprimirDatos($datos);
+                        imprimirFinBolsa();
                         $encontrado = true;
                     }
                 }
                 $contador += 1;
             }
-            imprimirFinBolsa();
+            
             if(!$encontrado)
                 print "<h3>No se ha encontrado los campos del valor introducido</h3>";
         }       
@@ -80,7 +82,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $valor = limpiar($_REQUEST['valor']);
-        leerFichero($valor);
+        leerFichero(strtolower($valor));
     }
 ?>
 </BODY>
