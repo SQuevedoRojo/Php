@@ -31,15 +31,15 @@
     {
         $datos = array();
         $datos[0] = limpiar(substr($linea,0,23));
-        $datos[1] = limpiar(substr($linea,24,9));
-        $datos[2] = limpiar(substr($linea,33,8));
-        $datos[3] = limpiar(substr($linea,41,8));
-        $datos[4] = limpiar(substr($linea,49,12));
-        $datos[5] = limpiar(substr($linea,61,9));
-        $datos[6] = limpiar(substr($linea,70,9));
-        $datos[7] = limpiar(substr($linea,79,13));
-        $datos[8] = limpiar(substr($linea,92,9));
-        $datos[9] = limpiar(substr($linea,101,5));
+        $datos[1] = limpiar(substr($linea,23,9));
+        $datos[2] = limpiar(substr($linea,32,8));
+        $datos[3] = limpiar(substr($linea,40,8));
+        $datos[4] = limpiar(substr($linea,48,12));
+        $datos[5] = limpiar(substr($linea,60,9));
+        $datos[6] = limpiar(substr($linea,69,9));
+        $datos[7] = limpiar(substr($linea,78,13));
+        $datos[8] = limpiar(substr($linea,91,9));
+        $datos[9] = limpiar(substr($linea,100,5));
         return $datos;
     }
 
