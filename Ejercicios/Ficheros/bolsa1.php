@@ -9,16 +9,19 @@
         {
             $file = fopen("..\\..\\..\\bolsa\\ibex35.txt","r");
             $contador = 0;
+            imprimirCabeceraBolsa();
             while(!feof($file))
             {
+                $datos = fgets($file);
                 if($contador > 0)
                 {
-                    $datos = separarCampos(fgets($file));
+                    $datos = separarCampos($datos);
                     if(count($datos) != 0)
                         imprimirDatos($datos);
                 }
                 $contador += 1;
             }
+            imprimirFinBolsa();
         }   
         else
             print "<h3>No existe el archivo</h3>";
