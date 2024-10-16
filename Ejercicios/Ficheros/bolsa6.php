@@ -12,9 +12,9 @@
             $totalValores = 0;
             $maximaCot = ["",0];
             $minimaCot = ["",9999999999];
-            $maximoVol = ["","0"];
+            $maximoVol = ["",0];
             $minimoVol = ["",999999999];
-            $maximaCap = ["","0"];
+            $maximaCap = ["",0];
             $minimaCap = ["",999999999];
             while(!feof($file))
             {
