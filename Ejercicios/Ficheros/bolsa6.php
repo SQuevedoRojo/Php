@@ -25,10 +25,7 @@
                     $totalValores += (float) str_replace(".","",$datos[1]);
                     saberMaxMin($datos,$maximaCot,$minimaCot,$maximoVol,$minimoVol,$maximaCap,$minimaCap);
                 }
-                else
-                {
-                    $contador += 1;
-                }
+                $contador += 1;
             }
             imprimirDatos($totalValores,$maximaCot,$minimaCot,$maximoVol,$minimoVol,$maximaCap,$minimaCap);
         }       
@@ -43,33 +40,30 @@
             $maximaCot[0] = $datos[0];
             $maximaCot[1] = ((float) str_replace(",",".",$datos[1]));
         }
-        if($minimaCot[1] > ((float) str_replace(",",".",$datos[1])))
+        if($minimaCot[1] > ((float) str_replace(",",".",$datos[1])) && $datos[1]!='')
         {
             $minimaCot[0] = $datos[0];
             $minimaCot[1] = ((float) str_replace(",",".",$datos[1]));
-            var_dump($datos);
         }
         if($maximoVol[1] < ((float) str_replace(".","",$datos[7])))
         {
             $maximoVol[0] = $datos[0];
             $maximoVol[1] = ((float) str_replace(".","",$datos[7]));
         }
-        if($minimoVol[1] > ((float) str_replace(".","",$datos[7])))
+        if($minimoVol[1] > ((float) str_replace(".","",$datos[7])) && $datos[7]!='')
         {
             $minimoVol[0] = $datos[0];
             $minimoVol[1] = ((float) str_replace(".","",$datos[7]));
-            var_dump($datos);
         }
         if($maximaCap[1] < ((float) str_replace(".","",$datos[8])))
         {
             $maximaCap[0] = $datos[0];
             $maximaCap[1] = ((float) str_replace(".","",$datos[8]));
         }
-        if($minimaCap[1] > ((float) str_replace(".","",$datos[8])))
+        if($minimaCap[1] > ((float) str_replace(".","",$datos[8])) && $datos[8]!='')
         {
             $minimaCap[0] = $datos[0];
             $minimaCap[1] = ((float) str_replace(".","",$datos[8]));
-            var_dump($datos);
         }
     }
 
