@@ -13,7 +13,7 @@
             while(!feof($file))
             {
                 $datos = fgets($file);
-                if($contador > 0)
+                if($contador > 0 || $datos = "")
                 {
                     $datos = separarCampos($datos);
                     if(count($datos) != 0)
