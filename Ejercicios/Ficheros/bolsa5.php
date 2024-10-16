@@ -76,7 +76,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $mostrar = $_REQUEST['mostrar'];
-        leerFichero($mostrar);
+        leerFichero(intval($mostrar));
     }
 ?>
 </BODY>
