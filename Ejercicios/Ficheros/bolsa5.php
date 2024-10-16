@@ -70,6 +70,7 @@
             $cadena = "Total volumen";
         else
             $cadena = "Total capitalizacion";
+        return $cadena;
     }
 ?>
 <?php
