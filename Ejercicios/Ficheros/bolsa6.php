@@ -19,13 +19,16 @@
             while(!feof($file))
             {
                 $datos = fgets($file);
-                if($contador > 0)
+                if($contador > 0 || $datos != "")
                 {
                     $datos = separarCampos($datos);
                     $totalValores += (float) str_replace(".","",$datos[1]);
                     saberMaxMin($datos,$maximaCot,$minimaCot,$maximoVol,$minimoVol,$maximaCap,$minimaCap);
                 }
-                $contador += 1;
+                else
+                {
+                    $contador += 1;
+                }
             }
             imprimirDatos($totalValores,$maximaCot,$minimaCot,$maximoVol,$minimoVol,$maximaCap,$minimaCap);
         }       
