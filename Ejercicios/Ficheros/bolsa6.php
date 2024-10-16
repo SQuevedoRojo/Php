@@ -24,6 +24,7 @@
                     $datos = separarCampos($datos);
                     $totalValores += (float) str_replace(".","",$datos[1]);
                     saberMaxMin($datos,$maximaCot,$minimaCot,$maximoVol,$minimoVol,$maximaCap,$minimaCap);
+                    var_dump($datos);
                 }
                 else
                 {
