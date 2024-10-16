@@ -60,7 +60,7 @@
 
     function imprimirDatos($total,$mostrar)
     {
-        print "<h4>". saberCampo($mostrar) ." " . $total . "</h4>";
+        print "<h4>". saberCampos($mostrar) ." " . $total . "</h4>";
     }
 
     function saberCampos($mostrar)
