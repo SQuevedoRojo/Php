@@ -1,7 +1,7 @@
 <HTML>
-<H1>Ejercicio 1</H1>
+<H1>Bolsa</H1>
 <BODY>
-<h1>Datos Alumnos</h1>
+<h1>Bolsa EJ 1</h1>
 <?php
     function leerFichero()
     {
@@ -13,7 +13,7 @@
             while(!feof($file))
             {
                 $datos = fgets($file);
-                if($contador > 0 || $datos = "")
+                if($contador > 0 || $datos = " ")
                 {
                     $datos = separarCampos($datos);
                     if(count($datos) != 0)
