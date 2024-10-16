@@ -45,7 +45,7 @@
             $minimaCot[0] = $datos[0];
             $minimaCot[1] = $datos[1];
         }
-        if(((float) str_replace(".","",$maximoVol[1][1])) < ((float) str_replace(".","",$datos[7])))
+        if(((float) str_replace(".","",$maximoVol[1])) < ((float) str_replace(".","",$datos[7])))
         {
             $maximoVol[0] = $datos[0];
             $maximoVol[1] = $datos[7];
