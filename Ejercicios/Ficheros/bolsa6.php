@@ -12,10 +12,10 @@
             $totalValores = 0;
             $maximaCot = ["",0];
             $minimaCot = ["",9999999999];
-            $maximoVol = ["",0];
-            $minimoVol = ["",9999999999];
-            $maximaCap = ["",0];
-            $minimaCap = ["",9999999999];
+            $maximoVol = ["","0"];
+            $minimoVol = ["","9999999999"];
+            $maximaCap = ["","0"];
+            $minimaCap = ["","9999999999"];
             while(!feof($file))
             {
                 $datos = fgets($file);
