@@ -3,7 +3,7 @@
 <BODY>
 <h1>Bolsa EJ 3</h1>
 <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
-    <label for="valores">Valores : </label><input type="select" name="valor" id="valores" required>
+    <label for="valores">Valores : </label><select name="valor" id="valores" required>
         <option value="ACCIONA">ACCIONA</option>
         <option value="ACERINOX">ACERINOX</option>
         <option value="ACS">ACS</option>
@@ -39,6 +39,7 @@
         <option value="TECNICAS REUNIDAS">TECNICAS REUNIDAS</option>
         <option value="TELEFONICA">TELEFONICA</option>
         <option value="VISCOFAN">VISCOFAN</option>
+    </select>
     <br>
     <input type="submit" value="enviar">
     <input type="reset" value="borrar">
