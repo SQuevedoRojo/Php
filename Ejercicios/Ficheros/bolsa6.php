@@ -11,11 +11,11 @@
             $contador = 0;
             $totalValores = 0;
             $maximaCot = ["",0];
-            $minimaCot = ["",INF];
+            $minimaCot = ["",9999999999];
             $maximoVol = ["",0];
-            $minimoVol = ["",INF];
+            $minimoVol = ["",9999999999];
             $maximaCap = ["",0];
-            $minimaCap = ["",INF];
+            $minimaCap = ["",9999999999];
             while(!feof($file))
             {
                 $datos = fgets($file);
