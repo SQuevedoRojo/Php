@@ -26,7 +26,7 @@
                 if($contador > 0)
                 {
                     $datos = separarCampos($datos);
-                    $total += $datos[$mostrar];
+                    $total += intval($datos[$mostrar]);
                 }
                 $contador += 1;
             }
