@@ -1,7 +1,7 @@
 <HTML>
 <H1>Bolsa</H1>
 <BODY>
-<h1>Bolsa EJ 1</h1>
+<h1>Bolsa EJ 2</h1>
 <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
     Valor Bursatil :<input type="text" name="valor" required><br>
     <input type="submit" value="enviar">
