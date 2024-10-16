@@ -1,7 +1,7 @@
 <HTML>
 <H1>Bolsa</H1>
 <BODY>
-<h1>Bolsa EJ 2</h1>
+<h1>Bolsa EJ 3</h1>
 <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
     <label for="valores">Valores : </label><input type="select" name="valor" id="valores" required>
         <option value="ACCIONA">ACCIONA</option>
