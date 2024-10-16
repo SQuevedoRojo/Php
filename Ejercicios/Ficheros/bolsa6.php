@@ -13,9 +13,9 @@
             $maximaCot = ["",0];
             $minimaCot = ["",9999999999];
             $maximoVol = ["","0"];
-            $minimoVol = ["","9.999.999.999"];
+            $minimoVol = ["","999.999.999"];
             $maximaCap = ["","0"];
-            $minimaCap = ["","9.999.999.999"];
+            $minimaCap = ["","999.999.999"];
             while(!feof($file))
             {
                 $datos = fgets($file);
