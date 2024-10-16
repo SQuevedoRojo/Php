@@ -13,9 +13,9 @@
             $maximaCot = ["",0];
             $minimaCot = ["",9999999999];
             $maximoVol = ["","0"];
-            $minimoVol = ["","999.999.999"];
+            $minimoVol = ["",999999999];
             $maximaCap = ["","0"];
-            $minimaCap = ["","999.999.999"];
+            $minimaCap = ["",999999999];
             while(!feof($file))
             {
                 $datos = fgets($file);
@@ -45,22 +45,22 @@
             $minimaCot[0] = $datos[0];
             $minimaCot[1] = $datos[1];
         }
-        if(((float) str_replace(".","",$maximoVol[1])) < ((float) str_replace(".","",$datos[7])))
+        if($maximoVol[1] < ((float) str_replace(".","",$datos[7])))
         {
             $maximoVol[0] = $datos[0];
             $maximoVol[1] = $datos[7];
         }
-        if(((float) str_replace(".","",$minimoVol[1])) > ((float) str_replace(".","",$datos[7])))
+        if($minimoVol[1] > ((float) str_replace(".","",$datos[7])))
         {
             $minimoVol[0] = $datos[0];
             $minimoVol[1] = $datos[7];
         }
-        if(((float) str_replace(".","",$maximaCap[1])) < ((float) str_replace(".","",$datos[8])))
+        if($maximaCap[1] < ((float) str_replace(".","",$datos[8])))
         {
             $maximaCap[0] = $datos[0];
             $maximaCap[1] = $datos[8];
         }
-        if(((float) str_replace(".","",$minimaCap[1])) > ((float) str_replace(".","",$datos[8])))
+        if($minimaCap[1] > ((float) str_replace(".","",$datos[8])))
         {
             $minimaCap[0] = $datos[0];
             $minimaCap[1] = $datos[8];
