@@ -40,7 +40,7 @@
             //$Madrid = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml");
             print "<h4>" . $lasRozas->nombre . "    ";
             print $lasRozas->prediccion->dia[0]['fecha']. "</h4>";
-            $rutaDia = $lasRozas->xpath('/root/prediccion');
+            $rutaDia = $lasRozas->xpath('/root/prediccion/dia');
             foreach ($rutaDia as $dias) {
                 print "<br>";
                 print $dias;
