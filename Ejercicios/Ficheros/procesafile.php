@@ -39,13 +39,11 @@
             $lasRozas = new SimpleXMLElement("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml",0,true,"",false);
             //$Madrid = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml");
             print "<h4>" . $lasRozas->nombre . "    ";
-            print $lasRozas->prediccion->dia[0]['fecha']. "</h4>";
             $rutaDia = $lasRozas->xpath('/root/prediccion/dia');
             cabeceraTablaTiempo($lasRozas);
             foreach ($rutaDia as $dias) {
-                print "<br>";
                 foreach ($dias->children() as $dia) {
-                    if($dia == "prob_precipitacion")
+                    if($dia->getName() == "prob_precipitacion")
                     {
                         print "<tr><th>Periodo</th>";
                         foreach($dia->prob_precipitacion as $precipitacion)
