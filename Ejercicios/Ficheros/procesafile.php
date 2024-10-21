@@ -44,7 +44,10 @@
             var_dump($rutaDia);
             foreach ($rutaDia as $dias) {
                 print "<br>";
-                print $dias;
+                foreach ($dias as $dia) {
+                    print $dia;
+                    print "<br>";
+                }
             }
         }
         else
