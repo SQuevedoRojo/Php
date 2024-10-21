@@ -16,7 +16,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $valor = $_REQUEST['mostrar'];
-        leerFichero2(strtolower($valor));
+        opcion($valor);
     }
 ?>
 <?php
