@@ -41,7 +41,7 @@
             print "<h4>" . $lasRozas->nombre . "    ";
             print $lasRozas->prediccion->dia[0]['fecha']. "</h4>";
             $rutaDia = $lasRozas->xpath('/root/prediccion/dia');
-            print $rutaDia;
+            var_dump($rutaDia);
             foreach ($rutaDia as $dias) {
                 print "<br>";
                 print $dias;
