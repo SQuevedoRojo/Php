@@ -38,9 +38,10 @@
         {
             $lasRozas = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml");
             //$Madrid = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml");
-            var_dump($lasRozas);
-            print $lasRozas->nombre;
-            print $lasRozas->prediccion->dia[0]['fecha'];
+            var_dump($lasRozas->prediccion->dia);
+            print "<h4>" . $lasRozas->nombre . "    ";
+            print $lasRozas->prediccion->dia[0]['fecha']. "</h4>";
+            print "<h4>Periodo " . $lasRozas->prediccion->dia[0]->prob_precipitacion['periodo'];
         }
         else
         {
