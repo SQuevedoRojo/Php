@@ -41,13 +41,25 @@
             print "<h4>" . $lasRozas->nombre . "    ";
             print $lasRozas->prediccion->dia[0]['fecha']. "</h4>";
             $rutaDia = $lasRozas->xpath('/root/prediccion/dia');
-            var_dump($rutaDia);
+            cabeceraTablaTiempo($lasRozas);
             foreach ($rutaDia as $dias) {
                 print "<br>";
                 foreach ($dias->children() as $dia) {
-                    print "<h4>".$dia->getName()  ." ". $dia['periodo'] . "</h4>";
-                    print $dia;
-                    print "<br>";
+                    if($dia == "prob_precipitacion")
+                    {
+                        print "<tr><th>Periodo</th>";
+                        foreach($dia->prob_precipitacion as $precipitacion)
+                        {
+                            print "<th>".$precipitacion['periodo'] ."</th>";
+                        }
+                        print "</tr>";
+                        print "<tr><th>Prob. Precipitación</th>";
+                        foreach($dia->prob_precipitacion as $precipitacion)
+                        {
+                            print "<th>".$precipitacion ."</th>";
+                        }
+                        print "</tr>";
+                    }
                 }
             }
         }
@@ -56,6 +68,12 @@
             print "<h3>No se ha encontrado el archivo</h3>";
         }
 
+    }
+
+    function cabeceraTablaTiempo($xml)
+    {
+        print "<table border='1'>";
+        print "<tr><th>" . $xml->nombre . "</th><th rowspan='7'>" . $xml->prediccion->dia[0]['fecha'] . "</th></tr>";
     }
 
     function censo()
