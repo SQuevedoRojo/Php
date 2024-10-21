@@ -45,6 +45,7 @@
             foreach ($rutaDia as $dias) {
                 print "<br>";
                 foreach ($dias as $dia) {
+                    print "<h4>Periodo ". $dia['periodo'] . "</h4>";
                     print $dia;
                     print "<br>";
                 }
