@@ -41,12 +41,11 @@
             $rutaDia = $lasRozas->xpath('/root/prediccion/dia');
             cabeceraTablaTiempo($lasRozas);
             foreach ($rutaDia as $dias) {
+                $contador = 0;
                 foreach ($dias->children() as $dia) {
-                    var_dump ($dia->getName());
-                    $contador = 0;
                     if($contador == 0)
                         print "<tr><th>Periodo</th>";
-                    if($dia->getName() == "prob_precipitacion")
+                    if($dia->getName() == 'prob_precipitacion')
                     {
                         foreach($dia->prob_precipitacion as $precipitacion)
                         {
@@ -58,7 +57,7 @@
                         print "</tr>";
                         print "<tr><th>Prob. Precipitación</th>";
                     }
-                    if($dia->getName() == "prob_precipitacion")
+                    if($dia->getName() == 'prob_precipitacion')
                     {
                         foreach($dia->prob_precipitacion as $precipitacion)
                         {
