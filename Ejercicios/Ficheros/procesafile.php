@@ -36,12 +36,15 @@
     {
         if(file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml") && file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml"))
         {
-            $lasRozas = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml");
+            $lasRozas = new SimpleXMLElement("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml");
             //$Madrid = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml");
-            var_dump($lasRozas->prediccion->dia);
             print "<h4>" . $lasRozas->nombre . "    ";
             print $lasRozas->prediccion->dia[0]['fecha']. "</h4>";
-            print "<h4>Periodo " . $lasRozas->prediccion->dia[0]->prob_precipitacion['periodo'];
+            $rutaDia = $lasRozas->xpath('/root/prediccion');
+            foreach ($rutaDia as $dias) {
+                print "<br>";
+                print $dias;
+            }
         }
         else
         {
