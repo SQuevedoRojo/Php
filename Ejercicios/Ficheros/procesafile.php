@@ -44,7 +44,7 @@
             var_dump($rutaDia);
             foreach ($rutaDia as $dias) {
                 print "<br>";
-                foreach ($dias as $dia) {
+                foreach ($dias->children() as $dia) {
                     print "<h4>Periodo ". $dia['periodo'] . "</h4>";
                     print $dia;
                     print "<br>";
