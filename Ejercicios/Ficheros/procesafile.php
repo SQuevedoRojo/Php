@@ -42,7 +42,10 @@
             cabeceraTablaTiempo($lasRozas);
             foreach ($rutaDia as $dias) {
                 foreach ($dias->children() as $dia) {
-                    print "<tr><th>Periodo</th>";
+                    var_dump ($dia->getName());
+                    $contador = 0;
+                    if($contador == 0)
+                        print "<tr><th>Periodo</th>";
                     if($dia->getName() == "prob_precipitacion")
                     {
                         foreach($dia as $precipitacion)
@@ -50,8 +53,11 @@
                             print "<th>".$precipitacion['periodo'] ."</th>";
                         }   
                     }
-                    print "</tr>";
-                    print "<tr><th>Prob. Precipitación</th>";
+                    if($contador == 0)
+                    {
+                        print "</tr>";
+                        print "<tr><th>Prob. Precipitación</th>";
+                    }
                     if($dia->getName() == "prob_precipitacion")
                     {
                         foreach($dia as $precipitacion)
@@ -59,7 +65,12 @@
                             print "<th>".$precipitacion ."</th>";
                         }
                     }
-                    print "</tr>";
+                    if($contador == 0)
+                    {
+                        print "</tr>";
+                        $contador += 1;
+                    }
+
                 }
             }
         }
@@ -73,7 +84,7 @@
     function cabeceraTablaTiempo($xml)
     {
         print "<table border='1'>";
-        print "<tr><th>" . $xml->nombre . "</th><th rowspan='7'>" . $xml->prediccion->dia[0]['fecha'] . "</th></tr>";
+        print "<tr><th>" . $xml->nombre . "</th><th colspan='7'>" . $xml->prediccion->dia[0]['fecha'] . "</th></tr>";
     }
 
     function censo()
