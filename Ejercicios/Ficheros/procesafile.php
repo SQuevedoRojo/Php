@@ -36,9 +36,9 @@
     {
         if(file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml") && file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml"))
         {
-            $lasRozas = readfile("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml");
+            $lasRozas = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml");
             //$Madrid = fopen("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml","r");
-            var_dump( $lasRozas);
+            var_dump($lasRozas);
         }
         else
         {
