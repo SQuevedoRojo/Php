@@ -36,9 +36,10 @@
     {
         if(file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml") && file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml"))
         {
-            $lasRozas = fopen("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml","r");
-            $Madrid = fopen("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml","r");
-            print fread($lasRozas,filesize("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml"));
+            $lasRozas = readfile("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml");
+            readfile("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml");
+            //$Madrid = fopen("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml","r");
+            print $lasRozas;
         }
         else
         {
