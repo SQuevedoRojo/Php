@@ -45,7 +45,7 @@
             foreach ($rutaDia as $dias) {
                 print "<br>";
                 foreach ($dias->children() as $dia) {
-                    print "<h4>Periodo ". $dia['periodo'] . "</h4>";
+                    print "<h4>".$dia->getName()  ." ". $dia['periodo'] . "</h4>";
                     print $dia;
                     print "<br>";
                 }
