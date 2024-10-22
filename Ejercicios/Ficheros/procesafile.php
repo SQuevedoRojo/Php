@@ -85,11 +85,11 @@
             {  
                 if($dia->getName() == $recoger)
                 {
-                    $datos = $dia;
+                    $datos[] = $dia;
                 }
             }
         }
-        return $dia;
+        return $datos;
     }
     
     function cabeceraTablaTiempo($xml)
