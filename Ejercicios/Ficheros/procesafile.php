@@ -51,8 +51,7 @@
                         {  
                             if($dia->getName() == 'prob_precipitacion')
                             {
-                                $dia->rewind();
-                                foreach($dia as $precipitacion)
+                                foreach($dias as $precipitacion)
                                 {
                                     var_dump($precipitacion);
                                     print "<th>".$precipitacion['periodo'] ."</th>";
