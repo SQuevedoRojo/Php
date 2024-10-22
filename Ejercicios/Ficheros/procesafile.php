@@ -47,10 +47,10 @@
             $temperatura = recogerDatosTiempo($rutaDia,$mostrarXML[2]);
             $senTermica = recogerDatosTiempo($rutaDia,$mostrarXML[3]);
             imprimirPeriodoTiempo($rutaDia,"prob_precipitacion","Periodo");
-            var_dump($probPre);
-            var_dump($viento);
-            var_dump($temperatura);
-            var_dump($senTermica);
+            imprimirDatosTiempo($probPre,$mostrarTabla[0]);
+            imprimirDatosTiempo($viento,$mostrarTabla[1]);
+            imprimirDatosTiempo($temperatura,$mostrarTabla[2]);
+            imprimirDatosTiempo($senTermica,$mostrarTabla[3]);
         }
         else
         {
@@ -75,6 +75,7 @@
                 }
             }
         }
+        terminarFilaTiempo();
     }
 
     function recogerDatosTiempo($rutaDia,$recoger)
@@ -90,6 +91,18 @@
             }
         }
         return $datos;
+    }
+
+    function imprimirDatosTiempo($datos,$mostrar)
+    {
+        print "<tr><th>$mostrar</th>";
+        foreach($datos as $dato)
+        {
+            if($dato != null)
+                print "<th>".$dato ."</th>";
+            else
+                print "<th>---</th>";
+        }
     }
     
     function cabeceraTablaTiempo($xml)
