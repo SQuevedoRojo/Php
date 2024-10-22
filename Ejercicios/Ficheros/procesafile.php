@@ -85,7 +85,7 @@
     {
         print "<table border='1'>";
         print "<tr><th>" . $xml->nombre . "</th>";
-        for ($i=0; $i < 6; $i++) 
+        for ($i=0; $i <= 6; $i++) 
         { 
             $colspan = saberColSpanTiempo($i+1);
             print ("<th colspan='$colspan'>" . $xml->prediccion->dia[$i]['fecha'] . "</th>");
