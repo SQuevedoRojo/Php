@@ -40,41 +40,17 @@
             //$Madrid = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml");
             $rutaDia = $lasRozas->xpath('/root/prediccion/dia');
             cabeceraTablaTiempo($lasRozas);
-            $contador = 0;
-            
-            if($contador == 0)
-                print "<tr><th>Periodo</th>";
-            foreach ($rutaDia as $dias) {
-                foreach($dias as $dia)
-                {  
-                    if($dia->getName() == 'prob_precipitacion')
-                    {
-                        if($dia['periodo'] != null)
-                            print "<th>".$dia['periodo'] ."</th>";
-                        else
-                            print "<th>---</th>";
-                    }
-                }
-            }
-            if($contador == 0)
-            {
-                terminarFilaTiempo();
-                print "<tr><th>Prob. Precipitación</th>";
-            }
-            foreach ($rutaDia as $dias) {
-                foreach($dias as $dia)
-                {  
-                    if($dia->getName() == 'prob_precipitacion')
-                    {
-                        print "<th>".$dia ."</th>";
-                    }
-                }
-            }
-            if($contador == 0)
-            {
-                terminarFilaTiempo();
-                $contador += 1;
-            }
+            $mostrarXML = ["prob_precipitacion","viento","temperatura","sens_termica"];
+            $mostrarTabla = ["Prob. Precipitación","Viento (km/h)","Sensación Térmica (ºC) ","Temp. Max – Min (ºC)"];
+            $probPre = recogerDatosTiempo($rutaDia,$mostrarXML[0]);
+            $viento = recogerDatosTiempo($rutaDia,$mostrarXML[1]);
+            $temperatura = recogerDatosTiempo($rutaDia,$mostrarXML[2]);
+            $senTermica = recogerDatosTiempo($rutaDia,$mostrarXML[3]);
+            imprimirPeriodoTiempo($rutaDia,"prob_precipitacion","Periodo");
+            var_dump($probPre);
+            var_dump($viento);
+            var_dump($temperatura);
+            var_dump($senTermica);
         }
         else
         {
@@ -84,6 +60,38 @@
 
     }
 
+    function imprimirPeriodoTiempo($rutaDia,$mostrar,$mostrarTabla)
+    {
+        print "<tr><th>$mostrarTabla</th>";
+        foreach ($rutaDia as $dias) {
+            foreach($dias as $dia)
+            {  
+                if($dia->getName() == $mostrar)
+                {
+                    if($dia['periodo'] != null)
+                        print "<th>".$dia['periodo'] ."</th>";
+                    else
+                        print "<th>---</th>";
+                }
+            }
+        }
+    }
+
+    function recogerDatosTiempo($rutaDia,$recoger)
+    {
+        $datos = array();
+        foreach ($rutaDia as $dias) {
+            foreach($dias as $dia)
+            {  
+                if($dia->getName() == $recoger)
+                {
+                    $datos = $dia;
+                }
+            }
+        }
+        return $dia;
+    }
+    
     function cabeceraTablaTiempo($xml)
     {
         print "<table border='1'>";
@@ -111,16 +119,6 @@
                 break;
         }
         return $colspan;
-    }
-
-    function seguirTablaTiempo($valor)
-    {
-        print "<tr><th>$valor</th>";
-    }
-
-    function seguirFilaTiempo($valor)
-    {
-        print "<th>".$valor ."</th>";
     }
 
     function terminarFilaTiempo()
