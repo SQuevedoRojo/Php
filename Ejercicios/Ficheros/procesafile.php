@@ -51,10 +51,10 @@
             var_dump($viento);
             var_dump($temperatura);
             var_dump($senTermica);
-            imprimirDatosTiempo($probPre,$mostrarTabla[0]);
-            imprimirDatosTiempo($viento,$mostrarTabla[1]);
-            imprimirDatosTiempo($temperatura,$mostrarTabla[2]);
-            imprimirDatosTiempo($senTermica,$mostrarTabla[3]);
+            imprimirDatosTiempoProbPre($probPre,$mostrarTabla[0]);
+            imprimirDatosTiempoViento($viento,$mostrarTabla[1]);
+            imprimirDatosTiempoSen($senTermica,$mostrarTabla[3]);
+            imprimirDatosTiempoTemp($temperatura,$mostrarTabla[2]);
         }
         else
         {
@@ -97,15 +97,55 @@
         return $datos;
     }
 
-    function imprimirDatosTiempo($datos,$mostrar)
+    function imprimirDatosTiempoProbPre($datos,$mostrar)
     {
         print "<tr><th>$mostrar</th>";
         foreach($datos as $dato)
         {
             if($dato != null)
-                print "<th>".$dato ."</th>";
+                print "<th>".$dato[0] ."</th>";
             else
                 print "<th>---</th>";
+        }
+    }
+
+    function imprimirDatosTiempoViento($datos,$mostrar)
+    {
+        print "<tr><th>$mostrar</th>";
+        foreach($datos as $dato)
+        {
+            if($dato != null)
+                print "<th>".$dato['direccion'] ."  " . $dato['velocidad'] . "</th>";
+            else
+                print "<th>---</th>";
+        }
+    }
+
+    function imprimirDatosTiempoTemp($datos,$mostrar)
+    {
+        print "<tr><th>$mostrar</th>";
+        foreach($datos as $dato)
+        {
+            if($dato != null)
+                print "<th>".$dato['minima'] ."/". $dato['maxima'] . "</th>";
+            else
+                print "<th>---</th>";
+        }
+    }
+
+    function imprimirDatosTiempoSen($datos,$mostrar)
+    {
+        print "<tr><th>$mostrar</th>";
+        foreach($datos as $dato)
+        {
+            if(count($dato['dato']) == 4)
+            {
+                print "<th></th><th></th><th></th>";
+                foreach($dato['dato'] as $valores)
+                print "<th>". $valores ."</th>";
+            }
+            else
+                print "<th>". $dato['minima'] ."/". $dato['maxima'] ."</th>";
         }
     }
     
