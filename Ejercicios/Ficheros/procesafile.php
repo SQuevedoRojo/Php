@@ -44,8 +44,9 @@
             
             foreach ($rutaDia as $dias) {
                 //var_dump($dias);
-                print $dias->children()->getName();
-                //foreach ($dias->children() as $dia) {
+                
+                foreach ($dias->children() as $dia) {
+                    print $dia->children()->getName();
                     if($contador == 0)
                         print "<tr><th>Periodo</th>";
                     if($dias->getName() === 'prob_precipitacion')
@@ -73,7 +74,7 @@
                         $contador += 1;
                     }
 
-                //}
+                }
             }
         }
         else
