@@ -52,6 +52,7 @@
                         {
                             foreach($dias->prob_precipitacion as $precipitacion)
                             {
+                                var_dump($precipitacion);
                                 print "<th>".$precipitacion['periodo'] ."</th>";
                             }   
                         }
