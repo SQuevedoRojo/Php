@@ -112,10 +112,7 @@
         foreach($datos as $dato)
         {
             var_dump($dato);
-            if($dato != null)
-                print "<th>".$dato['direccion'] ."  " . $dato['velocidad'] . "</th>";
-            else
-                print "<th>---</th>";
+                print "<th>".$dato ."  " . $dato['velocidad'] . "</th>";
         }
     }
 
@@ -126,7 +123,7 @@
         {
             var_dump($dato);
             if($dato != null)
-                print "<th>".$dato['minima'] ."/". $dato['maxima'] . "</th>";
+                print "<th>".$dato ."/". $dato['maxima'] . "</th>";
             else
                 print "<th>---</th>";
         }
