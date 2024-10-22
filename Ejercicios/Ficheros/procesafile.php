@@ -47,6 +47,10 @@
             $temperatura = recogerDatosTiempo($rutaDia,$mostrarXML[2]);
             $senTermica = recogerDatosTiempo($rutaDia,$mostrarXML[3]);
             imprimirPeriodoTiempo($rutaDia,"prob_precipitacion","Periodo");
+            var_dump($probPre);
+            var_dump($viento);
+            var_dump($temperatura);
+            var_dump($senTermica);
             imprimirDatosTiempo($probPre,$mostrarTabla[0]);
             imprimirDatosTiempo($viento,$mostrarTabla[1]);
             imprimirDatosTiempo($temperatura,$mostrarTabla[2]);
