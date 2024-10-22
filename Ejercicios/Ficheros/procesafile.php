@@ -46,7 +46,7 @@
                 //var_dump($dias);
                 
                 foreach ($dias->children() as $dia) {
-                    print $dia->children()->getName();
+                    print $dia->getName();
                     if($contador == 0)
                         print "<tr><th>Periodo</th>";
                     if($dias->getName() === 'prob_precipitacion')
