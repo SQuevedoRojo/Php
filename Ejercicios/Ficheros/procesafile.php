@@ -47,9 +47,10 @@
                     {
                         if($contador == 0)
                             print "<tr><th>Periodo</th>";
+                            var_dump($dias);
                         foreach($dias as $dia)
                         {
-                            var_dump($dia);
+                            
                             if($dia->getName() == 'prob_precipitacion')
                             {
                                 foreach($dia->prob_precipitacion as $precipitacion)
