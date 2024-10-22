@@ -47,11 +47,11 @@
                     {
                         if($contador == 0)
                             print "<tr><th>Periodo</th>";
-                        foreach($dias->children() as $dia)
+                        foreach($dias as $dia)
                         {
                             if($dia->getName() == 'prob_precipitacion')
                             {
-                                foreach($dia as $precipitacion)
+                                foreach($dia->prob_precipitacion as $precipitacion)
                                 {
                                     print "<th>".$precipitacion['periodo'] ."</th>";
                                 }   
@@ -62,11 +62,11 @@
                             terminarFilaTiempo();
                             print "<tr><th>Prob. Precipitación</th>";
                         }
-                        foreach($dias->children() as $dia)
+                        foreach($dias as $dia)
                         {
                             if($dia->getName() == 'prob_precipitacion')
                             {
-                                foreach($dia as $precipitacion)
+                                foreach($dia->prob_precipitacion as $precipitacion)
                                 {
                                     print "<th>".$precipitacion ."</th>";
                                 }
