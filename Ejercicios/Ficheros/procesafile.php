@@ -43,45 +43,48 @@
             $contador = 0;
             $contadorDia = 1;
             foreach ($rutaDia as $dias) {
-                //var_dump($dias);
-                
-                foreach ($dias->children() as $dia) {
                     if($contadorDia == 1)
                     {
                         if($contador == 0)
                             print "<tr><th>Periodo</th>";
-                        if($dia->getName() == 'prob_precipitacion')
+                        foreach($dias as $dia)
                         {
-                            foreach($dias->prob_precipitacion as $precipitacion)
+                            if($dia->getName() == 'prob_precipitacion')
                             {
-                                print "<th>".$precipitacion['periodo'] ."</th>";
-                            }   
-                        }
-                        if($contador == 0)
-                        {
-                            terminarFila();
-                            print "<tr><th>Prob. Precipitación</th>";
-                        }
-                        if($dia->getName() == 'prob_precipitacion')
-                        {
-                            foreach($dias->prob_precipitacion as $precipitacion)
-                            {
-                                print "<th>".$precipitacion ."</th>";
+                                foreach($dias->prob_precipitacion as $precipitacion)
+                                {
+                                    print "<th>".$precipitacion['periodo'] ."</th>";
+                                }   
                             }
                         }
                         if($contador == 0)
                         {
-                            terminarFila();
+                            terminarFilaTiempo();
+                            print "<tr><th>Prob. Precipitación</th>";
+                        }
+                        foreach($dias as $dia)
+                        {
+                            if($dia->getName() == 'prob_precipitacion')
+                            {
+                                foreach($dias->prob_precipitacion as $precipitacion)
+                                {
+                                    print "<th>".$precipitacion ."</th>";
+                                }
+                            }
+                        }
+                        if($contador == 0)
+                        {
+                            terminarFilaTiempo();
                             $contador += 1;
                         }
                     }
                     $contadorDia += 1;
                 }
-            }
         }
         else
         {
             print "<h3>No se ha encontrado el archivo</h3>";
+            die();
         }
 
     }
@@ -92,24 +95,40 @@
         print "<tr><th>" . $xml->nombre . "</th>";
         for ($i=0; $i < 6; $i++) 
         { 
-            print ("<th colspan='7'>" . $xml->prediccion->dia[$i]['fecha'] . "</th>");
+            $colspan = saberColSpanTiempo($i+1);
+            print ("<th colspan='$colspan'>" . $xml->prediccion->dia[$i]['fecha'] . "</th>");
         }
-        terminarFila();
+        terminarFilaTiempo();
     }
 
+    function saberColSpanTiempo($posicionDia)
+    {
+        $colspan = 0;
+        switch ($posicionDia) {
+            case 1: case 2:
+                $colspan = 7;
+                break;
+            case 3: case 4:
+                $colspan = 3;
+                break;
+            default :
+                $colspan = 1;
+                break;
+        }
+        return $colspan;
+    }
 
-
-    function seguirTabla($valor)
+    function seguirTablaTiempo($valor)
     {
         print "<tr><th>$valor</th>";
     }
 
-    function seguirFila($valor)
+    function seguirFilaTiempo($valor)
     {
         print "<th>".$valor ."</th>";
     }
 
-    function terminarFila()
+    function terminarFilaTiempo()
     {
         print "</tr>";
     }
