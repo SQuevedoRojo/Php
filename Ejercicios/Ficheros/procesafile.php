@@ -41,34 +41,37 @@
             $rutaDia = $lasRozas->xpath('/root/prediccion/dia');
             cabeceraTablaTiempo($lasRozas);
             $contador = 0;
+            
+            if($contador == 0)
+                print "<tr><th>Periodo</th>";
             foreach ($rutaDia as $dias) {
-                    if($contador == 0)
-                        print "<tr><th>Periodo</th>";
-                    foreach($dias as $dia)
-                    {  
-                        if($dia->getName() == 'prob_precipitacion')
-                        {
-                            print "<th>".$dia['periodo'] ."</th>";
-                        }
-                    }
-                    if($contador == 0)
+                foreach($dias as $dia)
+                {  
+                    if($dia->getName() == 'prob_precipitacion')
                     {
-                        terminarFilaTiempo();
-                        print "<tr><th>Prob. Precipitación</th>";
-                    }
-                    foreach($dias as $dia)
-                    {  
-                        if($dia->getName() == 'prob_precipitacion')
-                        {
-                                print "<th>".$dia ."</th>";
-                        }
-                    }
-                    if($contador == 0)
-                    {
-                        terminarFilaTiempo();
-                        $contador += 1;
+                        print "<th>".$dia['periodo'] ."</th>";
                     }
                 }
+            }
+            if($contador == 0)
+            {
+                terminarFilaTiempo();
+                print "<tr><th>Prob. Precipitación</th>";
+            }
+            foreach ($rutaDia as $dias) {
+                foreach($dias as $dia)
+                {  
+                    if($dia->getName() == 'prob_precipitacion')
+                    {
+                        print "<th>".$dia['periodo'] ."</th>";
+                    }
+                }
+            }
+            if($contador == 0)
+            {
+                terminarFilaTiempo();
+                $contador += 1;
+            }
         }
         else
         {
