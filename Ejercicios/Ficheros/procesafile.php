@@ -49,8 +49,10 @@
                 {  
                     if($dia->getName() == 'prob_precipitacion')
                     {
-                        var_dump($dia['periodo']);
-                        print "<th>".$dia['periodo'] ."</th>";
+                        if($dia['periodo'] != null)
+                            print "<th>".$dia['periodo'] ."</th>";
+                        else
+                            print "<th>---</th>";
                     }
                 }
             }
