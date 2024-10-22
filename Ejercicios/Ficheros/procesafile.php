@@ -43,8 +43,8 @@
             $contador = 0;
             
             foreach ($rutaDia as $dias) {
-                var_dump($dias);
-                print $dias->getName();
+                //var_dump($dias);
+                print $dias->children()->getName();
                 //foreach ($dias->children() as $dia) {
                     if($contador == 0)
                         print "<tr><th>Periodo</th>";
