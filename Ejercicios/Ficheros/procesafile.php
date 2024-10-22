@@ -134,10 +134,10 @@
         print "<tr><th>$mostrar</th>";
         foreach($datos as $dato)
         {
-            if(count($dato['dato']) == 4)
+            if(count($dato) == 4)
             {
                 print "<th></th><th></th><th></th>";
-                foreach($dato['dato'] as $valores)
+                foreach($dato as $valores)
                 print "<th>". $valores ."</th>";
             }
             else
