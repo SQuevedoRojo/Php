@@ -41,9 +41,9 @@
             $rutaDia = $lasRozas->xpath('/root/prediccion/dia');
             cabeceraTablaTiempo($lasRozas);
             $contador = 0;
-            var_dump($rutaDia);
+            
             foreach ($rutaDia as $dias) {
-                
+                var_dump($dias);
                 //foreach ($dias->children() as $dia) {
                     if($contador == 0)
                         print "<tr><th>Periodo</th>";
