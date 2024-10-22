@@ -63,7 +63,7 @@
                 {  
                     if($dia->getName() == 'prob_precipitacion')
                     {
-                        print "<th>".$dia['periodo'] ."</th>";
+                        print "<th>".$dia ."</th>";
                     }
                 }
             }
