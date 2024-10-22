@@ -47,6 +47,10 @@
             $temperatura = recogerDatosTiempo($rutaDia,$mostrarXML[2]);
             $senTermica = recogerDatosTiempo($rutaDia,$mostrarXML[3]);
             imprimirPeriodoTiempo($rutaDia,"prob_precipitacion","Periodo");
+            var_dump($probPre);
+            var_dump($viento);
+            var_dump($temperatura);
+            var_dump($senTermica);
             imprimirDatosTiempoProbPre($probPre,$mostrarTabla[0]);
             imprimirDatosTiempoViento($viento,$mostrarTabla[1]);
             imprimirDatosTiempoSen($senTermica,$mostrarTabla[3]);
@@ -137,7 +141,7 @@
             if(count($dato) == 4)
             {
                 print "<th></th><th></th><th></th>";
-                foreach($dato as $valores)
+                foreach($dato['dato'] as $valores)
                 print "<th>". $valores ."</th>";
             }
             else
