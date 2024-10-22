@@ -51,10 +51,7 @@
                         {  
                             if($dia->getName() == 'prob_precipitacion')
                             {
-                                foreach($dia as $precipitacion)
-                                {
-                                    print "<th>".$precipitacion['periodo'] ."</th>";
-                                }   
+                                    print "<th>".$dia['periodo'] ."</th>";
                             }
                         }
                         if($contador == 0)
@@ -62,11 +59,11 @@
                             terminarFilaTiempo();
                             print "<tr><th>Prob. Precipitación</th>";
                         }
-                        if($dias->getName() == 'prob_precipitacion')
-                        {
-                            foreach($dias as $precipitacion)
+                        foreach($dias as $dia)
+                        {  
+                            if($dia->getName() == 'prob_precipitacion')
                             {
-                                print "<th>".$precipitacion ."</th>";
+                                    print "<th>".$dia ."</th>";
                             }
                         }
                         if($contador == 0)
