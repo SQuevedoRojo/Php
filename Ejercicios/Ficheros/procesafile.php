@@ -44,36 +44,38 @@
             
             foreach ($rutaDia as $dias) {
                 //var_dump($dias);
-                
+                $contadorDia = 1;
                 foreach ($dias->children() as $dia) {
-                    print $dia->getName();
-                    if($contador == 0)
-                        print "<tr><th>Periodo</th>";
-                    if($dia->getName() == 'prob_precipitacion')
+                    if($contadorDia == 1)
                     {
-                        foreach($dias->prob_precipitacion as $precipitacion)
+                        if($contador == 0)
+                            print "<tr><th>Periodo</th>";
+                        if($dia->getName() == 'prob_precipitacion')
                         {
-                            print "<th>".$precipitacion['periodo'] ."</th>";
-                        }   
-                    }
-                    if($contador == 0)
-                    {
-                        print "</tr>";
-                        print "<tr><th>Prob. Precipitación</th>";
-                    }
-                    if($dia->getName() == 'prob_precipitacion')
-                    {
-                        foreach($dias->prob_precipitacion as $precipitacion)
+                            foreach($dia as $precipitacion)
+                            {
+                                print "<th>".$precipitacion['periodo'] ."</th>";
+                            }   
+                        }
+                        if($contador == 0)
                         {
-                            print "<th>".$precipitacion ."</th>";
+                            terminarFila();
+                            print "<tr><th>Prob. Precipitación</th>";
+                        }
+                        if($dia->getName() == 'prob_precipitacion')
+                        {
+                            foreach($dia as $precipitacion)
+                            {
+                                print "<th>".$precipitacion ."</th>";
+                            }
+                        }
+                        if($contador == 0)
+                        {
+                            terminarFila();
+                            $contador += 1;
                         }
                     }
-                    if($contador == 0)
-                    {
-                        print "</tr>";
-                        $contador += 1;
-                    }
-
+                    $contadorDia += 1;
                 }
             }
         }
@@ -87,7 +89,29 @@
     function cabeceraTablaTiempo($xml)
     {
         print "<table border='1'>";
-        print "<tr><th>" . $xml->nombre . "</th><th colspan='7'>" . $xml->prediccion->dia[0]['fecha'] . "</th></tr>";
+        print "<tr><th>" . $xml->nombre . "</th>";
+        for ($i=0; $i < 6; $i++) 
+        { 
+            print ("<th colspan='7'>" . $xml->prediccion->dia[$i]['fecha'] . "</th>");
+        }
+        terminarFila();
+    }
+
+
+
+    function seguirTabla($valor)
+    {
+        print "<tr><th>$valor</th>";
+    }
+
+    function seguirFila($valor)
+    {
+        print "<th>".$valor ."</th>";
+    }
+
+    function terminarFila()
+    {
+        print "</tr>";
     }
 
     function censo()
