@@ -52,7 +52,7 @@
                             print "<tr><th>Periodo</th>";
                         if($dia->getName() == 'prob_precipitacion')
                         {
-                            foreach($dia as $precipitacion)
+                            foreach($dias->prob_precipitacion as $precipitacion)
                             {
                                 print "<th>".$precipitacion['periodo'] ."</th>";
                             }   
@@ -64,7 +64,7 @@
                         }
                         if($dia->getName() == 'prob_precipitacion')
                         {
-                            foreach($dia as $precipitacion)
+                            foreach($dias->prob_precipitacion as $precipitacion)
                             {
                                 print "<th>".$precipitacion ."</th>";
                             }
