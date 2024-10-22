@@ -50,6 +50,7 @@
                             
                         if($dias->getName() == 'prob_precipitacion')
                         {
+                             $dias->rewind();
                             foreach($dias as $precipitacion)
                             {
                                 var_dump($precipitacion);
