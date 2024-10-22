@@ -47,31 +47,24 @@
                     {
                         if($contador == 0)
                             print "<tr><th>Periodo</th>";
-                            var_dump($dias);
-                        foreach($dias as $dia)
-                        {
                             
-                            if($dia->getName() == 'prob_precipitacion')
+                        if($dias->getName() == 'prob_precipitacion')
+                        {
+                            foreach($dias->prob_precipitacion as $precipitacion)
                             {
-                                foreach($dia->prob_precipitacion as $precipitacion)
-                                {
-                                    print "<th>".$precipitacion['periodo'] ."</th>";
-                                }   
-                            }
+                                print "<th>".$precipitacion['periodo'] ."</th>";
+                            }   
                         }
                         if($contador == 0)
                         {
                             terminarFilaTiempo();
                             print "<tr><th>Prob. Precipitación</th>";
                         }
-                        foreach($dias as $dia)
+                        if($dias->getName() == 'prob_precipitacion')
                         {
-                            if($dia->getName() == 'prob_precipitacion')
+                            foreach($dias->prob_precipitacion as $precipitacion)
                             {
-                                foreach($dia->prob_precipitacion as $precipitacion)
-                                {
-                                    print "<th>".$precipitacion ."</th>";
-                                }
+                                print "<th>".$precipitacion ."</th>";
                             }
                         }
                         if($contador == 0)
