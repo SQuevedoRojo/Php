@@ -214,9 +214,10 @@
             if($indice == 6)
                 imprimirCabeceraArchivo1Censo($contenido);
             else if($indice > 6)
-                imprimirLineasenTablaArchivo1($contenido,$datos,$indice);
-            if($nombreSeparado)
+            {
+                imprimirLineasenTablaArchivo1($contenido,$datos,$nombreSeparado);
                 $nombreSeparado = false;
+            }
             $indice += 1;
         }
     }
