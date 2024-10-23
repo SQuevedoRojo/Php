@@ -39,7 +39,7 @@
             $xml1 = new SimpleXMLElement("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml",0,true,"",false);
             $xml2 = new SimpleXMLElement("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml",0,true,"",false);
             $xml = "xml";
-            for ($i=1; $i < 2; $i++) { 
+            for ($i=1; $i <= 2; $i++) { 
                 $Xml = ${$xml . $i};
             
                 $rutaDia = $Xml->xpath('/root/prediccion/dia');
