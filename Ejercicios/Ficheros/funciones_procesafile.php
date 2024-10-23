@@ -291,7 +291,12 @@
 
     function imprimirLineasenTablaArchivo2($linea,$indice)
     {
-        $contenido = explode(';',$linea);
+        $contenido = array();
+        $i = 0;
+        foreach ($linea as $key => $cont) {
+            $contenido[$i] = explode(';',$cont);
+            $i += 1;
+        }
         var_dump($contenido);
         //print ("<tr>$contenido</tr>");
     }
