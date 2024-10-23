@@ -192,9 +192,55 @@
                 else
                     $caracterDelimitador = ';';
                 var_dump($Censo);
+                separarLineas($Censo,$i);
+
             }
         }
         else
             trigger_error("No se encunetran los ficheros para procesar el censo");
+    }
+
+    function separarLineas($Censo,$archivo)
+    {
+        if($archivo == 1)
+            separarLineas1($Censo);
+        else
+            separarLineas2($Censo);
+    }
+
+    function separarLineas1($Censo)
+    {
+        $indice = 1;
+        foreach ($Censo as $linea => $contenido) {
+            if($indice == 5)
+                imprimirCabeceraArchivo1Censo($contenido);
+            else if($indice > 5)
+                imprimirLineasenTablaArchivo1($contenido);
+        }
+    }
+
+    function separarLineas2($Censo)
+    {
+        foreach ($Censo as $linea => $contenido) {
+            imprimirLineasenTablaArchivo2($contenido);
+        }
+    }
+
+    function imprimirCabeceraArchivo1Censo($linea)
+    {
+        $contenido = explode(",",$linea);
+        var_dump($contenido);
+        print "<table border='1'>";
+        print "<tr></tr>";
+    }
+
+    function imprimirLineasenTablaArchivo1($linea)
+    {
+
+    }
+
+    function imprimirLineasenTablaArchivo2($linea)
+    {
+
     }
 ?>
