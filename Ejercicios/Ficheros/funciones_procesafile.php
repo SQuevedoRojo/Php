@@ -199,7 +199,7 @@
             trigger_error("No se encunetran los ficheros para procesar el censo");
     }
 
-    function separarLineas($Censo,$archivo)
+    function separarLineas(&$Censo,$archivo)
     {
         if($archivo == 1)
             separarLineas1($Censo);
@@ -207,10 +207,10 @@
             separarLineas2($Censo);
     }
 
-    function separarLineas1($Censo)
+    function separarLineas1(&$Censo)
     {
         $indice = 1;
-        foreach ($Censo as $linea => $contenido) {
+        foreach ($Censo as $linea => &$contenido) {
             if($indice == 5)
                 imprimirCabeceraArchivo1Censo($contenido);
             else if($indice > 5)
@@ -219,14 +219,14 @@
         }
     }
 
-    function separarLineas2($Censo)
+    function separarLineas2(&$Censo)
     {
-        foreach ($Censo as $linea => $contenido) {
+        foreach ($Censo as $linea => &$contenido) {
             imprimirLineasenTablaArchivo2($contenido);
         }
     }
 
-    function imprimirCabeceraArchivo1Censo($linea)
+    function imprimirCabeceraArchivo1Censo(&$linea)
     {
         $contenido = explode(",",$linea);
         var_dump($contenido);
