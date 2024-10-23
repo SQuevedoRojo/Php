@@ -126,9 +126,13 @@
                 {
                     print "<th></th><th></th><th></th><th>".$dato->minima ."/". $dato->maxima . "</th><th></th><th></th><th></th>";
                 }
-                else
+                else if($indice == 3 || $indice == 4)
                 {
                     print "<th></th><th>".$dato->minima ."/". $dato->maxima . "</th><th></th>";
+                }
+                else
+                {
+                    print "<th>".$dato->minima ."/". $dato->maxima . "</th>";
                 }
             }
             else
