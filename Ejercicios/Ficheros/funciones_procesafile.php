@@ -220,12 +220,27 @@
             }
             $indice += 1;
         }
+        print "</table>";
     }
 
     function separarLineas2(&$Censo)
     {
+        cabeceraTablaCensoArchivo2();
+        $indice = 0;
+        $contenidoCenso = array();
         foreach ($Censo as $linea => &$contenido) {
-            imprimirLineasenTablaArchivo2($contenido);
+            if($indice !=0)
+            {
+                $contenidoCenso[$linea] = $contenido;
+                if($indice % 4 == 0)
+                {
+                    imprimirLineasenTablaArchivo2($contenidoCenso);
+                    for ($i=$indice - 4; $i <=$indice ; $i++) { 
+                        unset($contenidoCenso[$i]);
+                    }
+                }
+            }
+            $indice += 1;
         }
     }
 
@@ -265,11 +280,17 @@
                     print "<th>". $contenido[$i] ."</th>";
             }
         }
-        print "</tr>";
+        terminarFilaTiempo();
+    }
+
+    function cabeceraTablaCensoArchivo2()
+    {
+        print "<table border='1'>";
+        print "<tr><th></th><th colspan='2'>2023</th><th colspan='2'>2022</th></tr>";
     }
 
     function imprimirLineasenTablaArchivo2($linea)
     {
-
+        var_dump($linea);
     }
 ?>
