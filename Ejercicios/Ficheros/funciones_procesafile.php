@@ -215,6 +215,7 @@
                 imprimirCabeceraArchivo1Censo($contenido);
             else if($indice > 5)
                 imprimirLineasenTablaArchivo1($contenido);
+            $indice += 1;
         }
     }
 
