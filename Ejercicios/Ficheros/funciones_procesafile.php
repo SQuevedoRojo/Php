@@ -187,6 +187,7 @@
             for ($i=1; $i <= 2; $i++) { 
                 $Censo = ${$censo . $i};
                 separarLineas($Censo,$i);
+                print "<br><br><br>";
             }
         }
         else
@@ -234,7 +235,7 @@
                 $contenidoCenso[$linea] = $contenido;
                 if($indice % 4 == 0)
                 {
-                    imprimirLineasenTablaArchivo2($contenidoCenso,$indice);
+                    imprimirLineasenTablaArchivo2($contenidoCenso);
                     for ($i=$indice - 4; $i <=$indice ; $i++) { 
                         unset($contenidoCenso[$i]);
                     }
@@ -242,6 +243,7 @@
             }
             $indice += 1;
         }
+        print "</table>";
     }
 
     function imprimirCabeceraArchivo1Censo(&$linea)
@@ -287,9 +289,10 @@
     {
         print "<table border='1'>";
         print "<tr><th></th><th colspan='2'>2023</th><th colspan='2'>2022</th></tr>";
+        print "<tr><th></th><th>Hombre</th><th>Mujer</th><th>Hombre</th><th>Mujer</th></tr>";
     }
 
-    function imprimirLineasenTablaArchivo2($linea,$indice)
+    function imprimirLineasenTablaArchivo2($linea)
     {
         $contenido = array();
         $i = 0;
@@ -297,7 +300,6 @@
             $contenido[$i] = explode(';',$cont);
             $i += 1;
         }
-        var_dump($contenido);
-        //print ("<tr>$contenido</tr>");
+        print ("<tr>".$contenido[0][0]."</tr><tr>".$contenido[0][3]."</tr><tr>".$contenido[2][3]."</tr><tr>".$contenido[1][3]."</tr><tr>".$contenido[3][3]."</tr>");
     }
 ?>
