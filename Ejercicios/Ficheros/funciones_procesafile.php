@@ -211,9 +211,9 @@
     {
         $indice = 1;
         foreach ($Censo as $linea => &$contenido) {
-            if($indice == 5)
+            if($indice == 6)
                 imprimirCabeceraArchivo1Censo($contenido);
-            else if($indice > 5)
+            else if($indice > 6)
                 imprimirLineasenTablaArchivo1($contenido);
             $indice += 1;
         }
