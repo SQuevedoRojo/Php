@@ -130,11 +130,11 @@
             {
                 if($indice == 1 || $indice == 2)
                 {
-                    print "<th></th><th></th><th></th><th>".$dato->minima ."/". $dato->maxima . "</th><th></th><th></th><th></th>";
+                    print "<th>---</th><th>---</th><th>---</th><th>".$dato->minima ."/". $dato->maxima . "</th><th>---</th><th>---</th><th>---</th>";
                 }
                 else if($indice == 3 || $indice == 4)
                 {
-                    print "<th></th><th>".$dato->minima ."/". $dato->maxima . "</th><th></th>";
+                    print "<th>---</th><th>".$dato->minima ."/". $dato->maxima . "</th><th>---</th>";
                 }
                 else
                 {
@@ -155,13 +155,13 @@
         {
             if($indice == 1 || $indice == 2)
             {
-                print "<th></th><th></th><th></th>";
+                print "<th>---</th><th>---</th><th>---</th>";
                 foreach($dato->dato as $valores)
                     print "<th>". $valores ."</th>";
             }
             else if($indice == 3 || $indice == 4)
             {
-                print "<th></th><th>". $dato->minima ."/". $dato->maxima ."</th><th></th>";
+                print "<th>---</th><th>". $dato->minima ."/". $dato->maxima ."</th><th>---</th>";
             }
             else
             {
