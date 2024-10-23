@@ -191,7 +191,6 @@
                     $caracterDelimitador = ',';
                 else
                     $caracterDelimitador = ';';
-                var_dump($Censo);
                 separarLineas($Censo,$i);
 
             }
