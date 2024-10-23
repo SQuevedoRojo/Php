@@ -36,21 +36,26 @@
     {
         if(file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml") && file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml"))
         {
-            $lasRozas = new SimpleXMLElement("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml",0,true,"",false);
-            //$Madrid = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml");
-            $rutaDia = $lasRozas->xpath('/root/prediccion/dia');
-            cabeceraTablaTiempo($lasRozas);
-            $mostrarXML = ["prob_precipitacion","viento","temperatura","sens_termica"];
-            $mostrarTabla = ["Prob. Precipitación","Viento (km/h)","Sensación Térmica (ºC) ","Temp. Max – Min (ºC)"];
-            $probPre = recogerDatosTiempo($rutaDia,$mostrarXML[0]);
-            $viento = recogerDatosTiempo($rutaDia,$mostrarXML[1]);
-            $temperatura = recogerDatosTiempo($rutaDia,$mostrarXML[2]);
-            $senTermica = recogerDatosTiempo($rutaDia,$mostrarXML[3]);
-            imprimirPeriodoTiempo($rutaDia,"prob_precipitacion","Periodo");
-            imprimirDatosTiempoProbPre($probPre,$mostrarTabla[0]);
-            imprimirDatosTiempoViento($viento,$mostrarTabla[1]);
-            imprimirDatosTiempoTemp($temperatura,$mostrarTabla[3]);
-            imprimirDatosTiempoSen($senTermica,$mostrarTabla[2]);
+            $xml1 = new SimpleXMLElement("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml",0,true,"",false);
+            $xml2 = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml",0,true,"",false);
+            $xml = "nombre";
+            for ($i=1; $i < 2; $i++) { 
+                $Xml = ${$xml . $i};
+            
+                $rutaDia = $Xml->xpath('/root/prediccion/dia');
+                cabeceraTablaTiempo($xml);
+                $mostrarXML = ["prob_precipitacion","viento","temperatura","sens_termica"];
+                $mostrarTabla = ["Prob. Precipitación","Viento (km/h)","Sensación Térmica (ºC) ","Temp. Max – Min (ºC)"];
+                $probPre = recogerDatosTiempo($rutaDia,$mostrarXML[0]);
+                $viento = recogerDatosTiempo($rutaDia,$mostrarXML[1]);
+                $temperatura = recogerDatosTiempo($rutaDia,$mostrarXML[2]);
+                $senTermica = recogerDatosTiempo($rutaDia,$mostrarXML[3]);
+                imprimirPeriodoTiempo($rutaDia,"prob_precipitacion","Periodo");
+                imprimirDatosTiempoProbPre($probPre,$mostrarTabla[0]);
+                imprimirDatosTiempoViento($viento,$mostrarTabla[1]);
+                imprimirDatosTiempoTemp($temperatura,$mostrarTabla[3]);
+                imprimirDatosTiempoSen($senTermica,$mostrarTabla[2]);
+            }
         }
         else
         {
