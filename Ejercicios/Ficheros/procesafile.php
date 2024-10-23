@@ -55,6 +55,7 @@
                 imprimirDatosTiempoViento($viento,$mostrarTabla[1]);
                 imprimirDatosTiempoTemp($temperatura,$mostrarTabla[3]);
                 imprimirDatosTiempoSen($senTermica,$mostrarTabla[2]);
+                print "<br><br><br>";
             }
         }
         else
