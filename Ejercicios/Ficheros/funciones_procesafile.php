@@ -237,15 +237,15 @@
         print "<tr>";
         if($datos)
         {
-            foreach ($contenido as $valor) {
-                print "<th>". $valor ."</th>";
+            for ($i=0; $i < count($contenido) -1; $i++) { 
+                print "<th>". $contenido[$i] ."</th>";
             }
         }
         else
         {
             var_dump($contenido);
-            for ($i=0; $i < count($contenido); $i++) { 
-                if($i % 2 == 0)
+            for ($i=0; $i < count($contenido) -1; $i++) { 
+                if($i == 0)
                     print "<th></th>";
                 else
                     print "<th>". $contenido[$i] ."</th>";
