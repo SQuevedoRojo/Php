@@ -300,6 +300,6 @@
             $contenido[$i] = explode(';',$cont);
             $i += 1;
         }
-        print ("<tr>".$contenido[0][0]."</tr><tr>".$contenido[0][3]."</tr><tr>".$contenido[2][3]."</tr><tr>".$contenido[1][3]."</tr><tr>".$contenido[3][3]."</tr>");
+        print ("<tr><th>".$contenido[0][0]."</th><th>".$contenido[0][3]."</th><th>".$contenido[2][3]."</th><th>".$contenido[1][3]."</th><th>".$contenido[3][3]."</th></tr>");
     }
 ?>
