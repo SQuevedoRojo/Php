@@ -213,6 +213,7 @@
             else if($indice > 6)
                 imprimirLineasenTablaArchivo1($contenido,$datos);
             $indice += 1;
+            var_dump($contenido);
         }
     }
 
@@ -242,6 +243,7 @@
         }
         else
         {
+            var_dump($contenido);
             for ($i=0; $i < count($contenido); $i++) { 
                 if($i % 2 == 0)
                     print "<th></th>";
