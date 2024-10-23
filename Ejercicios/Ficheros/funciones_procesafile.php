@@ -228,7 +228,8 @@
 
     function imprimirCabeceraArchivo1Censo(&$linea)
     {
-        $contenido = explode(",",$linea);
+        $contenido = explode(',',$linea);
+        var_dump($contenido);
         print "<table border='1'>";
         print "<tr></tr>";
     }
