@@ -234,7 +234,7 @@
                 $contenidoCenso[$linea] = $contenido;
                 if($indice % 4 == 0)
                 {
-                    imprimirLineasenTablaArchivo2($contenidoCenso);
+                    imprimirLineasenTablaArchivo2($contenidoCenso,$indice);
                     for ($i=$indice - 4; $i <=$indice ; $i++) { 
                         unset($contenidoCenso[$i]);
                     }
@@ -289,8 +289,10 @@
         print "<tr><th></th><th colspan='2'>2023</th><th colspan='2'>2022</th></tr>";
     }
 
-    function imprimirLineasenTablaArchivo2($linea)
+    function imprimirLineasenTablaArchivo2($linea,$indice)
     {
-        var_dump($linea);
+        $contenido = explode(';',$linea);
+        var_dump($contenido);
+        //print ("<tr>$contenido</tr>");
     }
 ?>
