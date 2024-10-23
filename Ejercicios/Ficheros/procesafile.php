@@ -37,8 +37,8 @@
         if(file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml") && file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml"))
         {
             $xml1 = new SimpleXMLElement("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml",0,true,"",false);
-            $xml2 = simplexml_load_file("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml",0,true,"",false);
-            $xml = "nombre";
+            $xml2 = new SimpleXMLElement("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml",0,true,"",false);
+            $xml = "xml";
             for ($i=1; $i < 2; $i++) { 
                 $Xml = ${$xml . $i};
             
