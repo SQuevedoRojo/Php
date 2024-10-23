@@ -1,4 +1,5 @@
 <?php
+    // Funcion principal encargada de procesar los archivos de Tiempo o Censo segun la opcion elegida por el usuario
     function opcion($opcion)
     {
         if($opcion == "tiempo")
@@ -7,6 +8,7 @@
             censo();
     }
 
+    //Funcion principal del procesamiento del tiempo encargada de mostrar los datos en una tabla
     function tiempo()
     {
         if(file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoLasRozas.xml") && file_exists("..\\..\\..\\gestionFicheros\\pronosticotiempoMadrid.xml"))
@@ -37,7 +39,8 @@
             trigger_error("No se encunetran los ficheros para procesar el tiempo");
 
     }
-
+    
+    //Funcion que imprimie el periodo de las horas de la probabilidad de precipitacion
     function imprimirPeriodoTiempo($rutaDia,$mostrar,$mostrarTabla)
     {
         print "<tr><th>$mostrarTabla</th>";
@@ -56,6 +59,7 @@
         terminarFilaTiempo();
     }
 
+    //Funcion encargada de recoger los datos de probabilidad de precipitacion,viento,sen. termica y temperatura
     function recogerDatosTiempo($rutaDia,$recoger)
     {
         $datos = array();
@@ -71,6 +75,7 @@
         return $datos;
     }
 
+    //Funcion encargada de imprimir los datos de la probabilidad de precipitacion
     function imprimirDatosTiempoProbPre($datos,$mostrar)
     {
         print "<tr><th>$mostrar</th>";
@@ -83,6 +88,7 @@
         }
     }
 
+    //Funcion encargada de imprimir los datos del viento
     function imprimirDatosTiempoViento($datos,$mostrar)
     {
         print "<tr><th>$mostrar</th>";
@@ -92,6 +98,7 @@
         }
     }
 
+    //Funcion encargada de imprimir los datos de la temperatura
     function imprimirDatosTiempoTemp($datos,$mostrar)
     {
         print "<tr><th>$mostrar</th>";
@@ -119,6 +126,7 @@
         }
     }
 
+    //Funcion encargada de imprimir los datos de la sensacion termica
     function imprimirDatosTiempoSen($datos,$mostrar)
     {
         print "<tr><th>$mostrar</th>";
@@ -143,6 +151,7 @@
         }
     }
     
+    //Funcion encargada de crear el principio de la tabla del tiempo
     function cabeceraTablaTiempo($xml)
     {
         print "<table border='1'>";
@@ -177,6 +186,7 @@
         print "</tr>";
     }
 
+    //Funcion principal para procesar el censo de los archivos .txt y .csv
     function censo()
     {
         if(file_exists("..\\..\\..\\gestionFicheros\\CensoProvinciaHombresMujeres.txt") && file_exists("..\\..\\..\\gestionFicheros\\CensoProvinciaHombresMujeres.csv"))
@@ -194,14 +204,16 @@
             trigger_error("No se encunetran los ficheros para procesar el censo");
     }
 
+    //Funcion para saber que archivo estamos procesando
     function separarLineas(&$Censo,$archivo)
     {
         if($archivo == 1)
-            separarLineas1($Censo);
+            separarLineas1($Censo);//Archivo .txt
         else
-            separarLineas2($Censo);
+            separarLineas2($Censo);//Archivo .csv
     }
 
+    //Funcion para separar las lineas del array creado por la funcion 'file' para imprimir los datos
     function separarLineas1(&$Censo)
     {
         $indice = 1;
@@ -224,6 +236,7 @@
         print "</table>";
     }
 
+    //Funcion para separar las lineas del array creado por la funcion 'file' para imprimir los datos
     function separarLineas2(&$Censo)
     {
         cabeceraTablaCensoArchivo2();
@@ -246,6 +259,7 @@
         print "</table>";
     }
 
+    //Funcion para imprimir el comienzo de la tabla del archivo .txt
     function imprimirCabeceraArchivo1Censo(&$linea)
     {
         $contenido = explode(',',$linea);
@@ -253,6 +267,7 @@
         print "<tr><th></th><th colspan='2'>". $contenido[1] ."</th><th colspan='2'>". $contenido[3] ."</th></tr>";
     }
 
+    //Funcion encargada de imprimir los datos existentes del archivo .txt
     function imprimirLineasenTablaArchivo1($linea,$datos,$nombreSeparado)
     {
         $contenido = explode(',',$linea);
@@ -285,6 +300,7 @@
         terminarFilaTiempo();
     }
 
+    //Funcion para imprimir el comienzo de la tabla del archivo .csv
     function cabeceraTablaCensoArchivo2()
     {
         print "<table border='1'>";
@@ -292,6 +308,7 @@
         print "<tr><th></th><th>Hombre</th><th>Mujer</th><th>Hombre</th><th>Mujer</th></tr>";
     }
 
+    //Funcion encargada de imprimir los datos existentes del archivo .csv
     function imprimirLineasenTablaArchivo2($linea)
     {
         $contenido = array();
