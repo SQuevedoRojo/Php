@@ -192,7 +192,6 @@
                 else
                     $caracterDelimitador = ';';
                 separarLineas($Censo,$i);
-
             }
         }
         else
@@ -211,6 +210,7 @@
     {
         $indice = 1;
         foreach ($Censo as $linea => &$contenido) {
+            print $contenido;
             if($indice == 6)
                 imprimirCabeceraArchivo1Censo($contenido);
             else if($indice > 6)
@@ -229,7 +229,6 @@
     function imprimirCabeceraArchivo1Censo(&$linea)
     {
         $contenido = explode(",",$linea);
-        var_dump($contenido);
         print "<table border='1'>";
         print "<tr></tr>";
     }
