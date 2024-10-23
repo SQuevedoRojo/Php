@@ -184,13 +184,8 @@
             $censo1 = file("..\\..\\..\\gestionFicheros\\CensoProvinciaHombresMujeres.txt");
             $censo2 = file("..\\..\\..\\gestionFicheros\\CensoProvinciaHombresMujeres.csv");
             $censo = "censo";
-            $caracterDelimitador = "";
             for ($i=1; $i <= 2; $i++) { 
                 $Censo = ${$censo . $i};
-                if($i == 1)
-                    $caracterDelimitador = ',';
-                else
-                    $caracterDelimitador = ';';
                 separarLineas($Censo,$i);
             }
         }
@@ -209,12 +204,14 @@
     function separarLineas1(&$Censo)
     {
         $indice = 1;
+        $datos = false;
         foreach ($Censo as $linea => &$contenido) {
-            print $contenido . "<br>";
+            if($indice == 8)
+                $datos = true;
             if($indice == 6)
                 imprimirCabeceraArchivo1Censo($contenido);
             else if($indice > 6)
-                imprimirLineasenTablaArchivo1($contenido);
+                imprimirLineasenTablaArchivo1($contenido,$datos);
             $indice += 1;
         }
     }
@@ -229,14 +226,30 @@
     function imprimirCabeceraArchivo1Censo(&$linea)
     {
         $contenido = explode(',',$linea);
-        var_dump($contenido);
         print "<table border='1'>";
-        print "<tr></tr>";
+        print "<tr><th></th><th colspan='2'>". $contenido[1] ."</th><th colspan='2'>". $contenido[3] ."</th></tr>";
     }
 
-    function imprimirLineasenTablaArchivo1($linea)
+    function imprimirLineasenTablaArchivo1($linea,$datos)
     {
-
+        $contenido = explode(',',$linea);
+        print "<tr>";
+        if($datos)
+        {
+            foreach ($contenido as $valor) {
+                print "<th>". $valor ."</th>";
+            }
+        }
+        else
+        {
+            for ($i=0; $i < count($contenido); $i++) { 
+                if($i % 2 == 0)
+                    print "<th></th>";
+                else
+                    print "<th>". $contenido[$i] ."</th>";
+            }
+        }
+        print "</tr>";
     }
 
     function imprimirLineasenTablaArchivo2($linea)
