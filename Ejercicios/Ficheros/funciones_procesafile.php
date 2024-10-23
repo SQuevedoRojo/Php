@@ -196,6 +196,10 @@
             $censo = "censo";
             for ($i=1; $i <= 2; $i++) { 
                 $Censo = ${$censo . $i};
+                if($i == 1)
+                    print "<h3>ARCHIVO .TXT</h3>";
+                else
+                    print "<h3>ARCHIVO .CSV</h3>";
                 separarLineas($Censo,$i);
                 print "<br><br><br>";
             }
