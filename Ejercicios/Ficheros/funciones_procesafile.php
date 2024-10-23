@@ -210,7 +210,7 @@
     {
         $indice = 1;
         foreach ($Censo as $linea => &$contenido) {
-            print $contenido;
+            print $contenido . "<br>";
             if($indice == 6)
                 imprimirCabeceraArchivo1Censo($contenido);
             else if($indice > 6)
