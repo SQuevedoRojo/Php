@@ -144,16 +144,24 @@
     function imprimirDatosTiempoSen($datos,$mostrar)
     {
         print "<tr><th>$mostrar</th>";
+        $indice = 1;
         foreach($datos as $dato)
         {
-            if(count($dato->dato) == 4)
+            if($indice == 1 || $indice == 2)
             {
                 print "<th></th><th></th><th></th>";
                 foreach($dato->dato as $valores)
-                print "<th>". $valores ."</th>";
+                    print "<th>". $valores ."</th>";
+            }
+            else if($indice == 3 || $indice == 4)
+            {
+                print "<th></th><th>". $dato->minima ."/". $dato->maxima ."</th><th></th>";
             }
             else
+            {
                 print "<th>". $dato->minima ."/". $dato->maxima ."</th>";
+            }
+            $indice += 1;
         }
     }
     
