@@ -49,8 +49,8 @@
             imprimirPeriodoTiempo($rutaDia,"prob_precipitacion","Periodo");
             imprimirDatosTiempoProbPre($probPre,$mostrarTabla[0]);
             imprimirDatosTiempoViento($viento,$mostrarTabla[1]);
-            imprimirDatosTiempoSen($senTermica,$mostrarTabla[3]);
-            imprimirDatosTiempoTemp($temperatura,$mostrarTabla[2]);
+            imprimirDatosTiempoTemp($temperatura,$mostrarTabla[3]);
+            imprimirDatosTiempoSen($senTermica,$mostrarTabla[2]);
         }
         else
         {
@@ -98,7 +98,6 @@
         print "<tr><th>$mostrar</th>";
         foreach($datos as $dato)
         {
-            var_dump($dato);
             if($dato != null)
                 print "<th>".$dato[0] ."</th>";
             else
@@ -111,19 +110,27 @@
         print "<tr><th>$mostrar</th>";
         foreach($datos as $dato)
         {
-            var_dump($dato);
-                print "<th>".$dato->direccion ."  " . $dato->velocidad . "</th>";
+            print "<th>".$dato->direccion ."  " . $dato->velocidad . "</th>";
         }
     }
 
     function imprimirDatosTiempoTemp($datos,$mostrar)
     {
         print "<tr><th>$mostrar</th>";
+        $indice = 1;
         foreach($datos as $dato)
         {
-            var_dump($dato);
             if($dato != null)
-                print "<th>".$dato->minima ."/". $dato->maxima . "</th>";
+            {
+                if($indice == 1 || $indice == 2)
+                {
+                    print "<th></th><th></th><th></th><th>".$dato->minima ."/". $dato->maxima . "</th><th></th><th></th><th></th>";
+                }
+                else
+                {
+                    print "<th></th><th>".$dato->minima ."/". $dato->maxima . "</th><th>/th>";
+                }
+            }
             else
                 print "<th>---</th>";
         }
@@ -134,7 +141,6 @@
         print "<tr><th>$mostrar</th>";
         foreach($datos as $dato)
         {
-            var_dump($dato);
             if(count($dato->dato) == 4)
             {
                 print "<th></th><th></th><th></th>";
