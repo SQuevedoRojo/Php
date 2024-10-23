@@ -2,13 +2,9 @@
     function opcion($opcion)
     {
         if($opcion == "tiempo")
-        {
             tiempo();
-        }
         else
-        {
             censo();
-        }
     }
 
     function tiempo()
@@ -38,7 +34,7 @@
             }
         }
         else
-            trigger_error("El valor de la variable debe ser inferior a 1");
+            trigger_error("No se encunetran los ficheros para procesar el tiempo");
 
     }
 
@@ -183,6 +179,22 @@
 
     function censo()
     {
-
+        if(file_exists("..\\..\\..\\gestionFicheros\\CensoProvinciaHombresMujeres.txt") && file_exists("..\\..\\..\\gestionFicheros\\CensoProvinciaHombresMujeres.csv"))
+        {
+            $censo1 = file("..\\..\\..\\gestionFicheros\\CensoProvinciaHombresMujeres.txt");
+            $censo2 = file("..\\..\\..\\gestionFicheros\\CensoProvinciaHombresMujeres.csv");
+            $censo = "censo";
+            $caracterDelimitador = "";
+            for ($i=1; $i <= 2; $i++) { 
+                $Censo = ${$censo . $i};
+                if($i == 1)
+                    $caracterDelimitador = ',';
+                else
+                    $caracterDelimitador = ';';
+                var_dump($Censo);
+            }
+        }
+        else
+            trigger_error("No se encunetran los ficheros para procesar el censo");
     }
 ?>
