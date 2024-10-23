@@ -205,13 +205,18 @@
     {
         $indice = 1;
         $datos = false;
+        $nombreSeparado = false;
         foreach ($Censo as $linea => &$contenido) {
             if($indice == 8)
                 $datos = true;
+            if($indice == 23 || $indice == 43)
+                $nombreSeparado = true;
             if($indice == 6)
                 imprimirCabeceraArchivo1Censo($contenido);
             else if($indice > 6)
-                imprimirLineasenTablaArchivo1($contenido,$datos);
+                imprimirLineasenTablaArchivo1($contenido,$datos,$indice);
+            if($nombreSeparado)
+                $nombreSeparado = false;
             $indice += 1;
         }
     }
@@ -230,14 +235,24 @@
         print "<tr><th></th><th colspan='2'>". $contenido[1] ."</th><th colspan='2'>". $contenido[3] ."</th></tr>";
     }
 
-    function imprimirLineasenTablaArchivo1($linea,$datos)
+    function imprimirLineasenTablaArchivo1($linea,$datos,$nombreSeparado)
     {
         $contenido = explode(',',$linea);
         print "<tr>";
         if($datos)
         {
-            for ($i=0; $i < count($contenido) -1; $i++) { 
-                print "<th>". $contenido[$i] ."</th>";
+            if(!$nombreSeparado)
+            {
+                for ($i=0; $i < count($contenido) -1; $i++) { 
+                    print "<th>". $contenido[$i] ."</th>";
+                }
+            }
+            else
+            {
+                print "<th>". $contenido[0] ." ". $contenido[1] ."</th>";
+                for ($i=2; $i < count($contenido) -1; $i++) { 
+                    print "<th>". $contenido[$i] ."</th>";
+                }
             }
         }
         else
