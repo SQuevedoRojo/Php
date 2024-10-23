@@ -43,7 +43,7 @@
                 $Xml = ${$xml . $i};
             
                 $rutaDia = $Xml->xpath('/root/prediccion/dia');
-                cabeceraTablaTiempo($xml);
+                cabeceraTablaTiempo($Xml);
                 $mostrarXML = ["prob_precipitacion","viento","temperatura","sens_termica"];
                 $mostrarTabla = ["Prob. Precipitación","Viento (km/h)","Sensación Térmica (ºC) ","Temp. Max – Min (ºC)"];
                 $probPre = recogerDatosTiempo($rutaDia,$mostrarXML[0]);
