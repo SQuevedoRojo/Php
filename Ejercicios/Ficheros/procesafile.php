@@ -128,7 +128,7 @@
                 }
                 else
                 {
-                    print "<th></th><th>".$dato->minima ."/". $dato->maxima . "</th><th>/th>";
+                    print "<th></th><th>".$dato->minima ."/". $dato->maxima . "</th><th></th>";
                 }
             }
             else
