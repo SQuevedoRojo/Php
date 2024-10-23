@@ -133,6 +133,7 @@
             }
             else
                 print "<th>---</th>";
+            $indice += 1;
         }
     }
 
