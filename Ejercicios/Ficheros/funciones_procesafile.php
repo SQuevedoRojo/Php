@@ -278,7 +278,7 @@
         print "<tr>";
         if($datos)
         {
-            if(!$nombreSeparado)
+            if(!$nombreSeparado && count($contenido) != 1)
             {
                 print "<th>". $contenido[0] ."</th>";
                 for ($i=1; $i < count($contenido) -1; $i++) { 
