@@ -280,13 +280,14 @@
         {
             if(!$nombreSeparado)
             {
-                for ($i=0; $i < count($contenido) -1; $i++) { 
+                print "<th>". $contenido[0] ."</th>";
+                for ($i=1; $i < count($contenido) -1; $i++) { 
                     print "<td>". $contenido[$i] ."</td>";
                 }
             }
             else
             {
-                print "<td>". $contenido[0] ." ". $contenido[1] ."</td>";
+                print "<th>". $contenido[0] ." ". $contenido[1] ."</th>";
                 for ($i=2; $i < count($contenido) -1; $i++) { 
                     print "<td>". $contenido[$i] ."</td>";
                 }
