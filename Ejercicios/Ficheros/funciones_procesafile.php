@@ -276,9 +276,9 @@
     {
         $contenido = explode(',',$linea);
         print "<tr>";
-        if($datos)
+        if($datos && (count($contenido) -1) != 0)
         {
-            if(!$nombreSeparado && (count($contenido) -1) != 0)
+            if(!$nombreSeparado )
             {
                 print "<th>". $contenido[0] ."</th>";
                 for ($i=1; $i < count($contenido) -1; $i++) { 
