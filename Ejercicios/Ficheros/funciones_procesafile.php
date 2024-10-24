@@ -50,9 +50,9 @@
                 if($dia->getName() == $mostrar)
                 {
                     if($dia['periodo'] != null)
-                        print "<th>".$dia['periodo'] ."</th>";
+                        print "<td>".$dia['periodo'] ."</td>";
                     else
-                        print "<th>---</th>";
+                        print "<td>---</td>";
                 }
             }
         }
@@ -82,9 +82,9 @@
         foreach($datos as $dato)
         {
             if($dato != null)
-                print "<th>".$dato[0] ."</th>";
+                print "<td>".$dato[0] ."</td>";
             else
-                print "<th>---</th>";
+                print "<td>---</td>";
         }
     }
 
@@ -94,7 +94,7 @@
         print "<tr><th>$mostrar</th>";
         foreach($datos as $dato)
         {
-            print "<th>".$dato->direccion ."  " . $dato->velocidad . "</th>";
+            print "<td>".$dato->direccion ."  " . $dato->velocidad . "</td>";
         }
     }
 
@@ -109,19 +109,19 @@
             {
                 if($indice == 1 || $indice == 2)
                 {
-                    print "<th>---</th><th>---</th><th>---</th><th>".$dato->minima ."/". $dato->maxima . "</th><th>---</th><th>---</th><th>---</th>";
+                    print "<td>---</td><td>---</td><td>---</td><td>".$dato->minima ."/". $dato->maxima . "</td><td>---</td><td>---</td><td>---</td>";
                 }
                 else if($indice == 3 || $indice == 4)
                 {
-                    print "<th>---</th><th>".$dato->minima ."/". $dato->maxima . "</th><th>---</th>";
+                    print "<td>---</td><td>".$dato->minima ."/". $dato->maxima . "</td><td>---</td>";
                 }
                 else
                 {
-                    print "<th>".$dato->minima ."/". $dato->maxima . "</th>";
+                    print "<td>".$dato->minima ."/". $dato->maxima . "</td>";
                 }
             }
             else
-                print "<th>---</th>";
+                print "<td>---</td>";
             $indice += 1;
         }
     }
@@ -135,17 +135,17 @@
         {
             if($indice == 1 || $indice == 2)
             {
-                print "<th>---</th><th>---</th><th>---</th>";
+                print "<td>---</td><td>---</td><td>---</td>";
                 foreach($dato->dato as $valores)
-                    print "<th>". $valores ."</th>";
+                    print "<td>". $valores ."</td>";
             }
             else if($indice == 3 || $indice == 4)
             {
-                print "<th>---</th><th>". $dato->minima ."/". $dato->maxima ."</th><th>---</th>";
+                print "<td>---</td><td>". $dato->minima ."/". $dato->maxima ."</td><td>---</td>";
             }
             else
             {
-                print "<th>". $dato->minima ."/". $dato->maxima ."</th>";
+                print "<td>". $dato->minima ."/". $dato->maxima ."</td>";
             }
             $indice += 1;
         }
@@ -281,14 +281,14 @@
             if(!$nombreSeparado)
             {
                 for ($i=0; $i < count($contenido) -1; $i++) { 
-                    print "<th>". $contenido[$i] ."</th>";
+                    print "<td>". $contenido[$i] ."</td>";
                 }
             }
             else
             {
-                print "<th>". $contenido[0] ." ". $contenido[1] ."</th>";
+                print "<td>". $contenido[0] ." ". $contenido[1] ."</td>";
                 for ($i=2; $i < count($contenido) -1; $i++) { 
-                    print "<th>". $contenido[$i] ."</th>";
+                    print "<td>". $contenido[$i] ."</td>";
                 }
             }
         }
@@ -296,7 +296,7 @@
         {
             for ($i=0; $i < count($contenido) -1; $i++) { 
                 if($i == 0)
-                    print "<th></th>";
+                    print "<td></td>";
                 else
                     print "<th>". $contenido[$i] ."</th>";
             }
@@ -321,6 +321,6 @@
             $contenido[$i] = explode(';',$cont);
             $i += 1;
         }
-        print ("<tr><th>".$contenido[0][0]."</th><th>".$contenido[0][3]."</th><th>".$contenido[2][3]."</th><th>".$contenido[1][3]."</th><th>".$contenido[3][3]."</th></tr>");
+        print ("<tr><th>".$contenido[0][0]."</th><td>".$contenido[0][3]."</td><td>".$contenido[2][3]."</td><td>".$contenido[1][3]."</td><td>".$contenido[3][3]."</td></tr>");
     }
 ?>
