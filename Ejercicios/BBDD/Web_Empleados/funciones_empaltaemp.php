@@ -38,8 +38,8 @@
     {
         $dni = limpiar($_POST['dni']);
         $nombre = limpiar($_POST['nombre_emple']);
-        $salario = intval(limpiar($_POST['fecha_nac']));
-        $fecha = limpiar($_POST['salario']);
+        $fecha = limpiar($_POST['fecha_nac']);
+        $salario = intval(limpiar($_POST['salario']));
         $dpto = limpiar($_POST['departamentos']);
         return [$dni,$nombre,$salario,$fecha,$dpto];
     }
@@ -69,10 +69,6 @@
         catch(PDOException $e)
         {
             echo "Error: " . $e->getMessage();
-        }
-        finally
-        {
-            echo "<h2><b>Programa terminado</h2></b>";
         }
 
         try 
