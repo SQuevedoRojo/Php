@@ -1,11 +1,4 @@
 <?php
-    include_once "empaltadpto_errores.php";
-
-    $nombre = recogerDatos();
-    $conn = conexionBBDD();
-    $cod_dpto=obtenerDepartamento($conn);
-    insertarDepartamento($conn,$nombre,$cod_dpto);
-
     function recoger_datos()
     {
         $nombre = limpiar($_POST['nombre_dpto']);
@@ -74,4 +67,9 @@
         }
         $conn = null;
     }
+
+    $nombre = recogerDatos();
+    $conn = conexionBBDD();
+    $cod_dpto=obtenerDepartamento($conn);
+    insertarDepartamento($conn,$nombre,$cod_dpto);
 ?>
