@@ -61,18 +61,18 @@
         {
             $stmt = $conn->prepare("INSERT INTO dpto (cod_dpto,nombre) VALUES (:cod_dpto,:nombre)");
             $stmt->bindParam(':cod_dpto', $codigo);
-            $stmt->bindParam(':nombre', $nombre);
+            $stmt->bindParam(':nombre', strtoupper($nombre));
             $stmt->execute();
         
-            echo "Departamento creado exitosamente\n";
+            echo "<h2>Departamento creado exitosamente</h2>";
         }
         catch(PDOException $e)
         {
-            echo "Error: " . $e->getMessage() ."\n";
+            echo "Error: " . $e->getMessage();
         }
         finally
         {
-            echo "Programa terminado";
+            echo "<h2><b>Programa terminado</h2></b>";
         }
         $conn = null;
     }
