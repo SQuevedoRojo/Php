@@ -8,7 +8,7 @@
             Fecha Nacimiento : <input type="text" name="fecha_nac" required><br>
             Salario : <input type="text" name="salario" required><br>
             <select name="departamentos">
-                <?php imprimirDepartamentos() ?>
+                <?php imprimirDepartamentos(); ?>
             </select>
             <input type="submit" value="enviar">
             <input type="reset" value="borrar">
