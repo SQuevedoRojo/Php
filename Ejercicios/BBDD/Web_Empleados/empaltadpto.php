@@ -61,7 +61,7 @@
         {
             $stmt = $conn->prepare("INSERT INTO dpto (cod_dpto,nombre) VALUES (:cod_dpto,:nombre)");
             $stmt->bindParam(':cod_dpto', $codigo);
-            $stmt->bindParam(':nombre', strtoupper($nombre));
+            $stmt->bindParam(':nombre', $nombre);
             $stmt->execute();
         
             echo "<h2>Departamento creado exitosamente</h2>";
@@ -80,5 +80,5 @@
     $nombre = recogerDatos();
     $conn = conexionBBDD();
     $cod_dpto=obtenerDepartamento($conn);
-    insertarDepartamento($conn,$nombre,$cod_dpto);
+    insertarDepartamento($conn,strtoupper($nombre),$cod_dpto);
 ?>
