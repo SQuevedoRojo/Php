@@ -1,5 +1,5 @@
 <?php
-    function recoger_datos()
+    function recogerDatos()
     {
         $nombre = limpiar($_POST['nombre_dpto']);
         return $nombre;
