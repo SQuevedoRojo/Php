@@ -25,7 +25,6 @@
             $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username, $password);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
-            echo "Connected successfully"; 
         }
         catch(PDOException $e)
         {
@@ -46,7 +45,12 @@
            $codigoDevuelto = $row["cod_dpto"];
         }
         $numeroCodigo = intval(substr($codigoDevuelto,1)) + 1;
-        $codigoNuevo =  substr($codigoDevuelto,0,1) . strval($numeroCodigo);
+        if($numeroCodigo < 10)
+            $codigoNuevo =  substr($codigoDevuelto,0,1) . "0" . "0" . strval($numeroCodigo);
+        elseif($numeroCodigo < 100)
+            $codigoNuevo =  substr($codigoDevuelto,0,1) . "0". strval($numeroCodigo);
+        else
+            $codigoNuevo =  substr($codigoDevuelto,0,1) . strval($numeroCodigo);
         return $codigoNuevo;
     }
 
@@ -60,11 +64,15 @@
             $stmt->bindParam(':nombre', $nombre);
             $stmt->execute();
         
-            echo "Departamento creado exitosamente";
+            echo "Departamento creado exitosamente\n";
         }
         catch(PDOException $e)
         {
-            echo "Error: " . $e->getMessage();
+            echo "Error: " . $e->getMessage() ."\n";
+        }
+        finally
+        {
+            echo "Programa terminado";
         }
         $conn = null;
     }
