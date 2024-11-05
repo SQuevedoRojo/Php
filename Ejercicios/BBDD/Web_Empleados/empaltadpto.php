@@ -38,13 +38,14 @@
     function obtenerDepartamento($conn)
     {
         $stmt = $conn->prepare("SELECT cod_dpto FROM dpto");
-        $codigoDevuelto = -1;
+        $codigoDevuelto = null;
+        $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $resultado=$stmt->fetchAll();
         foreach($resultado as $row) {
            $codigoDevuelto = $row["cod_dpto"];
         }
-        $numeroCodigo = intval(substr($codigoDevuelto,strlen($codigoDevuelto)-(strlen($codigoDevuelto)-1))) + 1;
+        $numeroCodigo = intval(substr($codigoDevuelto,1)) + 1;
         $codigoNuevo =  substr($codigoDevuelto,0,1) . strval($numeroCodigo);
         return $codigoNuevo;
     }
