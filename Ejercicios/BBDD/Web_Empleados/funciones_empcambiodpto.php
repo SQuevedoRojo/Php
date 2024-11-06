@@ -71,12 +71,12 @@
         $conn = conexionBBDD();
         try 
         {
-            $stmt = $conn->prepare("UPDATE emple_dpto set fecha_fi=curdate() where dni= :dni and dpto= :dptoAnt");
+            $stmt = $conn->prepare("UPDATE emple_dpto set fecha_fi=curdate() where dni= :dni and cod_dpto= :dptoAnt");
             $stmt->bindParam(':dni', $dni);
             $stmt->bindParam(':dptoAnt', $dpto_anterior);
             $stmt->execute();
 
-            $stmt = $conn->prepare("INSERT INTO emple_dpto values (dni,dpto,fecha_ini) VALUES(:dni,:dptoNue,curdate())");
+            $stmt = $conn->prepare("INSERT INTO emple_dpto values (dni,cod_dpto,fecha_ini) VALUES(:dni,:dptoNue,curdate())");
             $stmt->bindParam(':dptoNue', $dept_nuevo);
             $stmt->execute();
             
