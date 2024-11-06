@@ -12,7 +12,7 @@
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
                 $fecha = recogerDatos();
-                cambiarSalario($fecha);
+                mostrarTrabajadoresFecha($fecha);
             }
         ?>
 </BODY>
