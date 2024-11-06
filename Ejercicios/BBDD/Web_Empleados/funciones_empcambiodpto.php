@@ -18,6 +18,25 @@
         $conn = null;
     }
 
+    function imprimirEmpleados()
+    {
+        $conn = conexionBBDD();
+        try{
+            $stmt = $conn->prepare("SELECT dni FROM dpto");
+            $stmt->execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $resultado=$stmt->fetchAll();
+            foreach($resultado as $row) {
+                echo "<option value=".$row["dni"].">".$row["dni"]."</option>";
+            }
+        }
+        catch(PDOException $e)
+        {
+            echo "Connection failed: " . $e->getMessage();
+        }
+        $conn = null;
+    }
+
     function conexionBBDD()
     {
         $servername = "localhost";
@@ -41,56 +60,31 @@
 
     function recogerDatos()
     {
-        $dni = limpiar($_POST['dni']);
-        $nombre = limpiar($_POST['nombre_emple']);
-        $fecha = limpiar($_POST['fecha_nac']);
-        $salario = intval(limpiar($_POST['salario']));
-        $dpto = limpiar($_POST['departamentos']);
-        return [$dni,$nombre,$salario,$fecha,$dpto];
+        $dni = ($_POST['empleados']);
+        $dpto_anterior = ($_POST['departamento_anterior']);
+        $dpto_nuevo = ($_POST['departamento_nuevo']);
+        return [$dni,$dpto_anterior,$dpto_nuevo];
     }
 
-    function limpiar($data)
-    {
-        $data = trim($data);
-        $data = stripslashes($data);
-        $data = htmlspecialchars($data);
-        return $data;
-    }
-
-    function insertarEmpleado($dni,$nombre,$salario,$fecha,$dpto)
+    function cambiarEmpleado($dni,$dpto_anterior,$dept_nuevo)
     {
         $conn = conexionBBDD();
         try 
         {
-            $stmt = $conn->prepare("INSERT INTO emple (dni,nombre,salario,fec_nac) VALUES (:dni,:nombre,:salario,:fec_nac)");
+            $stmt = $conn->prepare("UPDATE emple_dpto set fecha_fi=curdate() where dni= :dni and dpto= :dptoAnt)");
             $stmt->bindParam(':dni', $dni);
-            $stmt->bindParam(':nombre', $nombre);
-            $stmt->bindParam(':salario', $salario);
-            $stmt->bindParam(':fec_nac', $fecha);
+            $stmt->bindParam(':dptoAnt', $dpto_anterior);
+            $stmt->execute();
+
+            $stmt = $conn->prepare("INSERT INTO emple_dpto values (dni,dpto,fecha_ini) VALUES(:dni,:dptoNue,curdate())");
+            $stmt->bindParam(':dptoNue', $dept_nuevo);
             $stmt->execute();
             
-            echo "<h2>Empleado creado exitosamente</h2>";
+            echo "<h2>El empleado se ha cambiado de departamento exitosamente</h2>";
         }
         catch(PDOException $e)
         {
             echo "Error: " . $e->getMessage();
-        }
-
-        try 
-        {
-            $stmt = $conn->prepare("INSERT INTO emple_dpto (dni,cod_dpto,fecha_ini) VALUES (:dni,:dpto,curdate())");
-            $stmt->bindParam(':dni', $dni);
-            $stmt->bindParam(':dpto', $dpto);
-            $stmt->execute();
-
-            echo "<h2>Empleado asociado al departamento exitosamente</h2>";
-        } catch (PDOException $e)
-        {
-            echo "Error: " . $e->getMessage();
-        }
-        finally
-        {
-            echo "<h2><b>Programa terminado</h2></b>";
         }
         $conn = null;
     }
