@@ -67,10 +67,10 @@
             $resultado=$stmt->fetchAll();
             $salarioOriginal = 0;
             foreach($resultado as $row) {
-                $salarioOriginal = $row["salario"];
+                $salarioOriginal = intval($row["salario"]);
             }
             
-            $salarioActualizado = $salarioOriginal * ($porcentajeSalario/100);
+            $salarioActualizado = ($salarioOriginal * ($porcentajeSalario/100)) + $salarioOriginal;
 
             $stmt = $conn->prepare("UPDATE emple set salario=:salario where dni= :dni");
             $stmt->bindParam(':dni', $empleado);
