@@ -81,20 +81,17 @@
             foreach($resultado as $row) {
                 $fecha_inicio = $row["fecha_ini"];
             }
-            echo "a";
             
             $stmt = $conn->prepare("UPDATE emple_dpto set fecha_fi=curdate() where dni= :dni and cod_dpto= :dptoAnt and fecha_ini = :fecha_inicio");
             $stmt->bindParam(':dni', $dni);
             $stmt->bindParam(':dptoAnt', $dpto_anterior);
             $stmt->bindParam(':fecha_inicio', $fecha_inicio);
             $stmt->execute();
-            echo "b";
 
             $stmt = $conn->prepare("INSERT INTO emple_dpto (dni,cod_dpto,fecha_ini) VALUES (:dni,:dptoNue,curdate())");
             $stmt->bindParam(':dni', $dni);
             $stmt->bindParam(':dptoNue', $dept_nuevo);
             $stmt->execute();
-            echo "c";
             
             echo "<h2>El empleado se ha cambiado de departamento exitosamente</h2>";
         }
