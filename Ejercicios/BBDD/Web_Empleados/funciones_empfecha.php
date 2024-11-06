@@ -43,7 +43,7 @@
                 foreach($resultado as $row) {
                     $fecha_fin = '';
                     if($row["fecha_fi"] == null)
-                        $fecha_fi = "Sigue Trabajando en el Departamento";
+                        $fecha_fin = "Sigue Trabajando en el Departamento";
                     else
                         $fecha_fin = $row["fecha_fi"];
 
