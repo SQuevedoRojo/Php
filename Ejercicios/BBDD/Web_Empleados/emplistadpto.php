@@ -8,7 +8,6 @@
                 <?php imprimirDepartamentos(); ?>
             </select>
             <br>
-            <label> Empleado :</label>
             <input type="submit" value="enviar">
             <input type="reset" value="borrar">
             <br><a href="empinicio.html">Menu Principal</a>
