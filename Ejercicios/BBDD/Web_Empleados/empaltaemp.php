@@ -12,6 +12,7 @@
             </select>
             <input type="submit" value="enviar">
             <input type="reset" value="borrar">
+            <br><a href="empinicio.html">Menu Principal</a>
         </form>
         <?php 
             if($_SERVER["REQUEST_METHOD"] == "POST")
