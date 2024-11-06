@@ -71,7 +71,7 @@
         $conn = conexionBBDD();
         try 
         {
-            $stmt = $conn->prepare("UPDATE emple_dpto set fecha_fi=curdate() where dni= :dni and dpto= :dptoAnt)");
+            $stmt = $conn->prepare("UPDATE emple_dpto set fecha_fi=curdate() where dni= :dni and dpto= :dptoAnt");
             $stmt->bindParam(':dni', $dni);
             $stmt->bindParam(':dptoAnt', $dpto_anterior);
             $stmt->execute();
