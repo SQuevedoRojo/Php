@@ -77,8 +77,7 @@
             $stmt->execute(); 
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
-            $resultado=$stmt->fetchAll();
-            $fecha_inicio = null;
+            $fecha_inicio = '';
             foreach($resultado as $row) {
                 $fecha_inicio = $row["fecha_ini"];
             }
