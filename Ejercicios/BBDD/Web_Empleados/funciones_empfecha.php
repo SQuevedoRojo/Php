@@ -31,26 +31,28 @@
         $conn = conexionBBDD();
         try 
         {
-            $stmt = $conn->prepare("SELECT dni,cod_dpto,fecha_ini,fecha_fi from emple_dpto where fecha_ini >=:fecha and fecha_fi<=:fecha");
+            $stmt = $conn->prepare("SELECT dni,cod_dpto,fecha_ini,fecha_fi from emple_dpto where fecha_ini <=:fecha and fecha_fi>=:fecha");
             $stmt->bindParam(':fecha', $fecha);
             $stmt->execute(); 
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
             print "<table border='1'>";
             print "<tr><th>DNI</th><th>CODIGO DEPARTAMENTO</th><th>FECHA INCIO</th><th>FECHA FINAL</th></tr>";
-            foreach($resultado as $row) {
-                $fecha_fin = '';
-                if($row["fecha_fi"] == null)
-                    $fecha_fi = "Sigue Trabajando en el Departamento";
-                else
-                    $fecha_fin = $row["fecha_fi"];
+            if(count($resultado) > 0)
+            {
+                foreach($resultado as $row) {
+                    $fecha_fin = '';
+                    if($row["fecha_fi"] == null)
+                        $fecha_fi = "Sigue Trabajando en el Departamento";
+                    else
+                        $fecha_fin = $row["fecha_fi"];
 
-                print "<tr><td>".$row["dni"]."</td><td>".$row["cod_dpto"]."</td><td>".$row["fecha_ini"]."</td><td>".$fecha_fin."</td></tr>";
+                    print "<tr><td>".$row["dni"]."</td><td>".$row["cod_dpto"]."</td><td>".$row["fecha_ini"]."</td><td>".$fecha_fin."</td></tr>";
+                }
+                print "</table>";
             }
-            print "</table>";
-
-            print "<h2>Salario Actualizado Exitosamente</h2>";
-            
+            else
+                print "<h2>NO HAY DATOS</h2>";
         }
         catch(PDOException $e)
         {
