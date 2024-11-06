@@ -1,6 +1,6 @@
 <HTML>
-    <?php include_once "funciones_emplistadpto.php" ?>
-    <H1>Ejercicio 4 BBDD</H1>
+    <?php include_once "funciones_emphistdpto.php" ?>
+    <H1>Ejercicio 5 BBDD</H1>
     <BODY>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             <label>Departamento :</label>
@@ -16,7 +16,7 @@
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
                 $dept = recogerDatos();
-                listarEmpleado($dept);
+                listarHistoricoEmpleado($dept);
             }
         ?>
 </BODY>
