@@ -24,7 +24,7 @@
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
                 list($dni,$deptAntiguo,$deptNuevo) = recogerDatos();
-                cambiarEmpleado($dni,$nombre,$fecha,$salario,$dept);
+                cambiarEmpleado($dni,$deptAntiguo,$deptNuevo);
             }
         ?>
 </BODY>
