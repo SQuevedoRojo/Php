@@ -51,7 +51,7 @@
         $conn = conexionBBDD();
         try 
         {
-            $stmt = $conn->prepare("SELECT DISTINCT(nombre) nombre from emple e,emple_dpto ed where cod_dpto= :dpto and ed.dni= e.dni");
+            $stmt = $conn->prepare("SELECT DISTINCT(nombre) nombre from emple e,emple_dpto ed where cod_dpto= :dpto and ed.dni= e.dni and fecha_fi is NULL");
             $stmt->bindParam(':dpto', $dept);
             $stmt->execute(); 
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -62,7 +62,6 @@
             }
             print "</ul>";
             
-            echo "<h2>El empleado se ha cambiado de departamento exitosamente</h2>";
         }
         catch(PDOException $e)
         {
