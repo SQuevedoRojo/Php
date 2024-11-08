@@ -22,12 +22,12 @@
     {
         $conn = conexionBBDD();
         try{
-            $stmt = $conn->prepare("SELECT dni,cod_dpto FROM emple_dpto");
+            $stmt = $conn->prepare("SELECT dni,cod_dpto,d.nombre nombreDept FROM emple_dpto ed,dpto d where ed.cod_dpto = d.cod_dpto");
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
             foreach($resultado as $row) {
-                echo "<option value=".$row["dni"]."|".$row["cod_dpto"].">Empleado : ".$row["dni"]."| Departamento : ". $row["cod_dpto"] ."</option>";
+                echo "<option value=".$row["dni"]."|".$row["cod_dpto"].">Empleado : ".$row["dni"]."| Departamento : ". $row["nombreDept"] ."</option>";
             }
         }
         catch(PDOException $e)
