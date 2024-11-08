@@ -22,7 +22,7 @@
     {
         $conn = conexionBBDD();
         try{
-            $stmt = $conn->prepare("SELECT dni,cod_dpto,d.nombre nombreDept FROM emple_dpto ed,dpto d where ed.cod_dpto = d.cod_dpto");
+            $stmt = $conn->prepare("SELECT dnie,ed.cod_dpto,d.nombre nombreDept FROM emple_dpto ed,dpto d where ed.cod_dpto = d.cod_dpto");
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
