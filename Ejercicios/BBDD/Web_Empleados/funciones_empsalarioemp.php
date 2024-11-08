@@ -76,7 +76,7 @@
             $stmt->bindParam(':dni', $empleado);
             $stmt->bindParam(':salario', $salarioActualizado);
             $stmt->execute(); 
-            print "<h2>Salario Actualizado Exitosamente</h2>";
+            print "<h2>Salario Actualizado Exitosamente Con Un Valor de ". $salarioActualizado ."€</h2>";
             
         }
         catch(PDOException $e)

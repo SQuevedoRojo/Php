@@ -4,9 +4,6 @@
     <BODY>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             <label>Departamento Anterior :</label>
-            <select name="departamento_anterior">
-                <?php imprimirDepartamentos(); ?>
-            </select>
             <br>
             <label>Departamento Nuevo :</label>
             <select name="departamento_nuevo">

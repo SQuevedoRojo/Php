@@ -22,12 +22,12 @@
     {
         $conn = conexionBBDD();
         try{
-            $stmt = $conn->prepare("SELECT dni FROM emple");
+            $stmt = $conn->prepare("SELECT dni,cod_dpto FROM emple_dpto");
             $stmt->execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
             foreach($resultado as $row) {
-                echo "<option value=".$row["dni"].">".$row["dni"]."</option>";
+                echo "<option value=".$row["dni"]."|".$row["cod_dpto"].">Empleado : ".$row["dni"]."| Departamento : ". $row["cod_dpto"] ."</option>";
             }
         }
         catch(PDOException $e)
@@ -60,10 +60,9 @@
 
     function recogerDatos()
     {
-        $dni = ($_POST['empleados']);
-        $dpto_anterior = ($_POST['departamento_anterior']);
+        $empleado = explode("|",$_POST['empleados']);
         $dpto_nuevo = ($_POST['departamento_nuevo']);
-        return [$dni,$dpto_anterior,$dpto_nuevo];
+        return [$empleado[0],$empleado[1],$dpto_nuevo];
     }
 
     function cambiarEmpleado($dni,$dpto_anterior,$dept_nuevo)
