@@ -3,8 +3,6 @@
     <H1>Ejercicio 3 BBDD</H1>
     <BODY>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
-            <label>Departamento Anterior :</label>
-            <br>
             <label>Departamento Nuevo :</label>
             <select name="departamento_nuevo">
                 <?php imprimirDepartamentos(); ?>

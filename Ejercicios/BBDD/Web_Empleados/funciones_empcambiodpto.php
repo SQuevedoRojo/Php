@@ -27,7 +27,7 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
             foreach($resultado as $row) {
-                echo "<option value=".$row["dni"]."|".$row["cod"].">Empleado : ".$row["dni"]."| Departamento : ". $row["nombreDept"] ."</option>";
+                echo "<option value=".$row["dni"]."|".$row["cod"].">Empleado : ".$row["dni"]." | Departamento : ". $row["nombreDept"] ."</option>";
             }
         }
         catch(PDOException $e)
