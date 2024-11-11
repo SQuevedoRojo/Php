@@ -59,15 +59,18 @@
 
         try 
         {
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn->beginTransaction();
             $stmt = $conn->prepare("INSERT INTO dpto (cod_dpto,nombre) VALUES (:cod_dpto,:nombre)");
             $stmt->bindParam(':cod_dpto', $codigo);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->execute();
-        
+            $conn -> commit();
             echo "<h2>Departamento creado exitosamente</h2>";
         }
         catch(PDOException $e)
         {
+            $conn -> rollBack();
             echo "Error: " . $e->getMessage();
         }
         finally

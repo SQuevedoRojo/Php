@@ -72,15 +72,19 @@
             
             $salarioActualizado = ($salarioOriginal * ($porcentajeSalario/100)) + $salarioOriginal;
 
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn->beginTransaction();
             $stmt = $conn->prepare("UPDATE emple set salario=:salario where dni= :dni");
             $stmt->bindParam(':dni', $empleado);
             $stmt->bindParam(':salario', $salarioActualizado);
             $stmt->execute(); 
+            $conn -> commit();
             print "<h2>Salario Actualizado Exitosamente Con Un Valor de ". $salarioActualizado ."€</h2>";
             
         }
         catch(PDOException $e)
         {
+            $conn -> rollBack();
             echo "Error: " . $e->getMessage();
         }
         $conn = null;

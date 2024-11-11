@@ -62,35 +62,25 @@
         $conn = conexionBBDD();
         try 
         {
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn->beginTransaction();
             $stmt = $conn->prepare("INSERT INTO emple (dni,nombre,salario,fec_nac) VALUES (:dni,:nombre,:salario,:fec_nac)");
             $stmt->bindParam(':dni', $dni);
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':salario', $salario);
             $stmt->bindParam(':fec_nac', $fecha);
-            $stmt->execute();
-            
-            echo "<h2>Empleado creado exitosamente</h2>";
-        }
-        catch(PDOException $e)
-        {
-            echo "Error: " . $e->getMessage();
-        }
-
-        try 
-        {
             $stmt = $conn->prepare("INSERT INTO emple_dpto (dni,cod_dpto,fecha_ini) VALUES (:dni,:dpto,curdate())");
             $stmt->bindParam(':dni', $dni);
             $stmt->bindParam(':dpto', $dpto);
             $stmt->execute();
-
-            echo "<h2>Empleado asociado al departamento exitosamente</h2>";
-        } catch (PDOException $e)
-        {
-            echo "Error: " . $e->getMessage();
+            $conn -> commit();
+            
+            echo "<h2>Empleado creado y asociado al departamento exitosamente</h2>";
         }
-        finally
+        catch(PDOException $e)
         {
-            echo "<h2><b>Programa terminado</h2></b>";
+            $conn -> rollBack();
+            echo "Error: " . $e->getMessage();
         }
         $conn = null;
     }
