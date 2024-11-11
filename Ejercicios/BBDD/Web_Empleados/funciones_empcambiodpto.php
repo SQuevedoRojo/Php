@@ -87,6 +87,7 @@
             $stmt->bindParam(':dni', $dni);
             $stmt->bindParam(':dptoAnt', $dpto_anterior);
             $stmt->bindParam(':fecha_inicio', $fecha_inicio);
+            $stmt->execute();
             $stmt = $conn->prepare("INSERT INTO emple_dpto (dni,cod_dpto,fecha_ini) VALUES (:dni,:dptoNue,curdate())");
             $stmt->bindParam(':dni', $dni);
             $stmt->bindParam(':dptoNue', $dept_nuevo);

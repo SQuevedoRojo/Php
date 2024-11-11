@@ -69,6 +69,7 @@
             $stmt->bindParam(':nombre', $nombre);
             $stmt->bindParam(':salario', $salario);
             $stmt->bindParam(':fec_nac', $fecha);
+            $stmt->execute();
             $stmt = $conn->prepare("INSERT INTO emple_dpto (dni,cod_dpto,fecha_ini) VALUES (:dni,:dpto,curdate())");
             $stmt->bindParam(':dni', $dni);
             $stmt->bindParam(':dpto', $dpto);
