@@ -36,14 +36,12 @@
 
     function obtenerDepartamento($conn)
     {
-        $stmt = $conn->prepare("SELECT cod_dpto FROM dpto");
+        $stmt = $conn->prepare("SELECT max(cod_dpto) FROM dpto");
         $codigoDevuelto = null;
         $stmt->execute();
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $resultado=$stmt->fetchAll();
-        foreach($resultado as $row) {
-           $codigoDevuelto = $row["cod_dpto"];
-        }
+		$codigoDevuelto = $resultado[0]["max(cod_dpto)"];
         $numeroCodigo = intval(substr($codigoDevuelto,1)) + 1;
         if($numeroCodigo < 10)
             $codigoNuevo =  substr($codigoDevuelto,0,1) . "0" . "0" . strval($numeroCodigo);
