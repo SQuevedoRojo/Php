@@ -3,7 +3,7 @@
 
     function recogerDatos()
     {
-        $localidad = limpiar($_POST['nombreProducto']);
+        $localidad = limpiar($_POST['localidad']);
         if(strlen($localidad) < 1)
             trigger_error("La localidad no puede estar vacio",E_USER_WARNING);
         return $localidad;
