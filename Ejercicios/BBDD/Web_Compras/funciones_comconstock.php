@@ -40,9 +40,10 @@
             $resultado=$stmt->fetchAll();
             if($resultado != null)
             {
-                print "<table border='1'";
+                print "<table border='1'>";
+                print "<tr><th>ALMACEN</th><th>PRODUCTO</th><th>CANTIDAD</th></tr>";
                 foreach ($resultado as $row) {
-                    print "<tr><th>".$row["LOCALIDAD"]."</th><th>".$row["NOMRBE"]."</th><th>".$row["CANTIDAD"]."</th></tr>";
+                    print "<tr><td>".$row["LOCALIDAD"]."</td><td>".$row["NOMRBE"]."</td><td>".$row["CANTIDAD"]."</td></tr>";
                 }
                 print "</table>";
             }
