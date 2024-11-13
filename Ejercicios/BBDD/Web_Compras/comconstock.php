@@ -11,7 +11,7 @@
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
                 $producto = recogerDatos();
-                MostrarProductosEnAlmacen($cantidadProductos,$producto,$almacen);
+                MostrarProductosEnAlmacen($producto);
             }
         ?>
 </BODY>
