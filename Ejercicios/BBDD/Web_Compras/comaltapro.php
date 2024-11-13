@@ -1,6 +1,6 @@
 <HTML>
     <?php include_once "funciones_comaltapro.php" ?>
-    <H1>Ejercicio 1 Web Empleados</H1>
+    <H1>Ejercicio 2 Web Empleados</H1>
     <BODY>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             Nombre del Producto : <input type="text" name="nombreProducto" required><br>
