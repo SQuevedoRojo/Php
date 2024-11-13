@@ -11,7 +11,7 @@
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
                 $categoria = recogerDatos();
-                insertarEmpleado($dni,$nombre,$fecha,$salario,$dept);
+                insertarCategoria($categoria);
             }
         ?>
 </BODY>
