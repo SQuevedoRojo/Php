@@ -9,7 +9,7 @@
         return $localidad;
     }
 
-    function insertarAlamcen($localidad)
+    function insertarAlmacen($localidad)
     {
         $conn = conexionBBDD();
         try

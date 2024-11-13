@@ -11,7 +11,7 @@
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
                 $localidad = recogerDatos();
-                insertarProducto($nombreProducto,$precioProducto,$categoriaProducto);
+                insertarAlmacen($localidad);
             }
         ?>
 </BODY>
