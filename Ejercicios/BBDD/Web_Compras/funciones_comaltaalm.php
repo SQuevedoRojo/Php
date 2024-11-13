@@ -14,6 +14,16 @@
         $conn = conexionBBDD();
         try
         {
+            $stmt = $conn->prepare("SELECT LOCALIDAD FROM almacen");
+            $stmt -> execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $resultado=$stmt->fetchAll();
+            foreach ($resultado as $row)
+            {
+                if(ucwords(strtolower($row["LOCALIDAD"])) == ucwords(strtolower($localidad)))
+                    trigger_error("Ya se ha insertado la localidad",E_USER_WARNING);
+            }
+            
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $conn->beginTransaction();
             $stmt = $conn->prepare("INSERT INTO almacen (LOCALIDAD) VALUES (:localidad)");
