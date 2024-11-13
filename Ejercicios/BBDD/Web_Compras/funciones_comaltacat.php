@@ -4,6 +4,8 @@
     function recogerDatos()
     {
         $nombreCategoria = limpiar($_POST['categoria']);
+        if(strlen($nombreCategoria) < 1)
+            trigger_error("El nombre de la categoria no puede estar vacio");
         return $nombreCategoria;
     }
 
