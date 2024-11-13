@@ -7,9 +7,9 @@
         $precioProducto = ($_POST['precioProducto']);
         $categoriaProducto = limpiar($_POST['categoriaProducto']);
         if($precioProducto <= 0)
-            trigger_error("El producto no puede tener un precio de 0 o menor");
+            trigger_error("El producto no puede tener un precio de 0 o menor",E_USER_WARNING);
         if(strlen($nombreProducto) < 1)
-            trigger_error("El nombre del producto no puede estar vacio");
+            trigger_error("El nombre del producto no puede estar vacio",E_USER_WARNING);
         return [$nombreProducto,$precioProducto,$categoriaProducto];
     }
 

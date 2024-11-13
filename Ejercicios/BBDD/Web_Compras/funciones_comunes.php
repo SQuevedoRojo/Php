@@ -25,7 +25,8 @@ function conexionBBDD()
         echo "<b>Error:</b> [$errno] $errstr<br>";
         echo "Ending Script";
         die();
-      }
+    }
+
 
     function limpiar($data)
     {
@@ -34,4 +35,6 @@ function conexionBBDD()
         $data = htmlspecialchars($data);
         return $data;
     }
+
+    set_error_handler("customError",E_USER_WARNING);
 ?>

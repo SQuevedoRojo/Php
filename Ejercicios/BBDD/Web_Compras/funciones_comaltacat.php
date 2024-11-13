@@ -5,7 +5,7 @@
     {
         $nombreCategoria = limpiar($_POST['categoria']);
         if(strlen($nombreCategoria) < 1)
-            trigger_error("El nombre de la categoria no puede estar vacio");
+            trigger_error("El nombre de la categoria no puede estar vacio",E_USER_WARNING);
         return $nombreCategoria;
     }
 
