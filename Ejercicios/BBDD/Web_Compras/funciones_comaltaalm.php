@@ -27,7 +27,7 @@
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $conn->beginTransaction();
             $stmt = $conn->prepare("INSERT INTO almacen (LOCALIDAD) VALUES (:localidad)");
-            $stmt->bindParam(':localidad', $localidad);
+            $stmt->bindParam(':localidad', ucwords(strtolower($localidad)));
             $stmt->execute();
             $conn -> commit();
             print "<h2>Almacen insertado exitosamente</h2>";
