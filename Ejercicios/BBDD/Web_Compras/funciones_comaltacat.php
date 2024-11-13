@@ -17,7 +17,7 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
             $codigoNuevo = null;
-            if($resultado == null)
+            if($resultado[0]["id"] == null)
             {
                 $codigoNuevo = "C001";
             }
