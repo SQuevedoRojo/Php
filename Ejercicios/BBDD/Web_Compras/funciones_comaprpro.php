@@ -3,7 +3,7 @@
 
     function recogerDatos()
     {
-        $cantidadProductos = limpiar($_POST['localidad']);
+        $cantidadProductos = limpiar($_POST['cantidadProducto']);
         $producto = $_POST['productos'];
         $almacen = $_POST['almacenes'] ;
         if($cantidadProductos < 0)
