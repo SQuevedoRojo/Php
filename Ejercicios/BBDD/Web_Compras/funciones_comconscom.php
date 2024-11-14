@@ -4,8 +4,8 @@
     function recogerDatos()
     {
         $clientes = $_POST['clientes'];
-        $fechaInicio = limpiar($_POST['clientes']);
-        $fechaFinal = limpiar($_POST['clientes']);
+        $fechaInicio = limpiar($_POST['fec_inic']);
+        $fechaFinal = limpiar($_POST['fec_fin']);
         return [$clientes,$fechaInicio,$fechaFinal];
     }
 
