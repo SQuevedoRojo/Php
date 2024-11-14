@@ -106,6 +106,7 @@
                         $stmt->bindParam(':idProducto', $producto);
                         $stmt->execute();
                         $conn -> commit();
+                        print "<h2>Compra Realizada</h2>";
                     }
                     else
                     {
