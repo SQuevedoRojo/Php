@@ -35,7 +35,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT UNIDADES , p.NOMBRE as NOMRBE,PRECIO from compra c,producto p where c.NIF = :nif AND c.ID_PRODUCTO = p.ID_PRODUCTO AND FECHA_COMPRA > :fec_ini AND FECHA_COMPRA < :fec_final");
+            $stmt = $conn->prepare("SELECT UNIDADES , p.NOMBRE as NOMRBE,PRECIO from compra c,producto p where c.NIF = :nif AND c.ID_PRODUCTO = p.ID_PRODUCTO AND FECHA_COMPRA >= :fec_ini AND FECHA_COMPRA =< :fec_final");
             $stmt->bindParam(':nif', $cliente);
             $stmt->bindParam(':fec_ini', $fechaInicio);
             $stmt->bindParam(':fec_final', $fechaFinal);
