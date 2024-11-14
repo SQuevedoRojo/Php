@@ -73,8 +73,7 @@
                 $stmt->execute();
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 $resultado2=$stmt->fetchAll();
-
-                if($resultado2 != null)
+                if($resultado2 == null)
                 {
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $conn->beginTransaction();
@@ -92,12 +91,12 @@
                 }
                 else
                 {
-                    if($resultado[0]["FECHA_COMPRA"] = date("Y-m-d"))
+					if($resultado[0]["FECHA_COMPRA"] = date("Y-m-d"))
                     {
                         $fechaHoy = date("Y-m-d");
                         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         $conn->beginTransaction();
-                        $stmt = $conn->prepare("UPDATE compra set UNIDADES = UNIDADES + 1 WHERE NIF = :nif AND IP_PRODUCTO = :idProducto AND FECHA_COMPRA = :fechaHoy");
+                        $stmt = $conn->prepare("UPDATE compra set UNIDADES = UNIDADES + 1 WHERE NIF = :nif AND ID_PRODUCTO = :idProducto AND FECHA_COMPRA = :fechaHoy");
                         $stmt->bindParam(':nif', $cliente);
                         $stmt->bindParam(':idProducto', $producto);
                         $stmt->bindParam(':fechaHoy', $fechaHoy);
