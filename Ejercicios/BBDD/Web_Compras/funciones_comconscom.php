@@ -14,7 +14,7 @@
     function verificarFecha($fecha)
     {
         $correcto = true;
-        $regex = '/^\d{4}-\d{2}-\d{2}$/';
+        $regex = '/^((((\d{4})-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))|((\d{4})-(0[13-9]|1[0-2])-(0[1-9]|[12]\d|30))|((\d{4})-02-(0[1-9]|1\d|2[0-8])))|((\d{4})-02-29))$/';
         if(!preg_match($regex,$fecha))
             $correcto = false;
         return $correcto;
