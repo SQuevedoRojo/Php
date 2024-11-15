@@ -21,7 +21,7 @@
     {
         $correcto = true;
         $regex = '/^\d{8}[A-Z]$/';
-        if(preg_match($regex, $nif))
+        if(!preg_match($regex, $nif))
             $correcto = false;
         return $correcto;
     }
@@ -30,7 +30,7 @@
     {
         $correcto = true;
         $regex = '/^((0?[1-9])|([1-4]\d)|(5[0-2]))\d{3}$/';
-        if(preg_match($regex,$codPos))
+        if(!preg_match($regex,$codPos))
             $correcto = false;
         return $correcto;
     }
