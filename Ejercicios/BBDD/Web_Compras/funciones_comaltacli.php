@@ -12,14 +12,26 @@
         $ciudad = limpiar($_POST['ciudad']);
         if(!verificarNif($nif))
             trigger_error("El NIF no es correcto",E_USER_WARNING);
+        if(!verificarCodigoPostal($codPostal))
+            trigger_error("El Codigo Postal no es correcto",E_USER_WARNING);
         return [$nif,$nombre,$apellidos,$codPostal,$direccion,$ciudad];
     }
 
     function verificarNif($nif)
     {
-        $correcto = false;
-        if(preg_match('/^\d{8}[A-Z]$/', $nif))
-            $correcto = true;
+        $correcto = true;
+        $regex = '/^\d{8}[A-Z]$/';
+        if(preg_match($regex, $nif))
+            $correcto = false;
+        return $correcto;
+    }
+
+    function verificarCodigoPostal($codPos)
+    {
+        $correcto = true;
+        $regex = '/^((0?[1-9])|([1-4]\d)|(5[0-2]))\d{3}$/';
+        if(preg_match($regex,$codPos))
+            $correcto = false;
         return $correcto;
     }
 
