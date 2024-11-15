@@ -4,8 +4,8 @@
     <BODY>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             <select name="clientes"><?php imprimirClientes() ?></select><br>
-            Fecha Inicio : <input type="text" name="fec_inic"><br>
-            Fecha Final : <input type="text" name="fec_fin"><br>
+            Fecha Inicio : <input type="text" name="fec_inic" placeholder="YYYY-MM-DD"><br>
+            Fecha Final : <input type="text" name="fec_fin" placeholder="YYYY-MM-DD"><br>
             <input type="submit" value="enviar">
             <input type="reset" value="borrar">
         </form>

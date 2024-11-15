@@ -6,7 +6,18 @@
         $clientes = $_POST['clientes'];
         $fechaInicio = limpiar($_POST['fec_inic']);
         $fechaFinal = limpiar($_POST['fec_fin']);
+        if(!verificarFecha($fechaInicio) || !verificarFecha($fechaFinal))
+            trigger_error("La fecha no se ha introducido correctamente, el formato es el siguiente : YYYY-MM-DD",E_USER_WARNING);
         return [$clientes,$fechaInicio,$fechaFinal];
+    }
+
+    function verificarFecha($fecha)
+    {
+        $correcto = true;
+        $regex = '/^\d{4}-\d{2}-\d{2}$/';
+        if(!preg_match($regex,$fecha))
+            $correcto = false;
+        return $correcto;
     }
 
     function imprimirClientes()
