@@ -55,7 +55,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT a.NUM_ALMACEN as almacen,LOCALIDAD, p.NOMBRE as NOMRBE,CANTIDAD from almacena a,almacen al,producto p where a.NUM_ALMACEN = al.NUM_ALMACEN AND a.ID_PRODUCTO = :idProducto AND  a.NUM_ALMACEN = al.NUM_ALMACEN");
+            $stmt = $conn->prepare("SELECT a.NUM_ALMACEN as almacen,LOCALIDAD, p.NOMBRE as NOMRBE,CANTIDAD from almacena a,almacen al,producto p where a.NUM_ALMACEN = al.NUM_ALMACEN AND a.ID_PRODUCTO = :idProducto AND  a.NUM_ALMACEN = al.NUM_ALMACEN ORDER BY CANTIDAD");
             $stmt->bindParam(':idProducto', $producto);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
