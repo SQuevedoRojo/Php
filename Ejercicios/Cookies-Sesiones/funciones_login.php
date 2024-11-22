@@ -30,7 +30,7 @@
                 $stmt->bindParam(':cont', $contrasena);
                 $stmt -> execute();
                 $conn -> commit();
-                
+                crearCookieSession($usuario,$contrasena);
             }
             else
             {
