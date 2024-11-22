@@ -1,6 +1,5 @@
 <?php
-    include "funcion_cookie.php";
-    include_once "funcion_sesiones.php";
+    include_once "funcion_cookie.php";
     
     function iniciarSession($usuario,$contrasena)
     {
