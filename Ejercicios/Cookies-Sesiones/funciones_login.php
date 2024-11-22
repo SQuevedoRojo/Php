@@ -4,18 +4,18 @@
     function recogerDatos()
     {
         $usuario = limpiar($_POST['ususario']);
-        $contraseña = limpiar($_POST['contrasena']);
-        return [$usuario,$contraseña];
+        $contrasena = limpiar($_POST['contrasena']);
+        return [$usuario,$contrasena];
     }
 
-    function verificarCuenta($usuario,$contraseña)
+    function verificarCuenta($usuario,$contrasena)
     {
         $conn = conexionBBDD();
         try
         {
             $stmt = $conn->prepare("SELECT usuario,contrasena from usuarios where usuario = :usuario and contrasena = :cont");
             $stmt->bindParam(':usuario', $usuario);
-            $stmt->bindParam(':cont', $contraseña);
+            $stmt->bindParam(':cont', $contrasena);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
@@ -25,10 +25,10 @@
                 $conn->beginTransaction();
                 $stmt = $conn->prepare("UPDATE usuarios set acceso = now() where usuario = :usuario and contrasena = :cont");
                 $stmt->bindParam(':usuario', $usuario);
-                $stmt->bindParam(':cont', $contraseña);
+                $stmt->bindParam(':cont', $contrasena);
                 $stmt -> execute();
                 $conn -> commit();
-                crearCookie($usuario,$contraseña);
+                crearCookie($usuario,$contrasena);
                 header("Location: web0.php");
             }
             else

@@ -14,7 +14,7 @@
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
                 list($usuario,$contraseña) = recogerDatos();
-                insertarCliente($nif,$nombre,$apellidos,$codPostal,$direccion,$ciudad);
+                verificarCuenta($usuario,$contraseña);
             }
         ?>
 </BODY>
