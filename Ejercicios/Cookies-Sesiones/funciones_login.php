@@ -1,6 +1,7 @@
 <?php
     include_once "funciones_comunes.php";
     include_once "funcion_cookie.php";
+    include_once "funcion_sesiones.php";
 
     function recogerDatos()
     {
@@ -30,6 +31,7 @@
                 $stmt -> execute();
                 $conn -> commit();
                 crearCookie($usuario,$contrasena);
+                iniciarSession($usuario,$contrasena);
                 header("Location: web0.php");
             }
             else

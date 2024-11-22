@@ -1,4 +1,4 @@
-<?php include_once "funcion_cookie.php" ?>
+<?php include_once "funcion_cookie.php"; include_once "funcion_sesiones.php"; ?>
 <html>
     <head><title>Web 0</title></head>
     <body>
@@ -7,8 +7,17 @@
             <li><a href="./web1.php">WEB 1</a></li>
             <li><a href="./web2.php">WEB 2</a></li>
         </ul>
+        <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
+            <input type="submit" value="Cerrar Sesion">
+        </form>
     <?php
-        var_dump($_COOKIE);
+        if($_SERVER["REQUEST_METHOD"] == "POST")
+        {
+            if(isset($_COOKIE["nombreUsuario"]) && isset($_COOKIE["nombreContrasena"]))
+                eliminarCookie();
+            if(isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"]))
+                eliminarSession();
+        }
     ?>
     </body>
 </html>

@@ -1,13 +1,20 @@
 <?php
 
-    function crearCookie($usuario,$contraseña)
+    function crearCookie($usuario,$contrasena)
     {
-        setcookie($usuario, $contraseña, time() + (86400 * 30), "/");
+        setcookie("nombreUsuario", $usuario, time() + (86400 * 30), "/");
+        setcookie("nombreContrasena", $contrasena, time() + (86400 * 30), "/");
     }
 
-    function eliminarCookie($usuario)
+    function eliminarCookie()
     {
-        setcookie($usuario, "" , time() - (86400 * 30), "/");
+        setcookie("nombreUsuario", "" , time() - (86400 * 30), "/");
+        setcookie("nombreContrasena", "", time() - (86400 * 30), "/");
+    }
+
+    function eliminarCookieSession($nombreCookie)
+    {
+        setcookie($nombreCookie, "", time() - (86400 * 90), "/");
     }
 
 ?>

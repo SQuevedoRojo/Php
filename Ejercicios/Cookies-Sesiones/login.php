@@ -7,7 +7,7 @@
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             Usuarios : <input type="text" name="usuario"><br>
             Contraseña : <input type="text" name="contrasena"><br>
-            <input type="submit" value="enviar">
+            <input type="submit" value="Iniciar Sesion">
             <input type="reset" value="borrar">
         </form>
         <?php 
