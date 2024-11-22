@@ -5,7 +5,7 @@
         setcookie($usuario, $contraseña, time() + (86400 * 30), "/");
     }
 
-    function eliminarCookie($usuario,)
+    function eliminarCookie($usuario)
     {
         setcookie($usuario, "" , time() - (86400 * 30), "/");
     }
