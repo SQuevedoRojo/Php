@@ -1,6 +1,6 @@
 <?php
     include_once "funciones_comunes.php";
-    include_once "funciones_cookie.php";
+    include_once "funcion_cookie.php";
     function recogerDatos()
     {
         $usuario = limpiar($_POST['ususario']);
