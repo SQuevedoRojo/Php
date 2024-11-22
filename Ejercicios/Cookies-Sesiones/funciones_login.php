@@ -48,9 +48,12 @@
 
     function crearCookieSession($usuario,$contrasena)
     {
+        $cookieCreada = false;
+        $sessionCreada = false;
         if(!(isset($_COOKIE["nombreUsuario"]) && isset($_COOKIE["nombreContrasena"])))
         {
             crearCookie($usuario,$contrasena);
+            $cookieCreada = true;
         }
         else
         {
@@ -59,11 +62,13 @@
         if(!(isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"])))
         {
             iniciarSession($usuario,$contrasena);
+            $sessionCreada = true;
         }
         else
         {
             print "<h2>La sesion ya esta creada</h2>";
         }
-        header("Location: web0.php");
+        if($cookieCreada || $sessionCreada)
+            header("Location: web0.php");
     }
 ?>
