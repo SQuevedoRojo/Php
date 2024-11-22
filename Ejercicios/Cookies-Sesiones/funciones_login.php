@@ -30,9 +30,7 @@
                 $stmt->bindParam(':cont', $contrasena);
                 $stmt -> execute();
                 $conn -> commit();
-                crearCookie($usuario,$contrasena);
-                iniciarSession($usuario,$contrasena);
-                header("Location: web0.php");
+                
             }
             else
             {
@@ -46,5 +44,26 @@
             echo "Error: " . $e->getMessage();
         }
         $conn = null;
+    }
+
+    function crearCookieSession($usuario,$contrasena)
+    {
+        if(!(isset($_COOKIE["nombreUsuario"]) && isset($_COOKIE["nombreContrasena"])))
+        {
+            crearCookie($usuario,$contrasena);
+        }
+        else
+        {
+            print "<h2>La cookie ya esta creada</h2>";
+        }
+        if(!(isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"])))
+        {
+            iniciarSession($usuario,$contrasena);
+        }
+        else
+        {
+            print "<h2>La sesion ya esta creada</h2>";
+        }
+        header("Location: web0.php");
     }
 ?>
