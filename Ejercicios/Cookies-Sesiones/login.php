@@ -13,8 +13,8 @@
         <?php 
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
-                list($usuario,$contraseña) = recogerDatos();
-                verificarCuenta($usuario,$contraseña);
+                list($usuario,$contrasena) = recogerDatos();
+                verificarCuenta($usuario,$contrasena);
             }
         ?>
 </BODY>
