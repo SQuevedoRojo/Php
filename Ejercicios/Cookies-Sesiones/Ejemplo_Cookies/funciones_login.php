@@ -58,6 +58,6 @@
             print "<h2>La cookie ya esta creada</h2>";
         }
         if($cookieCreada)
-            header("Location: web0.php");
+            header("Location: ./web0.php");
     }
 ?>

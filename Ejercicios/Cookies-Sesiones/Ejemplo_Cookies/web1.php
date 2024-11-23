@@ -1,6 +1,6 @@
 <?php include_once "funcion_cookie.php";
     if(!verificarCookieExistente())
-        header("Location: login.php");
+        header("Location: ./login.php");
 ?>
 <html>
     <head><title>Web 1</title></head>
