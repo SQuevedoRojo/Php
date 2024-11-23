@@ -1,7 +1,6 @@
 <?php
     include_once "funciones_comunes.php";
     include_once "funcion_cookie.php";
-    include_once "funcion_sesiones.php";
 
     function recogerDatos()
     {
@@ -30,7 +29,7 @@
                 $stmt->bindParam(':cont', $contrasena);
                 $stmt -> execute();
                 $conn -> commit();
-                crearCookieSession($usuario,$contrasena);
+                crearCookie($usuario,$contrasena);
             }
             else
             {
@@ -46,10 +45,9 @@
         $conn = null;
     }
 
-    function crearCookieSession($usuario,$contrasena)
+    function crearCookie($usuario,$contrasena)
     {
         $cookieCreada = false;
-        $sessionCreada = false;
         if(!(isset($_COOKIE["nombreUsuario"]) && isset($_COOKIE["nombreContrasena"])))
         {
             crearCookie($usuario,$contrasena);
@@ -59,16 +57,7 @@
         {
             print "<h2>La cookie ya esta creada</h2>";
         }
-        if(!(isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"])))
-        {
-            iniciarSession($usuario,$contrasena);
-            $sessionCreada = true;
-        }
-        else
-        {
-            print "<h2>La sesion ya esta creada</h2>";
-        }
-        if($cookieCreada || $sessionCreada)
+        if($cookieCreada)
             header("Location: web0.php");
     }
 ?>

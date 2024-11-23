@@ -1,5 +1,4 @@
 <?php
-    include_once "funcion_cookie.php";
     
     function iniciarSession($usuario,$contrasena)
     {
@@ -12,6 +11,13 @@
     {
         session_destroy();
         session_unset();
-        eliminarCookieSession("PHPSESSID");
+    }
+
+    function verificarSessionActiva()
+    {
+        $sessionCreada = false;
+        if((isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"])))
+            $sessionCreada = true;
+        return $sessionCreada;
     }
 ?>

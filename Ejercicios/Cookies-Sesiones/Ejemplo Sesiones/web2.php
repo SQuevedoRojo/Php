@@ -1,4 +1,9 @@
-<?php include_once "funcion_cookie.php"; include_once "funcion_sesiones.php"; ?>
+<?php include_once "funcion_sesiones.php";
+
+    if(!verificarSessionActiva())
+        header("Location: login.php");
+
+?>
 <html>
     <head><title>Web 2</title></head>
     <body>
@@ -10,14 +15,12 @@
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             <input type="submit" value="Cerrar Sesion">
         </form>
-    <?php
-       if($_SERVER["REQUEST_METHOD"] == "POST")
-       {
-           if(isset($_COOKIE["nombreUsuario"]) && isset($_COOKIE["nombreContrasena"]))
-               eliminarCookie();
-           if(isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"]))
-               eliminarSession();
-       }
+        <?php
+        if($_SERVER["REQUEST_METHOD"] == "POST")
+        {
+            if(isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"]))
+                eliminarSession();
+        }
     ?>
     </body>
 </html>

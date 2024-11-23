@@ -12,9 +12,12 @@
         setcookie("nombreContrasena", "", time() - (86400 * 30), "/");
     }
 
-    function eliminarCookieSession($nombreCookie)
+    function verificarCookieExistente()
     {
-        setcookie($nombreCookie, "", time() - (86400 * 90), "/");
+        $cookiesCreadas = false;
+        if((isset($_COOKIE["nombreUsuario"]) && isset($_COOKIE["nombreContrasena"])))
+            $cookiesCreadas = true;
+        return $cookiesCreadas;
     }
 
 ?>

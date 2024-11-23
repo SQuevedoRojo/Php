@@ -1,4 +1,7 @@
-<?php include_once "funcion_cookie.php"; include_once "funcion_sesiones.php"; ?>
+<?php include_once "funcion_cookie.php";
+    if(!verificarCookieExistente())
+        header("Location: login.php");
+?>
 <html>
     <head><title>Web 1</title></head>
     <body>
@@ -15,8 +18,6 @@
         {
             if(isset($_COOKIE["nombreUsuario"]) && isset($_COOKIE["nombreContrasena"]))
                 eliminarCookie();
-            if(isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"]))
-                eliminarSession();
         }
     ?>
     </body>
