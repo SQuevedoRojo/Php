@@ -1,7 +1,7 @@
 <?php include_once "funcion_sesiones.php";
 
     if(!verificarSessionActiva())
-        header("Location: login.php");
+        header("Location: ./login.php");
 
 ?>
 <html>

@@ -58,6 +58,6 @@
             print "<h2>La sesion ya esta creada</h2>";
         }
         if($sessionCreada)
-            header("Location: web0.php");
+            header("Location: ./web0.php");
     }
 ?>

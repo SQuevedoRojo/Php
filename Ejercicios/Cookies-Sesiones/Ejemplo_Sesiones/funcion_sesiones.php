@@ -11,6 +11,7 @@
     {
         session_destroy();
         session_unset();
+        header("Location: ./login.php");
     }
 
     function verificarSessionActiva()
