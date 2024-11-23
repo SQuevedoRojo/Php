@@ -1,5 +1,5 @@
 <?php include_once "funcion_sesiones.php";
-
+iniciarSession();
     if(!verificarSessionActiva())
         header("Location: ./login.php");
 

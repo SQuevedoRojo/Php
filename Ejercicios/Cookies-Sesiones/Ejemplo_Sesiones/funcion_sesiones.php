@@ -1,8 +1,12 @@
 <?php
     
-    function iniciarSession($usuario,$contrasena)
+    function iniciarSession()
     {
         session_start();
+    }
+
+    function asignarVariablesSession($usuario,$contrasena)
+    {
         $_SESSION["usuario"] = $usuario;
         $_SESSION["contrasena"] = $contrasena;
     }
