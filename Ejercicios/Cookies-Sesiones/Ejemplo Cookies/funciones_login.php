@@ -29,7 +29,7 @@
                 $stmt->bindParam(':cont', $contrasena);
                 $stmt -> execute();
                 $conn -> commit();
-                crearCookie($usuario,$contrasena);
+                crearCookies($usuario,$contrasena);
             }
             else
             {
@@ -45,7 +45,7 @@
         $conn = null;
     }
 
-    function crearCookie($usuario,$contrasena)
+    function crearCookies($usuario,$contrasena)
     {
         $cookieCreada = false;
         if(!(isset($_COOKIE["nombreUsuario"]) && isset($_COOKIE["nombreContrasena"])))
