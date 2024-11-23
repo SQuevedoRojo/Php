@@ -10,6 +10,7 @@
     {
         setcookie("nombreUsuario", "" , time() - (86400 * 30), "/");
         setcookie("nombreContrasena", "", time() - (86400 * 30), "/");
+        header("Location: ./login.php");
     }
 
     function verificarCookieExistente()
