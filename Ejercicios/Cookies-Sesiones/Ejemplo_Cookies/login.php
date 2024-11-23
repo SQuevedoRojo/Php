@@ -2,7 +2,7 @@
     include_once "funciones_login.php";
 ?>
 <HTML>
-    <H1>Ejercicio 8 Web Empleados</H1>
+    <H1>Cookies</H1>
     <BODY>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             Usuarios : <input type="text" name="usuario"><br>
