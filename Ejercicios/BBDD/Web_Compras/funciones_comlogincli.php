@@ -16,7 +16,8 @@
         {
             $stmt = $conn->prepare("SELECT NIF,NOMBRE,REVERSE(APELLIDO) as APELLIDO from cliente where NOMBRE = :nombre and APELLIDO = :ape");
             $stmt->bindParam(':nombre', $usuario);
-            $stmt->bindParam(':ape', $contrasena);
+            $apellido = strrev($contrasena);
+            $stmt->bindParam(':ape', $apellido);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
