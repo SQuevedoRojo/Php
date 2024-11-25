@@ -4,7 +4,9 @@
     <style>
         #carrito
         {
-            float: right;
+            position: absolute;
+            top: 0;
+            left: 80%;
         }
     </style>
     <BODY>
