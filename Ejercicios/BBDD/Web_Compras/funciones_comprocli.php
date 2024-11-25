@@ -91,7 +91,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT a.NUM_ALMACEN as almacen,LOCALIDAD, p.NOMBRE as NOMRBE,CANTIDAD from almacena a,almacen al,producto p where a.NUM_ALMACEN = al.NUM_ALMACEN AND a.ID_PRODUCTO = :idProducto AND  a.NUM_ALMACEN = al.NUM_ALMACEN AND CANTIDAD > :cantidad ORDER BY CANTIDAD");
+            $stmt = $conn->prepare("SELECT a.NUM_ALMACEN as almacen,LOCALIDAD, p.NOMBRE as NOMRBE,CANTIDAD from almacena a,almacen al,producto p where a.NUM_ALMACEN = al.NUM_ALMACEN AND a.ID_PRODUCTO = :idProducto AND  a.NUM_ALMACEN = al.NUM_ALMACEN AND CANTIDAD >= :cantidad ORDER BY CANTIDAD");
             $stmt->bindParam(':idProducto', $idProducto);
             $stmt->bindParam(':cantidad', $unidades);
             $stmt -> execute();
@@ -104,13 +104,13 @@
             else
             {
                 $numAlamcen = $resultado[0]["almacen"];
-                $stmt = $conn->prepare("SELECT NIF,ID_PRODUCTO,FECHA_COMPRA from compra where ID_PRODUCTO = :idProducto AND NIF=:nif");
+                $stmt = $conn->prepare("SELECT NIF,ID_PRODUCTO,max(FECHA_COMPRA) as FECHA_COMPRA from compra where ID_PRODUCTO = :idProducto AND NIF=:nif");
                 $stmt->bindParam(':idProducto', $idProducto);
                 $stmt->bindParam(':nif', $cliente);
                 $stmt->execute();
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 $resultado2=$stmt->fetchAll();
-                if($resultado2 == null)
+                if($resultado2[0]["FECHA_COMPRA"] != date("Y-m-d"))
                 {
                     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                     $conn->beginTransaction();
@@ -130,15 +130,14 @@
                 }
                 else
                 {
-					if($resultado[0]["FECHA_COMPRA"] = date("Y-m-d"))
+					if($resultado2[0]["FECHA_COMPRA"] = date("Y-m-d"))
                     {
                         $fechaHoy = date("Y-m-d");
                         $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                         $conn->beginTransaction();
-                        $stmt = $conn->prepare("UPDATE compra set UNIDADES = UNIDADES + :unidades WHERE NIF = :nif AND ID_PRODUCTO = :idProducto AND FECHA_COMPRA = :fechaHoy");
+                        $stmt = $conn->prepare("UPDATE compra set UNIDADES = UNIDADES + :unidades WHERE NIF = :nif AND ID_PRODUCTO = :idProducto AND FECHA_COMPRA = curdate()");
                         $stmt->bindParam(':nif', $cliente);
                         $stmt->bindParam(':idProducto', $idProducto);
-                        $stmt->bindParam(':fechaHoy', $fechaHoy);
                         $stmt->bindParam(':unidades', $unidades);
                         $stmt->execute();
                         $stmt = $conn->prepare("UPDATE almacena set cantidad=cantidad-:unidades where NUM_ALMACEN=:idAlmacen AND ID_PRODUCTO=:idProducto");
