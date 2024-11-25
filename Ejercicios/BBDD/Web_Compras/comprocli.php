@@ -1,5 +1,5 @@
 <HTML>
-    <?php include_once "funciones_comprocli.php";imprimirCestaCompra();?>
+    <?php include_once "funciones_comprocli.php";?>
     <H1>Ejercicio 12 Web Empleados</H1>
     <style>
         #carrito
@@ -16,6 +16,8 @@
             <input type="submit" value="Añadir Producto" name="annadirProducto">
             <input type="reset" value="borrar">
             <br>
+            <input type="submit" value="Mostrar Cesta Compra" name="mostrarProductos">
+            <br>
             <input type="submit" value="Comprar Cesta Compra" name="comprarProductos">
             
         </form>
@@ -26,6 +28,10 @@
                 {
                     list($productos,$unidades) = recogerDatos();
                     annadirCestaCompra($productos,$unidades);
+                }
+                if(isset($_POST['mostrarProductos']))
+                {
+                    imprimirCestaCompra();
                 }
             }
         ?>
