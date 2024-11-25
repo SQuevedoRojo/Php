@@ -17,7 +17,7 @@
     <?php
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
-            if(isset($_COOKIE["nombreUsuario"]) && isset($_COOKIE["nombreContrasena"]))
+            if(isset($_COOKIE["nifUsuario"]))
                 eliminarCookie();
         }
     ?>
