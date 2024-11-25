@@ -1,7 +1,7 @@
 <?php 
     include_once "funcion_cookie.php";
     if(!verificarCookieExistente())
-        header("Location: ./login.php");
+        header("Location: ./comlogincli.php");
 ?>
 <html>
     <head><title>Opciones para el cliente</title></head>

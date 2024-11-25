@@ -12,7 +12,7 @@
         header("Location: ./comlogincli.php");
     }
 
-    function annadirCestaCompra($producto,$unidad)
+    function cookieCestaCompra($producto,$unidad)
     {
         $contenidoCookie = null;
         if(isset($_COOKIE["cestaCompra"]))

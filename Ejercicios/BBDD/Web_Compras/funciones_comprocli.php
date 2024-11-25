@@ -34,6 +34,6 @@
 
     function annadirCestaCompra($producto,$unidad)
     {
-        annadirCestaCompra($producto,$unidad);
+        cookieCestaCompra($producto,$unidad);
     }
 ?>
