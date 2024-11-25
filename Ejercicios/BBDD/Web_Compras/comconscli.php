@@ -9,7 +9,7 @@
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             Fecha Inicio : <input type="text" name="fec_inic" placeholder="YYYY-MM-DD"><br>
             Fecha Final : <input type="text" name="fec_fin" placeholder="YYYY-MM-DD"><br>
-            <input type="submit" value="enviar" name="mostrarCompras">
+            <input type="submit" value="Mostrar Compras" name="mostrarCompras">
             <input type="reset" value="borrar">
             <br>
             <input type="submit" value="Cerrar Sesion" name="cerrarSesion">

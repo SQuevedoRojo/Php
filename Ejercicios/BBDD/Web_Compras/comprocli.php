@@ -24,6 +24,8 @@
             <br>
             <input type="submit" value="Comprar Cesta Compra" name="comprarProductos">
             <br>
+            <input type="submit" value="Eliminar Cesta Compra" name="eliminarCesta">
+            <br>
             <input type="submit" value="Cerrar Sesion" name="cerrarSesion">
             
         </form>
@@ -42,6 +44,10 @@
                 if(isset($_POST['comprarProductos']))
                 {
                     comprarProductos();
+                }
+                if(isset($_POST["eliminarCesta"]))
+                {
+                    eliminarCestaCompra();
                 }
                 if(isset($_POST['cerrarSesion']))
                 {

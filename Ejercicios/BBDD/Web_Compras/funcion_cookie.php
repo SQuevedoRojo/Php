@@ -8,7 +8,8 @@
     function eliminarCookie()
     {
         setcookie("nifUsuario", "" , time() - (86400 * 30), "/");
-        setcookie("cestaCompra", "" , time() - (86400 * 30), "/");
+        if(isset($_COOKIE["cestaCompra"]))
+            setcookie("cestaCompra", "" , time() - (86400 * 30), "/");
         header("Location: ./comlogincli.php");
     }
 
@@ -24,6 +25,12 @@
             $contenidoCookie = $producto .";". strval($unidad) . "|";
         }
         setcookie("cestaCompra", $contenidoCookie , time() + (86400 * 30), "/");
+    }
+
+    function eliminarCestaCompra()
+    {
+        if(isset($_COOKIE["cestaCompra"]))
+            setcookie("cestaCompra", "" , time() - (86400 * 30), "/");
     }
 
     function verificarCookieExistente()
