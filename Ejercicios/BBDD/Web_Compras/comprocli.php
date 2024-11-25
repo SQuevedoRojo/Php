@@ -20,9 +20,9 @@
             
         </form>
         <?php 
+            imprimirCestaCompra();
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
-                imprimirCestaCompra();
                 if(isset($_POST['annadirProducto']))
                 {
                     list($productos,$unidades) = recogerDatos();
