@@ -12,7 +12,7 @@
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
                 list($productos,$unidades) = recogerDatos();
-                verificarCliente($usuario,$contrasena);
+                annadirCestaCompra($productos,$unidades);
             }
         ?>
 </BODY>
