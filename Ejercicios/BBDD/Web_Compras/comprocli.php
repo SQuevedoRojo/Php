@@ -19,6 +19,7 @@
             <input type="submit" value="Comprar Cesta Compra" name="comprarProductos">
             
         </form>
+        <?php imprimirCestaCompra(); ?>
         <?php 
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
@@ -29,6 +30,6 @@
                 }
             }
         ?>
-        <?php imprimirCestaCompra(); ?>
+        <?php  ?>
 </BODY>
 </HTML>
