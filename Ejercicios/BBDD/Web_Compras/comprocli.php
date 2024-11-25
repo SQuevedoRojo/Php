@@ -1,5 +1,6 @@
 <HTML>
     <?php include_once "funciones_comprocli.php";
+    include_once "funcion_cookie.php";
         if(!verificarCookieExistente())
             header("Location: ./comlogincli.php");
     ?>
@@ -22,6 +23,8 @@
             <input type="submit" value="Mostrar Cesta Compra" name="mostrarProductos">
             <br>
             <input type="submit" value="Comprar Cesta Compra" name="comprarProductos">
+            <br>
+            <input type="submit" value="Cerrar Sesion" name="cerrarSesion">
             
         </form>
         <?php 
@@ -39,6 +42,10 @@
                 if(isset($_POST['comprarProductos']))
                 {
                     comprarProductos();
+                }
+                if(isset($_POST['cerrarSesion']))
+                {
+                    eliminarCookie();
                 }
             }
         ?>
