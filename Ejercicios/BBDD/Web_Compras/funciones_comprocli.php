@@ -35,7 +35,6 @@
     function annadirCestaCompra($producto,$unidad)
     {
         cookieCestaCompra($producto,$unidad);
-        imprimirCestaCompra();
     }
 
     function imprimirCestaCompra()

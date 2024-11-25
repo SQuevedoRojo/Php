@@ -1,5 +1,5 @@
 <HTML>
-    <?php include_once "funciones_comprocli.php" ?>
+    <?php include_once "funciones_comprocli.php";imprimirCestaCompra();?>
     <H1>Ejercicio 12 Web Empleados</H1>
     <style>
         #carrito
@@ -19,7 +19,6 @@
             <input type="submit" value="Comprar Cesta Compra" name="comprarProductos">
             
         </form>
-        <?php imprimirCestaCompra(); ?>
         <?php 
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
