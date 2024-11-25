@@ -28,7 +28,7 @@
                     annadirCestaCompra($productos,$unidades);
                 }
             }
-            imprimirCestaCompra();
         ?>
+        <?php imprimirCestaCompra(); ?>
 </BODY>
 </HTML>
