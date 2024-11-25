@@ -33,6 +33,10 @@
                 {
                     imprimirCestaCompra();
                 }
+                if(isset($_POST['comprarProductos']))
+                {
+                    comprarProductos();
+                }
             }
         ?>
         <?php  ?>
