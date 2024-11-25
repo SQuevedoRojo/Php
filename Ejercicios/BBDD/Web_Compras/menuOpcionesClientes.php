@@ -8,7 +8,7 @@
     <body>
         <h2>Opciones para el cliente</h2>
         <ul>
-            <li><a href="./web1.php">WEB 1</a></li>
+            <li><a href="./comprocli.php">Compra de Productos</a></li>
             <li><a href="./web2.php">WEB 2</a></li>
         </ul>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
