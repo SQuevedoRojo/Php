@@ -1,5 +1,8 @@
 <HTML>
-    <?php include_once "funciones_comprocli.php";?>
+    <?php include_once "funciones_comprocli.php";
+        if(!verificarCookieExistente())
+            header("Location: ./comlogincli.php");
+    ?>
     <H1>Ejercicio 12 Web Empleados</H1>
     <style>
         #carrito
