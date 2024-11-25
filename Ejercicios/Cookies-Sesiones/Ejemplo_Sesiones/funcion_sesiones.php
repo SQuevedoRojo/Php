@@ -11,12 +11,18 @@
         $_SESSION["contrasena"] = $contrasena;
     }
 
-    function eliminarSession()
+    function eliminarSessionYVariables()
     {
         session_destroy();
         session_unset();
         setcookie("PHPSESSID", "" , time() - (86400 * 30), "/",$_SERVER['HTTP_HOST']);
         header("Location: ./login.php");
+    }
+
+    function eliminarSession()
+    {
+        session_destroy();
+        session_unset();
     }
 
     function verificarSessionActiva()

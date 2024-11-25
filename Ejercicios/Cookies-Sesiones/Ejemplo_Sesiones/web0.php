@@ -1,7 +1,10 @@
 <?php include_once "funcion_sesiones.php";
     iniciarSession();
     if(!verificarSessionActiva())
+    {
+        eliminarSession();
         header("Location: ./login.php");
+    }
 
 ?>
 <html>
@@ -19,7 +22,7 @@
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
             if(isset($_SESSION["usuario"]) && isset($_SESSION["contrasena"]))
-                eliminarSession();
+                eliminarSessionYVariables()();
         }
     ?>
     </body>
