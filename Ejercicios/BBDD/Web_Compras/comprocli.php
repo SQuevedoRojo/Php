@@ -20,7 +20,6 @@
             
         </form>
         <?php 
-            imprimirCestaCompra();
             if($_SERVER["REQUEST_METHOD"] == "POST")
             {
                 if(isset($_POST['annadirProducto']))
@@ -29,6 +28,7 @@
                     annadirCestaCompra($productos,$unidades);
                 }
             }
+            imprimirCestaCompra();
         ?>
 </BODY>
 </HTML>
