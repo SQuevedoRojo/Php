@@ -23,6 +23,7 @@
     {
         session_destroy();
         session_unset();
+        setcookie("PHPSESSID", "" , time() - (86400 * 30), "/",$_SERVER['HTTP_HOST']);
     }
 
     function verificarSessionActiva()
