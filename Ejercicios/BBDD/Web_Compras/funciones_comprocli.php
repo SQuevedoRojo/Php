@@ -73,7 +73,6 @@
         {
             $carritoCompra = $_COOKIE["cestaCompra"];
             $productos = explode("|",$carritoCompra);
-            $conn = conexionBBDD();
             for ($i=0; $i < count($productos) - 1; $i++)
             { 
                 $producto = explode(";",$productos[$i]);
@@ -106,7 +105,7 @@
             {
                 $numAlamcen = $resultado[0]["almacen"];
                 $stmt = $conn->prepare("SELECT NIF,ID_PRODUCTO,FECHA_COMPRA from compra where ID_PRODUCTO = :idProducto AND NIF=:nif");
-                $stmt->bindParam(':idProducto', $producto);
+                $stmt->bindParam(':idProducto', $idProducto);
                 $stmt->bindParam(':nif', $cliente);
                 $stmt->execute();
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -117,12 +116,12 @@
                     $conn->beginTransaction();
                     $stmt = $conn->prepare("INSERT INTO compra (NIF,ID_PRODUCTO,FECHA_COMPRA,UNIDADES) VALUES (:nif,:idProducto,curdate(),:unidades)");
                     $stmt->bindParam(':nif', $cliente);
-                    $stmt->bindParam(':idProducto', $producto);
+                    $stmt->bindParam(':idProducto', $idProducto);
                     $stmt->bindParam(':unidades', $unidades);
                     $stmt->execute();
                     $stmt = $conn->prepare("UPDATE almacena set cantidad=cantidad-:unidades where NUM_ALMACEN=:idAlmacen AND ID_PRODUCTO=:idProducto");
                     $stmt->bindParam(':idAlmacen', $numAlamcen);
-                    $stmt->bindParam(':idProducto', $producto);
+                    $stmt->bindParam(':idProducto', $idProducto);
                     $stmt->bindParam(':unidades', $unidades);
                     $stmt->execute();
                     $conn -> commit();
@@ -138,13 +137,13 @@
                         $conn->beginTransaction();
                         $stmt = $conn->prepare("UPDATE compra set UNIDADES = UNIDADES + :unidades WHERE NIF = :nif AND ID_PRODUCTO = :idProducto AND FECHA_COMPRA = :fechaHoy");
                         $stmt->bindParam(':nif', $cliente);
-                        $stmt->bindParam(':idProducto', $producto);
+                        $stmt->bindParam(':idProducto', $idProducto);
                         $stmt->bindParam(':fechaHoy', $fechaHoy);
                         $stmt->bindParam(':unidades', $unidades);
                         $stmt->execute();
                         $stmt = $conn->prepare("UPDATE almacena set cantidad=cantidad-:unidades where NUM_ALMACEN=:idAlmacen AND ID_PRODUCTO=:idProducto");
                         $stmt->bindParam(':idAlmacen', $numAlamcen);
-                        $stmt->bindParam(':idProducto', $producto);
+                        $stmt->bindParam(':idProducto', $idProducto);
                         $stmt->bindParam(':unidades', $unidades);
                         $stmt->execute();
                         $conn -> commit();
@@ -156,12 +155,12 @@
                         $conn->beginTransaction();
                         $stmt = $conn->prepare("INSERT INTO compra (NIF,ID_PRODUCTO,FECHA_COMPRA,UNIDADES) VALUES (:nif,:idProducto,curdate(),:unidades)");
                         $stmt->bindParam(':nif', $cliente);
-                        $stmt->bindParam(':idProducto', $producto);
+                        $stmt->bindParam(':idProducto', $idProducto);
                         $stmt->bindParam(':unidades', $unidades);
                         $stmt->execute();
                         $stmt = $conn->prepare("UPDATE almacena set cantidad=cantidad-:unidades where NUM_ALMACEN=:idAlmacen AND ID_PRODUCTO=:idProducto");
                         $stmt->bindParam(':idAlmacen', $numAlamcen);
-                        $stmt->bindParam(':idProducto', $producto);
+                        $stmt->bindParam(':idProducto', $idProducto);
                         $stmt->bindParam(':unidades', $unidades);
                         $stmt->execute();
                         $conn -> commit();
