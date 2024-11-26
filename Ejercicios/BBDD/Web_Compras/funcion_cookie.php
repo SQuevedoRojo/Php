@@ -32,7 +32,7 @@
         $cestaCompra = explode("|",$_COOKIE["cestaCompra"]);
         $indice = 0;
         $productoEncontrado = false;
-        while($indice < count($cestaCompra) && !$productoEncontrado)
+        while($indice < count($cestaCompra) - 1 && !$productoEncontrado)
         {
             $producto = explode(";",$cestaCompra[$indice]);
             if($producto[0] == $idProducto)
@@ -41,9 +41,9 @@
                 $indice += 1;
         }
         $restoCesta = "";
-        for ($i=$indice; $i < count($cestaCompra); $i++) 
+        for ($i=$indice; $i < count($cestaCompra) - 1; $i++) 
         { 
-            $restoCesta = $restoCesta . $cestaCompra[$i] . "|";
+            $restoCesta = $restoCesta . $cestaCompra[$i];
         }
         if($restoCesta != "")
             setcookie("cestaCompra", $restoCesta , time() + (86400 * 30), "/");
@@ -54,7 +54,7 @@
     function eliminarCestaCompra()
     {
         if(isset($_COOKIE["cestaCompra"]))
-            setcookie("cestaCompra", "" , time() - (86400 * 30), "/");
+            setcookie("cestaCompra", "" , time() - (86400 * 31), "/");
     }
 
     function verificarCookieExistente()
