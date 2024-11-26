@@ -37,8 +37,7 @@
             $producto = explode(";",$cestaCompra[$indice]);
             if($producto[0] == $idProducto)
                 $productoEncontrado = true;
-            else
-                $indice += 1;
+            $indice += 1;
         }
         $restoCesta = "";
         for ($i=$indice; $i < count($cestaCompra) - 1; $i++) 
