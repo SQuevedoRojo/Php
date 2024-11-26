@@ -5,8 +5,8 @@
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             Usuario : <input type="text" name="usuario"><br>
             Contraseña : <input type="text" name="contrasena"><br>
-            <input type="submit" value="enviar">
-            <input type="reset" value="borrar">
+            <input type="submit" value="Iniciar Sesion">
+            <input type="reset" value="Borrar Datos">
         </form>
         <?php 
             if($_SERVER["REQUEST_METHOD"] == "POST")
