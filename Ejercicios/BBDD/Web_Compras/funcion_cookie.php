@@ -18,7 +18,7 @@
         $contenidoCookie = null;
         if(isset($_COOKIE["cestaCompra"]))
         {
-            $contenidoCookie = $_COOKIE["cestaCompra"];
+            $contenidoCookie = unserialize($_COOKIE["cestaCompra"]);
             $productoIncrementado = false;
             foreach ($contenidoCookie as $Idproducto => $unidades)
             {
