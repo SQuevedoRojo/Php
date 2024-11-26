@@ -40,7 +40,7 @@
             else
                 $indice += 1;
         }
-        $restoCesta = null;
+        $restoCesta = "";
         for ($i=$indice; $i < count($cestaCompra); $i++) 
         { 
             $restoCesta = $restoCesta . $cestaCompra[$i];
