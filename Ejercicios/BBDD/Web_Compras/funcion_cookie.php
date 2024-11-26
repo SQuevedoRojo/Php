@@ -45,7 +45,10 @@
         { 
             $restoCesta = $restoCesta . $cestaCompra[$i];
         }
-        setcookie("cestaCompra", $restoCesta , time() + (86400 * 30), "/");
+        if($restoCesta != "")
+            setcookie("cestaCompra", $restoCesta , time() + (86400 * 30), "/");
+        else
+            eliminarCestaCompra();
     }
 
     function eliminarCestaCompra()
