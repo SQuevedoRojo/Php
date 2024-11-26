@@ -41,18 +41,16 @@
     {
         if(isset($_COOKIE["cestaCompra"]))
         {
-            $carritoCompra = $_COOKIE["cestaCompra"];
-            $productos = explode("|",$carritoCompra);
+            $carritoCompra = unserialize($_COOKIE["cestaCompra"]);
             $conn = conexionBBDD();
             print "<div id='carrito'><h2>Carrito de la compra</h2>";
             print "<table border='1'><tr><th>Producto</th><th>Unidades</th></tr>";
-            for ($i=0; $i < count($productos) - 1; $i++)
-            { 
-                $producto = explode(";",$productos[$i]);
+            foreach ($carritoCompra as $producto=> $unidades)
+            {
                 try
                 {
                     $stmt = $conn->prepare("SELECT NOMBRE FROM producto where ID_PRODUCTO = :id");
-                    $stmt->bindParam(':id', $producto[0]);
+                    $stmt->bindParam(':id', $producto);
                     $stmt -> execute();
                     $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     $resultado=$stmt->fetchAll();
@@ -61,7 +59,7 @@
                 {
                     echo "Error: " . $e->getMessage();
                 }
-                print "<tr><td>".$resultado[0]["NOMBRE"]."</td><td>".$producto[1]."</td></tr>";
+                print "<tr><td>".$resultado[0]["NOMBRE"]."</td><td>".$unidades."</td></tr>";
             }
             print "</table></div>";
         }
@@ -69,17 +67,14 @@
 
     function comprarProductos()
     {
-        if(isset($_COOKIE["cestaCompra"]))
+        if(isset($_COOKIE["cestaCompra"]) && isset($_COOKIE["nifUsuario"]))
         {
-            $carritoCompra = $_COOKIE["cestaCompra"];
-            $productos = explode("|",$carritoCompra);
-            for ($i=0; $i < count($productos) - 1; $i++)
-            { 
-                $producto = explode(";",$productos[$i]);
-                comprarProducto($producto[0],$producto[1]);
+            $carritoCompra = unserialize($_COOKIE["cestaCompra"]);
+            foreach ($carritoCompra as $producto => $unidades) {
+                comprarProducto($producto,$unidades);
             }
         }
-        else
+        elseif(!isset($_COOKIE["cestaCompra"]))
         {
             print "<h2>No se ha podido comprar porque no hay productos en la cesta</h2>";
         }

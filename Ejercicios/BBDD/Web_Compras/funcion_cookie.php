@@ -18,36 +18,36 @@
         $contenidoCookie = null;
         if(isset($_COOKIE["cestaCompra"]))
         {
-            $contenidoCookie = $_COOKIE["cestaCompra"] . $producto .";". strval($unidad) . "|";
+            $contenidoCookie = $_COOKIE["cestaCompra"];
+            $productoIncrementado = false;
+            foreach ($contenidoCookie as $Idproducto => $unidades)
+            {
+                if($Idproducto == $producto)
+                {
+                    $unidades += $unidad;
+                    $productoIncrementado = true;
+                }
+            }
+            if(!$productoIncrementado)
+                $contenidoCookie[$producto] = $unidad;
+
         }
         else
         {
-            $contenidoCookie = $producto .";". strval($unidad) . "|";
+            $contenidoCookie = array();
+            $contenidoCookie[$producto] = $unidad;
         }
-        setcookie("cestaCompra", $contenidoCookie , time() + (86400 * 30), "/");
+        setcookie("cestaCompra", serialize($contenidoCookie) , time() + (86400 * 30), "/");
     }
 
     function eliminarProductoCestaCompra($idProducto)
     {
-        $cestaCompra = explode("|",$_COOKIE["cestaCompra"]);
-        $indice = 0;
-        $productoEncontrado = false;
-        while($indice < count($cestaCompra) - 1 && !$productoEncontrado)
-        {
-            $producto = explode(";",$cestaCompra[$indice]);
-            if($producto[0] == $idProducto)
-                $productoEncontrado = true;
-            $indice += 1;
+        $cestaCompra =  unserialize($_COOKIE["cestaCompra"]);
+        foreach ($cestaCompra as $producto => $unidades) {
+            if($producto == $idProducto)
+               unset($producto);
         }
-        $restoCesta = "";
-        for ($i=$indice; $i < count($cestaCompra) - 1; $i++) 
-        { 
-            $restoCesta = $restoCesta . $cestaCompra[$i] . "|";
-        }
-        if($restoCesta != "")
-            setcookie("cestaCompra", $restoCesta , time() + (86400 * 30), "/");
-        else
-            eliminarCestaCompra();
+        setcookie("cestaCompra", serialize($cestaCompra) , time() + (86400 * 30), "/");;
     }
 
     function eliminarCestaCompra()
