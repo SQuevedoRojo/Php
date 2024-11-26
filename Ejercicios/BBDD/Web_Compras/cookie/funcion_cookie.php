@@ -16,7 +16,7 @@
     function cookieCestaCompra($producto,$unidad)
     {
         $contenidoCookie = null;
-        if(isset($_COOKIE["cestaCompra"]) && $_COOKIE["cestaCompra"] != null)
+        if(isset($_COOKIE["cestaCompra"]) && unserialize($_COOKIE["cestaCompra"]) != null)
         {
             $contenidoCookie = unserialize($_COOKIE["cestaCompra"]);
             $productoIncrementado = false;
