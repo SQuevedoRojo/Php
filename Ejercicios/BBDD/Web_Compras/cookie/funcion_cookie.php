@@ -40,12 +40,14 @@
         setcookie("cestaCompra", serialize($contenidoCookie) , time() + (86400 * 30), "/");
     }
 
-    function eliminarProductoCestaCompra($idProducto)
+    function eliminarProductoCestaCompra($idProductos)
     {
         $cestaCompra =  unserialize($_COOKIE["cestaCompra"]);
+        $indice = 0;
         foreach ($cestaCompra as $producto => $unidades) {
-            if($producto == $idProducto)
+            if($producto == $idProductos[$indice])
                unset($cestaCompra[$producto]);
+            $indice += 1; 
         }
         if(count($cestaCompra) == 0)
             $cestaCompra = null;

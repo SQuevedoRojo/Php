@@ -75,9 +75,11 @@
             $carritoCompra = unserialize($_COOKIE["cestaCompra"]);
             if($carritoCompra != null)
             {
+                $idProductos = array();
                 foreach ($carritoCompra as $producto => $unidades) {
-                    comprarProducto($producto,$unidades);
+                    $idProductos[] = comprarProducto($producto,$unidades);
                 }
+                eliminarProductoCestaCompra($idProductos);
             }
             else
             {
@@ -179,7 +181,7 @@
             $conn -> rollBack();
             echo "Error: " . $e->getMessage();
         }
-        eliminarProductoCestaCompra($idProducto);
         $conn = null;
+        return $idProducto;
     }
 ?>
