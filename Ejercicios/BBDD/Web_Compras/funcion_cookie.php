@@ -45,7 +45,7 @@
         $cestaCompra =  unserialize($_COOKIE["cestaCompra"]);
         foreach ($cestaCompra as $producto => $unidades) {
             if($producto == $idProducto)
-               unset($producto);
+               unset($cestaCompra[$producto]);
         }
         setcookie("cestaCompra", serialize($cestaCompra) , time() + (86400 * 30), "/");;
     }
