@@ -43,11 +43,11 @@
     function eliminarProductoCestaCompra($idProductos)
     {
         $cestaCompra =  unserialize($_COOKIE["cestaCompra"]);
-        $indice = 0;
         foreach ($cestaCompra as $producto => $unidades) {
-            if($producto == $idProductos[$indice])
-               unset($cestaCompra[$producto]);
-            $indice += 1; 
+            for ($i=0; $i < count($idProductos); $i++) { 
+                if($producto == $idProductos[$i])
+                    unset($cestaCompra[$producto]);
+            }
         }
         if(count($cestaCompra) == 0)
             $cestaCompra = null;
