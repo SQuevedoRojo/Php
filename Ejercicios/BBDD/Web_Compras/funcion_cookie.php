@@ -20,7 +20,7 @@
         {
             $contenidoCookie = unserialize($_COOKIE["cestaCompra"]);
             $productoIncrementado = false;
-            foreach ($contenidoCookie as $Idproducto => $unidades)
+            foreach ($contenidoCookie as $Idproducto => &$unidades)
             {
                 if($Idproducto == $producto)
                 {
