@@ -42,26 +42,29 @@
         if(isset($_COOKIE["cestaCompra"]))
         {
             $carritoCompra = unserialize($_COOKIE["cestaCompra"]);
-            $conn = conexionBBDD();
-            print "<div id='carrito'><h2>Carrito de la compra</h2>";
-            print "<table border='1'><tr><th>Producto</th><th>Unidades</th></tr>";
-            foreach ($carritoCompra as $producto=> $unidades)
+            if($carritoCompra != null)
             {
-                try
+                $conn = conexionBBDD();
+                print "<div id='carrito'><h2>Carrito de la compra</h2>";
+                print "<table border='1'><tr><th>Producto</th><th>Unidades</th></tr>";
+                foreach ($carritoCompra as $producto=> $unidades)
                 {
-                    $stmt = $conn->prepare("SELECT NOMBRE FROM producto where ID_PRODUCTO = :id");
-                    $stmt->bindParam(':id', $producto);
-                    $stmt -> execute();
-                    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                    $resultado=$stmt->fetchAll();
+                    try
+                    {
+                        $stmt = $conn->prepare("SELECT NOMBRE FROM producto where ID_PRODUCTO = :id");
+                        $stmt->bindParam(':id', $producto);
+                        $stmt -> execute();
+                        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                        $resultado=$stmt->fetchAll();
+                    }
+                    catch(PDOException $e)
+                    {
+                        echo "Error: " . $e->getMessage();
+                    }
+                    print "<tr><td>".$resultado[0]["NOMBRE"]."</td><td>".$unidades."</td></tr>";
                 }
-                catch(PDOException $e)
-                {
-                    echo "Error: " . $e->getMessage();
-                }
-                print "<tr><td>".$resultado[0]["NOMBRE"]."</td><td>".$unidades."</td></tr>";
+                print "</table></div>";
             }
-            print "</table></div>";
         }
     }
 
