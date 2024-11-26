@@ -70,8 +70,15 @@
         if(isset($_COOKIE["cestaCompra"]) && isset($_COOKIE["nifUsuario"]))
         {
             $carritoCompra = unserialize($_COOKIE["cestaCompra"]);
-            foreach ($carritoCompra as $producto => $unidades) {
-                comprarProducto($producto,$unidades);
+            if($carritoCompra != null)
+            {
+                foreach ($carritoCompra as $producto => $unidades) {
+                    comprarProducto($producto,$unidades);
+                }
+            }
+            else
+            {
+                print "<h2>No se ha podido comprar porque no hay productos en la cesta</h2>";
             }
         }
         elseif(!isset($_COOKIE["cestaCompra"]))

@@ -47,6 +47,8 @@
             if($producto == $idProducto)
                unset($cestaCompra[$producto]);
         }
+        if(count($cestaCompra) == 0)
+            $cestaCompra = null;
         setcookie("cestaCompra", serialize($cestaCompra) , time() + (86400 * 30), "/");;
     }
 
