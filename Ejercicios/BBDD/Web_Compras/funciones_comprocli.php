@@ -174,6 +174,7 @@
             $conn -> rollBack();
             echo "Error: " . $e->getMessage();
         }
+        eliminarProductoCestaCompra($idProducto);
         $conn = null;
     }
 ?>

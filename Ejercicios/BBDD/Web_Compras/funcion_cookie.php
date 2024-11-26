@@ -27,6 +27,27 @@
         setcookie("cestaCompra", $contenidoCookie , time() + (86400 * 30), "/");
     }
 
+    function eliminarProductoCestaCompra($idProducto)
+    {
+        $cestaCompra = explode("|",$_COOKIE["cestaCompra"]);
+        $indice = 0;
+        $productoEncontrado = false;
+        while($indice < count($cestaCompra) && !$productoEncontrado)
+        {
+            $producto = explode(";",$cestaCompra[$indice]);
+            if($producto[0] == $idProducto)
+                $productoEncontrado = true;
+            else
+                $indice += 1;
+        }
+        $restoCesta = null;
+        for ($i=$indice; $i < count($cestaCompra); $i++) 
+        { 
+            $restoCesta = $restoCesta . $cestaCompra[$i];
+        }
+        setcookie("cestaCompra", $restoCesta , time() + (86400 * 30), "/");
+    }
+
     function eliminarCestaCompra()
     {
         if(isset($_COOKIE["cestaCompra"]))
