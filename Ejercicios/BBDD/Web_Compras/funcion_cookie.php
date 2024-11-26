@@ -43,7 +43,7 @@
         $restoCesta = "";
         for ($i=$indice; $i < count($cestaCompra) - 1; $i++) 
         { 
-            $restoCesta = $restoCesta . $cestaCompra[$i];
+            $restoCesta = $restoCesta . $cestaCompra[$i] . "|";
         }
         if($restoCesta != "")
             setcookie("cestaCompra", $restoCesta , time() + (86400 * 30), "/");
