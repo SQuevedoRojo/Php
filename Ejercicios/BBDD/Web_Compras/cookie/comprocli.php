@@ -34,16 +34,16 @@
                 {
                     list($productos,$unidades) = recogerDatos();
                     annadirCestaCompra($productos,$unidades);
-                    header("Location: ./comprocli.php");
+                    header("Refresh:0");
                 }
-                if(isset($_POST['comprarProductos']))
+                if(isset($_POST['comprarProductos']) && (isset($_COOKIE["cestaCompra"]) && unserialize($_COOKIE["cestaCompra"]) != null))
                 {
                     comprarProductos();
                 }
                 if(isset($_POST["eliminarCesta"]))
                 {
                     eliminarCestaCompra();
-                    header("Location: ./comprocli.php");
+                    header("Refresh:0");
                 }
                 if(isset($_POST['cerrarSesion']))
                 {
