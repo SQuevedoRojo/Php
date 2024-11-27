@@ -43,6 +43,7 @@
                 if(isset($_POST['comprarProductos']))
                 {
                     comprarProductos();
+                    header("Location: ./comprocli.php");
                 }
                 if(isset($_POST["eliminarCesta"]))
                 {
