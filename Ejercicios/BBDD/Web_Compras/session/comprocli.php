@@ -43,6 +43,7 @@
                 if(isset($_POST['comprarProductos']) && ( isset($_SESSION["cestaCompra"]) && $_SESSION["cestaCompra"] != null))
                 {
                     comprarProductos();
+                    header("Refresh:3");
                 }
                 if(isset($_POST["eliminarCesta"]))
                 {

@@ -39,6 +39,7 @@
                 if(isset($_POST['comprarProductos']) && (isset($_COOKIE["cestaCompra"]) && unserialize($_COOKIE["cestaCompra"]) != null))
                 {
                     comprarProductos();
+                    header("Refresh:3");
                 }
                 if(isset($_POST["eliminarCesta"]))
                 {
