@@ -24,14 +24,12 @@
             <input type="submit" value="Añadir Producto" name="annadirProducto">
             <input type="reset" value="borrar">
             <br>
-            <input type="submit" value="Mostrar Cesta Compra" name="mostrarProductos">
-            <br>
             <input type="submit" value="Comprar Cesta Compra" name="comprarProductos">
             <br>
             <input type="submit" value="Eliminar Cesta Compra" name="eliminarCesta">
             <br>
             <input type="submit" value="Cerrar Sesion" name="cerrarSesion">
-            
+            <?php imprimirCestaCompra(); ?>
         </form>
         <?php 
             if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -40,10 +38,7 @@
                 {
                     list($productos,$unidades) = recogerDatos();
                     annadirCestaCompra($productos,$unidades);
-                }
-                if(isset($_POST['mostrarProductos']))
-                {
-                    imprimirCestaCompra();
+                    header("Location: ./comprocli.php");
                 }
                 if(isset($_POST['comprarProductos']))
                 {
