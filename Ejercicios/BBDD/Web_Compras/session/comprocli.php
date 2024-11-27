@@ -40,7 +40,7 @@
                     annadirCestaCompra($productos,$unidades);
                     header("Refresh:0");
                 }
-                if(isset($_POST['comprarProductos']) && $_SESSION["cestaCompra"] != null)
+                if(isset($_POST['comprarProductos']) && ( isset($_SESSION["cestaCompra"]) && $_SESSION["cestaCompra"] != null))
                 {
                     comprarProductos();
                 }
