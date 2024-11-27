@@ -41,7 +41,7 @@
     {
         if(isset($_SESSION["cestaCompra"]))
         {
-            $carritoCompra = unserialize($_SESSION["cestaCompra"]);
+            $carritoCompra = ($_SESSION["cestaCompra"]);
             if($carritoCompra != null)
             {
                 $conn = conexionBBDD();
@@ -72,7 +72,7 @@
     {
         if(isset($_SESSION["cestaCompra"]) && isset($_SESSION["nif"]))
         {
-            $carritoCompra = unserialize($_SESSION["cestaCompra"]);
+            $carritoCompra = ($_SESSION["cestaCompra"]);
             if($carritoCompra != null)
             {
                 foreach ($carritoCompra as $producto => $unidades) {
