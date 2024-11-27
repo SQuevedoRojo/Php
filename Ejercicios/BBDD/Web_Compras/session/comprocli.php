@@ -38,7 +38,7 @@
                 {
                     list($productos,$unidades) = recogerDatos();
                     annadirCestaCompra($productos,$unidades);
-                    header("Location: ./comprocli.php");
+                    header("Refresh:0");
                 }
                 if(isset($_POST['comprarProductos']) && $_SESSION["cestaCompra"] != null)
                 {
@@ -47,7 +47,7 @@
                 if(isset($_POST["eliminarCesta"]))
                 {
                     eliminarCestaCompra();
-                    header("Location: ./comprocli.php");
+                    header("Refresh:0");
                 }
                 if(isset($_POST['cerrarSesion']))
                 {
