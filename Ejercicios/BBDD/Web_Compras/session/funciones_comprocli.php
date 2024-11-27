@@ -102,7 +102,7 @@
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
-            if($resultado == null)
+            if(empty($resultado))
             {
                 trigger_error("No se realizar la compra por falta de existencias del producto",E_USER_WARNING);
             }
