@@ -47,6 +47,7 @@
                 if(isset($_POST["eliminarCesta"]))
                 {
                     eliminarCestaCompra();
+                    header("Location: ./comprocli.php");
                 }
                 if(isset($_POST['cerrarSesion']))
                 {
