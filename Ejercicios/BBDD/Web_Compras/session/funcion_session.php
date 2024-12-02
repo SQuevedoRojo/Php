@@ -10,29 +10,31 @@
         $_SESSION["nif"] = $nif;
     }
 
-    function sessionCestaCompra($producto,$unidad)
+    function sessionCestaCompra($producto,$unidad,$nombre)
     {
         $contenidoSession = null;
         if(isset($_SESSION["cestaCompra"]))
         {
             $contenidoSession = ($_SESSION["cestaCompra"]);
             $productoIncrementado = false;
-            foreach ($contenidoSession as $Idproducto => &$unidades)
+            foreach ($contenidoSession as $Idproducto => &$contenido)
             {
                 if($Idproducto == $producto)
                 {
-                    $unidades += $unidad;
+                    $contenido["unidades"] += $unidad;
                     $productoIncrementado = true;
                 }
             }
             if(!$productoIncrementado)
-                $contenidoSession[$producto] = $unidad;
+                $contenidoSession[$producto]["unidades"] = $unidad;
+                $contenidoSession[$producto]["nombre"] = $nombre;
 
         }
         else
         {
             $contenidoSession = array();
-            $contenidoSession[$producto] = $unidad;
+            $contenidoSession[$producto]["unidades"] = $unidad;
+            $contenidoSession[$producto]["nombre"] = $nombre;
         }
         $_SESSION["cestaCompra"] = ($contenidoSession);
     }
