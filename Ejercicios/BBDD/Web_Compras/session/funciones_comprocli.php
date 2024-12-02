@@ -101,6 +101,7 @@
     {
         $cliente = $_SESSION["nif"];
         $conn = conexionBBDD();
+        $hayExistencias = true;
         try
         {
             $stmt = $conn->prepare("SELECT a.NUM_ALMACEN as almacen,LOCALIDAD, p.NOMBRE as NOMRBE,CANTIDAD from almacena a,almacen al,producto p where a.NUM_ALMACEN = al.NUM_ALMACEN AND a.ID_PRODUCTO = :idProducto AND  a.NUM_ALMACEN = al.NUM_ALMACEN AND CANTIDAD >= :cantidad ORDER BY CANTIDAD");
@@ -112,6 +113,7 @@
             if(empty($resultado))
             {
                 trigger_error("No se realizar la compra por falta de existencias del producto");
+                $hayExistencias = false;
             }
             else
             {
@@ -186,7 +188,8 @@
             $conn -> rollBack();
             echo "Error: " . $e->getMessage();
         }
-        eliminarProductoCestaCompra($idProducto);
+        if($hayExistencias)
+            eliminarProductoCestaCompra($idProducto);
         $conn = null;
     }
 ?>
