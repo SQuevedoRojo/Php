@@ -39,6 +39,7 @@ function conexionBBDD()
     set_error_handler("customError",E_USER_WARNING);
 
     function errorCestaCompra($errno, $errstr) {
+        echo "<b>$errstr</b>";
     }
 
     set_error_handler("errorCestaCompra");
