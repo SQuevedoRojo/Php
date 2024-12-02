@@ -34,7 +34,27 @@
 
     function annadirCestaCompra($producto,$unidad)
     {
-        cookieCestaCompra($producto,$unidad);
+        $nombreProducto = obtenerNombreProducto($producto);
+        cookieCestaCompra($producto,$unidad,$nombreProducto);
+    }
+
+    function obtenerNombreProducto($id)
+    {
+        $conn = conexionBBDD();
+        try
+        {
+            $stmt = $conn->prepare("SELECT NOMBRE FROM producto where ID_PRODUCTO = :id");
+            $stmt->bindParam(':id', $id);
+            $stmt -> execute();
+            $stmt->setFetchMode(PDO::FETCH_ASSOC);
+            $resultado=$stmt->fetchAll();
+            $nombre = $resultado[0]["NOMBRE"];
+        }
+        catch(PDOException $e)
+        {
+            echo "Error: " . $e->getMessage();
+        }
+        return $nombre;
     }
 
     function imprimirCestaCompra()
@@ -44,24 +64,11 @@
             $carritoCompra = unserialize($_COOKIE["cestaCompra"]);
             if($carritoCompra != null)
             {
-                $conn = conexionBBDD();
                 print "<div id='carrito'><h2>Carrito de la compra</h2>";
                 print "<table border='1'><tr><th>Producto</th><th>Unidades</th></tr>";
-                foreach ($carritoCompra as $producto=> $unidades)
+                foreach ($carritoCompra as $producto=> $contenido)
                 {
-                    try
-                    {
-                        $stmt = $conn->prepare("SELECT NOMBRE FROM producto where ID_PRODUCTO = :id");
-                        $stmt->bindParam(':id', $producto);
-                        $stmt -> execute();
-                        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                        $resultado=$stmt->fetchAll();
-                    }
-                    catch(PDOException $e)
-                    {
-                        echo "Error: " . $e->getMessage();
-                    }
-                    print "<tr><td>".$resultado[0]["NOMBRE"]."</td><td>".$unidades."</td></tr>";
+                    print "<tr><td>".$contenido["nombre"]."</td><td>".$contenido["unidades"]."</td></tr>";
                 }
                 print "</table></div>";
             }
@@ -76,8 +83,8 @@
             if($carritoCompra != null)
             {
                 $idProductos = array();
-                foreach ($carritoCompra as $producto => $unidades) {
-                    $idProductos[] = comprarProducto($producto,$unidades);
+                foreach ($carritoCompra as $producto => $contenido) {
+                    $idProductos[] = comprarProducto($producto,$contenido["unidades"]);
                 }
                 eliminarProductoCestaCompra($idProductos);
             }
@@ -106,7 +113,8 @@
             $resultado=$stmt->fetchAll();
             if($resultado == null)
             {
-                trigger_error("No se realizar la compra por falta de existencias del producto",E_USER_WARNING);
+                trigger_error("No se realizar la compra por falta de existencias del producto");
+                $idProducto = null;
             }
             else
             {

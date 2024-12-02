@@ -13,29 +13,32 @@
         header("Location: ./comlogincli.php");
     }
 
-    function cookieCestaCompra($producto,$unidad)
+    function cookieCestaCompra($producto,$unidad,$nombre)
     {
         $contenidoCookie = null;
         if(isset($_COOKIE["cestaCompra"]) && unserialize($_COOKIE["cestaCompra"]) != null)
         {
             $contenidoCookie = unserialize($_COOKIE["cestaCompra"]);
             $productoIncrementado = false;
-            foreach ($contenidoCookie as $Idproducto => &$unidades)
+            foreach ($contenidoCookie as $Idproducto => $contenido)
             {
                 if($Idproducto == $producto)
                 {
-                    $unidades += $unidad;
+                    $contenido["unidades"] += $unidad;
                     $productoIncrementado = true;
                 }
             }
             if(!$productoIncrementado)
-                $contenidoCookie[$producto] = $unidad;
+            {
+                $contenidoCookie[$producto]["unidad"] = $unidad;
+                $contenidoCookie[$producto]["nombre"] = $nombre;
+            }
 
         }
         else
         {
             $contenidoCookie = array();
-            $contenidoCookie[$producto] = $unidad;
+            $contenidoCookie[$producto]["unidad"] = $unidad;
         }
         setcookie("cestaCompra", serialize($contenidoCookie) , time() + (86400 * 30), "/");
     }
@@ -43,9 +46,9 @@
     function eliminarProductoCestaCompra($idProductos)
     {
         $cestaCompra =  unserialize($_COOKIE["cestaCompra"]);
-        foreach ($cestaCompra as $producto => $unidades) {
+        foreach ($cestaCompra as $producto => $contenido) {
             for ($i=0; $i < count($idProductos); $i++) { 
-                if($producto == $idProductos[$i])
+                if($idProductos[$i] != null  && $producto == $idProductos[$i])
                     unset($cestaCompra[$producto]);
             }
         }

@@ -37,4 +37,9 @@ function conexionBBDD()
     }
 
     set_error_handler("customError",E_USER_WARNING);
+
+    function errorCestaCompra($errno, $errstr) {
+    }
+
+    set_error_handler("errorCestaCompra");
 ?>
