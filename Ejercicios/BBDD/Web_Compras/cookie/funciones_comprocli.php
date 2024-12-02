@@ -84,7 +84,7 @@
             {
                 $idProductos = array();
                 foreach ($carritoCompra as $producto => $contenido) {
-                    $idProductos[] = comprarProducto($producto,$contenido["unidades"]);
+                    $idProductos[] = comprarProducto($producto,$contenido["unidades"],$contenido["nombre"]);
                 }
                 eliminarProductoCestaCompra($idProductos);
             }
@@ -99,7 +99,7 @@
         }
     }
 
-    function comprarProducto($idProducto,$unidades)
+    function comprarProducto($idProducto,$unidades,$nombre)
     {
         $cliente = $_COOKIE["nifUsuario"];
         $conn = conexionBBDD();
@@ -113,7 +113,7 @@
             $resultado=$stmt->fetchAll();
             if($resultado == null)
             {
-                trigger_error("No se realizar la compra por falta de existencias del producto");
+                trigger_error("No se realizar la compra por falta de existencias del producto $nombre");
                 $idProducto = null;
             }
             else
@@ -141,7 +141,7 @@
                     $stmt->execute();
                     $conn -> commit();
 
-                    print "<h2>Compra Realizada</h2>";
+                    print "<h2>Compra Realizada del Producto $nombre</h2>";
                 }
                 else
                 {
@@ -161,7 +161,7 @@
                         $stmt->bindParam(':unidades', $unidades);
                         $stmt->execute();
                         $conn -> commit();
-                        print "<h2>Compra Realizada</h2>";
+                        print "<h2>Compra Realizada del Producto $nombre</h2>";
                     }
                     else
                     {
@@ -179,7 +179,7 @@
                         $stmt->execute();
                         $conn -> commit();
 
-                        print "<h2>Compra Realizada</h2>";
+                        print "<h2>Compra Realizada del Producto $nombre</h2>";
                     }
                 }
             }

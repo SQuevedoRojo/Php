@@ -83,7 +83,7 @@
             if($carritoCompra != null)
             {
                 foreach ($carritoCompra as $producto => $contenido) {
-                    comprarProducto($producto,$contenido["unidades"]);
+                    comprarProducto($producto,$contenido["unidades"],$contenido["nombre"]);
                 }
             }
             else
@@ -97,7 +97,7 @@
         }
     }
 
-    function comprarProducto($idProducto,$unidades)
+    function comprarProducto($idProducto,$unidades,$nombre)
     {
         $cliente = $_SESSION["nif"];
         $conn = conexionBBDD();
@@ -112,7 +112,7 @@
             $resultado=$stmt->fetchAll();
             if(empty($resultado))
             {
-                trigger_error("No se realizar la compra por falta de existencias del producto");
+                trigger_error("No se realizar la compra por falta de existencias del producto $nombre");
                 $hayExistencias = false;
             }
             else
@@ -140,7 +140,7 @@
                     $stmt->execute();
                     $conn -> commit();
 
-                    print "<h2>Compra Realizada</h2>";
+                    print "<h2>Compra Realizada del Producto $nombre</h2>";
                 }
                 else
                 {
@@ -160,7 +160,7 @@
                         $stmt->bindParam(':unidades', $unidades);
                         $stmt->execute();
                         $conn -> commit();
-                        print "<h2>Compra Realizada</h2>";
+                        print "<h2>Compra Realizada del Producto $nombre</h2>";
                     }
                     else
                     {
@@ -178,7 +178,7 @@
                         $stmt->execute();
                         $conn -> commit();
 
-                        print "<h2>Compra Realizada</h2>";
+                        print "<h2>Compra Realizada del Producto $nombre</h2>";
                     }
                 }
             }
