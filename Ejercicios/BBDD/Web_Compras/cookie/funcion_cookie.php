@@ -38,6 +38,7 @@
         else
         {
             $contenidoCookie = array();
+            $contenidoCookie[$producto]["nombre"] = $nombre;
             $contenidoCookie[$producto]["unidades"] = $unidad;
         }
         setcookie("cestaCompra", serialize($contenidoCookie) , time() + (86400 * 30), "/");
