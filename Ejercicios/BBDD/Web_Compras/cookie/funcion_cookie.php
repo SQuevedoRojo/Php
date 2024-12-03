@@ -33,7 +33,6 @@
                 $contenidoCookie[$producto]["unidades"] = $unidad;
                 $contenidoCookie[$producto]["nombre"] = $nombre;
             }
-
         }
         else
         {
@@ -71,5 +70,4 @@
             $cookiesCreadas = true;
         return $cookiesCreadas;
     }
-
 ?>

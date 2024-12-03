@@ -26,9 +26,10 @@
                 }
             }
             if(!$productoIncrementado)
+            {
                 $contenidoSession[$producto]["unidades"] = $unidad;
                 $contenidoSession[$producto]["nombre"] = $nombre;
-
+            }
         }
         else
         {
@@ -72,5 +73,4 @@
         setcookie("PHPSESSID", "" , time() - (86400 * 30), "/",$_SERVER['HTTP_HOST']);
         header("Location: ./comlogincli.php");
     }
-
 ?>

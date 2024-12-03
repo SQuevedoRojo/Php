@@ -21,9 +21,7 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
             foreach ($resultado as $row)
-            {
                 print "<option value=".$row["ID_PRODUCTO"].">".$row["NOMBRE"]."</option>";
-            }
         }
         catch(PDOException $e)
         {
@@ -67,9 +65,7 @@
                 print "<div id='carrito'><h2>Carrito de la compra</h2>";
                 print "<table border='1'><tr><th>Producto</th><th>Unidades</th></tr>";
                 foreach ($carritoCompra as $producto=> $contenido)
-                {
                     print "<tr><td>".$contenido["nombre"]."</td><td>".$contenido["unidades"]."</td></tr>";
-                }
                 print "</table></div>";
             }
         }
@@ -82,9 +78,8 @@
             $carritoCompra = ($_SESSION["cestaCompra"]);
             if($carritoCompra != null)
             {
-                foreach ($carritoCompra as $producto => $contenido) {
+                foreach ($carritoCompra as $producto => $contenido)
                     comprarProducto($producto,$contenido["unidades"],$contenido["nombre"]);
-                }
             }
             else
             {
