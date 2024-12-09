@@ -11,7 +11,7 @@
     <body>
         <h2>Opciones para el cliente</h2>
         <ul>
-            <li><a href="./comprocli.php">Compra de Productos</a></li>
+            <li><a href="./pe_altaped.php">Compra de Productos</a></li>
             <li><a href="./comconscli.php">Ver Compras Anteriores</a></li>
         </ul>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">

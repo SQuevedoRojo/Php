@@ -51,6 +51,33 @@
             $_SESSION["cliente"]["sesionIniciada"] = true;
     }
 
+    function annadirPedido($producto,$cantidad,$nombre)
+    {
+        $pedido = null;
+        if(isset($_SESSION["cliente"]["pedido"]))
+        {
+            $pedido = $_SESSION["cliente"]["pedido"];
+            $pedido[$producto]["cantidad"] += $cantidad;
+            $pedido[$producto]["nombre"] = $nombre;
+        }
+        else
+        {
+            $pedido = array();
+            $pedido[$producto]["cantidad"] = $cantidad;
+            $pedido[$producto]["nombre"] = $nombre;
+        }
+        $_SESSION["cliente"]["pedido"] = $pedido;
+    }
+
+    function quitarProductoDelPedido($prod)
+    {
+        $pedido = $_SESSION["cliente"]["pedido"];
+        foreach ($pedido as $idProd => &$contenido) {
+            if($idProd == $prod)
+                unset($pedido[$prod]);
+        }
+    }
+
     function eliminarSession()
     {
         session_destroy();
