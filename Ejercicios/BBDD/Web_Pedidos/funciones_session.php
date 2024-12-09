@@ -14,7 +14,7 @@
     function verificarSessionExistente()
     {
         $sessionCreada = false;
-        if(isset($_SESSION["cliente"]))
+        if(isset($_SESSION["cliente"]["sesionIniciada"]))
             $sessionCreada = true;
         return $sessionCreada;
     }
@@ -43,6 +43,11 @@
         if($intentos == 3)
             $_SESSION["cliente"] = null;
         return $intentos;
+    }
+
+    function inicioCorrecto($idCli)
+    {
+        $_SESSION["cliente"]["sesionIniciada"] = true;
     }
 
     function eliminarSession()

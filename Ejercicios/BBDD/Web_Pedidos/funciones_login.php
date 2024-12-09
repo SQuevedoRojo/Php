@@ -5,7 +5,7 @@
     function recogerDatos()
     {
         $usuario = intval(limpiar($_POST['usuario']));
-        $contrasena = password_hash(limpiar($_POST['contrasena']),PASSWORD_DEFAULT);
+        $contrasena = (limpiar($_POST['contrasena']));
         return [$usuario,$contrasena];
     }
 
@@ -31,6 +31,7 @@
                 }
                 else
                 {   
+                    $contrasena = password_hash($contrasena,PASSWORD_DEFAULT);
                     if($usuario == $resultado[0]["customerNumber"] && password_verify($resultado[0]["contactLastName"],$contrasena))
                     {
                         $idCli = $resultado[0]["customerNumber"];
