@@ -35,7 +35,7 @@
                     if($usuario == $resultado[0]["customerNumber"] && password_verify($resultado[0]["contactLastName"],$contrasena))
                     {
                         $idCli = $resultado[0]["customerNumber"];
-                        iniciarSession();
+                        inicioCorrecto($usuario);
                         header("Location: ./pe_inicio");
                     }
                     

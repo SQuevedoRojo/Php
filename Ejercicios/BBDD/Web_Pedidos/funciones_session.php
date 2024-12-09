@@ -47,7 +47,8 @@
 
     function inicioCorrecto($idCli)
     {
-        $_SESSION["cliente"]["sesionIniciada"] = true;
+        if(isset($_SESSION["cliente"]) && $_SESSION["cliente"]["numeroCliente"] == $idCli)
+            $_SESSION["cliente"]["sesionIniciada"] = true;
     }
 
     function eliminarSession()
