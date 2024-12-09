@@ -54,6 +54,8 @@
             $conn = conexionBBDD();
             try
             {
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conn->beginTransaction();
                 $stmt = $conn->prepare("UPDATE customers set cuentaBloqueada = 1 where customerNumber = :usuario");
                 $stmt->bindParam(':usuario', $usuario);
                 $stmt -> execute();
