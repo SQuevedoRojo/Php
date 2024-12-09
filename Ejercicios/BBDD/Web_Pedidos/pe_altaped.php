@@ -20,7 +20,7 @@
     <body>
         <h2>Alta de Pedidos</h2>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
-            <select name="productos"><?php  ?></select>
+            <select name="productos"><?php imprimirProductos() ?></select>
             Cantidad : <input type="text" name="cantidad"><br>
             <?php imprimirPedido() ?>
             <input type="submit" value="Cerrar Sesion" name="cerrarSesion"><br>
