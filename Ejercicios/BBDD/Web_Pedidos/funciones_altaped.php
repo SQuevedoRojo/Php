@@ -38,7 +38,7 @@
 
     function recogerDatos()
     {
-        $producto = limpiar($_POST["producto"]);
+        $producto = limpiar($_POST["productos"]);
         $cantidad = limpiar($_POST["cantidad"]);
         return [$producto,$cantidad];
     }
@@ -48,7 +48,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT productName from products where productCode = :producto ");
+            $stmt = $conn->prepare("SELECT productName from products where productCode = :producto");
             $stmt->bindParam(':producto', $producto);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
