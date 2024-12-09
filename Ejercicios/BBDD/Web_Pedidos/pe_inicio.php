@@ -1,5 +1,5 @@
 <?php 
-    include_once "funcion_session.php";
+    include_once "funciones_session.php";
     iniciarSession();
     if(!verificarSessionExistente())
     {
