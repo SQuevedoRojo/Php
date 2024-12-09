@@ -4,7 +4,7 @@
 
     function recogerDatos()
     {
-        $usuario = limpiar($_POST['usuario']);
+        $usuario = intval(limpiar($_POST['usuario']));
         $contrasena = password_hash(limpiar($_POST['contrasena']),PASSWORD_DEFAULT);
         return [$usuario,$contrasena];
     }
