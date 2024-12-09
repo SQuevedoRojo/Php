@@ -7,7 +7,7 @@
 
     function crearSession($idCli)
     {
-        if(isset($_SESSION["cliente"]) && $_SESSION["cliente"] != null)
+        if(!(isset($_SESSION["cliente"]) && $_SESSION["cliente"] != null))
             $_SESSION["cliente"]["numeroCliente"] = $idCli;
     }
 
