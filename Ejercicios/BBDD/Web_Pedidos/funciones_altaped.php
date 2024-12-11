@@ -16,6 +16,11 @@
         }
     }
 
+    function eliminarPedido()
+    {
+        unset($_SESSION["cliente"]["pedido"]);
+    }
+
     function imprimirProductos()
     {
         $conn = conexionBBDD();

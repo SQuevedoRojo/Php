@@ -20,11 +20,12 @@
     <body>
         <h2>Alta de Pedidos</h2>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
-            <?php imprimirPedido() ?>
             <select name="productos"><?php imprimirProductos() ?></select>
             Cantidad : <input type="text" name="cantidad"><br>
             <input type="submit" value="Cerrar Sesion" name="cerrarSesion"><br>
             <input type="submit" value="Añadir Al Pedido" name="anadirPedido"><br>
+            <input type="submit" value="Mostrar Pedido" name="mostrarPedido"><br>
+            <input type="submit" value="Eliminar Pedido" name="eliminarPedido"><br>
             <input type="submit" value="Realizar Pedido" name="realizarPedido">
         </form>
     <?php
@@ -39,7 +40,14 @@
             {
                 list($producto,$cantidad) = recogerDatos();
                 annadirAlPedido($producto,$cantidad);
-                header("Location: ./pe_altaped.php");
+            }
+            if(isset($_POST["mostrarPedido"]))
+            {
+                imprimirPedido();
+            }
+            if(isset($_POST["eliminarPedido"]))
+            {
+                eliminarPedido();
             }
             if(isset($_POST["realizarPedido"]))
             {
