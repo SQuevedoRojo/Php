@@ -39,7 +39,7 @@
             {
                 list($producto,$cantidad) = recogerDatos();
                 annadirAlPedido($producto,$cantidad);
-                header("Refresh: 0");
+                header("Location: ./pe_altaped.php");
             }
             if(isset($_POST["realizarPedido"]))
             {
