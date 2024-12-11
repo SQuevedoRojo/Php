@@ -33,7 +33,7 @@
     function saberIntentosSesion($idCli)
     {
         $intentos = null;
-        if(isset($_SESSION["cliente"]) && $_SESSION["cliente"][$idCli]["numeroCliente"])
+        if(isset($_SESSION["cliente"]) && isset($_SESSION["cliente"][$idCli]))
         {
             if(isset($_SESSION["cliente"][$idCli]["intentosSesion"]))
                 $intentos = $_SESSION["cliente"][$idCli]["intentosSesion"];
