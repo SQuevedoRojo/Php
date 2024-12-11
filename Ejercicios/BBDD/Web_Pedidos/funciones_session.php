@@ -41,7 +41,7 @@
                 $intentos = 0;
         }
         if($intentos == 2)
-            $_SESSION["cliente"] = null;
+            eliminarVariablesSession();
         return $intentos;
     }
 
@@ -76,6 +76,11 @@
             if($idProd == $prod)
                 unset($pedido[$prod]);
         }
+    }
+
+    function eliminarVariablesSession()
+    {
+        session_destroy();
     }
 
     function eliminarSession()

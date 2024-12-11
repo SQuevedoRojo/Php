@@ -94,6 +94,7 @@
         $conn = null;
         if($bloqueado == "1")
         {
+            eliminarVariablesSession();
             trigger_error("La Cuenta Esta Bloqueada por Inicios de Sesion Erroneos",E_USER_WARNING);
         }
         else
