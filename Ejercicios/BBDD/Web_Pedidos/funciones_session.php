@@ -41,7 +41,7 @@
                 $intentos = 0;
         }
         if($intentos == 2)
-            eliminarSession();
+            eliminarSessionBloqueo();
         return $intentos;
     }
 
@@ -81,6 +81,13 @@
     function eliminarVariablesSession()
     {
         session_destroy();
+    }
+
+    function eliminarSessionBloqueo()
+    {
+        session_destroy();
+        session_unset();
+        setcookie("PHPSESSID", "" , time() - (86400 * 30), "/",$_SERVER['HTTP_HOST']);
     }
 
     function eliminarSession()
