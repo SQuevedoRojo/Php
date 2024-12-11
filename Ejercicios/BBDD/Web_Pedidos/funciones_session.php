@@ -41,7 +41,7 @@
                 $intentos = 0;
         }
         if($intentos == 2)
-            eliminarVariablesSession();
+            eliminarSession();
         return $intentos;
     }
 
