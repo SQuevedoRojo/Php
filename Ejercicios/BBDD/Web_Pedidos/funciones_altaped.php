@@ -107,7 +107,7 @@
             {
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $conn->beginTransaction();
-                $stmt = $conn->prepare("INSERT INTO orders (orderNumber,orderDate,requiredDate,shippedDate,status,comments,customerNumber) values (:numeroPedido,curdate(),curdate(),null,null,null,:numeroCliente)");
+                $stmt = $conn->prepare("INSERT INTO orders (orderNumber,orderDate,requiredDate,shippedDate,status,comments,customerNumber) values (:numeroPedido,curdate(),curdate(),null,'In Process',null,:numeroCliente)");
                 $stmt->bindParam(':numeroPedido', $numeroPedido);
                 $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["id"]);
                 $stmt -> execute();
