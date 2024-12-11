@@ -13,61 +13,64 @@
     {
         iniciarSession();
         crearSession($usuario);
-        if(usuarioBloqueado($usuario) && saberIntentosSesion($usuario) != 2)
+        if(!usuarioBloqueado($usuario))
         {
-            $conn = conexionBBDD();
-            try
+            if(saberIntentosSesion($usuario) != 2)
             {
-                $stmt = $conn->prepare("SELECT customerNumber,contactLastName from customers where customerNumber = :usuario and contactLastName = :contrasena");
-                $stmt->bindParam(':usuario', $usuario);
-                $stmt->bindParam(':contrasena', $contrasena);
-                $stmt -> execute();
-                $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                $resultado=$stmt->fetchAll();
-                if($resultado == null)
+                $conn = conexionBBDD();
+                try
                 {
-                    trigger_error("No existe ningun usuario con esas claves de acceso");
-                    intentosInicioSesion($usuario);
-                }
-                else
-                {   
-                    $contrasena = password_hash($contrasena,PASSWORD_DEFAULT);
-                    if($usuario == $resultado[0]["customerNumber"] && password_verify($resultado[0]["contactLastName"],$contrasena))
+                    $stmt = $conn->prepare("SELECT customerNumber,contactLastName from customers where customerNumber = :usuario and contactLastName = :contrasena");
+                    $stmt->bindParam(':usuario', $usuario);
+                    $stmt->bindParam(':contrasena', $contrasena);
+                    $stmt -> execute();
+                    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                    $resultado=$stmt->fetchAll();
+                    if($resultado == null)
                     {
-                        $idCli = $resultado[0]["customerNumber"];
-                        inicioCorrecto($idCli);
-                        header("Location: ./pe_inicio");
+                        trigger_error("No existe ningun usuario con esas claves de acceso");
+                        intentosInicioSesion($usuario);
                     }
-                    
-                }
+                    else
+                    {   
+                        $contrasena = password_hash($contrasena,PASSWORD_DEFAULT);
+                        if($usuario == $resultado[0]["customerNumber"] && password_verify($resultado[0]["contactLastName"],$contrasena))
+                        {
+                            $idCli = $resultado[0]["customerNumber"];
+                            inicioCorrecto($idCli);
+                            header("Location: ./pe_inicio");
+                        }
+                        
+                    }
 
+                }
+                catch(PDOException $e)
+                {
+                    $conn -> rollBack();
+                    echo "Error: " . $e->getMessage();
+                }
+                $conn = null;
             }
-            catch(PDOException $e)
+            else
             {
-                $conn -> rollBack();
-                echo "Error: " . $e->getMessage();
+                $conn = conexionBBDD();
+                try
+                {
+                    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    $conn->beginTransaction();
+                    $stmt = $conn->prepare("UPDATE customers set cuentaBloqueada = 1 where customerNumber = :usuario");
+                    $stmt->bindParam(':usuario', $usuario);
+                    $stmt -> execute();
+                    $conn -> commit();
+                }
+                catch(PDOException $e)
+                {
+                    $conn -> rollBack();
+                    echo "Error: " . $e->getMessage();
+                }
+                $conn = null;
+                trigger_error("Cuenta Bloqueada por Inicios de Sesion Erroneos",E_USER_WARNING);
             }
-            $conn = null;
-        }
-        else
-        {
-            $conn = conexionBBDD();
-            try
-            {
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $conn->beginTransaction();
-                $stmt = $conn->prepare("UPDATE customers set cuentaBloqueada = 1 where customerNumber = :usuario");
-                $stmt->bindParam(':usuario', $usuario);
-                $stmt -> execute();
-                $conn -> commit();
-            }
-            catch(PDOException $e)
-            {
-                $conn -> rollBack();
-                echo "Error: " . $e->getMessage();
-            }
-            $conn = null;
-            trigger_error("Cuenta Bloqueada por Inicios de Sesion Erroneos",E_USER_WARNING);
         }
     }
 
