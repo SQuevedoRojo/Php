@@ -7,10 +7,7 @@
 
     function crearSession($idCli)
     {
-        if(!(isset($_SESSION["cliente"]) && $_SESSION["cliente"] != null))
-            $_SESSION["cliente"][$idCli] = array();
-        else
-            $_SESSION["cliente"][$idCli] = array();
+        $_SESSION["cliente"][$idCli] = array();
     }
 
     function verificarSessionExistente($idCli)
