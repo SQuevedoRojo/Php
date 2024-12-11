@@ -48,7 +48,7 @@
     {
         if(isset($_SESSION["cliente"]) && isset($_SESSION["cliente"][$idCli]))
         {
-            session_destroy();
+            session_unset();
             $_SESSION["cliente"]["id"] = $idCli;
             $_SESSION["cliente"]["inicioCorrecto"] = true;
         }
