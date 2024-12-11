@@ -104,7 +104,7 @@
                 $conn->beginTransaction();
                 $stmt = $conn->prepare("INSERT INTO orders (orderNumber,orderDate,requiredDate,shippedDate,status,comments,customerNumber) values (:numeroPedido,curdate(),curdate(),null,null,null,:numeroCliente)");
                 $stmt->bindParam(':numeroPedido', $numeroPedido);
-                $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["numeroCliente"]);
+                $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["id"]);
                 $stmt -> execute();
                 $conn -> commit();
             }

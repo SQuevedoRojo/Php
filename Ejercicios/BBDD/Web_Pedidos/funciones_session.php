@@ -10,10 +10,10 @@
         $_SESSION["cliente"][$idCli] = array();
     }
 
-    function verificarSessionExistente($idCli)
+    function verificarSessionExistente()
     {
         $sessionCreada = false;
-        if(isset($_SESSION["cliente"][$idCli]["sesionIniciada"]))
+        if(isset($_SESSION["cliente"]["id"]) && isset($_SESSION["cliente"]["sesionIniciada"]))
             $sessionCreada = true;
         return $sessionCreada;
     }
@@ -40,14 +40,18 @@
                 $intentos = 0;
         }
         if($intentos == 2)
-            eliminarSessionBloqueo();
+            unset($_SESSION["cliente"][$idCli]);
         return $intentos;
     }
 
     function inicioCorrecto($idCli)
     {
         if(isset($_SESSION["cliente"]) && isset($_SESSION["cliente"][$idCli]))
-            $_SESSION["cliente"][$idCli]["sesionIniciada"] = true;
+        {
+            session_destroy();
+            $_SESSION["cliente"]["id"] = $idCli;
+            $_SESSION["cliente"]["inicioCorrecto"] = true;
+        }
     }
 
     function annadirPedido($producto,$cantidad,$nombre)
