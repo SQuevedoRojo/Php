@@ -40,7 +40,7 @@
             else
                 $intentos = 0;
         }
-        if($intentos == 3)
+        if($intentos == 2)
             $_SESSION["cliente"] = null;
         return $intentos;
     }

@@ -10,7 +10,7 @@
             print "<div id='pedido'><h2>Pedido</h2>";
             print "<table border='1'><tr><th>Numero Producto</th><th>Nombre Producto</th><th>Cantidad Producto</th></tr>";
             foreach ($pedido as $idProd => &$contenido) {
-                print "<td>$idProd</td><td>".$contenido["nombre"]."</td><td>".$contenido["cantidad"]."</td>";
+                print "<tr><td>$idProd</td><td>".$contenido["nombre"]."</td><td>".$contenido["cantidad"]."</td></tr>";
             }
             print "</table></div>";
         }
