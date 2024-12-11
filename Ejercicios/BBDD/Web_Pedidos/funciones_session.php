@@ -14,7 +14,7 @@
     function verificarSessionExistente()
     {
         $sessionCreada = false;
-        if(isset($_SESSION["cliente"]["id"]) && isset($_SESSION["cliente"]["sesionIniciada"]))
+        if(isset($_SESSION["cliente"]["id"]) && isset($_SESSION["cliente"]["inicioCorrecto"]))
             $sessionCreada = true;
         return $sessionCreada;
     }
@@ -63,6 +63,20 @@
             $pedido = $_SESSION["cliente"]["pedido"];
             $pedido[$producto]["cantidad"] += $cantidad;
             $pedido[$producto]["nombre"] = $nombre;
+            $productoIncrementado = false;
+            foreach ($pedido as $Idproducto => &$contenido)
+            {
+                if($Idproducto == $producto)
+                {
+                    $contenido["cantidad"] += $cantidad;
+                    $productoIncrementado = true;
+                }
+            }
+            if(!$productoIncrementado)
+            {
+                $pedido[$producto]["cantidad"] = $cantidad;
+                $pedido[$producto]["nombre"] = $nombre;
+            }
         }
         else
         {

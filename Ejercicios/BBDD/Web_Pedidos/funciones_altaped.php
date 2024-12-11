@@ -21,7 +21,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT productCode,productName from products where quantityInStock >=0 ");
+            $stmt = $conn->prepare("SELECT productCode,productName from products where quantityInStock >=0 LIMIT 20");
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
