@@ -28,7 +28,7 @@
                     $resultado=$stmt->fetchAll();
                     if($resultado == null)
                     {
-                        trigger_error("No existe ningun usuario con esas claves de acceso");
+                        trigger_error("Login Erroneo");
                         intentosInicioSesion($usuario);
                     }
                     else
