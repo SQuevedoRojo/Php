@@ -61,8 +61,6 @@
         if(isset($_SESSION["cliente"]["pedido"]))
         {
             $pedido = $_SESSION["cliente"]["pedido"];
-            $pedido[$producto]["cantidad"] += $cantidad;
-            $pedido[$producto]["nombre"] = $nombre;
             $productoIncrementado = false;
             foreach ($pedido as $Idproducto => &$contenido)
             {
