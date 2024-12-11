@@ -44,7 +44,7 @@
     function recogerDatos()
     {
         $producto = limpiar($_POST["productos"]);
-        $cantidad = limpiar($_POST["cantidad"]);
+        $cantidad = intval(limpiar($_POST["cantidad"]));
         return [$producto,$cantidad];
     }
 
