@@ -4,13 +4,13 @@
 
     function recogerDatos()
     {
-        $usuario = (limpiar($_POST['nombreUsu']));
-        $nombre = (limpiar($_POST['nombre']));
-        $ape = (limpiar($_POST['apellido']));
-        $tel = (limpiar($_POST['tel']));
-        $dir1 = (limpiar($_POST['dir1']));
-        $ciudad = (limpiar($_POST['ciudad']));
-        $pais = (limpiar($_POST['pais']));
+        $usuario = (limpiar($_POST["nombreUsu"]));
+        $nombre = (limpiar($_POST["nombre"]));
+        $ape = (limpiar($_POST["apellido"]));
+        $tel = (limpiar($_POST["tel"]));
+        $dir1 = (limpiar($_POST["dir1"]));
+        $ciudad = (limpiar($_POST["ciudad"]));
+        $pais = (limpiar($_POST["pais"]));
         return [$usuario,$nombre,$ape,$tel,$dir1,$ciudad,$pais];
     }
 
@@ -22,7 +22,7 @@
         {
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $conn->beginTransaction();
-            $stmt = $conn->prepare("INSERT INTO customers (customerNumber, customerName, contactLastName, contactFirstName, phone, addrebLine1, addrebLine2, city, state_code, postalCode, country, salesRepEmployeeNumber, creditLimit, cuentaBloqueada) VALUES (':numUsu', ':nomUsu', ':ape', ':nom', ':tel', ':dir1', NULL, ':ciu', NULL, NULL, ':pais', NULL, NULL, '0')");
+            $stmt = $conn->prepare("INSERT INTO customers (customerNumber, customerName, contactLastName, contactFirstName, phone, addrebLine1, addrebLine2, city, state_code, postalCode, country, salesRepEmployeeNumber, creditLimit, cuentaBloqueada) VALUES (:numUsu, :nomUsu, :ape, :nom, :tel, :dir1, NULL, :ciu, NULL, NULL, :pais, NULL, NULL, 0)");
             $stmt->bindParam(':numUsu', $numeroUsuario);
             $stmt->bindParam(':nomUsu', $usuario);
             $stmt->bindParam(':ape', $ape);
