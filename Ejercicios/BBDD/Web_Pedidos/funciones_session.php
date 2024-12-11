@@ -8,35 +8,35 @@
     function crearSession($idCli)
     {
         if(!(isset($_SESSION["cliente"]) && $_SESSION["cliente"] != null))
-            $_SESSION["cliente"]["numeroCliente"] = $idCli;
+            $_SESSION["cliente"][$idCli] = array();
     }
 
-    function verificarSessionExistente()
+    function verificarSessionExistente($idCli)
     {
         $sessionCreada = false;
-        if(isset($_SESSION["cliente"]["sesionIniciada"]))
+        if(isset($_SESSION["cliente"][$idCli]["sesionIniciada"]))
             $sessionCreada = true;
         return $sessionCreada;
     }
 
     function intentosInicioSesion($idCli)
     {
-        if(isset($_SESSION["cliente"]) && $_SESSION["cliente"]["numeroCliente"] == $idCli)
+        if(isset($_SESSION["cliente"]) && isset($_SESSION["cliente"][$idCli]))
         {
-            if(isset($_SESSION["cliente"]["intentosSesion"]))
-                $_SESSION["cliente"]["intentosSesion"] += 1;
+            if(isset($_SESSION["cliente"][$idCli]["intentosSesion"]))
+                $_SESSION["cliente"][$idCli]["intentosSesion"] += 1;
             else
-                $_SESSION["cliente"]["intentosSesion"] = 1;
+                $_SESSION["cliente"][$idCli]["intentosSesion"] = 1;
         }
     }
 
     function saberIntentosSesion($idCli)
     {
         $intentos = null;
-        if(isset($_SESSION["cliente"]) && $_SESSION["cliente"]["numeroCliente"] == $idCli)
+        if(isset($_SESSION["cliente"]) && $_SESSION["cliente"][$idCli]["numeroCliente"])
         {
-            if(isset($_SESSION["cliente"]["intentosSesion"]))
-                $intentos = $_SESSION["cliente"]["intentosSesion"];
+            if(isset($_SESSION["cliente"][$idCli]["intentosSesion"]))
+                $intentos = $_SESSION["cliente"][$idCli]["intentosSesion"];
             else
                 $intentos = 0;
         }
@@ -47,8 +47,8 @@
 
     function inicioCorrecto($idCli)
     {
-        if(isset($_SESSION["cliente"]) && $_SESSION["cliente"]["numeroCliente"] == $idCli)
-            $_SESSION["cliente"]["sesionIniciada"] = true;
+        if(isset($_SESSION["cliente"]) && isset($_SESSION["cliente"][$idCli]))
+            $_SESSION["cliente"][$idCli]["sesionIniciada"] = true;
     }
 
     function annadirPedido($producto,$cantidad,$nombre)
