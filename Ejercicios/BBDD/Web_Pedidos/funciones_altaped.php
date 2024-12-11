@@ -153,7 +153,7 @@
                 /*****************************************************************************************************************************/
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $conn->beginTransaction();
-                $stmt = $conn->prepare("INSERT INTO orderdetails (orderNumber,productCode,quantityOrdered,priceEach,orderLineNumber) values (:numeroPedido,:producto,:cantidad,:precio,null)");
+                $stmt = $conn->prepare("INSERT INTO orderdetails (orderNumber,productCode,quantityOrdered,priceEach,orderLineNumber) values (:numeroPedido,:producto,:cantidad,:precio,2)");
                 $stmt->bindParam(':numeroPedido', $numeroPedido);
                 $stmt->bindParam(':producto', $producto);
                 $stmt->bindParam(':cantidad', $cantidad);
