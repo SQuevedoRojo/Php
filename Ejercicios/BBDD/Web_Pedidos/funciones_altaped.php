@@ -121,9 +121,11 @@
             $conn = null;
 
             $pedido = $_SESSION["cliente"]["pedido"];
+            $precioTotal = null;
             foreach ($pedido as $idProd => &$contenido) {
-                realizarPedidoPorProducto($idProd,$contenido["cantidad"],$numeroPedido);
+                $precioTotal += realizarPedidoPorProducto($idProd,$contenido["cantidad"],$numeroPedido);
             }
+            insertarPago($precioTotal);
         }
         else
             trigger_error("No hay ningun producto en el pedido para procesar");
@@ -160,6 +162,7 @@
                 $stmt->bindParam(':precio', $precio);
                 $stmt -> execute();
                 $conn -> commit();
+                /*****************************************************************************************************************************/
 
                 quitarProductoDelPedido($producto);
                 print "<h2>$producto Procesado Perfectamente</h2>";
@@ -175,5 +178,53 @@
             echo "Error: " . $e->getMessage();
         }
         $conn = null;
+        return intval($precio);
+    }
+
+    function insertarPago($precioTotal)
+    {
+        $conn = conexionBBDD();
+        try
+        {
+            $stmt = $conn->prepare("SELECT checkNumber from payments");
+            $stmt -> execute();
+            $stmt->setFetchMode(PDO::FETCH_NUM);
+            $resultado=$stmt->fetchAll();
+            do{
+                $cadena = generarCheckNumber();
+            }while(in_array($cadena,$resultado));
+
+            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $conn->beginTransaction();
+            $stmt = $conn->prepare("INSERT INTO payments (customerNumber, checkNumber, paymentDate, amount) VALUES (:numCli, :checknumber, curdate(),:cantidad )");
+            $stmt->bindParam(':numCli', $_SESSION["cliente"]["id"]);
+            $stmt->bindParam(':checknumber', $cadena);
+            $stmt->bindParam(':cantidad', $precioTotal);
+            $stmt -> execute();
+            $conn -> commit();
+
+        }
+        catch(PDOException $e)
+        {
+            $conn -> rollBack();
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
+    }
+
+    function generarCheckNumber()
+    {
+        $letras_mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        $numeros = ["0","1","2","3","4","5","6","7","8","9"];
+        $cadenaGenerada = null;
+        for ($i=0; $i < 2; $i++) { 
+            shuffle($letras_mayusculas);
+            $cadenaGenerada = $cadenaGenerada .$letras_mayusculas[0];
+        }
+        for ($i=0; $i < 5; $i++) { 
+            shuffle($numeros);
+            $cadenaGenerada = $cadenaGenerada .$numeros[0];
+        }
+        return $cadenaGenerada;
     }
 ?>
