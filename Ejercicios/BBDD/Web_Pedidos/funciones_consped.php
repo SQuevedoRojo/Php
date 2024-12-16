@@ -40,7 +40,7 @@
             $resultado=$stmt->fetchAll();
             print "<table border='1'><tr><th>Numero Pedido</th><th>Fecha Pedido</th><th>Estado Pedido</th><th>Numero Linea</th><th>Nombre Producto</th><th>Cantidad Pedida</th><th>Precio Unidad</th></tr>";
             foreach ($resultado as $row) {
-                $stmt = $conn->prepare("SELECT orderLineNumber,quantityOrdered,priceEach,productName from orderdetails o,products p where o.orderNumber = :order and productName = o.productCode");
+                $stmt = $conn->prepare("SELECT orderLineNumber,quantityOrdered,priceEach,productName from orderdetails o,products p where o.orderNumber = :order and p.productCode = o.productCode");
                 $stmt->bindParam(':order', $row["orderNumber"]);
                 $stmt -> execute();
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
