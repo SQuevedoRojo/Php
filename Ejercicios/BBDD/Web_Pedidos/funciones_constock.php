@@ -23,7 +23,7 @@
 
     function recogerDatos()
     {
-        $tipoProducto = $_POST["tipoProductos"];
+        $tipoProducto = limpiar($_POST["tipoProductos"]);
         return $tipoProducto;
     }
 
