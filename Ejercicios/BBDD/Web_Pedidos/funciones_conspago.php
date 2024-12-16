@@ -36,9 +36,16 @@
                 $stmt -> execute();
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 $resultado=$stmt->fetchAll();
-                print "<table border='1'><tr><th>Dia Pago</th><th>Cantidad</th></tr>";
-                foreach ($resultado as $row) {
-                    print "<tr><td>".$row["paymentDate"]."</td><td>".$row["amount"]."€</td></tr>";
+                if($resultado == null)
+                {
+                    trigger_error("No hay Informacion en Las Fechas Seleccionadas. Formato de la Fecha -> YYYY-MM-DD");
+                }
+                else
+                {
+                    print "<table border='1'><tr><th>Dia Pago</th><th>Cantidad</th></tr>";
+                    foreach ($resultado as $row) {
+                        print "<tr><td>".$row["paymentDate"]."</td><td>".$row["amount"]."€</td></tr>";
+                    }
                 }
             }
             catch(PDOException $e)

@@ -8,9 +8,9 @@
     }
 ?>
 <html>
-    <head><title>Alta de Pedidos</title></head>
+    <head><title>Consultar Stock de Tipo de Producto</title></head>
     <body>
-        <h2>Alta de Pedidos</h2>
+        <h2>Consultar Stock de Tipo de Producto</h2>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             <select name="tipoProductos"><?php imprimirTipoProductos() ?></select>
             <input type="submit" value="Mostrar Informacion" name="mostrarInfo"><br>

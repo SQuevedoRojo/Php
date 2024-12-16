@@ -2,25 +2,6 @@
 
     include_once "funciones_comunes.php";
 
-    function imprimirTipoProductos()
-    {
-        $conn = conexionBBDD();
-        try
-        {
-            $stmt = $conn->prepare("SELECT productLine from productlines");
-            $stmt -> execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $resultado=$stmt->fetchAll();
-            foreach ($resultado as $row)
-                print "<option value=\"".$row["productLine"]."\"\>".$row["productLine"]."</option>";
-        }
-        catch(PDOException $e)
-        {
-            echo "Error: " . $e->getMessage();
-        }
-        $conn = null;
-    }
-
     function recogerDatos()
     {
         $fecha1 = limpiar($_POST["fecha1"]);

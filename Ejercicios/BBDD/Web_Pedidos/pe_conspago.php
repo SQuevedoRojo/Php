@@ -8,9 +8,9 @@
     }
 ?>
 <html>
-    <head><title>Alta de Pedidos</title></head>
+    <head><title>Consultar Informacion Pago Clientes</title></head>
     <body>
-        <h2>Alta de Pedidos</h2>
+        <h2>Consultar Informacion Pago Clientes</h2>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             Fecha Inicio : <input type="text" name="fecha1" placeholder="año-mes-dia"><br>
             Fecha Final : <input type="text" name="fecha2" placeholder="año-mes-dia"><br>

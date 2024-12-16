@@ -8,9 +8,9 @@
     }
 ?>
 <html>
-    <head><title>Alta de Pedidos</title></head>
+    <head><title>Mostrar Productos Vendidos Entre Dos Fechas</title></head>
     <body>
-        <h2>Alta de Pedidos</h2>
+        <h2>Mostrar Productos Vendidos Entre Dos Fechas</h2>
         <form action=<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?> method="post">
             Fecha Inicio : <input type="text" name="fecha1" placeholder="año-mes-dia"><br>
             Fecha Final : <input type="text" name="fecha2" placeholder="año-mes-dia"><br>
