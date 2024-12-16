@@ -54,7 +54,6 @@
         }
         catch(PDOException $e)
         {
-            $conn -> rollBack();
             echo "Error: " . $e->getMessage();
         }
         $conn = null;
