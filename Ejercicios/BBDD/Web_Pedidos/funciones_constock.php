@@ -12,7 +12,7 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
             foreach ($resultado as $row)
-                print "<option value=".$row["productLine"].">".$row["productLine"]."</option>";
+                print "<option value=\"".$row["productLine"]."\"\>".$row["productLine"]."</option>";
         }
         catch(PDOException $e)
         {
@@ -29,6 +29,7 @@
 
     function mostrarInformacionTipoProducto($tipoProducto)
     {
+        
         $conn = conexionBBDD();
         try
         {
