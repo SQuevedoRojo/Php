@@ -37,10 +37,11 @@
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
-            print "<table order='1'><tr><th></th><th></th><th></th></tr>";
+            print "<table order='1'><tr><th>Numero Producto</th><th>Nombre Producto</th><th>Stock Producto  </th></tr>";
             foreach ($resultado as $row) {
                 print "<tr><td>".$row["productCode"]."</td><td>".$row["productName"]."</td><td>".$row["quantityInStock"]."</td></tr>";
             }
+            print "</table>";
         }
         catch(PDOException $e)
         {
