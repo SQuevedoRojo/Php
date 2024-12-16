@@ -7,7 +7,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT productLine from productline");
+            $stmt = $conn->prepare("SELECT productLine from productlines");
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
