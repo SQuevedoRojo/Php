@@ -26,6 +26,7 @@
             <input type="submit" value="Añadir Al Pedido" name="anadirPedido"><br>
             <input type="submit" value="Mostrar Pedido" name="mostrarPedido"><br>
             <input type="submit" value="Eliminar Pedido" name="eliminarPedido"><br>
+            <input type="submit" value="Volver" name="volver"><br>
             <input type="submit" value="Realizar Pedido" name="realizarPedido">
         </form>
     <?php
@@ -53,6 +54,11 @@
             {
                 realizarPedido();
                 header("Refresh: 5");
+            }
+            if(isset($_POST["volver"]))
+            {
+                realizarPedido();
+                header("Location: pe_inicio.php");
             }
         }
     ?>

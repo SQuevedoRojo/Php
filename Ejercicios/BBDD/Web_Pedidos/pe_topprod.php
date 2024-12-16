@@ -15,6 +15,7 @@
             Fecha Inicio : <input type="text" name="fecha1" placeholder="año-mes-dia"><br>
             Fecha Final : <input type="text" name="fecha2" placeholder="año-mes-dia"><br>
             <input type="submit" value="Mostrar Informacion" name="mostrarInfo"><br>
+            <input type="submit" value="Volver" name="volver"><br>
             <input type="submit" value="Cerrar Sesion" name="cerrarSesion"><br>
         </form>
     <?php
@@ -29,6 +30,11 @@
             {
                 if(verificarSessionExistente())
                     eliminarSession();
+            }
+            if(isset($_POST["volver"]))
+            {
+                realizarPedido();
+                header("Location: pe_inicio.php");
             }
         }
     ?>

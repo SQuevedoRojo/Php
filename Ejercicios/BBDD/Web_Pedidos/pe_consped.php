@@ -15,6 +15,7 @@
             <select name="clientes"><?php imprimirClientes() ?></select>
             <input type="submit" value="Mostrar Informacion" name="mostrarInfo"><br>
             <input type="submit" value="Cerrar Sesion" name="cerrarSesion"><br>
+            <input type="submit" value="Volver" name="volver"><br>
         </form>
     <?php
         if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -28,6 +29,11 @@
             {
                 if(verificarSessionExistente())
                     eliminarSession();
+            }
+            if(isset($_POST["volver"]))
+            {
+                realizarPedido();
+                header("Location: pe_inicio.php");
             }
         }
     ?>
