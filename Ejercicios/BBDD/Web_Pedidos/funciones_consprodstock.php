@@ -33,12 +33,12 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT quantityInStock from products where productCode = :producto");
+            $stmt = $conn->prepare("SELECT productName,quantityInStock from products where productCode = :producto");
             $stmt->bindParam(':producto', $producto);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
-            print "Stock del Producto $producto -> ".$resultado[0]["quantityInStock"];
+            print "Stock del Producto ".$resultado[0]["productName"]." -> ".$resultado[0]["quantityInStock"]." Unidades";
         }
         catch(PDOException $e)
         {
