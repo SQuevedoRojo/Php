@@ -32,7 +32,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT productCode,productName,quantityInStock from products where productLine = :tipoProducto");
+            $stmt = $conn->prepare("SELECT productCode,productName,quantityInStock from products where productLine = :tipoProducto order by 3");
             $stmt->bindParam(':tipoProducto', $tipoProducto);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
