@@ -47,7 +47,7 @@
                 $resultado2=$stmt->fetchAll();
                 foreach ($resultado2 as $row2)
                 {
-                    print "<tr><td>".$row["orderNumber"]."</td><td>".$row["orderDate"]."</td><td".$row["status"]."></td><td>".$row2["orderLineNumber"]."</td><td>".$row2["quantityOrdered"]."</td><td>".$row2["priceEach"]."</td><td>".$row2["productName"]."</td></tr>";
+                    print "<tr><td>".$row["orderNumber"]."</td><td>".$row["orderDate"]."</td><td".$row["status"]."></td><td>".$row2["orderLineNumber"]."</td><td>".$row2["productName"]."</td><td>".$row2["quantityOrdered"]."</td><td>".$row2["priceEach"]."</td></tr>";
                 }
             }
             print "</table>";
