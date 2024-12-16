@@ -51,31 +51,39 @@
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
-            foreach ($resultado as $row)
+            if($resultado != null)
             {
-                $productos = array();
-                $stmt = $conn->prepare("SELECT productName,quantityOrdered from orderdetails o,products p where orderNumber = :numeroPed and o.productCode = p.productCode");
-                $stmt->bindParam(':numeroPed', $row["orderNumber"]);
-                $stmt -> execute();
-                $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                $resultado2=$stmt->fetchAll();
-                foreach ($resultado2 as $row2)
+                foreach ($resultado as $row)
                 {
-                    if(in_array($row2["productName"],$productos))
+                    $productos = array();
+                    $stmt = $conn->prepare("SELECT productName,quantityOrdered from orderdetails o,products p where orderNumber = :numeroPed and o.productCode = p.productCode");
+                    $stmt->bindParam(':numeroPed', $row["orderNumber"]);
+                    $stmt -> execute();
+                    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                    $resultado2=$stmt->fetchAll();
+                    foreach ($resultado2 as $row2)
                     {
-                        $productos[$row2["productName"]] += intval($row2["quantityOrdered"]);
-                    }
-                    else
-                    {
-                        $productos[$row2["productName"]] = intval($row2["quantityOrdered"]);
+                        if(in_array($row2["productName"],$productos))
+                        {
+                            $productos[$row2["productName"]] += intval($row2["quantityOrdered"]);
+                        }
+                        else
+                        {
+                            $productos[$row2["productName"]] = intval($row2["quantityOrdered"]);
+                        }
                     }
                 }
+                print "<table border='1'><tr><th>Producto</th><th>Cantidades Vendidas</th></tr>";
+                foreach ($productos as $nombre => $cantidad) {
+                    print "<tr><td>$nombre</td><td>$cantidad</td></tr>";
+                }
+                print "</table>";
+                $conn = null;
             }
-            print "<table border='1'><tr><th>Producto</th><th>Cantidades Vendidas</th></tr>";
-            foreach ($productos as $nombre => $cantidad) {
-                print "<tr><td>$nombre</td><td>$cantidad</td></tr>";
+            else
+            {
+                trigger_error("No Hay Informacion Disponible Para Las Fechas Seleccionadas");
             }
-            print "</table>";
         }
         catch(PDOException $e)
         {
