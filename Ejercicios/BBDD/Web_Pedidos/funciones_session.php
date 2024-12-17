@@ -90,7 +90,7 @@
         $pedido = $_SESSION["cliente"]["pedido"];
         foreach ($pedido as $idProd => &$contenido) {
             if($idProd == $prod)
-                unset($pedido[$prod]);
+                unset($pedido[$idProd]);
         }
     }
 

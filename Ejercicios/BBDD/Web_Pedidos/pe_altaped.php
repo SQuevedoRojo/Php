@@ -57,7 +57,6 @@
             }
             if(isset($_POST["volver"]))
             {
-                realizarPedido();
                 header("Location: pe_inicio.php");
             }
         }
