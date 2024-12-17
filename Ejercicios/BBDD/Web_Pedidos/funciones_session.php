@@ -92,6 +92,7 @@
             if($idProd == $prod)
                 unset($pedido[$idProd]);
         }
+        $_SESSION["cliente"]["pedido"] = $pedido;
     }
 
     function eliminarVariablesSession()
