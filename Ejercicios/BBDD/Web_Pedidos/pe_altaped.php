@@ -52,11 +52,14 @@
             if(isset($_POST["realizarPedido"]))
             {
                 list($parametros,$firma) = realizarPedido();
-            echo "<form style='visibility: hidden;' name='from' action='https://sis-t.redsys.es:25443/sis/realizarPago' method='POST' target='_blank'>
-                <input type='hidden' name='Ds_SignatureVersion' value=".versionPago()."/>
-                <input type='hidden' name='Ds_MerchantParameters' value=".$parametros."/>
-                <input type='hidden' name='Ds_Signature' value=".$firma."/>	
-                </form> <script language='JavaScript'>document.from.submit()</script>";
+?>
+            <form style="visibility: hidden;" name="from" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST" target="_blank">
+                <input type="hidden" name="Ds_SignatureVersion" value="<?php versionPago(); ?>"/>
+                <input type="hidden" name="Ds_MerchantParameters" value="<?php $parametros; ?>"/>
+                <input type="hidden" name="Ds_Signature" value="<?php $firma; ?>"/>	
+            </form>
+            <script>document.from.submit()</script>
+<?php
                 header("Refresh: 5");
             }
             if(isset($_POST["volver"]))
