@@ -55,7 +55,7 @@
                 list($parametros,$firma) = realizarPedido();
 ?>
             <form style="opacity: 0;" name="from" id="formularioPago" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST" target="_blank">
-                <input type="hidden" name="Ds_SignatureVersion" value="<?php versionPago(); ?>"/>
+                <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1"/>
                 <input type="hidden" name="Ds_MerchantParameters" value="<?php $parametros; ?>"/>
                 <input type="hidden" name="Ds_Signature" value="<?php $firma; ?>"/>	
             </form>

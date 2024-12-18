@@ -259,26 +259,11 @@
 
         //Datos de configuración
         $version="HMAC_SHA256_V1";
-        $kc = 'c3E3SGpyVU9CZkttQzU3NklMZ3NrRDVzclU4NzBnSjc=';//Clave recuperada de CANALES
+        $kc = 'sq7HjrUOBfKmC576ILgskD5srU870gJ7';//Clave recuperada de CANALES
         // Se generan los parámetros de la petición
         $request = "";
         $params = $miObj->createMerchantParameters();
         $signature = $miObj->createMerchantSignature($kc);
         return [$params,$signature];
-    }
-
-    function versionPago()
-    {
-        return "HMAC_SHA256_V1";
-    }
-
-    function parametrosPago()
-    {
-
-    }
-
-    function firmaPago()
-    {
-
     }
 ?>
