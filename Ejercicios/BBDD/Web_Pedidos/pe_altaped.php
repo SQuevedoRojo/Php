@@ -26,9 +26,8 @@
             <input type="submit" value="Añadir Al Pedido" name="anadirPedido"><br>
             <input type="submit" value="Mostrar Pedido" name="mostrarPedido"><br>
             <input type="submit" value="Eliminar Pedido" name="eliminarPedido"><br>
+            <input type="submit" value="Realizar Pedido" name="realizarPedido"><br>
             <input type="submit" value="Volver" name="volver"><br>
-            <input type="submit" value="Realizar Pedido" name="realizarPedido">
-        </form>
     <?php
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
@@ -52,7 +51,12 @@
             }
             if(isset($_POST["realizarPedido"]))
             {
-                realizarPedido();
+                list($parametros,$firma) = realizarPedido();
+            echo "<form style='visibility: hidden;' name='from' action='https://sis-t.redsys.es:25443/sis/realizarPago' method='POST' target='_blank'>
+                <input type='hidden' name='Ds_SignatureVersion' value=".versionPago()."/>
+                <input type='hidden' name='Ds_MerchantParameters' value=".$parametros."/>
+                <input type='hidden' name='Ds_Signature' value=".$firma."/>	
+                </form> <script language='JavaScript'>document.from.submit()</script>";
                 header("Refresh: 5");
             }
             if(isset($_POST["volver"]))
