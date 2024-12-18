@@ -28,6 +28,7 @@
             <input type="submit" value="Eliminar Pedido" name="eliminarPedido"><br>
             <input type="submit" value="Realizar Pedido" name="realizarPedido"><br>
             <input type="submit" value="Volver" name="volver"><br>
+        </form>
     <?php
         if($_SERVER["REQUEST_METHOD"] == "POST")
         {
