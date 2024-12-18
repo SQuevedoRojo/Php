@@ -61,7 +61,6 @@
             </form>
             <script>document.getElementById("formularioPago").submit();</script>
 <?php
-                header("Refresh: 5");
             }
             if(isset($_POST["volver"]))
             {

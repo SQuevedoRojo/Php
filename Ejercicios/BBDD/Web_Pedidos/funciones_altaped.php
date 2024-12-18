@@ -237,8 +237,8 @@
         $miObj = new RedsysAPI;
 
         // Valores de entrada que no hemos cmbiado para ningun ejemplo
-        $fuc="999008881";
-        $terminal="1";
+        $fuc="263100000";
+        $terminal="11";
         $moneda="978";
         $trans="0";
         $url="";
@@ -259,7 +259,7 @@
 
         //Datos de configuración
         $version="HMAC_SHA256_V1";
-        $kc = 'sq7HjrUOBfKmC576ILgskD5srU870gJ7';//Clave recuperada de CANALES
+        $kc = 'c3E3SGpyVU9CZkttQzU3NklMZ3NrRDVzclU4NzBnSjc=';//Clave recuperada de CANALES
         // Se generan los parámetros de la petición
         $request = "";
         $params = $miObj->createMerchantParameters();
