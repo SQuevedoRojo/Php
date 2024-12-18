@@ -1,6 +1,7 @@
 <?php
     include_once "funciones_comunes.php";
     include_once "funciones_session.php";
+    include_once "tpv/apiRedsys.php";
 
     function imprimirPedido()
     {
