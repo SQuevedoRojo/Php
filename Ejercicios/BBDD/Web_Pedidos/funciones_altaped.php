@@ -242,9 +242,9 @@
         $moneda="978";
         $trans="0";
         $url="";
-        $urlOKKO="192.168.206.222/Php/Ejercicios/BBDD/Web_Pedidos/tpv/ejemploRecepcionaPet.php";
+        $urlOKKO="http://192.168.206.222/Php/Ejercicios/BBDD/Web_Pedidos/tpv/ejemploRecepcionaPet.php";
         $id=time();
-        $amount=strval($cantidadTotal);	
+        $amount=strval($cantidadTotal*100);	
         
         // Se Rellenan los campos
         $miObj->setParameter("DS_MERCHANT_AMOUNT",$amount);
