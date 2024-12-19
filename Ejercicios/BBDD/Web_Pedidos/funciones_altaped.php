@@ -188,6 +188,7 @@
         $conn = conexionBBDD();
         try
         {
+            var_dump($_SESSION["cliente"]["id"]);
             $stmt = $conn->prepare("SELECT checkNumber from payments");
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_NUM);
@@ -200,7 +201,7 @@
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $conn->beginTransaction();
                 $stmt = $conn->prepare("SELECT MAX(orderNumber) as orderNumber from orders where customerNumber = :numeroCliente");
-                $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["id"]);
+                $stmt->bindParam(':numeroCliente',$_SESSION["cliente"]["id"]);
                 $stmt -> execute();
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 $resultado=$stmt->fetchAll();
