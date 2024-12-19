@@ -203,12 +203,13 @@
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 $resultado=$stmt->fetchAll();
                 $numeroPedido = $resultado[0]["orderNumber"];
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $conn->beginTransaction();
+                
                 $stmt = $conn->prepare("UPDATE orders set status = 'Shipped' where customerNumber = :numeroCliente and orderNumber = :numeroPedido");
                 $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["id"]);
                 $stmt->bindParam(':numeroPedido', $numeroPedido);
                 $stmt -> execute();
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conn->beginTransaction();
                 $stmt = $conn->prepare("INSERT INTO payments (customerNumber, checkNumber, paymentDate, amount) VALUES (:numCli, :checknumber, curdate(),:cantidad )");
                 $stmt->bindParam(':numCli', $_SESSION["cliente"]["id"]);
                 $stmt->bindParam(':checknumber', $cadena);
