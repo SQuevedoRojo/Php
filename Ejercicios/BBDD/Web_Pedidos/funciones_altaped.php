@@ -188,7 +188,6 @@
         $conn = conexionBBDD();
         try
         {
-            var_dump($_SESSION);
             $stmt = $conn->prepare("SELECT checkNumber from payments");
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_NUM);
