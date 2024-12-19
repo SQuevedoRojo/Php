@@ -20,14 +20,26 @@
         $signatureRecibida = $_POST["Ds_Signature"];
 
         $decodec = $miObj->decodeMerchantParameters($datos);	
-        var_dump($decodec);
+        
         $kc = 'sq7HjrUOBfKmC576ILgskD5srU870gJ7'; //Clave recuperada de CANALES
         $firma = $miObj->createMerchantSignatureNotif($kc,$datos);	
 
         if ($firma === $signatureRecibida){
             print "<h2><strong>Compra Realizada Con Exito</h2></strong>";
+            $datosCompra = json_decode($decodec,true);
+            if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+            {
+                $precioCompra = $data['Ds_Amount'];
+                insertarPago($precioCompra,true);
+            }
         } else {
             echo "<h2><strong>Compra en Espera. Pago no Realizado</h2></strong>";
+            $datosCompra = json_decode($decodec,true);
+            if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+            {
+                $precioCompra = $data['Ds_Amount'];
+                insertarPago($precioCompra,false);
+            }
         }
     }
     else{
@@ -39,14 +51,25 @@
             $signatureRecibida = $_GET["Ds_Signature"];
                 
             $decodec = $miObj->decodeMerchantParameters($datos);
-            var_dump($decodec);
             $kc = 'sq7HjrUOBfKmC576ILgskD5srU870gJ7'; //Clave recuperada de CANALES
             $firma = $miObj->createMerchantSignatureNotif($kc,$datos);
         
             if ($firma === $signatureRecibida){
                 print "<h2><strong>Compra Realizada Con Exito</h2></strong>";
+                $datosCompra = json_decode($decodec,true);
+                if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+                {
+                    $precioCompra = $data['Ds_Amount'];
+                    insertarPago($precioCompra,true);
+                }
             } else {
                 echo "<h2><strong>Compra en Espera. Pago no Realizado</h2></strong>";
+                $datosCompra = json_decode($decodec,true);
+                if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+                {
+                    $precioCompra = $data['Ds_Amount'];
+                    insertarPago($precioCompra,false);
+                }
             }
         }
         else{
@@ -58,4 +81,3 @@
     <a href="./pe_altaped.php"><input type="button" value="Volver a La Pagina Anterior"></a>
     </body> 
     </html> 
-?>

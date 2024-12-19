@@ -183,7 +183,7 @@
         return intval($precio);
     }
 
-    function insertarPago($precioTotal)
+    function insertarPago($precioTotal,$pagoRealizado)
     {
         $conn = conexionBBDD();
         try
@@ -195,15 +195,38 @@
             do{
                 $cadena = generarCheckNumber();
             }while(in_array($cadena,$resultado));
-
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $conn->beginTransaction();
-            $stmt = $conn->prepare("INSERT INTO payments (customerNumber, checkNumber, paymentDate, amount) VALUES (:numCli, :checknumber, curdate(),:cantidad )");
-            $stmt->bindParam(':numCli', $_SESSION["cliente"]["id"]);
-            $stmt->bindParam(':checknumber', $cadena);
-            $stmt->bindParam(':cantidad', $precioTotal);
-            $stmt -> execute();
-            $conn -> commit();
+            if($pagoRealizado)
+            {
+                $stmt = $conn->prepare("SELECT INTO MAX(orderNumber) as orderNumber from orders where customerNumber = :numeroCliente");
+                $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["id"]);
+                $stmt -> execute();
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);
+                $resultado=$stmt->fetchAll();
+                $numeroPedido = $resultado[0]["orderNumber"];
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conn->beginTransaction();
+                $stmt = $conn->prepare("UPDATE orders set status = 'Shipped' where customerNumber = :numeroCliente and orderNumber = :numeroPedido");
+                $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["id"]);
+                $stmt->bindParam(':numeroPedido', $numeroPedido);
+                $stmt -> execute();
+                $stmt = $conn->prepare("INSERT INTO payments (customerNumber, checkNumber, paymentDate, amount) VALUES (:numCli, :checknumber, curdate(),:cantidad )");
+                $stmt->bindParam(':numCli', $_SESSION["cliente"]["id"]);
+                $stmt->bindParam(':checknumber', $cadena);
+                $stmt->bindParam(':cantidad', $precioTotal);
+                $stmt -> execute();
+                $conn -> commit();
+            }
+            else
+            {
+                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conn->beginTransaction();
+                $stmt = $conn->prepare("INSERT INTO payments (customerNumber, checkNumber, paymentDate, amount) VALUES (:numCli, :checknumber, curdate(),:cantidad )");
+                $stmt->bindParam(':numCli', $_SESSION["cliente"]["id"]);
+                $stmt->bindParam(':checknumber', $cadena);
+                $stmt->bindParam(':cantidad', $precioTotal);
+                $stmt -> execute();
+                $conn -> commit();
+            }
 
         }
         catch(PDOException $e)
