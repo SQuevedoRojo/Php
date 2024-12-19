@@ -127,7 +127,6 @@
                 $precioTotal += realizarPedidoPorProducto($idProd,$contenido["cantidad"],$numeroPedido);
             }
             list($parametros,$firma) = redireccionarPago($precioTotal);
-            //insertarPago($precioTotal);
             return [$parametros,$firma];
         }
         else
@@ -236,13 +235,12 @@
         // Se crea Objeto
         $miObj = new RedsysAPI;
 
-        // Valores de entrada que no hemos cmbiado para ningun ejemplo
         $fuc="263100000";
         $terminal="11";
         $moneda="978";
         $trans="0";
         $url="";
-        $urlOKKO="http://192.168.206.222/Php/Ejercicios/BBDD/Web_Pedidos/tpv/ejemploRecepcionaPet.php";
+        $urlOKKO="http://192.168.206.222/Php/Ejercicios/BBDD/Web_Pedidos/pe_respuestaCompra.php";
         $id=time();
         $amount=strval($cantidadTotal*100);	
         
