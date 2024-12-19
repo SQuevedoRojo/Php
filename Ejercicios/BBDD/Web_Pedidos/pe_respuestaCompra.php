@@ -4,6 +4,11 @@
     include_once "funciones_session.php";
     include_once "tpv/apiRedsys.php";
     include_once "funciones_altaped.php";
+    iniciarSession();
+    if(!verificarSessionExistente())
+    {
+        eliminarSession();
+    }
 ?>
     <html> 
     <body> 
