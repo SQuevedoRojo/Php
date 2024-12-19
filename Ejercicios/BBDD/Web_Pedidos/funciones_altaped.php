@@ -199,7 +199,7 @@
             {
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $conn->beginTransaction();
-                $stmt = $conn->prepare("SELECT INTO MAX(orderNumber) as orderNumber from orders where customerNumber = :numeroCliente");
+                $stmt = $conn->prepare("SELECT MAX(orderNumber) as orderNumber from orders where customerNumber = :numeroCliente");
                 $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["id"]);
                 $stmt -> execute();
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
