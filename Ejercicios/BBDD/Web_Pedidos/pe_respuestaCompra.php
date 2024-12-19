@@ -29,7 +29,7 @@
             $datosCompra = json_decode($decodec,true);
             if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
             {
-                $precioCompra = intval($data['Ds_Amount'])/100;
+                $precioCompra = intval($datosCompra['Ds_Amount'])/100;
                 insertarPago($precioCompra,true);
             }
         } else {
@@ -37,7 +37,7 @@
             $datosCompra = json_decode($decodec,true);
             if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
             {
-                $precioCompra = intval($data['Ds_Amount'])/100;
+                $precioCompra = intval($datosCompra['Ds_Amount'])/100;
                 insertarPago($precioCompra,false);
             }
         }
@@ -59,7 +59,7 @@
                 $datosCompra = json_decode($decodec,true);
                 if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
                 {
-                    $precioCompra = intval($data['Ds_Amount'])/100;
+                    $precioCompra = intval($datosCompra['Ds_Amount'])/100;
                     insertarPago($precioCompra,true);
                 }
             } else {
@@ -67,7 +67,7 @@
                 $datosCompra = json_decode($decodec,true);
                 if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
                 {
-                    $precioCompra = intval($data['Ds_Amount'])/100;
+                    $precioCompra = intval($datosCompra['Ds_Amount'])/100;
                     insertarPago($precioCompra,false);
                 }
             }
