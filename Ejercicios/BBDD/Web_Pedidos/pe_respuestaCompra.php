@@ -30,22 +30,29 @@
         $firma = $miObj->createMerchantSignatureNotif($kc,$datos);	
 
         if ($firma === $signatureRecibida){
+            $codigoRespuesta = intval($miObj->getParameter("Ds_Response"));
+            if($codigoRespuesta >= 0 && $codigoRespuesta < 100)
+            {
             print "<h2><strong>Compra Realizada Con Exito</h2></strong>";
             $datosCompra = json_decode($decodec,true);
             if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
-            {
-                $precioCompra = intval($datosCompra['Ds_Amount'])/100;
-                insertarPago($precioCompra,true);
+                {
+                    $precioCompra = intval($datosCompra['Ds_Amount'])/100;
+                    insertarPago($precioCompra,true);
+                }
             }
-        } else {
-            echo "<h2><strong>Compra en Espera. Pago no Realizado</h2></strong>";
-            $datosCompra = json_decode($decodec,true);
-            if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+            else 
             {
-                $precioCompra = intval($datosCompra['Ds_Amount'])/100;
-                insertarPago($precioCompra,false);
+                echo "<h2><strong>Compra en Espera. Pago no Realizado</h2></strong>";
+                $datosCompra = json_decode($decodec,true);
+                if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+                {
+                    $precioCompra = intval($datosCompra['Ds_Amount'])/100;
+                    insertarPago($precioCompra,false);
+                }
             }
-        }
+        } 
+        
     }
     else{
         if (!empty( $_GET ) )
@@ -60,22 +67,28 @@
             $firma = $miObj->createMerchantSignatureNotif($kc,$datos);
         
             if ($firma === $signatureRecibida){
-                print "<h2><strong>Compra Realizada Con Exito</h2></strong>";
-                $datosCompra = json_decode($decodec,true);
-                if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+                $codigoRespuesta = intval($miObj->getParameter("Ds_Response"));
+                if($codigoRespuesta >= 0 && $codigoRespuesta < 100)
                 {
-                    $precioCompra = intval($datosCompra['Ds_Amount'])/100;
-                    insertarPago($precioCompra,true);
+                    print "<h2><strong>Compra Realizada Con Exito</h2></strong>";
+                    $datosCompra = json_decode($decodec,true);
+                    if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+                        {
+                            $precioCompra = intval($datosCompra['Ds_Amount'])/100;
+                            insertarPago($precioCompra,true);
+                        }
                 }
-            } else {
-                echo "<h2><strong>Compra en Espera. Pago no Realizado</h2></strong>";
-                $datosCompra = json_decode($decodec,true);
-                if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+                else 
                 {
-                    $precioCompra = intval($datosCompra['Ds_Amount'])/100;
-                    insertarPago($precioCompra,false);
+                    echo "<h2><strong>Compra en Espera. Pago no Realizado</h2></strong>";
+                    $datosCompra = json_decode($decodec,true);
+                    if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
+                    {
+                        $precioCompra = intval($datosCompra['Ds_Amount'])/100;
+                        insertarPago($precioCompra,false);
+                    }
                 }
-            }
+            } 
         }
         else{
             die("No se recibió respuesta");
