@@ -263,7 +263,7 @@
         $moneda="978";
         $trans="0";
         $url="";
-        $urlOKKO="http://192.168.1.99/Php/Ejercicios/BBDD/Web_Pedidos/pe_respuestaCompra.php";
+        $urlOKKO="http://192.168.206.222/Php/Ejercicios/BBDD/Web_Pedidos/pe_respuestaCompra.php";
         $id=time();
         $amount=strval($cantidadTotal*100);	
         
