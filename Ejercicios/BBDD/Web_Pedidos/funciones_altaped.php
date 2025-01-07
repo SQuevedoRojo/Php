@@ -259,7 +259,7 @@
         $miObj = new RedsysAPI;
 
         $fuc="263100000";
-        $terminal="11";
+        $terminal="8";
         $moneda="978";
         $trans="0";
         $url="";
