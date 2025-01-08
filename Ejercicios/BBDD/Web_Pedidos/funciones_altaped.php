@@ -122,7 +122,7 @@
             $conn = null;
 
             $pedido = $_SESSION["cliente"]["pedido"];
-            $precioTotal = null;
+            $precioTotal = 0;
             foreach ($pedido as $idProd => &$contenido) {
                 $precioTotal += realizarPedidoPorProducto($idProd,$contenido["cantidad"],$numeroPedido);
             }
