@@ -108,7 +108,7 @@
             {
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $conn->beginTransaction();
-                $stmt = $conn->prepare("INSERT INTO orders (orderNumber,orderDate,requiredDate,shippedDate,status,comments,customerNumber) values (:numeroPedido,curdate(),curdate(),null,'In Process',null,:numeroCliente)");
+                $stmt = $conn->prepare("INSERT INTO orders (orderNumber,orderDate,requiredDate,shippedDate,status,comments,customerNumber) values (:numeroPedido,curdate(),curdate(),null,'Pending',null,:numeroCliente)");
                 $stmt->bindParam(':numeroPedido', $numeroPedido);
                 $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["id"]);
                 $stmt -> execute();
@@ -205,7 +205,7 @@
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);
                 $resultado=$stmt->fetchAll();
                 $numeroPedido = $resultado[0]["orderNumber"];
-                $stmt = $conn->prepare("UPDATE orders set status = 'Shipped' where customerNumber = :numeroCliente and orderNumber = :numeroPedido");
+                $stmt = $conn->prepare("UPDATE orders set status = 'In Process' where customerNumber = :numeroCliente and orderNumber = :numeroPedido");
                 $stmt->bindParam(':numeroCliente', $_SESSION["cliente"]["id"]);
                 $stmt->bindParam(':numeroPedido', $numeroPedido);
                 $stmt -> execute();
