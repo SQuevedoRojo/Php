@@ -180,7 +180,7 @@
             echo "Error: " . $e->getMessage();
         }
         $conn = null;
-        return intval($precio);
+        return intval($precio*$cantidad);
     }
 
     function insertarPago($precioTotal,$pagoRealizado)
