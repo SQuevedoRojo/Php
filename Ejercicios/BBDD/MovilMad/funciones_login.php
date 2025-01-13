@@ -31,7 +31,7 @@
             }
             else
             {   
-                if($resultado[0]["fecha_baja"] != null && $resultado[0]["pendiente_pago"] == 0)
+                if($resultado[0]["fecha_baja"] == null && $resultado[0]["pendiente_pago"] == 0)
                 {
                     $idCli = $resultado[0]["idcliente"];
                     $nombreCompleto =  $resultado[0]["nombre"] . " " .  $resultado[0]["apellido"];
