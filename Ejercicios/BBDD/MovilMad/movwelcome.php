@@ -4,6 +4,7 @@
         {
             eliminarSession();
         }
+		var_dump($_SESSION);
 ?>
 <html>
    
@@ -25,8 +26,8 @@
 		<div class="card-body">
 
 
-		<B>Bienvenido/a:</B> <?php devolverNombre() ?>   <BR><BR>
-		<B>Identificador Cliente:</B> <?php devolverId() ?> <BR><BR>
+		<B>Bienvenido/a:</B> <?php devolverNombre(); ?>   <BR><BR>
+		<B>Identificador Cliente:</B> <?php devolverId(); ?> <BR><BR>
 	 
 		
        <!--Formulario con botones -->
