@@ -43,7 +43,7 @@
 		</div>		
 	</form>
 	<!-- FIN DEL FORMULARIO -->
-	<a href = "">Cerrar Sesion</a>
+	<a href = "cerrarSession.php">Cerrar Sesion</a>
 	
   </body>
    
