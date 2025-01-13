@@ -5,7 +5,7 @@
         session_start();
     }
 
-    function crearSession($idCli,$nombreCompleto)
+    function crearSession(&$idCli,&$nombreCompleto)
     {
         if(!isset($_SESSION["cliente"][$idCli]) && !isset($_SESSION["cliente"][$nombreCompleto]))
         {

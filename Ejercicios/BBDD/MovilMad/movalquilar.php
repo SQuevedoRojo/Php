@@ -1,3 +1,11 @@
+<?php include_once "funciones_session.php";
+        iniciarSession();
+        if(!verificarSessionExistente())
+        {
+            eliminarSession();
+        }
+		var_dump($_SESSION);
+?>
 <html>
    
  <head>
