@@ -25,14 +25,10 @@
 
     function conexionBBDD()
     {
-        $servername = 'DB_SERVER';
-        $username = 'DB_USERNAME';
-        $password = 'DB_PASSWORD';
-        $dbname= 'DB_DATABASE';
         $conn = null;
 
         try {
-            $conn = new PDO("mysql:host=$servername;dbname=$dbname",$username, $password);
+            $conn = new PDO("mysql:host=".DB_SERVER.";dbname=".DB_DATABASE."",DB_USERNAME, DB_PASSWORD);
             // set the PDO error mode to exception
             $conn->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
         }
