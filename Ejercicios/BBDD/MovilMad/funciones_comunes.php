@@ -1,4 +1,5 @@
 <?php
+    include_once "movconfig.php";
 
     function customError($errno, $errstr) {
         echo "<b>Error:</b> [$errno] $errstr<br>";
