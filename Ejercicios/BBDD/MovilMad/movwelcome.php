@@ -26,8 +26,8 @@
 		<div class="card-body">
 
 
-		<B>Bienvenido/a:</B> <?php devolverNombre(); ?>   <BR><BR>
-		<B>Identificador Cliente:</B> <?php devolverId(); ?> <BR><BR>
+		<B>Bienvenido/a: <?php devolverNombre(); ?> </B>   <BR><BR>
+		<B>Identificador Cliente:  <?php devolverId(); ?></B> <BR><BR>
 	 
 		
        <!--Formulario con botones -->

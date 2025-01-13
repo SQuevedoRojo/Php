@@ -1,5 +1,15 @@
 <html>
-   <?php include_once "funciones_session.php";?>
+   <?php include_once "funciones_session.php";
+        iniciarSession();
+        if(verificarSessionExistente())
+        {
+            header("Location: movwelcome.php");
+        }
+        else
+        {
+            eliminarSession();
+        }
+   ?>
  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
