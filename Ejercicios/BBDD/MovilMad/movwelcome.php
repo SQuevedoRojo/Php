@@ -26,23 +26,20 @@
 		<div class="card-body">
 
 
-		<B>Bienvenido/a: <?php devolverNombre(); ?> </B>   <BR><BR>
-		<B>Identificador Cliente:  <?php devolverId(); ?></B> <BR><BR>
+		<B>Bienvenido/a: </B> <?php devolverNombre(); ?>  <BR><BR>
+		<B>Identificador Cliente: </B><?php devolverId(); ?> <BR><BR>
 	 
 		
        <!--Formulario con botones -->
-	   <form id="" name="" action="" method="post" class="card-body">
-		<input type="button" name="alquilar" value="Alquilar Vehículo" onclick="window.location.href=''" class="btn btn-warning disabled">
-		<input type="button" name="consultar" value="Consultar Alquileres" onclick="window.location.href=''" class="btn btn-warning disabled">
-		<input type="button" name="devolver" value="Devolver Vehículo" onclick="window.location.href=''" class="btn btn-warning disabled">
-	   </form>
+		<input type="button" value="Alquilar Vehículo" onclick="window.location.href='movalquilar.php'" class="btn btn-warning disabled">
+		<input type="button" value="Consultar Alquileres" onclick="window.location.href='movconsultar.php'" class="btn btn-warning disabled">
+		<input type="button" value="Devolver Vehículo" onclick="window.location.href='movdevolver.php'" class="btn btn-warning disabled">
 		</br></br>
 		
 		
 		
 		  <BR><a href="">Cerrar Sesión</a>
 	</div>  
-	<?php include_once "funciones_welcome.php"; ?>
 	  
      
    </body>

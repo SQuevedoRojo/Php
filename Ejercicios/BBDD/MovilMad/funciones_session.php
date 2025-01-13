@@ -16,12 +16,12 @@
 
     function devolverId()
     {
-        return $_SESSION["cliente"]["id"];
+        return strval($_SESSION["cliente"]["id"]);
     }
 
     function devolverNombre()
     {
-        return $_SESSION["cliente"]["nombre"];
+        return strval($_SESSION["cliente"]["nombre"]);
     }
 
 
