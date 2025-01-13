@@ -5,10 +5,6 @@
         {
             header("Location: movwelcome.php");
         }
-        else
-        {
-            eliminarSession();
-        }
    ?>
  <head>
     <meta charset="UTF-8">

@@ -33,7 +33,6 @@
             {   
                 $idCli = $resultado[0]["idcliente"];
                 $nombreCompleto =  $resultado[0]["nombre"] . " " .  $resultado[0]["apellido"];
-                iniciarSession();
                 crearSession($idCli,$nombreCompleto);
                 header("Location: ./movwelcome.php");
             }
