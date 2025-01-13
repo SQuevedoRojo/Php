@@ -24,10 +24,10 @@
 
     function conexionBBDD()
     {
-        $servername = DB_SERVER;
-        $username = DB_USERNAME;
-        $password = DB_PASSWORD;
-        $dbname= DB_DATABASE;
+        $servername = 'DB_SERVER';
+        $username = 'DB_USERNAME';
+        $password = 'DB_PASSWORD';
+        $dbname= 'DB_DATABASE';
         $conn = null;
 
         try {
