@@ -16,12 +16,14 @@
 
     function devolverId()
     {
-        return ($_SESSION["cliente"]["id"]);
+        $id = $_SESSION["cliente"]["id"];
+        return $id;
     }
 
     function devolverNombre()
     {
-        return ($_SESSION["cliente"]["nombre"]);
+        $nombre = $_SESSION["cliente"]["nombre"];
+        return $nombre;
     }
 
 
