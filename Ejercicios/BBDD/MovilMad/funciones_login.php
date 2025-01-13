@@ -19,7 +19,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT idcliente,nombre,apellido from rclientes where idcliente = :contra and email = :usu");
+            $stmt = $conn->prepare("SELECT idcliente,nombre,apellido,fecha_baja,pendiente_pago from rclientes where idcliente = :contra and email = :usu");
             $stmt->bindParam(':usu', $usu);
             $stmt->bindParam(':contra', $contra);
             $stmt -> execute();
@@ -31,10 +31,21 @@
             }
             else
             {   
-                $idCli = $resultado[0]["idcliente"];
-                $nombreCompleto =  $resultado[0]["nombre"] . " " .  $resultado[0]["apellido"];
-                crearSession($idCli,$nombreCompleto);
-                header("Location: ./movwelcome.php");
+                if($resultado[0]["fecha_baja"] != null && $resultado[0]["pendiente_pago"] == "0")
+                {
+                    $idCli = $resultado[0]["idcliente"];
+                    $nombreCompleto =  $resultado[0]["nombre"] . " " .  $resultado[0]["apellido"];
+                    crearSession($idCli,$nombreCompleto);
+                    header("Location: ./movwelcome.php");
+                }
+                elseif($resultado[0]["fecha_baja"] != null)
+                {
+                    trigger_error("Usuario Dado de Baja en el Sistema");
+                }
+                else
+                {
+                    trigger_error("Usuario con Pagos Pendientes");
+                }
             }
         }
         catch(PDOException $e)
