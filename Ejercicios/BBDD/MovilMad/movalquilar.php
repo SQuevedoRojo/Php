@@ -14,17 +14,24 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <title>Bienvenido a MovilMAD</title>
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+	<style>
+		#cesta
+		{
+			position: relative;
+			right: 90%;
+		}
+	</style>
  </head>
    
  <body>
     <h1>Servicio de ALQUILER DE E-CARS</h1> 
-
+		<div id="cesta"><?php imprimirCesta(); ?></div>
     <div class="container ">
         <!--Aplicacion-->
 		<div class="card border-success mb-3" style="max-width: 30rem;">
 		<div class="card-header">Menú Usuario - ALQUILAR VEHÍCULOS</div>
 		<div class="card-body">
-	  	  
+	
 
 	<!-- INICIO DEL FORMULARIO -->
 	<form action="" method="post">

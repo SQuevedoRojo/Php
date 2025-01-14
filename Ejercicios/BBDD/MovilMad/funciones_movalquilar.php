@@ -3,8 +3,16 @@
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        list($usu,$contra) = recogerDatos();
-        comprobarLogin($usu,$contra);
+        if(isset($_POST["agregar"]))
+        {
+            $vehiculos = recogerDatos();
+        }
+    }
+
+    function recogerDatos()
+    {
+        $matricula = $_POST["vehiculos"];
+        return $matricula;
     }
 
     function saberVehiculosDisponibles()
@@ -29,7 +37,7 @@
     {
         $cochesDisponibles = saberVehiculosDisponibles();
         foreach ($cochesDisponibles as $coche) {
-            print "<option value='".$coche["matricula"]."'>".$coche["matricula"]."|".$coche["marca"]."|".$coche["modelo"]."</option>";
+            print "<option value='".$coche["matricula"]."'>".$coche["matricula"]." | ".$coche["marca"]." | ".$coche["modelo"]."</option>";
         }
     }
 ?>
