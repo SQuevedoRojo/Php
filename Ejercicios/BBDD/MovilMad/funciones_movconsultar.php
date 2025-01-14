@@ -28,7 +28,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT v.matricula as matricula,marca,modelo,fecha_devolucion,preciototal from rvehiculos v,ralquileres a where idcliente=:idcliente and v.matricula = a.matricula and (DATE(fecha_alquiler) >= :fechaIni and DATE(fecha_devolucion) <= :fechaFin)");
+            $stmt = $conn->prepare("SELECT v.matricula as matricula,marca,modelo,fecha_devolucion,preciototal from rvehiculos v,ralquileres a where idcliente=:idcliente and v.matricula = a.matricula and DATE(fecha_alquiler) >= :fechaIni and DATE(fecha_devolucion) <= :fechaFin");
             $stmt->bindParam(':idcliente', $_SESSION["cliente"]["id"]);
             $stmt->bindParam(':fechaIni', $fechaInicio);
             $stmt->bindParam(':fechaFin', $fechaFinal);
