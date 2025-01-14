@@ -38,12 +38,13 @@
 			 Fecha Hasta: <input type='date' name='fechahasta' value='' size=10 placeholder="fechahasta" class="form-control"><br><br>
 				
 		<div>
-			<input type="submit" value="Consultar" name="Volver" class="btn btn-warning disabled">
+			<input type="submit" value="Consultar" name="consultar" class="btn btn-warning disabled">
 		
 			<input type="submit" value="Volver" name="Volver" class="btn btn-warning disabled">
 		
 		</div>		
 	</form>
+  <?php include_once "funciones_movconsultar.php" ?>
 	<!-- FIN DEL FORMULARIO -->
     <a href = "cerrarSession.php">Cerrar Sesion</a>
 
