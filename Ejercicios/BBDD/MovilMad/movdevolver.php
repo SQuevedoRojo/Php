@@ -44,7 +44,7 @@
 	</form>
 	<!-- FIN DEL FORMULARIO -->
 	<a href = "cerrarSession.php">Cerrar Sesion</a>
-	
+	<?php include_once "funciones_movdevolver.php"; ?>
   </body>
    
 </html>
