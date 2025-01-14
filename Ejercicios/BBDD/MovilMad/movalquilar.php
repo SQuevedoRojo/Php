@@ -1,4 +1,4 @@
-<?php include_once "funciones_session.php";include_once "funciones_movalquilar.php";
+<?php include_once "funciones_session.php";include_once "funciones_bbddVehiculos.php.php";
         iniciarSession();
         if(!verificarSessionExistente())
         {
@@ -34,7 +34,7 @@
 	
 
 	<!-- INICIO DEL FORMULARIO -->
-	<form action="funciones_movalquilar.php" method="post">
+	<form action="" method="post">
 	
 		<B>Bienvenido/a:</B><?php print devolverNombre(); ?>  <BR><BR>
 		<B>Identificador Cliente:</B> <?php print devolverId(); ?>  <BR><BR>
@@ -53,7 +53,7 @@
 			<input type="submit" value="Vaciar Cesta" name="vaciar" class="btn btn-warning disabled">
 		</div>		
 	</form>
-	
+	<?php include_once "funciones_movalquilar.php"; ?>
 	<!-- FIN DEL FORMULARIO -->
   </body>
    
