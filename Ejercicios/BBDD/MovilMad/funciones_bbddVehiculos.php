@@ -1,4 +1,6 @@
 <?php
+    include_once "funciones_comunes.php";
+
     function saberVehiculosDisponibles()
     {
         $conn = conexionBBDD();
