@@ -10,6 +10,11 @@
             annadirALaCesta($matricula);
             header("Refresh: 0");
         }
+        if(isset($_POST["vaciar"]))
+        {
+            vaciarCesta();
+            header("Refresh: 0");
+        }
     }
 
     function recogerDatos()

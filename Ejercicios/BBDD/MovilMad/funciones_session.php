@@ -70,6 +70,12 @@
         }
     }
 
+    function vaciarCesta()
+    {
+        if(isset($_SESSION["cliente"]["cesta"]))
+            unset(($_SESSION["cliente"]["cesta"]));
+    }
+
     function eliminarVariablesSession()
     {
         session_destroy();
