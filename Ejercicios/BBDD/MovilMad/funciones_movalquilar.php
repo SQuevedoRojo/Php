@@ -20,7 +20,7 @@
         {
             annadirVehiculosAAlquilar();
             vaciarCesta();
-            header("Refresh: 0");
+            header("Refresh: 3");
         }
     }
 
