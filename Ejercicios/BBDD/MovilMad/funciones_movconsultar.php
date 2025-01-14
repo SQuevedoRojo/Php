@@ -9,7 +9,10 @@
         if(isset($_POST["consultar"]))
         {
             list($fechaInicio,$fechaFinal) = recogerDatos();
-            imprimirVehiculosAlquiladosPeriodo($fechaInicio,$fechaFinal);
+            if($fechaInicio != null && $fechaFinal != null)
+                imprimirVehiculosAlquiladosPeriodo($fechaInicio,$fechaFinal);
+            else
+                trigger_error("Introduce Fechas Correctas");
         }
     }
 
@@ -17,8 +20,6 @@
     {
         $fechaInicio = $_POST["fechadesde"];
         $fechaFinal = $_POST["fechahasta"];
-        var_dump($fechaInicio);
-        var_dump($fechaFinal);
         return [$fechaInicio,$fechaFinal];
     }
 
@@ -27,7 +28,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT v.matricula as matricula,marca,modelo,fecha_devolucion,preciototal from rvehiculos v,ralquileres a where idcliente=:idcliente and v.matricula = a.matricula and :fechaIni >= DATE(fecha_alquiler) and DATE(fecha_devolucion) <= :fechaFin");
+            $stmt = $conn->prepare("SELECT v.matricula as matricula,marca,modelo,fecha_devolucion,preciototal from rvehiculos v,ralquileres a where idcliente=:idcliente and v.matricula = a.matricula and (:fechaIni >= DATE(fecha_alquiler) and DATE(fecha_devolucion) <= :fechaFin)");
             $stmt->bindParam(':idcliente', $_SESSION["cliente"]["id"]);
             $stmt->bindParam(':fechaIni', $fechaInicio);
             $stmt->bindParam(':fechaFin', $fechaFinal);
