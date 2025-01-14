@@ -1,4 +1,4 @@
-<?php include_once "funciones_session.php";include_once "funciones_bbddVehiculos.php.php";
+<?php include_once "funciones_session.php";include_once "funciones_bbddVehiculos.php";
         iniciarSession();
         if(!verificarSessionExistente())
         {
