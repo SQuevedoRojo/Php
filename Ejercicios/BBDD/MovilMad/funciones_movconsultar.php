@@ -48,7 +48,7 @@
     {
         $resultado = saberVehiculosAlquiladosPeriodo($fechaInicio,$fechaFinal);
         if($resultado == null)
-            print "<h2>No Ha Tenido Alquilado Ningun Vehiculo</h2>";
+            print "<h2>No Ha Tenido Alquilado Ningun Vehiculo En Ese Periodo</h2>";
         else
         {
             print "<table border='1'>";
