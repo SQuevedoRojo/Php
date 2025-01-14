@@ -1,4 +1,4 @@
-<?php include_once "funciones_session.php";
+<?php include_once "funciones_session.php";include_once "funciones_movalquilar.php";
         iniciarSession();
         if(!verificarSessionExistente())
         {
@@ -32,10 +32,10 @@
 		<B>Bienvenido/a:</B><?php print devolverNombre(); ?>  <BR><BR>
 		<B>Identificador Cliente:</B> <?php print devolverId(); ?>  <BR><BR>
 		
-		<B>Vehiculos disponibles en este momento:</B>  <BR><BR>
+		<B>Vehiculos disponibles en este momento:</B> <?php date_default_timezone_set('GMT'); print (date('d') ."/".date('m')."/".date('Y')."  ".(date('H')+1).":".date('i')); ?> <BR><BR>
 		
 			<B>Matricula/Marca/Modelo: </B><select name="vehiculos" class="form-control">
-				
+				<?php imprimirVehiculosDisponibles(); ?>
 			</select>
 			
 		
@@ -46,6 +46,7 @@
 			<input type="submit" value="Vaciar Cesta" name="vaciar" class="btn btn-warning disabled">
 		</div>		
 	</form>
+	
 	<!-- FIN DEL FORMULARIO -->
   </body>
    
