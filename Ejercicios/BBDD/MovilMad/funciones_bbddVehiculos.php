@@ -83,7 +83,7 @@
         try
         {
             $stmt = $conn->prepare("SELECT v.matricula,marca,modelo from rvehiculos v,ralquileres a where disponible = 'N' and idcliente=:idcliente and v.matricula = a.matricula;");
-            $stmt->bindParam(':idCliente', $_SESSION["cliente"]["id"]);
+            $stmt->bindParam(':idcliente', $_SESSION["cliente"]["id"]);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
