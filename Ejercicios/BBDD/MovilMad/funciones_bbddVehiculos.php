@@ -73,7 +73,7 @@
         }
     }
 
-    function saberVehiculosAlquilados()
+    function saberVehiculosClienteAlquilados()
     {
         $id = devolverId();
         $conn = conexionBBDD();
@@ -95,7 +95,7 @@
 
     function imprimirVehiculosAlquilados()
     {
-        $vehiculos = saberVehiculosAlquilados();
+        $vehiculos = saberVehiculosClienteAlquilados();
         var_dump($vehiculos);
     }
 ?>
