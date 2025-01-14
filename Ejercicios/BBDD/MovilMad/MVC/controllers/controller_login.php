@@ -6,7 +6,7 @@
         iniciarSession();
         $usu = $_POST["email"];
         $contra = $_POST["password"];
-        require_once ("../models/model_login");
+        require_once ("../models/model_login.php");
         if($resultado[0]["fecha_baja"] == null && $resultado[0]["pendiente_pago"] == 0)
         {
             $idCli = $resultado[0]["idcliente"];
@@ -24,5 +24,5 @@
         }
     }
 
-    require_once "views/view_login.php";
+    require_once "../views/view_login.php";
 ?>
