@@ -46,7 +46,14 @@
             }
             else
             {
-                $vehiculos[] = $matricula;
+                if(in_array($matricula,$vehiculos))
+                {
+                    trigger_error("No se Puede Alquilar el Mismo Vehiculo Dos Veces");
+                }
+                else
+                {
+                    $vehiculos[] = $matricula;
+                }
             }
         }
         else
