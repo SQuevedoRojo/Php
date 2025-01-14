@@ -17,8 +17,8 @@
 	<style>
 		#cesta
 		{
-			position: relative;
-			right: 90%;
+			position: absolute;
+            left: 80%;
 		}
 	</style>
  </head>
