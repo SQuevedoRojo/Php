@@ -23,8 +23,13 @@
     function imprimirVehiculosDisponibles()
     {
         $cochesDisponibles = saberVehiculosDisponibles();
-        foreach ($cochesDisponibles as $coche) {
-            print "<option value='".$coche["matricula"]."'>".$coche["matricula"]." | ".$coche["marca"]." | ".$coche["modelo"]."</option>";
+        if($cochesDisponibles == null)
+            print "<option value=''>Ningun Coche Alquilado</option>";
+        else
+        {
+            foreach ($cochesDisponibles as $coche) {
+                print "<option value='".$coche["matricula"]."'>".$coche["matricula"]." | ".$coche["marca"]." | ".$coche["modelo"]."</option>";
+            }
         }
     }
 
@@ -96,6 +101,13 @@
     function imprimirVehiculosAlquilados()
     {
         $vehiculos = saberVehiculosClienteAlquilados();
-        var_dump($vehiculos);
+        if($vehiculos == null)
+            print "<option value=''>Ningun Coche Alquilado</option>";
+        else
+        {
+            foreach ($vehiculos as $coche) {
+                print "<option value='".$coche["matricula"]."'>".$coche["matricula"]." | ".$coche["marca"]." | ".$coche["modelo"]."</option>";
+            }
+        }
     }
 ?>

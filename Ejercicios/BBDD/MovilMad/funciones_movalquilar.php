@@ -8,7 +8,8 @@
         if(isset($_POST["agregar"]))
         {
             $matricula = recogerDatos();
-            annadirALaCesta($matricula);
+            if($matricula != '')
+                annadirALaCesta($matricula);
             header("Refresh: 3");
         }
         if(isset($_POST["vaciar"]))
