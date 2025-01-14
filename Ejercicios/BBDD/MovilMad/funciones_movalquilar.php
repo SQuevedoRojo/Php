@@ -1,6 +1,7 @@
 <?php
     include_once "funciones_comunes.php";
     include_once "funciones_session.php";
+    include_once "funciones_bbddVehiculos.php";
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -8,10 +9,16 @@
         {
             $matricula = recogerDatos();
             annadirALaCesta($matricula);
-            header("Refresh: 0");
+            header("Refresh: 3");
         }
         if(isset($_POST["vaciar"]))
         {
+            vaciarCesta();
+            header("Refresh: 0");
+        }
+        if(isset($_POST["alquilar"]))
+        {
+            annadirVehiculosAAlquilar();
             vaciarCesta();
             header("Refresh: 0");
         }

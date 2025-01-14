@@ -26,7 +26,6 @@
         return $nombre;
     }
 
-
     function verificarSessionExistente()
     {
         $sessionCreada = false;
@@ -77,10 +76,45 @@
         }
     }
 
+    function annadirCuantosVehiculosAlquilados($cantidad)
+    {
+        if(isset($_SESSION["cliente"]["alquilados"]))
+        {
+            $alquilados = $_SESSION["cliente"]["alquilados"] +$cantidad; 
+        }
+        else
+        {
+            $alquilados = $cantidad;
+        }
+        $_SESSION["cliente"]["alquilados"] = $alquilados;
+    }
+
+    function saberVehiculosAlquilados()
+    {
+        if(isset($_SESSION["cliente"]["alquilados"]))
+            return $_SESSION["cliente"]["alquilados"];
+        else
+            return 0;
+    }
+
+    function vaciarVehiculoEspecifico($matricula)
+    {
+        if(isset($_SESSION["cliente"]["cesta"]))
+            unset($_SESSION["cliente"]["cesta"][$matricula]);
+    }
+
     function vaciarCesta()
     {
         if(isset($_SESSION["cliente"]["cesta"]))
             unset($_SESSION["cliente"]["cesta"]);
+    }
+
+    function devolverCesta()
+    {
+        if(isset($_SESSION["cliente"]["cesta"]))
+            return $_SESSION["cliente"]["cesta"];
+        else
+            return null;
     }
 
     function eliminarVariablesSession()
