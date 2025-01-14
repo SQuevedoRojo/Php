@@ -8,6 +8,7 @@
         {
             $matricula = recogerDatos();
             annadirALaCesta($matricula);
+            header("Refresh: 0");
         }
     }
 
