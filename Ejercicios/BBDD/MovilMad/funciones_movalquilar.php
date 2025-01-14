@@ -5,7 +5,8 @@
     {
         if(isset($_POST["agregar"]))
         {
-            $vehiculos = recogerDatos();
+            $matricula = recogerDatos();
+            annadirALaCesta($matricula);
         }
     }
 
