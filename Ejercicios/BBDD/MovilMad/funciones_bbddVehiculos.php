@@ -75,7 +75,7 @@
 
     function saberVehiculosClienteAlquilados()
     {
-        $id = devolverId();
+        $id = intval(devolverId());
         $conn = conexionBBDD();
         try
         {
