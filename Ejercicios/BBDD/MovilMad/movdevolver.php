@@ -1,4 +1,4 @@
-﻿<?php include_once "funciones_session.php";
+﻿<?php include_once "funciones_session.php";include_once "funciones_bbddVehiculos.php";
         iniciarSession();
         if(!verificarSessionExistente())
         {
@@ -32,7 +32,7 @@
 	
 		<B>Bienvenido/a:</B><?php print devolverNombre(); ?>  <BR><BR>
 		<B>Identificador Cliente:</B><?php print devolverId(); ?>  <BR><BR>
-				
+		<?php imprimirVehiculosAlquilados() ?>
 			<B>Matricula/Marca/Modelo: </B><select name="vehiculos" class="form-control">
 				
 			</select>
