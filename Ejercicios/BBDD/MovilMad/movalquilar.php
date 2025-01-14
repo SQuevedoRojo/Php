@@ -34,7 +34,7 @@
 	
 
 	<!-- INICIO DEL FORMULARIO -->
-	<form action="" method="post">
+	<form action="funciones_movalquilar.php" method="post">
 	
 		<B>Bienvenido/a:</B><?php print devolverNombre(); ?>  <BR><BR>
 		<B>Identificador Cliente:</B> <?php print devolverId(); ?>  <BR><BR>
