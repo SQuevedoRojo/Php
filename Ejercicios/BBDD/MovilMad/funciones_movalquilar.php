@@ -1,5 +1,6 @@
 <?php
     include_once "funciones_comunes.php";
+    include_once "funciones_session.php";
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
