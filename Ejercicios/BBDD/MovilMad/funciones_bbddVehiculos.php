@@ -36,7 +36,6 @@
     function annadirVehiculosAAlquilar()
     {
         $vehiculos = devolverCesta();
-        $id = devolverId();
         if($vehiculos == null)
         {
             trigger_error("No hay Vehiculos en la Cesta");
@@ -53,7 +52,7 @@
                     if(saberVehiculosAlquilados() < 3)
                     {
                         $stmt = $conn->prepare("INSERT INTO ralquileres (idcliente,matricula,fecha_alquiler,fecha_devolucion,preciototal,fechahorapago) values (:idCliente,:matricula,now(),null,null,null)");
-                        $stmt->bindParam(':idCliente', $id);
+                        $stmt->bindParam(':idCliente', $_SESSION["cliente"]["id"]);
                         $stmt->bindParam(':matricula', $vehiculos[$i]);
                         $stmt -> execute();
                         $stmt = $conn->prepare("UPDATE rvehiculos set disponible = 'N' where matricula = :matricula ");
@@ -80,12 +79,11 @@
 
     function saberVehiculosClienteAlquilados()
     {
-        $id = intval(devolverId());
         $conn = conexionBBDD();
         try
         {
             $stmt = $conn->prepare("SELECT v.matricula,marca,modelo from rvehiculos v,ralquileres a where disponible = 'N' and idcliente=:idcliente and v.matricula = a.matricula;");
-            $stmt->bindParam(':idCliente', $id);
+            $stmt->bindParam(':idCliente', $_SESSION["cliente"]["id"]);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
