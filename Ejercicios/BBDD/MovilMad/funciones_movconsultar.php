@@ -27,7 +27,7 @@
         $conn = conexionBBDD();
         try
         {
-            $stmt = $conn->prepare("SELECT v.matricula,marca,modelo,fecha_devolucion,preciototal from rvehiculos v,ralquileres a where idcliente=:idcliente and v.matricula = a.matricula and :fechaIni >= DATE(fecha_alquiler) and DATE(fecha_devolucion) <= :fechaFin");
+            $stmt = $conn->prepare("SELECT v.matricula as matricula,marca,modelo,fecha_devolucion,preciototal from rvehiculos v,ralquileres a where idcliente=:idcliente and v.matricula = a.matricula and :fechaIni >= DATE(fecha_alquiler) and DATE(fecha_devolucion) <= :fechaFin");
             $stmt->bindParam(':idcliente', $_SESSION["cliente"]["id"]);
             $stmt->bindParam(':fechaIni', $fechaInicio);
             $stmt->bindParam(':fechaFin', $fechaFinal);
@@ -53,7 +53,7 @@
             print "<table border='1'>";
             print "<tr><th>Matricula</th><th>Marca</th><th>Modelo</th><th>Fecha Devolucion</th><th>Precio Total</th></tr>";
             foreach ($resultado as $coche) {
-                print "<tr><th>".$coche["v.matricula"]."</th><th>".$coche["marca"]."</th><th>".$coche["modelo"]."</th><th>".$coche["fecha_devolucion"]."</th><th>".$coche["preciototal"]."€</th></tr>";
+                print "<tr><td>".$coche["matricula"]."</td><td>".$coche["marca"]."</td><td>".$coche["modelo"]."</td><td>".$coche["fecha_devolucion"]."</td><td>".$coche["preciototal"]."€</td></tr>";
             }
             print "</table>";
         }
