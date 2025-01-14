@@ -7,12 +7,13 @@
         $usu = $_POST["email"];
         $contra = $_POST["password"];
         require_once ("models/model_login.php");
-        if($resultado[0]["fecha_baja"] == null && $resultado[0]["pendiente_pago"] == 0)
+        if($resultado == null)
+            trigger_error("Login Incorrecto");
+        elseif($resultado[0]["fecha_baja"] == null && $resultado[0]["pendiente_pago"] == 0)
         {
             $idCli = $resultado[0]["idcliente"];
             $nombreCompleto =  $resultado[0]["nombre"] . " " .  $resultado[0]["apellido"];
             crearSession($idCli,$nombreCompleto);
-            header("Location: www.google.es");
         }
         elseif($resultado[0]["fecha_baja"] != null)
         {
