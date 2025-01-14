@@ -24,5 +24,5 @@
         }
     }
 
-    require_once "../views/view_login.php";
+    require_once "views/view_login.php";
 ?>
