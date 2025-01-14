@@ -32,9 +32,9 @@
 	
 		<B>Bienvenido/a:</B><?php print devolverNombre(); ?>  <BR><BR>
 		<B>Identificador Cliente:</B><?php print devolverId(); ?>  <BR><BR>
-		<?php imprimirVehiculosAlquilados() ?>
+		
 			<B>Matricula/Marca/Modelo: </B><select name="vehiculos" class="form-control">
-				
+				<?php imprimirVehiculosAlquilados() ?>
 			</select>
 		<BR><BR>
 		<div>
