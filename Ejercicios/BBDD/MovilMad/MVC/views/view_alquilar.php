@@ -32,7 +32,7 @@
 		<B>Bienvenido/a:</B><?php print $nombre; ?>  <BR><BR>
 		<B>Identificador Cliente:</B> <?php print $id; ?>  <BR><BR>
 		
-		<B>Vehiculos disponibles en este momento:</B> <?php date_default_timezone_set('GMT'); print (date('d') ."/".date('m')."/".date('Y')."  ".(date('H')+1).":".date('i')); ?> <BR><BR>
+		<B>Vehiculos disponibles en este momento:</B> <?php print $fecha; ?> <BR><BR>
 		
 			<B>Matricula/Marca/Modelo: </B><select name="vehiculos" class="form-control">
 				
