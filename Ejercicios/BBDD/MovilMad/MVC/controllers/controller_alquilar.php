@@ -15,6 +15,24 @@
 
     require_once ("models/model_alquilar.php");
 
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        if(isset($_POST["agregar"]))
+        {
+            null;
+        }
+        if(isset($_POST["alquilar"]))
+        {
+            null;
+        }
+        if(isset($_POST["vaciar"]))
+        {
+            null;
+        }
+    }
+
+    
+    $resultado = saberVehiculosDisponibles();
     $imprimirVehiculos = null;
     if($resultado == null)
         $imprimirVehiculos = "<option value=''>Ningun Coche Alquilado</option>";
