@@ -39,7 +39,7 @@
         if(isset($_SESSION["cliente"]["cesta"]))
         {
             $cesta = $_SESSION["cliente"]["cesta"];
-            $vehiculosAlquilados = saberVehiculosAlquilados($_SESSION["cliente"]["id"]);
+            $vehiculosAlquilados = intval(saberVehiculosAlquilados($_SESSION["cliente"]["id"]));
             if($vehiculosAlquilados < 3 && count($cesta) < 3 && ($vehiculosAlquilados + count($cesta)) != 3)
             {
                 if(in_array($matricula,$cesta))
@@ -67,9 +67,17 @@
         }   
         else
         {
-            $cesta = array();
-            $cesta[] = $matricula;
-            print "<h2>Vehiculo Añadido A La Cesta</h2>";
+            $vehiculosAlquilados = intval(saberVehiculosAlquilados($_SESSION["cliente"]["id"]));
+            if($vehiculosAlquilados < 3)
+            {
+                $cesta = array();
+                $cesta[] = $matricula;
+                print "<h2>Vehiculo Añadido A La Cesta</h2>";
+            }
+            else
+            {
+                trigger_error("Ya tienes alquilados 3 vehiculos. Devuelvelos para Alquilar Mas");
+            }
         }
         $_SESSION["cliente"]["cesta"] = $cesta;
     }
