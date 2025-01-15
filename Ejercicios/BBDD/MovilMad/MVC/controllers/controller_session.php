@@ -57,6 +57,11 @@
         $_SESSION["cliente"]["cesta"] = $cesta;
     }
 
+    function vaciarCesta()
+    {
+        unset($_SESSION["cliente"]["cesta"]);
+    }
+
     function recuperarCesta()
     {
         $tablaCesta = null;

@@ -39,7 +39,16 @@
 		<B>Vehiculos disponibles en este momento:</B> <?php print $fecha; ?> <BR><BR>
 		
 			<B>Matricula/Marca/Modelo: </B><select name="vehiculos" class="form-control">
-				<?php print $imprimirVehiculos; ?>
+				<?php $imprimirVehiculos = null;
+					if($resultado == null)
+						$imprimirVehiculos = "<option value=''>Ningun Coche Alquilado</option>";
+					else
+					{
+						foreach ($resultado as $coche) {
+							$imprimirVehiculos = $imprimirVehiculos . "<option value='".$coche["matricula"]."'>".$coche["matricula"]." | ".$coche["marca"]." | ".$coche["modelo"]."</option>";
+						}
+					} 
+				?>
 			</select>
 			
 		

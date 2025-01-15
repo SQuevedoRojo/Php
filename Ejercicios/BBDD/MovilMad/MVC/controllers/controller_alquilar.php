@@ -34,7 +34,8 @@
         }
         if(isset($_POST["vaciar"]))
         {
-            null;
+            vaciarCesta();
+            header("Refresh: 0");
         }
     }
 
@@ -45,15 +46,6 @@
     }
     
     $resultado = saberVehiculosDisponibles();
-    $imprimirVehiculos = null;
-    if($resultado == null)
-        $imprimirVehiculos = "<option value=''>Ningun Coche Alquilado</option>";
-    else
-    {
-        foreach ($resultado as $coche) {
-            $imprimirVehiculos = $imprimirVehiculos . "<option value='".$coche["matricula"]."'>".$coche["matricula"]." | ".$coche["marca"]." | ".$coche["modelo"]."</option>";
-        }
-    }
 
     $tablaCesta = recuperarCesta();
 
