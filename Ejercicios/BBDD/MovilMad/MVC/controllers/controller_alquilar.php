@@ -34,6 +34,7 @@
             if($cesta != null)
             {
                 realizarAlquiler($cesta,$id);
+                header("Refresh: 0");
             }
             else
             {
