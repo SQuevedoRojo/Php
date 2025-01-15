@@ -40,7 +40,7 @@
         {
             $cesta = $_SESSION["cliente"]["cesta"];
             $vehiculosAlquilados = saberVehiculosAlquilados($_SESSION["cliente"]["id"]);
-            if($vehiculosAlquilados < 3 && count($cesta) < 3)
+            if($vehiculosAlquilados < 3 && count($cesta) < 3 && ($vehiculosAlquilados + count($cesta)) == 3)
             {
                 if(in_array($matricula,$cesta))
                 {
@@ -52,13 +52,17 @@
                     print "<h2>Vehiculo Añadido A La Cesta</h2>";
                 }
             }
+            elseif(($vehiculosAlquilados + count($cesta)) == 3)
+            {
+                trigger_error("Entre la Cesta y los Vehiculos Alquilados, Has Alcanzado el Limite");
+            }
             elseif(count($cesta) == 3)
             {
-                trigger_error("Ya tienes en la cesta 3 vehiculos.");
+                trigger_error("Ya tienes en la cesta 3 vehiculos");
             }
             else
             {
-                trigger_error("Ya tienes alquilados 3 vehiculos. Devuelvelos para alquilar mas");
+                trigger_error("Ya tienes alquilados 3 vehiculos. Devuelvelos para Alquilar Mas");
             }
         }   
         else
