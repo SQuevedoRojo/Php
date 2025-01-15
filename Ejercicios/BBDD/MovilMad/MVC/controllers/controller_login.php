@@ -16,7 +16,7 @@
             $idCli = $resultado[0]["idcliente"];
             $nombreCompleto =  $resultado[0]["nombre"] . " " .  $resultado[0]["apellido"];
             crearSession($idCli,$nombreCompleto);
-            header("Location: welcome.php");
+            header("Location: controllers/controller_login.php");
         }
         elseif($resultado[0]["fecha_baja"] != null)
         {

@@ -1,5 +1,5 @@
 <?php
-
+    require_once ("db/db.php");
     require_once ("controller_session.php");
     require_once ("controller_comunes.php");    
     iniciarSession();
