@@ -6,7 +6,7 @@
     if(!verificarSessionExistente())
     {
         eliminarSessionSinRedireccion();
-        header("Location: index.php");
+        header("Location: ../index.php");
     }
     $id = devolverId();
     $nombre = devolverNombre();
@@ -15,7 +15,7 @@
 
     var_dump($_SESSION);
 
-    require_once ("models/model_alquilar.php");
+    require_once ("../models/model_alquilar.php");
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -49,6 +49,6 @@
 
     $tablaCesta = recuperarCesta();
 
-    require_once ("views/view_alquilar.php");
+    require_once ("../views/view_alquilar.php");
 
 ?>
