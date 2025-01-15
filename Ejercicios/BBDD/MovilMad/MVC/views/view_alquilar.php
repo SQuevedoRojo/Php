@@ -35,7 +35,7 @@
 		<B>Vehiculos disponibles en este momento:</B> <?php print $fecha; ?> <BR><BR>
 		
 			<B>Matricula/Marca/Modelo: </B><select name="vehiculos" class="form-control">
-				
+				<?php print $imprimirVehiculos; ?>
 			</select>
 			
 		
