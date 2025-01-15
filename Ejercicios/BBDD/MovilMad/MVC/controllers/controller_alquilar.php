@@ -40,7 +40,7 @@
 
     function recogerDatos()
     {
-        $matricula = $_POST["matricula"];
+        $matricula = $_POST["vehiculos"];
         return $matricula;
     }
     
