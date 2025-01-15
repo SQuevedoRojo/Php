@@ -1,8 +1,9 @@
 <?php
     require_once ("controller_session.php");
     require_once ("controller_comunes.php");
-
-    if($_SERVER["REQUEST_METHOD"] == "POST")
+    if(verificarSessionExistente())
+        header("Location: welcome.php");
+    elseif($_SERVER["REQUEST_METHOD"] == "POST")
     {
         iniciarSession();
         $usu = $_POST["email"];
