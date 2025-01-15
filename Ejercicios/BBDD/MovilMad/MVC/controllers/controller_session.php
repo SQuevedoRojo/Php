@@ -39,14 +39,6 @@
         session_destroy();
     }
 
-    function eliminarSession()
-    {
-        session_destroy();
-        session_unset();
-        setcookie("PHPSESSID", "" , time() - (86400 * 30), "/",$_SERVER['HTTP_HOST']);
-        header("Location: ../index.php");
-    }
-
     function eliminarSessionSinRedireccion()
     {
         session_destroy();

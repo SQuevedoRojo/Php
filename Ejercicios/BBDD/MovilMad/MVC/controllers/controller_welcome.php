@@ -5,7 +5,8 @@
     iniciarSession();
     if(!verificarSessionExistente())
     {
-        eliminarSession();
+        eliminarSessionSinRedireccion();
+        header("Location: index.php");
     }
     $id = devolverId();
     $nombre = devolverNombre();
