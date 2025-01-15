@@ -67,6 +67,7 @@
         }   
         else
         {
+            $cesta = null;
             $vehiculosAlquilados = intval(saberVehiculosAlquilados($_SESSION["cliente"]["id"]));
             if($vehiculosAlquilados < 3)
             {
