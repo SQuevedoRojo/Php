@@ -44,7 +44,7 @@
         session_destroy();
         session_unset();
         setcookie("PHPSESSID", "" , time() - (86400 * 30), "/",$_SERVER['HTTP_HOST']);
-        header("Location: ./movlogin.php");
+        header("Location: index.php");
     }
 
     function eliminarSessionSinRedireccion()

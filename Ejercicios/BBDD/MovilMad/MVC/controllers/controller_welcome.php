@@ -6,7 +6,6 @@
     if(!verificarSessionExistente())
     {
         eliminarSession();
-        header("Location: index.php");
     }
     $id = devolverId();
     $nombre = devolverNombre();
