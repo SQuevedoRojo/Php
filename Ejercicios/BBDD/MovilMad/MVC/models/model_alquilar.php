@@ -33,4 +33,28 @@
         return $resultado[0]["alquilados"];
     }
 
+    function realizarAlquiler($cesta,$id)
+    {
+        try
+        {
+            $GLOBALS["conn"]->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $GLOBALS["conn"]->beginTransaction();
+            for ($i=0; $i < count($cesta); $i++)
+            { 
+                $stmt = $GLOBALS["conn"]->prepare("INSERT INTO ralquileres (idcliente,matricula,fecha_alquiler,fecha_devolucion,preciototal,fechahorapago) values (:idCliente,:matricula,now(),null,null,null)");
+                $stmt->bindParam(':idCliente', $id);
+                $stmt->bindParam(':matricula', $cesta[$i]);
+                $stmt -> execute();
+                $stmt = $GLOBALS["conn"]->prepare("UPDATE rvehiculos set disponible = 'N' where matricula = :matricula ");
+                $stmt->bindParam(':matricula', $cesta[$i]);
+                $stmt -> execute();
+            }
+            $GLOBALS["conn"] -> commit();
+        }
+        catch(PDOException $e)
+        {
+            $GLOBALS["conn"] -> rollBack();
+            echo "Error: " . $e->getMessage();
+        }
+    }
 ?>

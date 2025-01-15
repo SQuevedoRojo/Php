@@ -30,7 +30,15 @@
         }
         if(isset($_POST["alquilar"]))
         {
-            null;
+            $cesta = devolverCesta();
+            if($cesta != null)
+            {
+                realizarAlquiler($cesta,$id);
+            }
+            else
+            {
+                trigger_error("No Puedes Alquilar Vehiculos con la Cesta Vacia");
+            }
         }
         if(isset($_POST["vaciar"]))
         {

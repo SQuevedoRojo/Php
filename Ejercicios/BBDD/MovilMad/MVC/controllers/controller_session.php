@@ -77,6 +77,14 @@
         return $tablaCesta;
     }
 
+    function devolverCesta()
+    {
+        $cesta = null;
+        if(isset($_SESSION["cliente"]["cesta"]))
+            $cesta = $_SESSION["cliente"]["cesta"];
+        return $cesta;
+    }
+    
     function eliminarVariablesSession()
     {
         session_destroy();
