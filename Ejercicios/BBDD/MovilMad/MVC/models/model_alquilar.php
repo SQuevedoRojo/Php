@@ -20,8 +20,8 @@
     {
         try
         {
-            $stmt = $GLOBALS["conn"]->prepare("SELECT count(matricula) as alquilados from ralquileres where idcliente = :idcliente");
-            $stmt->bindParam(':idCliente', $id);
+            $stmt = $GLOBALS["conn"]->prepare("SELECT count(*) as alquilados from ralquileres where idcliente = :idcliente and fecha_devolucion is null and preciototal is null and fechahorapago is null");
+            $stmt->bindParam(':idcliente', $id);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
