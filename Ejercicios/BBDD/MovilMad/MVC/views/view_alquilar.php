@@ -18,7 +18,11 @@
    
  <body>
     <h1>Servicio de ALQUILER DE E-CARS</h1> 
-		<div id="cesta"></div>
+		<div id="cesta">
+			<?php if($tablaCesta != null)
+					print $tablaCesta;			 
+			?>
+		</div>
     <div class="container ">
         <!--Aplicacion-->
 		<div class="card border-success mb-3" style="max-width: 30rem;">

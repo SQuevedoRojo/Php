@@ -34,6 +34,44 @@
         return $sessionCreada;
     }
 
+    function annadirVehiculosALaCesta($matricula)
+    {
+        if(isset($_SESSION["cliente"]["cesta"]))
+        {
+            $cesta = $_SESSION["cliente"]["cesta"];
+            $vehiculosAlquilados = saberVehiculosAlquilados($_SESSION["cliente"]["id"]);
+            if($vehiculosAlquilados < 3)
+            {
+                $cesta[] = $matricula;
+            }
+            else
+            {
+                trigger_error("Ya tienes alquilados 3 vehiculos. Devuelvelos para alquilar mas");
+            }
+        }   
+        else
+        {
+            $cesta = array();
+            $cesta[] = $matricula;
+        }
+        $_SESSION["cliente"]["cesta"] = $cesta;
+    }
+
+    function recuperarCesta()
+    {
+        $tablaCesta = null;
+        if(isset($_SESSION["cliente"]["cesta"]))
+        {
+            $cesta = $_SESSION["cliente"]["cesta"];
+            $tablaCesta = "<table border='1'><tr><th>Matriculas de los Vehiculos</th></tr>";
+            for ($i=0; $i < count($cesta); $i++) { 
+                $tablaCesta = $tablaCesta . "<tr><td>".$cesta[$i]."</td></tr>";
+            }
+            $tablaCesta = $tablaCesta . "</table>";
+        }
+        return $tablaCesta;
+    }
+
     function eliminarVariablesSession()
     {
         session_destroy();

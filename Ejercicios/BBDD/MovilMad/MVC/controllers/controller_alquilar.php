@@ -13,13 +13,20 @@
     date_default_timezone_set('GMT');
     $fecha = (date('d') ."/".date('m')."/".date('Y')."  ".(date('H')+1).":".date('i')); 
 
+    var_dump($_SESSION);
+
     require_once ("models/model_alquilar.php");
 
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         if(isset($_POST["agregar"]))
         {
-            null;
+            $matricula = recogerDatos();
+            if($matricula != "")
+            {
+                annadirVehiculosALaCesta($matricula);
+                header("Refresh: 0");
+            }
         }
         if(isset($_POST["alquilar"]))
         {
@@ -31,6 +38,11 @@
         }
     }
 
+    function recogerDatos()
+    {
+        $matricula = $_POST["matricula"];
+        return $matricula;
+    }
     
     $resultado = saberVehiculosDisponibles();
     $imprimirVehiculos = null;
@@ -42,6 +54,8 @@
             $imprimirVehiculos = $imprimirVehiculos . "<option value='".$coche["matricula"]."'>".$coche["matricula"]." | ".$coche["marca"]." | ".$coche["modelo"]."</option>";
         }
     }
+
+    $tablaCesta = recuperarCesta();
 
     require_once ("views/view_alquilar.php");
 
