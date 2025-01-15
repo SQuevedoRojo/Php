@@ -1,11 +1,11 @@
 <?php
     require_once ("controller_session.php");
     require_once ("controller_comunes.php");
+    iniciarSession();
     if(verificarSessionExistente())
         header("Location: welcome.php");
     elseif($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        iniciarSession();
         $usu = $_POST["email"];
         $contra = $_POST["password"];
         require_once ("models/model_login.php");
