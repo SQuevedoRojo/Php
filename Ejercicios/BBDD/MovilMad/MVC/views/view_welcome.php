@@ -18,8 +18,8 @@
 		<div class="card-body">
 
 
-		<B>Bienvenido/a: </B> <?php print $id; ?>  <BR><BR>
-		<B>Identificador Cliente: </B> <?php print $nombre; ?> <BR><BR>
+		<B>Bienvenido/a: </B> <?php print $nombre; ?>  <BR><BR>
+		<B>Identificador Cliente: </B> <?php print $id; ?> <BR><BR>
 	 
 		
        <!--Formulario con botones -->
