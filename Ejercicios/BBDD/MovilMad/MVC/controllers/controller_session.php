@@ -40,9 +40,20 @@
         {
             $cesta = $_SESSION["cliente"]["cesta"];
             $vehiculosAlquilados = saberVehiculosAlquilados($_SESSION["cliente"]["id"]);
-            if($vehiculosAlquilados < 3)
+            if($vehiculosAlquilados < 3 && count($cesta) < 3)
             {
-                $cesta[] = $matricula;
+                if(in_array($matricula,$cesta))
+                {
+                    trigger_error("No Puedes Alquilar el Mismo Vehiculo mas de Una Vez");
+                }
+                else
+                {
+                    $cesta[] = $matricula;
+                }
+            }
+            elseif(count($cesta) == 3)
+            {
+                trigger_error("Ya tienes en la cesta 3 vehiculos.");
             }
             else
             {
