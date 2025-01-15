@@ -25,7 +25,7 @@
             if($matricula != "")
             {
                 annadirVehiculosALaCesta($matricula);
-                header("Refresh: 0");
+                header("Refresh: 3");
             }
         }
         if(isset($_POST["alquilar"]))

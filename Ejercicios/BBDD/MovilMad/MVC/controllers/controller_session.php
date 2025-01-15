@@ -49,6 +49,7 @@
                 else
                 {
                     $cesta[] = $matricula;
+                    print "<h2>Vehiculo Añadido A La Cesta</h2>";
                 }
             }
             elseif(count($cesta) == 3)
@@ -64,6 +65,7 @@
         {
             $cesta = array();
             $cesta[] = $matricula;
+            print "<h2>Vehiculo Añadido A La Cesta</h2>";
         }
         $_SESSION["cliente"]["cesta"] = $cesta;
     }
