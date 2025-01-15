@@ -40,7 +40,7 @@
         {
             $cesta = $_SESSION["cliente"]["cesta"];
             $vehiculosAlquilados = saberVehiculosAlquilados($_SESSION["cliente"]["id"]);
-            if($vehiculosAlquilados < 3 && count($cesta) < 3 && ($vehiculosAlquilados + count($cesta)) == 3)
+            if($vehiculosAlquilados < 3 && count($cesta) < 3 && ($vehiculosAlquilados + count($cesta)) != 3)
             {
                 if(in_array($matricula,$cesta))
                 {
