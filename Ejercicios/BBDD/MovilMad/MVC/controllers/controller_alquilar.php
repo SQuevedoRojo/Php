@@ -20,11 +20,11 @@
         $imprimirVehiculos = "<option value=''>Ningun Coche Alquilado</option>";
     else
     {
-        foreach ($cochesDisponibles as $coche) {
+        foreach ($resultado as $coche) {
             $imprimirVehiculos = $imprimirVehiculos . "<option value='".$coche["matricula"]."'>".$coche["matricula"]." | ".$coche["marca"]." | ".$coche["modelo"]."</option>";
         }
     }
-    
+
     require_once ("views/view_alquilar.php");
 
 ?>
