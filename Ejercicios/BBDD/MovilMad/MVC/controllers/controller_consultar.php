@@ -22,8 +22,8 @@
         if(isset($_POST["consultar"]))
         {
             list($fechaIni,$fechaFin) = recogerDatos();
-            if($fechaInicio != null && $fechaFinal != null)
-                $resultado = saberVehiculosAlquiladosPeriodo($fechaInicio,$fechaFinal,$id);
+            if($fechaIni != null && $fechaFinal != null)
+                $resultado = saberVehiculosAlquiladosPeriodo($fechaIni,$fechaFinal,$id);
             else
                 trigger_error("Introduce Fechas Correctas");
         }
