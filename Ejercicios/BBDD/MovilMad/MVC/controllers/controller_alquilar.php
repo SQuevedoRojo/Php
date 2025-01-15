@@ -47,6 +47,10 @@
             vaciarCesta();
             header("Refresh: 0");
         }
+        if(isset($_POST["volver"]))
+        {
+            header("Location: controller_welcome.php");
+        }
     }
 
     function recogerDatos()
