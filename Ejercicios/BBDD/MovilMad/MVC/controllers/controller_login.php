@@ -8,7 +8,7 @@
     {
         $usu = $_POST["email"];
         $contra = $_POST["password"];
-        require_once ("../models/model_login.php");
+        require_once ("models/model_login.php");
         if($resultado == null)
             trigger_error("Login Incorrecto");
         elseif($resultado[0]["fecha_baja"] == null && $resultado[0]["pendiente_pago"] == 0)
