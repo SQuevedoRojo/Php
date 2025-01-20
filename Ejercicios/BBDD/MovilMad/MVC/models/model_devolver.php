@@ -64,30 +64,38 @@
         $matricula = devolverMatricula();
         $id = devolverId();
         $numPago=saberSiguienteNumeroPago();
-        $GLOBALS["conn"]->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $GLOBALS["conn"]->beginTransaction();
-        if($aceptado == true)
+        try
         {
-            $stmt = $GLOBALS["conn"]->prepare("UPDATE ralquileres set fecha_devolucion = now(),preciototal=:precio,fechahorapago=now(),num_pago=:numpago where matricula = :mat and idcliente=:id");
-            $stmt->bindParam(':precio', $precioCompra);
-            $stmt->bindParam(':numpago', $numPago);
-            $stmt->bindParam(':mat', $matricula);
-            $stmt->bindParam(':id', $id);
-            $stmt -> execute();
-            $stmt = $GLOBALS["conn"]->prepare("UPDATE rvehiculos set disponible = 'S' where matricula = :mat");
-            $stmt->bindParam(':mat', $matricula);
-            $GLOBALS["conn"] -> commit();
+            $GLOBALS["conn"]->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $GLOBALS["conn"]->beginTransaction();
+            if($aceptado == true)
+            {
+                $stmt = $GLOBALS["conn"]->prepare("UPDATE ralquileres set fecha_devolucion = now(),preciototal=:precio,fechahorapago=now(),num_pago=:numpago where matricula = :mat and idcliente=:id");
+                $stmt->bindParam(':precio', $precioCompra);
+                $stmt->bindParam(':numpago', $numPago);
+                $stmt->bindParam(':mat', $matricula);
+                $stmt->bindParam(':id', $id);
+                $stmt -> execute();
+                $stmt = $GLOBALS["conn"]->prepare("UPDATE rvehiculos set disponible = 'S' where matricula = :mat");
+                $stmt->bindParam(':mat', $matricula);
+                $GLOBALS["conn"] -> commit();
+            }
+            else
+            {
+                $stmt = $GLOBALS["conn"]->prepare("UPDATE rvehiculos set disponible = 'S' where matricula = :mat");
+                $stmt->bindParam(':mat', $matricula);
+                $stmt -> execute();
+                $stmt = $GLOBALS["conn"]->prepare("UPDATE rclientes set pendiente_pago = (pendiente_pago + :pre) where idcliente = :id");
+                $stmt->bindParam(':pre', $precioCompra);
+                $stmt->bindParam(':id', $id);
+                $stmt -> execute();
+                $GLOBALS["conn"] -> commit();
+            }
         }
-        else
+        catch(PDOException $e)
         {
-            $stmt = $GLOBALS["conn"]->prepare("UPDATE rvehiculos set disponible = 'S' where matricula = :mat");
-            $stmt->bindParam(':mat', $matricula);
-            $stmt -> execute();
-            $stmt = $GLOBALS["conn"]->prepare("UPDATE rclientes set pendiente_pago = (pendiente_pago + :pre) where idcliente = :id");
-            $stmt->bindParam(':pre', $precioCompra);
-            $stmt->bindParam(':id', $id);
-            $stmt -> execute();
-            $GLOBALS["conn"] -> commit();
+            $GLOBALS["conn"] -> rollBack();
+            echo "Error: " . $e->getMessage();
         }
     }
 ?>
