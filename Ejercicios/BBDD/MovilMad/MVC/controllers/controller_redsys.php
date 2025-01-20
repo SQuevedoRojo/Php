@@ -4,7 +4,7 @@
     
     function redireccionarPago($cantidadTotal)
     {
-        require_once ("../tpv/apiRedsys.php");
+        include_once ("../tpv/apiRedsys.php");
         // Se crea Objeto
         $miObj = new RedsysAPI;
 
