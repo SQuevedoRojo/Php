@@ -28,7 +28,7 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
             $precioBase = intval($resultado[0]["preciobase"]);
-            $stmt = $GLOBALS["conn"]->prepare("SELECT  TIMESTAMPDIFF(MINUTE,fecha_alquiler,now()) as tiempo from ralquileres where matricula = :mat and idcliente = :idlciente");
+            $stmt = $GLOBALS["conn"]->prepare("SELECT  TIMESTAMPDIFF(MINUTE,fecha_alquiler,now()) as tiempo from ralquileres where matricula = :mat and idcliente = :idcliente");
             $stmt->bindParam(':mat', $matricula);
             $stmt->bindParam(':idcliente', $id);
             $stmt -> execute();
