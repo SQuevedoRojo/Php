@@ -70,7 +70,7 @@
             $GLOBALS["conn"]->beginTransaction();
             if($aceptado == true)
             {
-                $stmt = $GLOBALS["conn"]->prepare("UPDATE ralquileres set fecha_devolucion = now(),preciototal=:precio,fechahorapago=now(),num_pago=:numpago where matricula = :mat and idcliente=:id");
+                $stmt = $GLOBALS["conn"]->prepare("UPDATE ralquileres set fecha_devolucion = now(),preciototal=:precio,fechahorapago=now(),num_pago=:numpago where matricula = :mat and idcliente=:id and num_pago=null");
                 $stmt->bindParam(':precio', $precioCompra);
                 $stmt->bindParam(':numpago', $numPago);
                 $stmt->bindParam(':mat', $matricula);
