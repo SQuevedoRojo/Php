@@ -24,7 +24,7 @@
             $vehiculo = recogerDatos();
             if($vehiculo != "")
             {
-                $precioTotal = saberValoresDevolucion($matricula,$id);
+                $precioTotal = saberValoresDevolucion($vehiculo,$id);
                 insertarMatricula($matricula);
                 $numeroPago = saberSiguienteNumeroPago();
                 require_once "controller_redsys.php";
