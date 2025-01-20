@@ -26,7 +26,6 @@
             {
                 $precioTotal = saberValoresDevolucion($vehiculo,$id);
                 insertarMatricula($vehiculo);
-                $numeroPago = saberSiguienteNumeroPago();
                 require_once "controller_redsys.php";
                 list($params,$signature,$version) = redireccionarPago($precioTotal);
             }
