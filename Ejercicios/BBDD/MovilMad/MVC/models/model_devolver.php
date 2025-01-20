@@ -28,7 +28,7 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
             $precioBase = ($resultado[0]["preciobase"]);
-            $stmt = $GLOBALS["conn"]->prepare("SELECT  TIMESTAMPDIFF(MINUTE,fecha_alquiler,now()) as tiempo from ralquileres where matricula = :mat and idcliente = :idcliente order by fecha_alquiler desc");
+            $stmt = $GLOBALS["conn"]->prepare("SELECT  TIMESTAMPDIFF(SECOND,fecha_alquiler,now()) as tiempo from ralquileres where matricula = :mat and idcliente = :idcliente order by fecha_alquiler desc");
             $stmt->bindParam(':mat', $matricula);
             $stmt->bindParam(':idcliente', $id);
             $stmt -> execute();
@@ -40,7 +40,7 @@
         {
             echo "Error: " . $e->getMessage();
         }
-        return $precioBase * $tiempoTranscurrido;
+        return $precioBase * ($tiempoTranscurrido/60);
     }
 
     function saberSiguienteNumeroPago()
