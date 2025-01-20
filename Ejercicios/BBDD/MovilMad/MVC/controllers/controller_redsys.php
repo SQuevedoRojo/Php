@@ -1,9 +1,10 @@
 <?php
     
-    require_once ("../tpv/apiRedsys.php");
+    
     
     function redireccionarPago($cantidadTotal)
     {
+        require_once ("../tpv/apiRedsys.php");
         // Se crea Objeto
         $miObj = new RedsysAPI;
 
