@@ -78,6 +78,7 @@
                 $stmt -> execute();
                 $stmt = $GLOBALS["conn"]->prepare("UPDATE rvehiculos set disponible = 'S' where matricula = :mat");
                 $stmt->bindParam(':mat', $matricula);
+                $stmt -> execute();
                 $GLOBALS["conn"] -> commit();
             }
             else
