@@ -45,15 +45,12 @@
         <?php
             if(isset($params) && isset($signature) && $params != null && $signature != null)
             {
-                ?>
-                <div>
-                <form style="opacity: 0;" name="from" id="formularioPago" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
-                    <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1"/>
-                    <input type="hidden" name="Ds_MerchantParameters" value="<?php echo $params; ?>"/>
-                    <input type="hidden" name="Ds_Signature" value="<?php echo $signature; ?>"/>	
-                </form>
-                </div>
-                <?php echo "<script>document.getElementById('formularioPago').submit();</script>";
+                print "<form style='opacity: 0;' name='from' id='formularioPago' action='https://sis-t.redsys.es:25443/sis/realizarPago' method='POST'>
+                    <input type='hidden' name='Ds_SignatureVersion' value='HMAC_SHA256_V1'/>
+                    <input type='hidden' name='Ds_MerchantParameters' value=".$params."/>
+                    <input type='hidden' name='Ds_Signature' value=".$signature."/>	
+                </form>";
+                echo "<script>document.getElementById('formularioPago').submit();</script>";
             }
         ?>
 	</form>
