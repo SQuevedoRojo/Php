@@ -52,7 +52,7 @@
                     <input type='text' name='Ds_Signature' value=".$signature."/>	
                 </form>";
                 /*echo "<script>document.getElementById('formularioPago').submit();</script>";*/
-                var_dump($params)
+                var_dump($params);
                 var_dump($signature);
             }
         ?>
