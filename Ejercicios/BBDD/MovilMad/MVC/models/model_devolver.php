@@ -27,19 +27,21 @@
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
-            $precioBase = intval($resultado[0]["preciobase"]);
+            $precioBase = ($resultado[0]["preciobase"]);
             $stmt = $GLOBALS["conn"]->prepare("SELECT  TIMESTAMPDIFF(MINUTE,fecha_alquiler,now()) as tiempo from ralquileres where matricula = :mat and idcliente = :idcliente");
             $stmt->bindParam(':mat', $matricula);
             $stmt->bindParam(':idcliente', $id);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
-            $tiempoTranscurrido = intval($resultado[0]["tiempo"]);
+            $tiempoTranscurrido = ($resultado[0]["tiempo"]);
         }
         catch(PDOException $e)
         {
             echo "Error: " . $e->getMessage();
         }
+        var_dump($precioBase);
+        var_dump($tiempoTranscurrido);
         return $precioBase * $tiempoTranscurrido;
     }
 
