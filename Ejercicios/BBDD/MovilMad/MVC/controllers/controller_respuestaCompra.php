@@ -39,6 +39,7 @@
                     $precioCompra = intval($datosCompra['Ds_Amount'])/100;
                     require_once "../models/model_devolver.php";
                     insertarPago($precioCompra,true);
+                    eliminarMatricula();
                 }
             }
             else 
@@ -50,6 +51,7 @@
                     $precioCompra = intval($datosCompra['Ds_Amount'])/100;
                     require_once "../models/model_devolver.php";
                     insertarPago($precioCompra,false);
+                    eliminarMatricula();
                 }
             }
         } 

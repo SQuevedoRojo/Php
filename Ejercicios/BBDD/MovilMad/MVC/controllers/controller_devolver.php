@@ -29,7 +29,6 @@
                 $numeroPago = saberSiguienteNumeroPago();
                 require_once "controller_redsys.php";
                 list($params,$signature,$version) = redireccionarPago($precioTotal);
-                eliminarMatricula();
             }
             else
                 trigger_error("No Tienes Vehiculos Para Devolver");
