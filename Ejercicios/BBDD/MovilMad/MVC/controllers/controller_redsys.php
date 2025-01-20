@@ -35,6 +35,6 @@
         $request = "";
         $params = $miObj->createMerchantParameters();
         $signature = $miObj->createMerchantSignature($kc);
-        return [$params,$signature];
+        return [$params,$signature,$version];
     }
 ?>
