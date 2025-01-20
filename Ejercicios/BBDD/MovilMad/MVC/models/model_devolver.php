@@ -40,8 +40,6 @@
         {
             echo "Error: " . $e->getMessage();
         }
-        var_dump($precioBase);
-        var_dump($tiempoTranscurrido);
         return $precioBase * $tiempoTranscurrido;
     }
 
