@@ -111,6 +111,21 @@
         return $cesta;
     }
     
+    function insertarMatricula($matricula)
+    {
+        $_SESSION["cliente"]["matDev"] = $matricula;
+    }
+
+    function eliminarMatricula()
+    {
+        unset($_SESSION["cliente"]["matDev"]);
+    }
+
+    function devolverMatricula()
+    {
+        return $_SESSION["cliente"]["matDev"];
+    }
+
     function eliminarVariablesSession()
     {
         session_destroy();

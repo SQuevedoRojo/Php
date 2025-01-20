@@ -25,7 +25,7 @@
        <!--Formulario con botones -->
 		<input type="button" value="Alquilar Vehículo" onclick="window.location.href='controller_alquilar.php'" class="btn btn-warning disabled">
 		<input type="button" value="Consultar Alquileres" onclick="window.location.href='controller_consultar.php'" class="btn btn-warning disabled">
-		<input type="button" value="Devolver Vehículo" onclick="window.location.href='devolver.php'" class="btn btn-warning disabled">
+		<input type="button" value="Devolver Vehículo" onclick="window.location.href='controller_devolver.php'" class="btn btn-warning disabled">
 		</br></br>
 		
 		
