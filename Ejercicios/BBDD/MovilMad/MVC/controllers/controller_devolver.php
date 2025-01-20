@@ -28,7 +28,7 @@
                 insertarMatricula($vehiculo);
                 $numeroPago = saberSiguienteNumeroPago();
                 require_once "controller_redsys.php";
-                list($params,$signature) = redireccionarPago($precioTotal,$numeroPago);
+                list($params,$signature) = redireccionarPago($precioTotal);
                 eliminarMatricula();
             }
             else

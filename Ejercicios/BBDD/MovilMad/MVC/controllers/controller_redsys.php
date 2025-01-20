@@ -2,7 +2,7 @@
     
     require_once ("../tpv/apiRedsys.php");
     
-    function redireccionarPago($cantidadTotal,$id)
+    function redireccionarPago($cantidadTotal)
     {
         // Se crea Objeto
         $miObj = new RedsysAPI;
@@ -12,6 +12,7 @@
         $moneda="978";
         $trans="0";
         $url="";
+        $id=time();
         $urlOKKO="http://192.168.206.222/Php/Ejercicios/BBDD/MovilMad/MVC/controllers/controller_respuestaCompra.php";
         $amount=strval($cantidadTotal*100);	
         
