@@ -15,7 +15,7 @@
         $url="";
         $id=time();
         $urlOKKO="http://192.168.206.222/Php/Ejercicios/BBDD/MovilMad/MVC/controllers/controller_respuestaCompra.php";
-        $amount=strval($cantidadTotal*100);	
+        $amount=intval($cantidadTotal*100);	
         
         // Se Rellenan los campos
         $miObj->setParameter("DS_MERCHANT_AMOUNT",$amount);
