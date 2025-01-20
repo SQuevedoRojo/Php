@@ -11,6 +11,8 @@
         header("Location: ../index.php");
     }
 
+    var_dump($_SESSION);
+
     // Se crea Objeto
     $miObj = new RedsysAPI;
 

@@ -64,6 +64,8 @@
         $matricula = devolverMatricula();
         $id = devolverId();
         $numPago=saberSiguienteNumeroPago();
+        $GLOBALS["conn"]->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $GLOBALS["conn"]->beginTransaction();
         if($aceptado == true)
         {
             $stmt = $GLOBALS["conn"]->prepare("UPDATE ralquileres set fecha_devolucion = now(),preciototal=:precio,fechahorapago=now(),num_pago=:numpago where matricula = :mat and idcliente=:id");
