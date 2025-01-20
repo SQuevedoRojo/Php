@@ -3,6 +3,7 @@
     require_once "controller_comunes.php";
     require_once "controller_session.php";
     require_once "../tpv/apiRedsys.php";
+    require_once ("../db/db.php");
     iniciarSession();
     if(!verificarSessionExistente())
     {
