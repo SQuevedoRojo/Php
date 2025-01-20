@@ -43,7 +43,7 @@
 			<input type="submit" value="Volver" name="volver" class="btn btn-warning disabled">
 		</div>		
         <?php
-            if(isset($params) && isset($signature))
+            if($params != null && $signature != null)
             {
                 ?><form style="opacity: 0;" name="from" id="formularioPago" action="https://sis-t.redsys.es:25443/sis/realizarPago" method="POST">
                     <input type="hidden" name="Ds_SignatureVersion" value="HMAC_SHA256_V1"/>
