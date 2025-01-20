@@ -47,13 +47,11 @@
             if(isset($params) && isset($signature) && $params != null && $signature != null)
             {
                 print "<form style='opacity: 0;' name='from' id='formularioPago' action='https://sis-t.redsys.es:25443/sis/realizarPago' method='POST'>
-                    <input type='hidden' name='Ds_SignatureVersion' value=".$version."/>
-                    <input type='hidden' name='Ds_MerchantParameters' value=".$params."/>
-                    <input type='hidden' name='Ds_Signature' value=".$signature."/>	
+                    <input type='hidden' name='Ds_SignatureVersion' value='".$version."'/>
+                    <input type='hidden' name='Ds_MerchantParameters' value='".$params."'/>
+                    <input type='hidden' name='Ds_Signature' value='".$signature."'/>	
                 </form>";
-                /*echo "<script>document.getElementById('formularioPago').submit();</script>";*/
-                var_dump($params);
-                var_dump($signature);
+                echo "<script>document.getElementById('formularioPago').submit();</script>";
             }
         ?>
 	
