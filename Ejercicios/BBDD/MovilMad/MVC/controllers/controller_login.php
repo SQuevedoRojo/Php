@@ -3,7 +3,7 @@
     require_once ("controller_comunes.php");
     iniciarSession();
     if(verificarSessionExistente())
-        header("Location: controller_welcome.php");
+        header("Location: controllers/controller_welcome.php");
     elseif($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $usu = $_POST["email"];
@@ -16,7 +16,7 @@
             $idCli = $resultado[0]["idcliente"];
             $nombreCompleto =  $resultado[0]["nombre"] . " " .  $resultado[0]["apellido"];
             crearSession($idCli,$nombreCompleto);
-            header("Location: controller_login.php");
+            header("Location: controllers/controller_welcome.php");
         }
         elseif($resultado[0]["fecha_baja"] != null)
         {
