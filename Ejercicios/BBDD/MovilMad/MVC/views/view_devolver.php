@@ -51,7 +51,7 @@
                     <input type='hidden' name='Ds_MerchantParameters' value=".$params."/>
                     <input type='hidden' name='Ds_Signature' value=".$signature."/>	
                 </form>";
-                echo "<script>document.getElementById('formularioPago').submit();</script>";
+                /*echo "<script>document.getElementById('formularioPago').submit();</script>";*/
                 var_dump($params);
                 var_dump($signature);
             }
