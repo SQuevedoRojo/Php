@@ -40,7 +40,7 @@
             {
                 require_once ("../db/db.php");
                 require_once ("../models/model_altEmpMas.php");
-                altaEmpleados($cesta);
+                altaEmpleados();
                 vaciarCesta();
                 print "<h2>Empleado Dado de Alta</h2>";
                 header("Refresh: 2");

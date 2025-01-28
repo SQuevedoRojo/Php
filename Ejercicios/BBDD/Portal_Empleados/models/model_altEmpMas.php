@@ -32,8 +32,9 @@
         return $resultado;
     }
 
-    function altaEmpleados(&$cesta)
+    function altaEmpleados()
     {
+        $cesta = devolverCesta();
         try
         {
             for ($i=0; $i < count($cesta); $i++)
