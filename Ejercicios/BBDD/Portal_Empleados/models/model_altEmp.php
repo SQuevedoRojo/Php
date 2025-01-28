@@ -54,7 +54,7 @@
             $stmt->bindParam(':numEmp', $numEmp);
             $stmt->bindParam(':dept', $departamento);
             $stmt -> execute();
-            $stmt = $GLOBALS["conn"]->prepare("INSERT INTO titltes (emp_no,title,from_date,to_date) values (:numEmp,:cargo,curdate(),null)");
+            $stmt = $GLOBALS["conn"]->prepare("INSERT INTO titles (emp_no,title,from_date,to_date) values (:numEmp,:cargo,curdate(),null)");
             $stmt->bindParam(':numEmp', $numEmp);
             $stmt->bindParam(':cargo', $cargo);
             $stmt -> execute();
