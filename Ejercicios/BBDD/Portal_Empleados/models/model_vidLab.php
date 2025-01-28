@@ -36,7 +36,7 @@
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $titulaciones = $stmt->fetchAll();
-            $stmt = $GLOBALS["conn"]->prepare("SELECT dept_no,dept_name from dept_emp d,departments de where d.emp_no = :empleado and d.dept_no = de.dept_no");
+            $stmt = $GLOBALS["conn"]->prepare("SELECT d.dept_no,dept_name from dept_emp d,departments de where d.emp_no = :empleado and d.dept_no = de.dept_no");
             $stmt->bindParam(':empleado', $empleado);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
