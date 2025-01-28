@@ -22,10 +22,10 @@
         {
             $GLOBALS["conn"]->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $GLOBALS["conn"]->beginTransaction();
-            $stmt = $GLOBALS["conn"]->prepare("UPDATE salaries set to_date = curdate() where emp_no = :id and to_date is null");
+            $stmt = $GLOBALS["conn"]->prepare("UPDATE salaries set to_date = curdate() where emp_no = :numEmp and to_date is null");
             $stmt->bindParam(':numEmp', $empleado);
             $stmt -> execute();
-            $stmt = $GLOBALS["conn"]->prepare("INSERT INTO salaries (emp_no,salary,from_date,to_date) values (:id,:salario,curdate(),null)");
+            $stmt = $GLOBALS["conn"]->prepare("INSERT INTO salaries (emp_no,salary,from_date,to_date) values (:numEmp,:salario,curdate(),null)");
             $stmt->bindParam(':numEmp', $empleado);
             $stmt->bindParam(':salario', $salario);
             $stmt -> execute();
