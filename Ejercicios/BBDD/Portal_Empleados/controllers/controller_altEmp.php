@@ -10,8 +10,8 @@
     }
     var_dump($_SESSION);
 
-    require_once ("models/model_altEmp.php");
+    require_once ("../models/model_altEmp.php");
     $departamentos = saberDepartamentos();
     $cargos = saberCargos();
-    require_once ("views/view_altEmp.php");
+    require_once ("../views/view_altEmp.php");
 ?>
