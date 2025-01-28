@@ -35,7 +35,7 @@
 			Departamento <select name="cargo" id="cargo" required>
             <?php
                 foreach ($departamentos as $departamento => $titulo) {
-                    print "<option value='".$titulo."'>".$titulo."</option>";
+                    print "<option value='".$titulo["dept_name"]."'>".$titulo["dept_name"]."</option>";
                 }
             ?>
             </select>
@@ -44,7 +44,7 @@
 			Cargo a Desempeñar <select name="cargo" id="cargo" required>
             <?php
                 foreach ($cargos as $cargo => $titulo) {
-                    print "<option value='".$titulo."'>".$titulo."</option>";
+                    print "<option value='".$titulo["title"]."'>".$titulo["title"]."</option>";
                 }
             ?>
             </select>
