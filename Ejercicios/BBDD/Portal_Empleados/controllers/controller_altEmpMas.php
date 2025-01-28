@@ -12,7 +12,7 @@
     
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
-        if($_POST["cesta"])
+        if(isset($_POST["cesta"]))
         {
             $nombre = limpiar($_POST["nombre"]);
             $apellido = limpiar($_POST["apellido"]);
