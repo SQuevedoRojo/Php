@@ -29,7 +29,7 @@
 			Salario Nuevo <input type="text" name="sal" placeholder="Nuevo Salario" required>
         </div>				
         
-		<input type="submit" name="sal" value="Modificar Salario">
+		<input type="submit" name="modSal" value="Modificar Salario">
         </form>
 		
 	    </div>
