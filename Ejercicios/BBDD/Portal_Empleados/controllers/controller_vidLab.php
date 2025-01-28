@@ -13,6 +13,8 @@
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $empleado = $_POST["empleados"];
+        require_once ("../db/db.php");
+        require_once ("../models/model_vidLab.php");
         list($infoPersonal,$salario,$titulaciones,$departamentos) = saberVidaLaboral($empleado);
         var_dump($infoPersonal);
         var_dump($salario);
