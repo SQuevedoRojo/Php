@@ -34,17 +34,17 @@
         <div>
 			Departamento <select name="cargo" id="cargo" required>
             <?php
-                foreach ($departamentos as $departamento) {
-                    print "<option value='".$departamento."'>".$departamento."</option>";
+                foreach ($departamentos as $departamento => $titulo) {
+                    print "<option value='".$titulo."'>".$titulo."</option>";
                 }
             ?>
             </select>
-        </div>	
+        </div>
         <div>
 			Cargo a Desempeñar <select name="cargo" id="cargo" required>
             <?php
-                foreach ($cargos as $cargo) {
-                    print "<option value='".$cargo."'>".$cargo."</option>";
+                foreach ($cargos as $cargo => $titulo) {
+                    print "<option value='".$titulo."'>".$titulo."</option>";
                 }
             ?>
             </select>
