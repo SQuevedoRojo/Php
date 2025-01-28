@@ -49,9 +49,9 @@
             ?>
             </select>
         </div>	
-		<input type="submit" name="submit" value="Login">
+		<input type="submit" name="submit" value="Dar de Alta">
         </form>
-		
+		<a href="controllers/controller_welcome.php"></a>
 	    </div>
     </div>
     </div>
