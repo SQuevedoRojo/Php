@@ -30,6 +30,7 @@
                     for ($i=0; $i < count($salario) - 1; $i++) { 
                         print "<li>".$salario[$i]["salary"]."</li>";
                     }
+                    print "</ul>";
                 }
                 print "<h4>Salario Actual</h4>";
                 print "<ul><li>".$salario[count($salario) - 1]["salary"]."</li></ul>";
@@ -42,6 +43,7 @@
                     for ($i=0; $i < count($titulaciones) - 1; $i++) { 
                         print "<li>".$titulaciones[$i]["title"]."</li>";
                     }
+                    print "</ul>";
                 }
                 print "<h4>Titulacion Actual</h4>";
                 print "<ul><li>".$titulaciones[count($titulaciones) - 1]["title"]."</li></ul>";
@@ -54,6 +56,7 @@
                     for ($i=0; $i < count($departamentos) - 1; $i++) { 
                         print "<li>".$departamentos[$i]["dept_name"]." | ".$departamentos[$i]["dept_no"]."</li>";
                     }
+                    print "</ul>";
                 }
                 print "<h4>Titulacion Actual</h4>";
                 print "<ul><li>".$departamentos[count($departamentos) - 1]["dept_name"]." | ".$departamentos[count($departamentos) - 1]["dept_no"]."</li></ul>";
