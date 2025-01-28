@@ -21,9 +21,15 @@
             $salario = limpiar($_POST["sal"]);
             $departamento = $_POST["departamento"];
             $cargo = $_POST["cargo"];
-            $array = array("nombre" => $nombre,"ape" => $apellido,"fecNac" => $fecNac,"genero" => $genero,"sal" => $salario,"departamento" => $departamento,"cargo"=>$cargo);
-            annadirEmpleadosALaCesta($array);
-            header("Refresh: 0");
+            if($nombre == "" || $apellido == "" || $fecNac == "" || $genero == "" || $salario == "")
+                trigger_error("Debe Introducir Todos Los Datos");
+            else
+            {
+                $array = array("nombre" => $nombre,"ape" => $apellido,"fecNac" => $fecNac,"genero" => $genero,"sal" => $salario,"departamento" => $departamento,"cargo"=>$cargo);
+                annadirEmpleadosALaCesta($array);
+                print "<h2>Empleado Añadido a la Cesta</h2>";
+            }
+            header("Refresh: 2");
         }
         if(isset($_POST["alta"]))
         {
