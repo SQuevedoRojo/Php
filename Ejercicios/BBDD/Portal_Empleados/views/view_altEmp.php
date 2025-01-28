@@ -51,7 +51,7 @@
         </div>	
 		<input type="submit" name="submit" value="Dar de Alta">
         </form>
-		<a href="controllers/controller_welcome.php"></a>
+		<a href="controllers/controller_welcome.php">Volver a la Pagina Principal</a>
 	    </div>
     </div>
     </div>
