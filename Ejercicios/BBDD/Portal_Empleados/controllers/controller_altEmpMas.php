@@ -22,6 +22,7 @@
             $departamento = $_POST["departamento"];
             $cargo = $_POST["cargo"];
             $array = array("nombre" => $nombre,"ape" => $apellido,"fecNac" => $fecNac,"genero" => $genero,"sal" => $salario,"departamento" => $departamento,"cargo"=>$cargo);
+            annadirEmpleadosALaCesta($array);
         }
         if(isset($_POST["alta"]))
         {
