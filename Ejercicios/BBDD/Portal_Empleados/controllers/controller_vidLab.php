@@ -16,16 +16,6 @@
         require_once ("../db/db.php");
         require_once ("../models/model_vidLab.php");
         list($infoPersonal,$salario,$titulaciones,$departamentos) = saberVidaLaboral($empleado);
-        var_dump($infoPersonal);
-        var_dump($salario);
-        var_dump($titulaciones);
-        var_dump($departamentos);
-        imprimirVidaLaboral($infoPersonal,$salario,$titulaciones,$departamentos);
-    }
-
-    function imprimirVidaLaboral($infoPersonal,$salario,$titulaciones,$departamentos)
-    {
-        null;
     }
 
     require_once ("../db/db.php");
