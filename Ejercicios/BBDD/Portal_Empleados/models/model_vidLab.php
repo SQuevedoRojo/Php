@@ -27,14 +27,17 @@
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $infoPerosnal=$stmt->fetchAll();
             $stmt = $GLOBALS["conn"]->prepare("SELECT salary from salaries s where s.emp_no = :empleado");
+            $stmt->bindParam(':empleado', $empleado);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $salarios = $stmt->fetchAll();
             $stmt = $GLOBALS["conn"]->prepare("SELECT title,dept_name from titles t where t.emp_no = :empleado");
+            $stmt->bindParam(':empleado', $empleado);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $titulaciones = $stmt->fetchAll();
             $stmt = $GLOBALS["conn"]->prepare("SELECT dept_no,dept_name from dept_emp d,departments de where d.emp_no = :empleado and d.dept_no = de.dept_no");
+            $stmt->bindParam(':empleado', $empleado);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $departamentos = $stmt->fetchAll();
