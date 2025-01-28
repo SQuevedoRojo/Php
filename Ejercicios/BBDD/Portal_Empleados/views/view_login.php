@@ -7,7 +7,6 @@
  </head>
 
 <body>
-    <h1>MOVILMAD</h1>
 
     <div class="container ">
         <!--Aplicacion-->
