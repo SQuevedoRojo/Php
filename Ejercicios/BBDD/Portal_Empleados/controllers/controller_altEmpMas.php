@@ -31,7 +31,7 @@
             else
             {
                 require_once ("../db/db.php");
-                require_once ("../models/model_altEmp.php");
+                require_once ("../models/model_altEmpMas.php");
                 altaEmpleados($cesta);
                 vaciarCesta();
                 print "<h2>Empleado Dado de Alta</h2>";
@@ -40,8 +40,8 @@
         }
     }
     require_once ("../db/db.php");
-    require_once ("../models/model_altEmp.php");
+    require_once ("../models/model_altEmpMas.php");
     $departamentos = saberDepartamentos();
     $cargos = saberCargos();
-    require_once ("../views/view_altEmp.php");
+    require_once ("../views/view_altEmpMas.php");
 ?>
