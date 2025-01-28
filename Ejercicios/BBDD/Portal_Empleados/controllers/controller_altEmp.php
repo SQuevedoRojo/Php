@@ -19,6 +19,7 @@
         $salario = limpiar($_POST["sal"]);
         $departamento = $_POST["departamento"];
         $cargo = $_POST["cargo"];
+        require_once ("../db/db.php");
         require_once ("../models/model_altEmp.php");
         altaEmpleado($nombre,$apellido,$fecNac,$salario,$genero,$departamento,$cargo);
         print "<h2>Empleado Dado de Alta</h2>";

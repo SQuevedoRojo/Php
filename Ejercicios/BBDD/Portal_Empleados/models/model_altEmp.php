@@ -4,7 +4,7 @@
     {
         try
         {
-            $stmt = $GLOBALS["conn"]->prepare("SELECT dept_name,dept_no from departments");
+            $stmt = $GLOBALS["conn"]->prepare("SELECT dept_name,dept_no from departments order by 2");
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();
