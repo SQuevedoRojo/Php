@@ -9,7 +9,7 @@
         header("Location: ../index.php");
     }
     var_dump($_SESSION);
-
+    require_once ("../db/db.php");
     require_once ("../models/model_altEmp.php");
     $departamentos = saberDepartamentos();
     $cargos = saberCargos();
