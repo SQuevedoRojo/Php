@@ -11,7 +11,7 @@
     <div class="container ">
         <!--Aplicacion-->
 		<div  style="max-width: 30rem;">
-		<div >Login Usuario</div>
+		<div >Alta Empleado</div><br>
 		<div>
 		
 		<form id="" name="" action="" method="post" >
@@ -32,10 +32,10 @@
 			Salario <input type="text" name="sal" placeholder="Salario del Empleado" required>
         </div>	
         <div>
-			Departamento <select name="cargo" id="cargo" required>
+			Departamento <select name="departamento" id="departamento" required>
             <?php
                 foreach ($departamentos as $departamento => $titulo) {
-                    print "<option value='".$titulo["dept_name"]."'>".$titulo["dept_name"]."</option>";
+                    print "<option value='".$titulo["dept_no"]."'>".$titulo["dept_name"]."</option>";
                 }
             ?>
             </select>
