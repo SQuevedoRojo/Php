@@ -29,5 +29,5 @@
     require_once ("../db/db.php");
     require_once ("../models/model_vidLab.php");
     $empleados = saberEmpleadosExistentes();
-    require_once ("../views/view_visLab.php");
+    require_once ("../views/view_vidLab.php");
 ?>
