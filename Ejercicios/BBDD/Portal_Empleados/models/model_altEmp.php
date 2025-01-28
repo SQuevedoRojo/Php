@@ -13,7 +13,7 @@
         {
             echo "Error: " . $e->getMessage();
         }
-        return $resultado;
+        return $resultado[0];
     }
 
     function saberCargos()
@@ -29,7 +29,7 @@
         {
             echo "Error: " . $e->getMessage();
         }
-        return $resultado;
+        return $resultado[0];
     }
 
 ?>

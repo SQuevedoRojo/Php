@@ -34,8 +34,8 @@
         <div>
 			Departamento <select name="cargo" id="cargo" required>
             <?php
-                foreach ($departamentos as $departamento => $cadena) {
-                    print "<option value='".$cadena."'>".$cadena."</option>";
+                foreach ($departamentos as $departamento) {
+                    print "<option value='".$departamento."'>".$departamento."</option>";
                 }
             ?>
             </select>
@@ -43,8 +43,8 @@
         <div>
 			Cargo a Desempeñar <select name="cargo" id="cargo" required>
             <?php
-                foreach ($cargos as $cargo => $cadena) {
-                    print "<option value='".$cadena."'>".$cadena."</option>";
+                foreach ($cargos as $cargo) {
+                    print "<option value='".$cargo."'>".$cargo."</option>";
                 }
             ?>
             </select>
