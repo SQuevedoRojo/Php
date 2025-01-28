@@ -20,6 +20,12 @@
         return $id;
     }
 
+    function devolverDept()
+    {
+        $dept = $_SESSION["cliente"]["dept"];
+        return $dept;
+    }
+
     function verificarSessionExistente()
     {
         $sessionCreada = false;

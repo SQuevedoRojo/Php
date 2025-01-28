@@ -17,10 +17,10 @@
 		
 		<form id="" name="" action="" method="post" >
 		
-		<div class="form-group">
-			Email <input type="text" name="usu" placeholder="usuario">
+		<div >
+			Usuario <input type="text" name="usu" placeholder="usuario">
         </div>
-		<div class="form-group">
+		<div>
 			Clave <input type="password" name="contra" placeholder="contraseña">
         </div>				
         
