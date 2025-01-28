@@ -26,7 +26,7 @@
             </select>
         </div>
 		<div>
-			Salario Nuevo <input type="text" name="sal" placeholder="Nuevo Salario" required>
+			Salario Nuevo <input type="number" name="sal" placeholder="Nuevo Salario" required>
         </div>				
         
 		<input type="submit" name="sal" value="Modificar Salario">

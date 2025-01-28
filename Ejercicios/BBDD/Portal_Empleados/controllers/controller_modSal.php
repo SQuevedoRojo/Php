@@ -13,7 +13,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
         $empleado = $_POST["empleados"];
-        $salario = intval($_POST["sal"]);
+        $salario = ($_POST["sal"]);
         require_once ("../db/db.php");
         require_once ("../models/model_modSal.php");
         modificarSalario($empleado,$salario);
