@@ -32,7 +32,7 @@
         return $resultado;
     }
 
-    function altaEmpleados($cesta)
+    function altaEmpleados(&$cesta)
     {
         try
         {
