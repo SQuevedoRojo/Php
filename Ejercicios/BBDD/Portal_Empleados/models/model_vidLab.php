@@ -31,7 +31,7 @@
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $salarios = $stmt->fetchAll();
-            $stmt = $GLOBALS["conn"]->prepare("SELECT title,dept_name from titles t where t.emp_no = :empleado");
+            $stmt = $GLOBALS["conn"]->prepare("SELECT title from titles t where t.emp_no = :empleado");
             $stmt->bindParam(':empleado', $empleado);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
