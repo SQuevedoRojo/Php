@@ -27,7 +27,7 @@
         else
         {
             require_once ("../db/db.php");
-            require_once ("../models/model_camDept.php");
+            require_once ("../models/model_camJefDept.php");
             cambiarJefeDepartamento($numEmp,$deptEmp,$numJefe,$deptJefe);
             print "<h2>Empleado Cambiado de Departamento</h2>";
             header("Refresh: 2");
@@ -36,9 +36,9 @@
     }
 
     require_once ("../db/db.php");
-    require_once ("../models/model_camDept.php");
+    require_once ("../models/model_camJefDept.php");
     $empleados = saberEmpleadosExistentes();
     $jefes = saberJefesExistentes();
-    require_once ("../views/view_camDept.php");
+    require_once ("../views/view_camJefDept.php");
 
 ?>
