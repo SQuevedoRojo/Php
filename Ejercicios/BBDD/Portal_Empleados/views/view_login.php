@@ -19,10 +19,11 @@
 		<div >
 			Usuario <input type="text" name="usu" placeholder="usuario">
         </div>
+        <hr>
 		<div>
 			Clave <input type="password" name="contra" placeholder="contraseña">
         </div>				
-        
+        <br>
 		<input type="submit" name="submit" value="Login">
         </form>
 		
