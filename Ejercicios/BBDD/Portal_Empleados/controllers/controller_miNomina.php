@@ -19,24 +19,24 @@
         $conceptos = array();
         $salarioOriginal = intval($salarios[0]["salary"]);
         $salarioNeto = $salarioOriginal;
-        $descSegSoc = $salarioOriginal - ($salarioOriginal*0.075);
+        $descSegSoc = ($salarioOriginal*0.075);
         $salarioNeto -= $descSegSoc;
         $conceptos[] = "Descuento del 7.5% de la Seguridad Social";
         if($salarioOriginal < 40000)
         {
-            $descIRPF = ($salarioOriginal - ($salarioOriginal*0.1));
+            $descIRPF = ($salarioOriginal*0.1);
             $salarioNeto -= $descIRPF;
             $conceptos[] = "Descuento del 10% del IRPF";
         }
         elseif($salarioOriginal >=40000 && $salarioOriginal <= 70000)
         {
-            $descIRPF = ($salarioOriginal - ($salarioOriginal*0.2));
+            $descIRPF = ($salarioOriginal*0.2);
             $salarioNeto -= $descIRPF;
             $conceptos[] = "Descuento del 20% del IRPF";
         }
         else
         {
-            $descIRPF = ($salarioOriginal - ($salarioOriginal*0.3));
+            $descIRPF = ($salarioOriginal*0.3);
             $salarioNeto -= $descIRPF;
             $conceptos[] = "Descuento del 30% del IRPF";
         }
