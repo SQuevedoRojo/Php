@@ -11,6 +11,10 @@
         require_once ("models/model_login.php");
         if($resultado == null)
             trigger_error("Login Incorrecto");
+        elseif($resultado[0]["fecha_baja"] != null)
+        {
+            trigger_error("Empleado Dado de Baja");
+        }
         else
         {
             $idCli = $resultado[0]["emp_no"];

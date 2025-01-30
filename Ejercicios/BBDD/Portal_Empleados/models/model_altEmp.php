@@ -39,7 +39,7 @@
         {
             $GLOBALS["conn"]->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $GLOBALS["conn"]->beginTransaction();
-            $stmt = $GLOBALS["conn"]->prepare("INSERT INTO employees (emp_no,birth_date,first_name,last_name,gender,hire_date) values (:numEmp,:fec_Nac,:nombre,:ape,:genero,curdate())");
+            $stmt = $GLOBALS["conn"]->prepare("INSERT INTO employees (emp_no,birth_date,first_name,last_name,gender,hire_date,fecha_baja) values (:numEmp,:fec_Nac,:nombre,:ape,:genero,curdate(),null)");
             $stmt->bindParam(':numEmp', $numEmp);
             $stmt->bindParam(':fec_Nac', $fecNac);
             $stmt->bindParam(':nombre', $nombre);
