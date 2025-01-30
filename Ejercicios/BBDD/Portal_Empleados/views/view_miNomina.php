@@ -29,13 +29,13 @@
                 print "<ul><li>".$departamentos[0]["dept_no"]." | ".$departamentos[0]["dept_name"]."</li></ul>";
                 print "<br>";
                 print "<h2><strong>Nomina Actual</strong></h2>";
-                print "<h4>Salario Bruto -> $salarioOriginal </h4>";
+                print "<h4>Salario Bruto -> $salarioOriginal € </h4>";
                 print "<h4>Conceptos Nomina</h4>";
                 print "<ul>";
                 for ($i=0; $i < count($conceptos); $i++) { 
                     print "<li>".$conceptos[$i]."</li>";
                 }
-                print "<h4>Salario Neto -> $salarioNeto</h4>";
+                print "<h4>Salario Neto -> $salarioNeto €</h4>";
 
             }
         ?>
