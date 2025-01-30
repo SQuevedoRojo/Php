@@ -15,7 +15,7 @@
 		<div>
 
         <?php
-            if(isset($infoPerosnal) && isset($salarioNeto) && isset($salarioOriginal) && isset($conceptos) && isset($titulaciones) && isset($departamentos))
+            if(isset($infoPersonal) && isset($salarioNeto) && isset($salarioOriginal) && isset($conceptos) && isset($titulaciones) && isset($departamentos))
             {
                 print "<h1><strong>Nomina del Empleado $empleado</strong></h1>";
                 print "<h2><strong>Informacion Personal</strong></h2>";
