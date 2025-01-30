@@ -7,38 +7,38 @@
 
     function crearSession($idCli,$dept)
     {
-        if(!isset($_SESSION["cliente"][$idCli]) && !isset($_SESSION["cliente"][$dept]))
+        if(!isset($_SESSION["empleado"][$idCli]) && !isset($_SESSION["empleado"][$dept]))
         {
-            $_SESSION["cliente"]["id"] = $idCli;
-            $_SESSION["cliente"]["dept"] = $dept;
+            $_SESSION["empleado"]["id"] = $idCli;
+            $_SESSION["empleado"]["dept"] = $dept;
         }
     }
 
     function devolverId()
     {
-        $id = $_SESSION["cliente"]["id"];
+        $id = $_SESSION["empleado"]["id"];
         return $id;
     }
 
     function devolverDept()
     {
-        $dept = $_SESSION["cliente"]["dept"];
+        $dept = $_SESSION["empleado"]["dept"];
         return $dept;
     }
 
     function verificarSessionExistente()
     {
         $sessionCreada = false;
-        if(isset($_SESSION["cliente"]))
+        if(isset($_SESSION["empleado"]))
             $sessionCreada = true;
         return $sessionCreada;
     }
 
     function annadirEmpleadosALaCesta(&$array)
     {
-        if(isset($_SESSION["cliente"]["cesta"]))
+        if(isset($_SESSION["empleado"]["cesta"]))
         {
-            $cesta = $_SESSION["cliente"]["cesta"];
+            $cesta = $_SESSION["empleado"]["cesta"];
             $cesta[] = $array;
         }   
         else
@@ -46,19 +46,19 @@
             $cesta = array();
             $cesta[] = $array;
         }
-        $_SESSION["cliente"]["cesta"] = $cesta;
+        $_SESSION["empleado"]["cesta"] = $cesta;
     }
 
     function vaciarCesta()
     {
-        unset($_SESSION["cliente"]["cesta"]);
+        unset($_SESSION["empleado"]["cesta"]);
     }
 
     function devolverCesta()
     {
         $cesta = null;
-        if(isset($_SESSION["cliente"]["cesta"]))
-            $cesta = $_SESSION["cliente"]["cesta"];
+        if(isset($_SESSION["empleado"]["cesta"]))
+            $cesta = $_SESSION["empleado"]["cesta"];
         return $cesta;
     }
 
