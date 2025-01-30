@@ -15,7 +15,7 @@
         $empleado = devolverId();
         require_once ("../db/db.php");
         require_once ("../models/model_miNomina.php");
-        list($infoPersonal,$salarios,$titulaciones,$departamentos) = saberVidaLaboral($empleado);
+        list($infoPersonal,$salarios,$titulaciones,$departamentos) = saberNomina($empleado);
         $conceptos = array();
         $salarioOriginal = intval($salarios[0]["salary"]);
         $salarioNeto = $salarioOriginal;
