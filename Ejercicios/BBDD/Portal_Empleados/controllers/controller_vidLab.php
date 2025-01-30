@@ -16,6 +16,10 @@
         require_once ("../db/db.php");
         require_once ("../models/model_vidLab.php");
         list($infoPersonal,$salario,$titulaciones,$departamentos) = saberVidaLaboral($empleado);
+        if($infoPersonal[0]["fecha_baja"] == null)
+            $baja = "NO";
+        else
+            $baja = $infoPersonal[0]["fecha_baja"];
     }
 
     require_once ("../db/db.php");

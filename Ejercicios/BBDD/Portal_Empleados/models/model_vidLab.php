@@ -21,7 +21,7 @@
     {
         try
         {
-            $stmt = $GLOBALS["conn"]->prepare("SELECT e.emp_no,birth_date,first_name,last_name,gender,hire_date from employees e where e.emp_no = :empleado");
+            $stmt = $GLOBALS["conn"]->prepare("SELECT e.emp_no,birth_date,first_name,last_name,gender,hire_date,fecha_baja from employees e where e.emp_no = :empleado");
             $stmt->bindParam(':empleado', $empleado);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);

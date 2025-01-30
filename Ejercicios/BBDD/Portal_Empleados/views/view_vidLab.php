@@ -19,8 +19,8 @@
             {
                 print "<h1><strong>Empleado $empleado</strong></h1><br>";
                 print "<h2><strong>Informacion Personal</strong></h2>";
-                print "<table border='1'><tr><th>Numero Empleado</th><th>Fecha Nacimiento</th><th>Nombre</th><th>Apellido</th><th>Sexo</th><th>Fecha Contratacion</th></tr>";
-                print "<tr><td>".$infoPersonal[0]["emp_no"]."</td><td>".$infoPersonal[0]["birth_date"]."</td><td>".$infoPersonal[0]["first_name"]."</td><td>".$infoPersonal[0]["last_name"]."</td><td>".$infoPersonal[0]["gender"]."</td><td>".$infoPersonal[0]["hire_date"]."</td></tr></table>";
+                print "<table border='1'><tr><th>Numero Empleado</th><th>Fecha Nacimiento</th><th>Nombre</th><th>Apellido</th><th>Sexo</th><th>Fecha Contratacion</th><th>Fecha Baja</th></tr>";
+                print "<tr><td>".$infoPersonal[0]["emp_no"]."</td><td>".$infoPersonal[0]["birth_date"]."</td><td>".$infoPersonal[0]["first_name"]."</td><td>".$infoPersonal[0]["last_name"]."</td><td>".$infoPersonal[0]["gender"]."</td><td>".$infoPersonal[0]["hire_date"]."</td><td>$baja</td></tr></table>";
                 print "<br>";
                 print "<h2><strong>Historico del Salario</strong></h2>";
                 if(count($salario) > 1)
