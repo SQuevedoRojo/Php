@@ -52,7 +52,7 @@
         <input type="submit" name="cesta" value="Añadir a la Cesta">
 		<input type="submit" name="alta" value="Dar de Alta">
         </form>
-		<a href="controller_welcome.php">Volver a la Pagina Principal</a>
+		<a href="controller_welcome.php">Volver a la Pagina Principal</a><br>
         <a href="controller_cerrarSession.php">Cerrar Sesion</a>
 	    </div>
     </div>
