@@ -15,7 +15,7 @@
         $empleado = $_POST["empleados"];
         require_once ("../db/db.php");
         require_once ("../models/model_bajaEmp.php");
-        darBajaEmpleado($emp);
+        darBajaEmpleado($empleado);
         print "<h2>Empleado Dado de Baja</h2>";
         header("Refresh: 2");
     }
