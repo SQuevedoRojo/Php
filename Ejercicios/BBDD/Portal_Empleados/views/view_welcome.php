@@ -16,5 +16,7 @@
         print "<ol><a href='controller_miNomina.php'><li>Mi nómina</li></a><a href='controller_histLabEmp.php'><li>Historial laboral</li></a></ol>";
     }
     ?>
+    <br>
+    <a href="controller_cerrarSession.php">Cerrar Sesion</a>
 </body>
 </html>

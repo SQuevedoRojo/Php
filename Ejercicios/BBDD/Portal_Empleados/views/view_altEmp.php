@@ -52,6 +52,7 @@
 		<input type="submit" name="submit" value="Dar de Alta">
         </form>
 		<a href="controller_welcome.php">Volver a la Pagina Principal</a>
+        <a href="controller_cerrarSession.php">Cerrar Sesion</a>
 	    </div>
     </div>
     </div>
