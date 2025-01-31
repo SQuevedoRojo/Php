@@ -15,9 +15,9 @@
         $empleado = devolverId();
         require_once ("../db/db.php");
         require_once ("../models/model_miNomina.php");
-        list($infoPersonal,$salarios,$titulaciones,$departamentos) = saberNomina($empleado);
+        $resultado = saberNomina($empleado);
         $conceptos = array();
-        $salarioOriginal = intval($salarios[0]["salary"]);
+        $salarioOriginal = intval($resultado[0]["salary"]);
         $salarioNeto = $salarioOriginal;
         $descSegSoc = ($salarioOriginal*0.075);
         $salarioNeto -= $descSegSoc;
@@ -46,6 +46,10 @@
             $salarioNeto += $complemetoIng;
             $conceptos[] = "Complemento de 10000€ por pertenecer a la Categoria Engineer";
         }
+        if($resultado[0]["fecha_baja"] == null)
+            $baja = "NO";
+        else
+            $baja = $resultado[0]["fecha_baja"];
     }
 
     require_once ("../views/view_miNomina.php");

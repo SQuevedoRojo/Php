@@ -15,18 +15,18 @@
 		<div>
 
         <?php
-            if(isset($infoPersonal) && isset($salarioNeto) && isset($salarioOriginal) && isset($conceptos) && isset($titulaciones) && isset($departamentos))
+            if(isset($resultado) && isset($salarioNeto) && isset($salarioOriginal) && isset($conceptos))
             {
                 print "<h1><strong>Nomina del Empleado $empleado</strong></h1>";
                 print "<h2><strong>Informacion Personal</strong></h2>";
-                print "<table border='1'><tr><th>Numero Empleado</th><th>Fecha Nacimiento</th><th>Nombre</th><th>Apellido</th><th>Sexo</th><th>Fecha Contratacion</th></tr>";
-                print "<tr><td>".$infoPersonal[0]["emp_no"]."</td><td>".$infoPersonal[0]["birth_date"]."</td><td>".$infoPersonal[0]["first_name"]."</td><td>".$infoPersonal[0]["last_name"]."</td><td>".$infoPersonal[0]["gender"]."</td><td>".$infoPersonal[0]["hire_date"]."</td></tr></table>";
+                print "<table border='1'><tr><th>Numero Empleado</th><th>Fecha Nacimiento</th><th>Nombre</th><th>Apellido</th><th>Sexo</th><th>Fecha Contratacion</th><th>Fecha Baja</th></tr>";
+                print "<tr><td>".$resultado[0]["emp_no"]."</td><td>".$resultado[0]["birth_date"]."</td><td>".$resultado[0]["first_name"]."</td><td>".$resultado[0]["last_name"]."</td><td>".$resultado[0]["gender"]."</td><td>".$resultado[0]["hire_date"]."</td><td>$baja</td></tr></table>";
                 print "<br>";
                 print "<h2><strong>Titulacion Actual</strong></h2>";
-                print "<ul><li>".$titulaciones[0]["title"]."</li></ul>";
+                print "<ul><li>".$resultado[0]["title"]."</li></ul>";
                 print "<br>";
                 print "<h2><strong>Departamento Actual</strong></h2>";
-                print "<ul><li>".$departamentos[0]["dept_no"]." | ".$departamentos[0]["dept_name"]."</li></ul>";
+                print "<ul><li>".$resultado[0]["dept_no"]." | ".$resultado[0]["dept_name"]."</li></ul>";
                 print "<br>";
                 print "<h2><strong>Nomina Actual</strong></h2>";
                 print "<h4>Salario Bruto -> $salarioOriginal € </h4>";
