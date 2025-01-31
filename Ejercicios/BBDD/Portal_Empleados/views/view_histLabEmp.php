@@ -26,7 +26,7 @@
                 $salarios = $resultado[0]["salaries"];
                 if(count(explode(",",$salarios)) > 1)
                 {
-                    $salariosDivididos = explode($salarios,",");
+                    $salariosDivididos = explode(",",$salarios);
                     print "<h4>Salarios Antiguos</h4><ul>";
                     for ($i=0; $i < count($salariosDivididos) - 1; $i++) 
                     { 
@@ -44,7 +44,7 @@
                 $titulos = $resultado[0]["titles"];
                 if(count(explode(",",$titulos)) > 1)
                 {
-                    $titulosDivididos = explode($titulos,",");
+                    $titulosDivididos = explode(",",$titulos);
                     print "<h4>Titulaciones Antiguas</h4><ul>";
                     for ($i=0; $i < count($titulosDivididos) - 1; $i++) 
                     { 
