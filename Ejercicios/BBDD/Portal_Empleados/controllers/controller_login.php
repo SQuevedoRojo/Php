@@ -9,6 +9,7 @@
         $usu = $_POST["usu"];
         $contra = $_POST["contra"];
         require_once ("models/model_login.php");
+        $resultado = comprobarLogin($usu,$contra);
         if($resultado == null)
             trigger_error("Login Incorrecto");
         elseif($resultado[0]["fecha_baja"] != null)

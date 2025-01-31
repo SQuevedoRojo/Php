@@ -11,7 +11,7 @@
     <div class="container ">
         <!--Aplicacion-->
 		<div  style="max-width: 30rem;">
-		<div >Cambiar Departamento Empleado</div>
+		<div >Cambiar Jefe Departamento </div>
 		<div>
 
 		<form id="" name="" action="" method="post" >

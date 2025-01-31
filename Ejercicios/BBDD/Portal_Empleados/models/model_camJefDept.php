@@ -20,7 +20,7 @@
     {
         try
         {
-            $stmt = $GLOBALS["conn"]->prepare("SELECT d.dept_no as dept_no, dept_name,e.emp_no AS emp_no, CONCAT(e.first_name, ' ', e.last_name) AS nombre from departments d,dept_manager dm,employees e where d.dept_no = dm.dept_no and dm.emp_no = e.emp_no order by 1");
+            $stmt = $GLOBALS["conn"]->prepare("SELECT d.dept_no as dept_no, dept_name,e.emp_no AS emp_no, CONCAT(e.first_name, ' ', e.last_name) AS nombre from departments d,dept_manager dm,employees e where d.dept_no = dm.dept_no and dm.emp_no = e.emp_no and dm.to_date is null order by 1");
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
             $resultado=$stmt->fetchAll();

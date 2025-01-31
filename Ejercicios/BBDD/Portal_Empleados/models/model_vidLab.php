@@ -21,31 +21,16 @@
     {
         try
         {
-            $stmt = $GLOBALS["conn"]->prepare("SELECT e.emp_no,birth_date,first_name,last_name,gender,hire_date,fecha_baja from employees e where e.emp_no = :empleado");
-            $stmt->bindParam(':empleado', $empleado);
+            $stmt = $GLOBALS["conn"]->prepare("SELECT e.emp_no as emp_no, e.birth_date as birth_date, e.first_name as first_name, e.last_name as last_name, e.gender as gender, e.hire_date as hire_date, e.fecha_baja as fecha_baja,GROUP_CONCAT(DISTINCT s.salary) AS salaries,GROUP_CONCAT(DISTINCT t.title) AS titles,de.dept_no as dept_no,GROUP_CONCAT(DISTINCT d.dept_name) AS dept_names FROM employees e JOIN salaries s ON e.emp_no = s.emp_no JOIN titles t ON e.emp_no = t.emp_no JOIN dept_emp de ON e.emp_no = de.emp_no JOIN departments d ON de.dept_no = d.dept_no WHERE e.emp_no = :emp GROUP BY e.emp_no, e.birth_date, e.first_name, e.last_name, e.gender, e.hire_date, e.fecha_baja, de.dept_no ORDER BY MAX(s.to_date) DESC, MAX(t.to_date) DESC, MAX(de.to_date) DESC;");
+            $stmt->bindParam(':emp', $empleado);
             $stmt -> execute();
             $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $infoPerosnal=$stmt->fetchAll();
-            $stmt = $GLOBALS["conn"]->prepare("SELECT salary from salaries s where s.emp_no = :empleado");
-            $stmt->bindParam(':empleado', $empleado);
-            $stmt -> execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $salarios = $stmt->fetchAll();
-            $stmt = $GLOBALS["conn"]->prepare("SELECT title from titles t where t.emp_no = :empleado");
-            $stmt->bindParam(':empleado', $empleado);
-            $stmt -> execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $titulaciones = $stmt->fetchAll();
-            $stmt = $GLOBALS["conn"]->prepare("SELECT d.dept_no,dept_name from dept_emp d,departments de where d.emp_no = :empleado and d.dept_no = de.dept_no");
-            $stmt->bindParam(':empleado', $empleado);
-            $stmt -> execute();
-            $stmt->setFetchMode(PDO::FETCH_ASSOC);
-            $departamentos = $stmt->fetchAll();
+            $resultado = $stmt->fetchAll();
         }
         catch(PDOException $e)
         {
             echo "Error: " . $e->getMessage();
         }
-        return [$infoPerosnal,$salarios,$titulaciones,$departamentos];
+        return $resultado;
     }
 ?>
