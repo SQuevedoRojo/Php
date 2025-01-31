@@ -59,7 +59,7 @@
                 }
                 print "<br>";
                 print "<h2><strong>Historico de Departamentos</strong></h2>";
-                if(count($resultado) >= 1)
+                if(count($resultado) > 1)
                 {
                     print "<h4>Departamentos Antiguos</h4><ul>";
                     for ($i=0; $i < count($resultado) - 1; $i++) 
