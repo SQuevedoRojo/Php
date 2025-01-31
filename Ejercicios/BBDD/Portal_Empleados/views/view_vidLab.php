@@ -24,7 +24,7 @@
                 print "<br>";
                 print "<h2><strong>Historico de Salarios</strong></h2>";
                 $salarios = $resultado[0]["salaries"];
-                if(count(explode(",",$salarios)) >= 1)
+                if(count(explode(",",$salarios)) > 1)
                 {
                     $salariosDivididos = explode($salarios,",");
                     print "<h4>Salarios Antiguos</h4><ul>";
@@ -42,7 +42,7 @@
                 print "<br>";
                 print "<h2><strong>Historico de Titulaciones</strong></h2>";
                 $titulos = $resultado[0]["titles"];
-                if(count(explode(",",$titulos)) >= 1)
+                if(count(explode(",",$titulos)) > 1)
                 {
                     $titulosDivididos = explode($titulos,",");
                     print "<h4>Titulaciones Antiguas</h4><ul>";
