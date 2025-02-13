@@ -17,14 +17,14 @@
         if(isset($_POST["aumentarIndice"]))
         {
             aumentarIndice();
-            $indice = devolverIndice();
+            $indice = intval(devolverIndice());
             $canciones = recuperarListadoCanciones($indice);
             $cancionesDevueltas = true;
         }
         elseif(isset($_POST["disminuirIndice"]))
         {
             disminuirIndice();
-            $indice = devolverIndice();
+            $indice = intval(devolverIndice());
             $canciones = recuperarListadoCanciones($indice);
             $cancionesDevueltas = true;
         }
@@ -32,7 +32,7 @@
 
     if(!$cancionesDevueltas)
     {
-        $indice = devolverIndice();
+        $indice = intval(devolverIndice());
         $canciones = recuperarListadoCanciones($indice);
     }
     require_once "../views/view_downmusic.php";
