@@ -35,7 +35,7 @@
     function disminuirIndice()
     {
         $indice = $_SESSION["cliente"]["indice"];
-        if($indice > 20)
+        if($indice >= 20)
             $_SESSION["cliente"]["indice"] = ($indice - 20);
     }
 
