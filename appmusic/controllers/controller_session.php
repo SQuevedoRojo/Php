@@ -29,7 +29,8 @@
     function aumentarIndice()
     {
         $indice = $_SESSION["cliente"]["indice"];
-        $_SESSION["cliente"]["indice"] = ($indice + 20);
+        if($indice <=3503)
+            $_SESSION["cliente"]["indice"] = ($indice + 20);
     }
 
     function disminuirIndice()
