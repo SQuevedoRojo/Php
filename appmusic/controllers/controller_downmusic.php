@@ -8,8 +8,8 @@
         header("Location: ../index.php");
     }
     var_dump($_SESSION);
-    require_once("db/db.php");
-    require_once("models/model_downmusic.php");
+    require_once("../db/db.php");
+    require_once("../models/model_downmusic.php");
     $indice = devolverIndice();
     $cancionesDevueltas = false;
     if($_SERVER["REQUEST_METHOD"] == "POST")
@@ -35,5 +35,5 @@
         $indice = devolverIndice();
         $canciones = recuperarListadoCanciones($indice);
     }
-
+    require_once "../views/view_downmusic.php";
 ?>

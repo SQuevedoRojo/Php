@@ -9,5 +9,5 @@
     }
     var_dump($_SESSION);
 
-    require_once("views/view_welcome.php");
+    require_once("../views/view_welcome.php");
 ?>
