@@ -4,7 +4,7 @@
     {
         try
         {
-            $stmt = $GLOBALS["conn"]->prepare("SELECT Email,LastName,CustomerId from employees e,dept_emp d where Email = :usu and LastName = :contra");
+            $stmt = $GLOBALS["conn"]->prepare("SELECT Email,LastName,CustomerId from customer where Email = :usu and LastName = :contra");
             $stmt->bindParam(':usu', $usu);
             $stmt->bindParam(':contra', $contra);
             $stmt -> execute();
