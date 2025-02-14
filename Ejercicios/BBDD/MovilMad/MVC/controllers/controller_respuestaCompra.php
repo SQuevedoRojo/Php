@@ -82,6 +82,8 @@
                         insertarPago($precioCompra,true);
                         eliminarMatricula();
                     }
+                    var_dump($miObj->getParameter("Ds_Response"));
+                    var_dump(json_decode($decodec,true));
                 }
                 else 
                 {

@@ -32,10 +32,16 @@
         {
             $cancion = $_POST["canciones"];
             annadirCancionesALaCesta($cancion);
+            header("Refresh: 0");
         }
         elseif(isset($_POST["Ecesta"]))
         {
             vaciarCesta();
+            header("Refresh: 0");
+        }
+        elseif(isset($_POST["descargar"]))
+        {
+
         }
     }
 
