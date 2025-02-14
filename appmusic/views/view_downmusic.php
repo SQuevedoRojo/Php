@@ -46,7 +46,7 @@
         <input type="submit" name="Ecesta" value="Eliminar la Cesta">
 		<input type="submit" name="descargar" value="Descargar Canciones">
         </form>
-		
+		<br>
 	    </div>
         <a href="controller_welcome.php">Volver a la Pagina Principal</a><br>
         <a href="controller_cerrarSession.php">Cerrar Sesion</a>
