@@ -17,10 +17,10 @@
             if($cesta != null)
             {
                 echo "<div id='cesta'>";
-                print "<table border='1'><tr><th>Id Cancion</th><th>Nombre Cancion</th></tr>";
+                print "<table border='1'><tr><th>Id Cancion</th><th>Nombre Cancion</th><th>Precio</th></tr>";
                 
                 foreach ($cesta as $productoCesta => $detalles) {
-                    print "<tr><td>".$detalles[0]."</td><td>".$detalles[1]."</td></tr>";
+                    print "<tr><td>".$detalles[0]."</td><td>".$detalles[1]."</td><td>".$detalles[2]."€</td></tr>";
                 }
                 print "</tr>";
                 echo "</div>";
@@ -33,7 +33,7 @@
 			Canciones <select name="canciones" id="canciones" required>
                 <?php
                     foreach ($canciones as $cancione => $titulo) {
-                        print "<option value='".$titulo["TrackId"]."|".$titulo["TName"]."'>".$titulo["TrackId"]." | ".$titulo["TName"]." | ".$titulo["ATitle"]." | ".$titulo["ArName"]." | ".$titulo["MName"]." | ".$titulo["GName"]." | ".$titulo["TComposer"]." | ".$titulo["TUnitPrice"]."</option>";
+                        print "<option value='".$titulo["TrackId"]."|".$titulo["TName"]."|".$titulo["TUnitPrice"]."'>".$titulo["TrackId"]." | ".$titulo["TName"]." | ".$titulo["ATitle"]." | ".$titulo["ArName"]." | ".$titulo["MName"]." | ".$titulo["GName"]." | ".$titulo["TComposer"]." | ".$titulo["TUnitPrice"]."</option>";
                     }
                 ?>
             </select>
