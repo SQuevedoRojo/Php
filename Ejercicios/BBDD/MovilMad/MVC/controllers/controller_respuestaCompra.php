@@ -41,6 +41,8 @@
                     insertarPago($precioCompra,true);
                     eliminarMatricula();
                 }
+                var_dump($miObj->getParameter("Ds_Response"));
+                    var_dump(json_decode($decodec,true));
             }
             else 
             {
@@ -53,6 +55,8 @@
                     insertarPago($precioCompra,false);
                     eliminarMatricula();
                 }
+                var_dump($miObj->getParameter("Ds_Response"));
+                    var_dump(json_decode($decodec,true));
             }
         } 
         
@@ -96,6 +100,8 @@
                         insertarPago($precioCompra,false);
                         eliminarMatricula();
                     }
+                    var_dump($miObj->getParameter("Ds_Response"));
+                    var_dump(json_decode($decodec,true));
                 }
             } 
         }
