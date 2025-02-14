@@ -10,7 +10,7 @@
     var_dump($_SESSION);
     require_once("../db/db.php");
     require_once("../models/model_downmusic.php");
-    $indice = devolverIndice();
+
     $cancionesDevueltas = false;
     if($_SERVER["REQUEST_METHOD"] == "POST")
     {
@@ -28,7 +28,18 @@
             $canciones = recuperarListadoCanciones($indice);
             $cancionesDevueltas = true;
         }
+        elseif(isset($_POST["cesta"]))
+        {
+            $cancion = $_POST["canciones"];
+            annadirCancionesALaCesta($cancion);
+        }
+        elseif(isset($_POST["Ecesta"]))
+        {
+            vaciarCesta();
+        }
     }
+
+    $cesta = devolverCesta();
 
     if(!$cancionesDevueltas)
     {

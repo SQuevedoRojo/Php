@@ -48,17 +48,18 @@
         return $sessionCreada;
     }
 
-    function annadirclientesALaCesta(&$array)
+    function annadirCancionesALaCesta($cancion)
     {
+        $detallesCancion = explode("|",$cancion);
         if(isset($_SESSION["cliente"]["cesta"]))
         {
             $cesta = $_SESSION["cliente"]["cesta"];
-            $cesta[] = $array;
+            $cesta[] = $detallesCancion;
         }   
         else
         {
             $cesta = array();
-            $cesta[] = $array;
+            $cesta[] = $detallesCancion;
         }
         $_SESSION["cliente"]["cesta"] = $cesta;
     }
