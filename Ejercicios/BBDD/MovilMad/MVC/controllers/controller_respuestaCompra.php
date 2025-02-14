@@ -87,6 +87,8 @@
                         eliminarMatricula();
                     }
                     var_dump($miObj->getParameter("Ds_Response"));
+                    var_dump($miObj->getParameter("DS_CARD_NUMBER"));
+
                     var_dump(json_decode($decodec,true));
                 }
                 else 
