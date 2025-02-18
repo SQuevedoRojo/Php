@@ -133,6 +133,6 @@
         {
             echo "Error: " . $e->getMessage();
         }
-        return $resultado[0]["invoiceId"];
+        return $resultado[0]["invoiceLineId"];
     }
 ?>
