@@ -82,7 +82,7 @@
         $cesta = devolverCesta();
         $importeTotal = null;
         foreach ($cesta as $productos => $informacion) {
-            $importeTotal += intval($informacion[2]);
+            $importeTotal += ($informacion[2]);
         }
         return $importeTotal * 100;
     }
