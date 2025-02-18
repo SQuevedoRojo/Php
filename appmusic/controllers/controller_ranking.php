@@ -19,7 +19,7 @@
             $fechaFinal = $_POST["fechahasta"];
             require_once("../db/db.php");
             require_once("../models/model_ranking.php");
-            $datosMusica =  saberMusicaMasDescargada($idCliente,$fechaInicio,$fechaFinal);
+            $datosMusica =  saberMusicaMasDescargada($fechaInicio,$fechaFinal);
         }
     }
 
