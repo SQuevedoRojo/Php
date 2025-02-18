@@ -28,8 +28,6 @@
                     $mostrarCabecera = false;
                 }
                 print "\t<tr><td>".$datos["InvoiceLineId"]."</td><td>".$datos["InvoiceDate"]."</td><td>".$datos["TrackId"]."</td><td>".$datos["UnitPrice"]."</td><th>".$datos["Quantity"]."</td><td>".$datos["Total"]."</td></tr>";
-                
-                
             }
             
         }
