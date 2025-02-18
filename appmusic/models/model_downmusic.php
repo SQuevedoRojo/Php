@@ -45,7 +45,7 @@
         {
             $GLOBALS["conn"]->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $GLOBALS["conn"]->beginTransaction();
-            $stmt = $GLOBALS["conn"]->prepare("INSERT INTO invoice (InvoiceId,CustomerId,InvoiceDate,BillingAddres,BillingCity,BillingState,BillingCountry,BillingPostalCode,NumTarjeta,DsResponse,Total) VALUES (:invId,:custId,now(),:bilAdd,:bilCi,:bilSt,:bilCo,:bilPC,:numTar,:ds,:total)");
+            $stmt = $GLOBALS["conn"]->prepare("INSERT INTO invoice (InvoiceId,CustomerId,InvoiceDate,BillingAddress,BillingCity,BillingState,BillingCountry,BillingPostalCode,NumTarjeta,DsResponse,Total) VALUES (:invId,:custId,now(),:bilAdd,:bilCi,:bilSt,:bilCo,:bilPC,:numTar,:ds,:total)");
             $stmt->bindParam(':invId', $invoiceId);
             $stmt->bindParam(':custId', $idCliente);
             $stmt->bindParam(':bilAdd', $infoCliente[0]["Addres"]);
