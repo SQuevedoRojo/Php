@@ -6,8 +6,8 @@
         // Se crea Objeto
         $miObj = new RedsysAPI;
 
-        $fuc="999008881";
-        $terminal="001";
+        $fuc="263100000";
+        $terminal="5";
         $moneda="978";
         $trans="0";
         $url="";
