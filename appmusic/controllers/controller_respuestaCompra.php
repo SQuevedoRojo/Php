@@ -37,7 +37,7 @@
                 if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
                 {
                     $precioCompra = intval($datosCompra['Ds_Amount'])/100;
-                    require_once "../models/model_downmusic.php.php";
+                    require_once "models/model_downmusic.php.php";
                     $infoCliente = recuperarInformacionCliente();
                     
                     insertarPago($precioCompra,$infoCliente,$codigoRespuesta,$datosCompra["Ds_Card_Brand"]);
@@ -50,7 +50,7 @@
                 if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
                 {
                     $precioCompra = intval($datosCompra['Ds_Amount'])/100;
-                    require_once "../models/model_downmusic.php.php";
+                    require_once "models/model_downmusic.php.php";
                     $infoCliente = recuperarInformacionCliente();
                     
                     insertarPago($precioCompra,$infoCliente,$codigoRespuesta,$datosCompra["Ds_Card_Brand"]);
@@ -80,7 +80,7 @@
                     if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
                     {
                         $precioCompra = intval($datosCompra['Ds_Amount'])/100;
-                        require_once "../models/model_downmusic.php.php";
+                        require_once "models/model_downmusic.php.php";
                         $infoCliente = recuperarInformacionCliente();
                         
                         insertarPago($precioCompra,$infoCliente,$codigoRespuesta,$datosCompra["Ds_Card_Brand"]);
@@ -93,7 +93,7 @@
                     if ($datosCompra !== null && isset($datosCompra['Ds_Amount']))
                     {
                         $precioCompra = intval($datosCompra['Ds_Amount'])/100;
-                        require_once "../models/model_downmusic.php.php";
+                        require_once "models/model_downmusic.php.php";
                         $infoCliente = recuperarInformacionCliente();
                         
                         insertarPago($precioCompra,$infoCliente,$codigoRespuesta,$datosCompra["Ds_Card_Brand"]);
