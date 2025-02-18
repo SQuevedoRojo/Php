@@ -48,7 +48,7 @@
             $stmt = $GLOBALS["conn"]->prepare("INSERT INTO invoice (InvoiceId,CustomerId,InvoiceDate,BillingAddress,BillingCity,BillingState,BillingCountry,BillingPostalCode,NumTarjeta,DsResponse,Total) VALUES (:invId,:custId,now(),:bilAdd,:bilCi,:bilSt,:bilCo,:bilPC,:numTar,:ds,:total)");
             $stmt->bindParam(':invId', $invoiceId);
             $stmt->bindParam(':custId', $idCliente);
-            $stmt->bindParam(':bilAdd', $infoCliente[0]["Addres"]);
+            $stmt->bindParam(':bilAdd', $infoCliente[0]["Address"]);
             $stmt->bindParam(':bilCi', $infoCliente[0]["City"]);
             $stmt->bindParam(':bilSt', $infoCliente[0]["State"]);
             $stmt->bindParam(':bilCo', $infoCliente[0]["Country"]);
