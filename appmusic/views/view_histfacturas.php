@@ -11,10 +11,10 @@
         if(isset($datosFacturas))
         {
             $invoiceID = $datosFacturas[0]["InvoiceId"];
-            $invId = $invoiceID;
             $mostrarCabecera = true; 
             foreach ($datosFacturas as $datos)
             {
+                $invId = $datos["InvoiceId"];
                 if($invId != $invoiceID)
                 {
                     print "\t</table><br>";
@@ -28,7 +28,7 @@
                     $mostrarCabecera = false;
                 }
                 print "\t<tr><td>".$datos["InvoiceLineId"]."</td><td>".$datos["InvoiceDate"]."</td><td>".$datos["TrackId"]."</td><td>".$datos["UnitPrice"]."</td><th>".$datos["Quantity"]."</td><td>".$datos["Total"]."</td></tr>";
-                $invId = $datos["InvoiceId"];
+                
                 
             }
             
