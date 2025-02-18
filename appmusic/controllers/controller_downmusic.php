@@ -27,8 +27,7 @@
         {
             $cancion = $_POST["canciones"];
             annadirCancionesALaCesta($cancion);
-            nuevaCesta();
-            //header("Refresh: 0");
+            header("Refresh: 0");
         }
         elseif(isset($_POST["Ecesta"]))
         {
@@ -41,12 +40,6 @@
             require_once "controller_redsys.php";
             list($params,$signature,$version) = redireccionarPago($importeTotal);
         }
-    }
-
-    function saberCantidadCesta()
-    {
-        $cesta = devolverCesta();
-
     }
 
     $cesta = devolverCesta();
