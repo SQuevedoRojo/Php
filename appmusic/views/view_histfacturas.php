@@ -25,7 +25,8 @@
                 if($invId != $invoiceID)
                 {
                     print "\t</table><br>";
-                    $mostrarCabecera = true;;
+                    $mostrarCabecera = true;
+                    $invoiceID = $invId;
                 }
             }
             
