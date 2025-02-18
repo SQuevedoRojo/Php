@@ -10,7 +10,7 @@
         <li><a href="controller_downmusic.php">DownMusic</a></li>
         <li><a href="controller_histfacturas.php">Historial de Facturas</a></li>
         <li><a href="controller_facturas.php">Factura Determinada</a></li>
-        <li><a href="">Ranking</a></li>
+        <li><a href="controller_ranking.php">Ranking</a></li>
     </ol>
     <a href="controller_cerrarSession.php">Cerrar Sesion</a>
 </body>
