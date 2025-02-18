@@ -9,7 +9,7 @@
     <form id="" name="" action="" method="post" >
         Fecha Desde: <input type='date' name='fechadesde' value='' size=10 placeholder="fechadesde" required>
         Fecha Hasta: <input type='date' name='fechahasta' value='' size=10 placeholder="fechahasta" required><br><br>
-		<input type="submit" name="facturas" value="Consultar Facturas">
+		<input type="submit" name="ranking" value="Consultar Ranking">
     </form>
     <a href="controller_welcome.php">Volver a la Pagina Principal</a><br>
     <a href="controller_cerrarSession.php">Cerrar Sesion</a>
