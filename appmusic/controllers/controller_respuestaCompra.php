@@ -105,7 +105,7 @@
             die("No se recibió respuesta");
         }
     }
-
+    vaciarCesta();
 
 ?>
 

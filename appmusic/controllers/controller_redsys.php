@@ -15,7 +15,7 @@
         $urlOKKO="http://192.168.206.222/Php/appmusic/controllers/controller_respuestaCompra.php";
         $amount=intval($cantidadTotal*100);	
         // Se Rellenan los campos
-        $miObj->setParameter("DS_MERCHANT_AMOUNT",$amount);
+        $miObj->setParameter("DS_MERCHANT_AMOUNT",$cantidadTotal);
         $miObj->setParameter("DS_MERCHANT_ORDER",$id);
         $miObj->setParameter("DS_MERCHANT_MERCHANTCODE",$fuc);
         $miObj->setParameter("DS_MERCHANT_CURRENCY",$moneda);
