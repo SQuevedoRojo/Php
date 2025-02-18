@@ -16,27 +16,31 @@
     <?php
         if(isset($datosFacturas))
         {
-            print "<h2><strong>Facturas Entre las Fechas $fechaInicio -- $fechaFinal</strong></h2>";
-            $invoiceID = $datosFacturas[0]["InvoiceId"];
-            $mostrarCabecera = true; 
-            foreach ($datosFacturas as $datos)
+            if($datosFacturas == null)
+                print "<h2><strong>No hay Facturas en las Fechas Seleccionadas</strong></h2>";
+            else
             {
-                $invId = $datos["InvoiceId"];
-                if($invId != $invoiceID)
+                print "<h2><strong>Facturas Entre las Fechas $fechaInicio -- $fechaFinal</strong></h2>";
+                $invoiceID = $datosFacturas[0]["InvoiceId"];
+                $mostrarCabecera = true; 
+                foreach ($datosFacturas as $datos)
                 {
-                    print "\t</table><br>";
-                    $mostrarCabecera = true;
-                    $invoiceID = $invId;
+                    $invId = $datos["InvoiceId"];
+                    if($invId != $invoiceID)
+                    {
+                        print "\t</table><br>";
+                        $mostrarCabecera = true;
+                        $invoiceID = $invId;
+                    }
+                    if($mostrarCabecera)
+                    {
+                        print "<h2><strong>Cliente : ".$datos["CustomerId"]." | Invoice ID : $invoiceID</strong></h2>";
+                        print "\t<table border='1'><tr><th>Invoice Line ID</th><th>Invoice Date</th><th>Track ID</th><th>Unit Price</th><th>Quantity</th><th>Total</th></tr>";
+                        $mostrarCabecera = false;
+                    }
+                    print "\t<tr><td>".$datos["InvoiceLineId"]."</td><td>".$datos["InvoiceDate"]."</td><td>".$datos["TrackId"]."</td><td>".$datos["UnitPrice"]."</td><th>".$datos["Quantity"]."</td><td>".$datos["Total"]."</td></tr>";
                 }
-                if($mostrarCabecera)
-                {
-                    print "<h2><strong>Cliente : ".$datos["CustomerId"]." | Invoice ID : $invoiceID</strong></h2>";
-                    print "\t<table border='1'><tr><th>Invoice Line ID</th><th>Invoice Date</th><th>Track ID</th><th>Unit Price</th><th>Quantity</th><th>Total</th></tr>";
-                    $mostrarCabecera = false;
-                }
-                print "\t<tr><td>".$datos["InvoiceLineId"]."</td><td>".$datos["InvoiceDate"]."</td><td>".$datos["TrackId"]."</td><td>".$datos["UnitPrice"]."</td><th>".$datos["Quantity"]."</td><td>".$datos["Total"]."</td></tr>";
             }
-            
         }
     ?>
 </body>
