@@ -27,7 +27,8 @@
         {
             $cancion = $_POST["canciones"];
             annadirCancionesALaCesta($cancion);
-            header("Refresh: 0");
+            nuevaCesta();
+            //header("Refresh: 0");
         }
         elseif(isset($_POST["Ecesta"]))
         {
@@ -36,8 +37,16 @@
         }
         elseif(isset($_POST["descargar"]))
         {
-
+            $importeTotal = saberImporteTotalCesta();
+            require_once "controller_redsys.php";
+            list($params,$signature,$version) = redireccionarPago($importeTotal);
         }
+    }
+
+    function saberCantidadCesta()
+    {
+        $cesta = devolverCesta();
+
     }
 
     $cesta = devolverCesta();

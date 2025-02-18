@@ -50,6 +50,17 @@
 	    </div>
         <a href="controller_welcome.php">Volver a la Pagina Principal</a><br>
         <a href="controller_cerrarSession.php">Cerrar Sesion</a>
+        <?php
+            if(isset($params) && isset($signature) && $params != null && $signature != null)
+            {
+                print "<form style='opacity: 0;' name='from' id='formularioPago' action='https://sis-t.redsys.es:25443/sis/realizarPago' method='POST'>
+                    <input type='hidden' name='Ds_SignatureVersion' value='".$version."'/>
+                    <input type='hidden' name='Ds_MerchantParameters' value='".$params."'/>
+                    <input type='hidden' name='Ds_Signature' value='".$signature."'/>	
+                </form>";
+                echo "<script>document.getElementById('formularioPago').submit();</script>";
+            }
+        ?>
     </div>
     </div>
     </div>

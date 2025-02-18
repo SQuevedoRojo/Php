@@ -64,6 +64,34 @@
         $_SESSION["cliente"]["cesta"] = $cesta;
     }
 
+    function nuevaCesta()
+    {
+        $cesta = devolverCesta();
+        
+        $conteo = array();
+
+        foreach ($cesta as $cancion) {
+            $trackId = $cancion[0];
+
+            if (!isset($conteo[$trackId])) {
+                $conteo[$trackId] = [
+                    'TrackId' => $cancion[0],
+                    'TName' => $cancion[1],
+                    'TUnitPrice' => $cancion[2],
+                    'cantidad' => 0
+                ];
+            }
+            
+            $conteo[$trackId]['cantidad']++;
+        }
+
+        // Reindexar el array desde 0
+        $nueva_cesta = array_values($conteo);
+
+        $_SESSION["cliente"]["Ncesta"] = $nueva_cesta;
+        print_r($_SESSION["cliente"]["Ncesta"]);
+    }
+
     function vaciarCesta()
     {
         unset($_SESSION["cliente"]["cesta"]);
@@ -75,6 +103,16 @@
         if(isset($_SESSION["cliente"]["cesta"]))
             $cesta = $_SESSION["cliente"]["cesta"];
         return $cesta;
+    }
+
+    function saberImporteTotalCesta()
+    {
+        $cesta = devolverCesta();
+        $importeTotal = null;
+        foreach ($cesta as $productos => $informacion) {
+            $importeTotal += intval($informacion[2]);
+        }
+        return $importeTotal * 100;
     }
 
     function eliminarVariablesSession()
