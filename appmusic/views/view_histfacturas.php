@@ -6,7 +6,11 @@
     <title>Consultar Facturas</title>
 </head>
 <body>
-    
+    <form id="" name="" action="" method="post" >
+		<input type="submit" name="facturas" value="Consultar Facturas">
+    </form>
+    <a href="controller_welcome.php">Volver a la Pagina Principal</a><br>
+    <a href="controller_cerrarSession.php">Cerrar Sesion</a>
     <?php
         if(isset($datosFacturas))
         {
@@ -32,11 +36,5 @@
             
         }
     ?>
-
-    <form id="" name="" action="" method="post" >
-		<input type="submit" name="facturas" value="Consultar Facturas">
-    </form>
-    <a href="controller_welcome.php">Volver a la Pagina Principal</a><br>
-    <a href="controller_cerrarSession.php">Cerrar Sesion</a>
 </body>
 </html>
