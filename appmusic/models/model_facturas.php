@@ -4,7 +4,7 @@
     {
         try
         {
-            $stmt = $GLOBALS["conn"]->prepare("SELECT i.InvoiceId as InvoiceId,InvoiceLineId,CustomerId,InvoiceDate,Total,TrackId,UnitPrice,Quantity from invoice i,invoiceline il where CustomerId = $idCliente and DATE(InvoiceDate) >= :fecIni and DATE(InvoiceDate) <= :fecFin order by 1,2");
+            $stmt = $GLOBALS["conn"]->prepare("SELECT i.InvoiceId as InvoiceId,InvoiceLineId,CustomerId,InvoiceDate,Total,TrackId,UnitPrice,Quantity from invoice i,invoiceline il where CustomerId = $idCliente and DATE(InvoiceDate) >= :fecIni and DATE(InvoiceDate) <= :fecFin and i.InvoiceId = il.InvoiceId order by 1,2");
             $stmt->bindParam(':fecIni', $fecIni);
             $stmt->bindParam(':fecFin', $fecFin);
             $stmt -> execute();
